@@ -81,4 +81,4 @@ Checkout the changelog below
 - Simply run frontend_deployment_bash_script.sh file on your development/production server to deploy the frontend code through your github repo and this will take care of everything else.
 
 ## Author
-Eunimart4019
+Eunimart
