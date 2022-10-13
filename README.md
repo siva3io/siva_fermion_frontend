@@ -3,7 +3,7 @@
 
 Eunimart Platform build using React.
 
-- PORT : 4019
+- PORT : 4000
 
 ## Before running this repository
 
