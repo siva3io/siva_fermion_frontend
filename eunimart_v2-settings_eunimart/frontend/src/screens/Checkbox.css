@@ -1,0 +1,139 @@
+.checkboxWrapper {
+  display: flex;
+/*   align-items: center;
+  padding: 8px;
+  background: #ffffff;
+  border-radius: 4px; */
+}
+
+.checkbox_text {
+/*   font-family:  Inter;
+   font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #000000;
+  margin-left: 23px;*/
+}
+
+/* checkbox */
+/* .checkboxWrapper .container {
+  display: block;
+  position: relative;
+  padding-left: 20px;
+  cursor: poInter;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+} */
+
+/* Hide the browser's default checkbox */
+.checkboxWrapper .container input {
+  /* position: absolute; */
+  opacity: 0;
+  cursor: poInter;
+  height: 0;
+  width: 0;
+}
+
+label.container1 {
+  padding-left: 20px;
+  margin-top: 8px;
+}
+
+/* Create a custom checkbox */
+.checkboxWrapper .checkmark {
+  position: absolute;
+  top: 9px;
+  left: 0;
+  height: 12px;
+  width: 12px;
+  border: 0.5px solid #165ecc;
+  margin-left: 8px;
+}
+
+.checkboxWrapper .checkmark_radio {
+  position: absolute;
+  top: 9px;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  border: 0.5px solid #165ecc;
+  margin-left: 8px;
+}
+
+/* On mouse-over, add a grey background color */
+.checkboxWrapper .container:hover input ~ .checkmark,
+.checkboxWrapper .container:hover input ~ .checkmark_radio {
+/*   background-color: #fff;
+ */}
+
+/* When the checkbox is checked, add a blue background */
+.checkboxWrapper .container input:checked ~ .checkmark,
+.checkboxWrapper .container input:checked ~ .checkmark_radio {
+/*   background-color: #ffffff;
+ */}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkboxWrapper .checkmark:after,
+.checkboxWrapper .checkmark_radio:after {
+  /* content: "";
+  position: absolute;
+  display: none; */
+}
+
+/* Show the checkmark when checked */
+.checkboxWrapper .container input:checked ~ .checkmark:after,
+.checkboxWrapper .container input:checked ~ .checkmark_radio:after {
+/*   display: block;
+ */}
+
+/* Style the checkmark/indicator */
+/* .checkboxWrapper .container .checkmark:after {
+  left: 2.7px;
+  top: 0px;
+  width: 3px;
+  height: 6px;
+  border: solid #165ecc;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+} */
+
+.checkboxWrapper .container .checkmark_radio:after {
+  /* left: 2.3px;
+  top: 1.9px;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  border: solid #165ecc;
+  background: #165ecc; 
+  left: 2.75px;
+  top: 3.1px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;*/
+  /* border: solid #165ecc; 
+  background: #165ecc;*/
+}
+
+
+
+
+/*			
+Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
+All rights reserved.			
+This program is free software: you can redistribute it and/or modify			
+it under the terms of the GNU General Public License as published by			
+the Free Software Foundation, either version 3 of the License, or			
+(at your option) any later version.			
+This program is distributed in the hope that it will be useful,			
+but WITHOUT ANY WARRANTY; without even the implied warranty of			
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
+GNU General Public License for more details.			
+You should have received a copy of the GNU General Public License			
+along with this program. If not, see <http://www.gnu.org/licenses/>.			
+*/

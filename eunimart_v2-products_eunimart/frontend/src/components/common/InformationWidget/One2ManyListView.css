@@ -1,0 +1,113 @@
+.one2Many_withNumber {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px;
+  background: #ffffff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  width: 256px;
+  margin: 20px auto;
+}
+
+.one2Many_withNumber_inside {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  padding: 0px;
+  margin: 0px 8px;
+}
+
+.one2Many_withNumber_text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  margin: 0px 8px;
+}
+
+.one2Many_withNumber_icon {
+  margin: 0 8px;
+  font-size: 40px;
+}
+
+.one2Many_withNumber_text_name {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #000000;
+  margin: 4px 0px;
+}
+
+.one2Many_withNumber_text_number {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #8b8b8b;
+}
+
+.one2Many {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px;
+  background: #ffffff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  width: 227px;
+  margin: 20px auto;
+}
+
+.one2Many_inside {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  margin: 0px 8px;
+}
+
+.one2Many_text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  margin: 0px 8px;
+}
+
+.one2Many_icon {
+  margin: 0 8px;
+}
+
+.one2Many_text_name {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #000000;
+  margin: 4px 0px;
+}
+
+
+/*			
+Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
+All rights reserved.			
+This program is free software: you can redistribute it and/or modify			
+it under the terms of the GNU General Public License as published by			
+the Free Software Foundation, either version 3 of the License, or			
+(at your option) any later version.			
+This program is distributed in the hope that it will be useful,			
+but WITHOUT ANY WARRANTY; without even the implied warranty of			
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
+GNU General Public License for more details.			
+You should have received a copy of the GNU General Public License			
+along with this program. If not, see <http://www.gnu.org/licenses/>.			
+*/

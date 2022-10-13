@@ -1,0 +1,517 @@
+.upldBtn {
+  padding: 8px 16px;
+  width: 188px;
+  background: #416bff;
+  border-radius: 4px;
+
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  margin: 20px auto;
+
+  border: none;
+}
+
+.uploadCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 36px;
+  width: 372px;
+  background: #ffffff;
+  border: 0.5px solid #c4c4c4;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+
+  margin: 20px auto;
+}
+
+.uploadCard_inside {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  background: rgba(239, 242, 254, 0.5);
+  border: 0.5px dashed #737373;
+  border-radius: 4px;
+  margin: 10px 0px;
+  width: 100%;
+}
+
+.uploadCard_head {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 23px;
+  line-height: 34px;
+  color: #000000;
+  margin: 10px;
+  padding: 8px;
+  width: 100%;
+}
+
+.uploadCard_body {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 22px;
+  text-align: center;
+  letter-spacing: 0.15px;
+  color: #000000;
+  margin: 10px;
+}
+
+.or_text {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 23px;
+  line-height: 34px;
+  text-align: center;
+  color: #000000;
+  margin: 10px;
+  padding: 10px 5px;
+}
+
+.uploadCard_Btn {
+  padding: 8px 16px;
+  background: #416bff;
+  border-radius: 4px;
+  margin: 10px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+
+  border: none;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+}
+
+.chooseFile {
+  display: none;
+}
+
+.dwnldBtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 16px;
+  width: 188px;
+  background: #416bff;
+  border-radius: 4px;
+  border: none;
+
+  margin: 20px auto;
+}
+
+.dwnldBtn .dwldBtn_text {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  margin: 0px 10px;
+}
+
+.dwnldBtn .dwnBtn_icon {
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.dwnldBtn_V2 {
+  padding: 8px 16px;
+  width: 66px;
+  background: #416bff;
+  border-radius: 4px;
+  border: none;
+
+  margin: 20px auto;
+}
+
+.dwnldBtn_V2 .dwnBtn_icon_V2 {
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.gallary_card {
+  width: 135.2px;
+  height: 132.67px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  margin: 0px 8px;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gallary_card_top {
+  height: 129px;
+}
+
+.gallary_card_bottom {
+  height: 113px;
+}
+
+.gallary_card:hover {
+  background: rgba(239, 242, 254, 0.5);
+  border-radius: 4px;
+}
+
+.gallary_card_active {
+  background: rgba(239, 242, 254, 0.5);
+  border-radius: 4px;
+}
+
+.gallary_card:active {
+  background: rgba(222, 228, 253, 0.5);
+  border-radius: 4px;
+}
+
+.mediaLibrary {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 0px 0px 12px;
+  width: 772px;
+  background: #ffffff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+
+  margin: 20px auto;
+}
+
+.mediaLibrary_header {
+  display: flex;
+  align-items: center;
+  padding: 16px 16px 8px;
+  background: #ffffff;
+  border-radius: 8px 8px 0px 0px;
+  width: 100%;
+}
+
+.mediaLibrary_header .title {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 28px;
+  letter-spacing: 0.15px;
+  color: #121417;
+  margin: 0px 12px;
+  width: 100%;
+}
+
+.mediaLibrary_header .closeIcon {
+  padding: 4px;
+  margin: 0px 12px;
+  background: rgba(239, 242, 254, 0.75);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.mediaLibrary_statusBar {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  width: 100%;
+}
+
+.mediaLibrary_statusBar .statusBar_icons {
+  display: flex;
+  align-items: center;
+  padding: 0px 16px 0px 0px;
+  width: 100%;
+}
+
+.mediaLibrary_statusBar .statusBar_icons i {
+  margin: 0 8px;
+}
+
+.mediaLibrary_statusBar .statusBar_search {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  width: 100%;
+  margin: 0px 4px;
+}
+
+.mediaLibrary_statusBar .statusBar_search .searchIcon {
+  margin: 0px 8px;
+}
+
+.mediaLibrary_statusBar .statusBar_search .search_text {
+  border: none;
+  width: 100%;
+  background: transparent;
+}
+
+.mediaLibrary_statusBar .statusBar_search .search_text:focus-visible {
+  border: none;
+}
+
+.line {
+  border: 0.5px solid #b9b9b9;
+  width: 98%;
+  margin: 9px auto 7px;
+}
+
+.mediaLibrary_gallary {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.mediaLibrary_gallary .cards_row {
+  display: flex;
+  align-items: flex-start;
+  padding: 0px;
+  margin: 10px 0px;
+}
+
+.loadMoreBtn {
+  padding: 8px 24px;
+  background: #416bff;
+  border-radius: 4px;
+  margin: 16px auto;
+  display: block;
+  border: none;
+
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+}
+
+.mediaLibrary_footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 8px 16px;
+  width: 100%;
+}
+
+.mediaLibrary_footer .upldImgBtn {
+  padding: 8px 16px;
+  background: #416bff;
+  border-radius: 4px;
+  margin: 0px 8px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  border: none;
+}
+
+.addLinkBtn {
+  padding: 8px 16px;
+  background: #ffffff;
+  border: 0.5px solid #416bff;
+  box-sizing: border-box;
+  border-radius: 4px;
+  margin: 0px 8px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #416bff;
+}
+
+.upldImgLinkProduct {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: #ffffff;
+  border: 0.5px solid #c4c4c4;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.upldImgLinkProduct_V2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 36px;
+  background: #ffffff;
+  border: 0.5px solid #c4c4c4;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  /* width: 422px; */
+
+  margin: 20px auto;
+}
+
+.upldImgLinkProduct_frame {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  background: rgba(239, 242, 254, 0.5);
+  border: 0.5px dashed #737373;
+  border-radius: 4px;
+  margin: 8px 0px;
+  width: 100%;
+}
+
+.upldImgLinkProduct_head {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 23px;
+  line-height: 34px;
+  color: #000000;
+  margin: 6px 10px;
+}
+
+.upldImgLinkProduct_body {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 22px;
+  text-align: center;
+  letter-spacing: 0.15px;
+  color: #000000;
+  margin: 6px 10px;
+  width: 100%;
+}
+
+.orText {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 23px;
+  line-height: 34px;
+  text-align: center;
+  color: #000000;
+  margin: 10px 0px;
+}
+
+.upldImgLinkProduct_btn {
+  padding: 8px 24px;
+  background: #416bff;
+  border-radius: 4px;
+  margin: 6px 0px;
+  border: none;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  width: 100%;
+}
+
+.addImgText {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.5px;
+  color: #000000;
+  margin: 6px 0px;
+  width: 100%;
+}
+
+.upldImgLinkProduct_input {
+  padding: 12px 16px;
+  background: #ffffff;
+  border: 0.5px solid #2e2e2e;
+  border-radius: 4px;
+  margin: 12px 0px;
+  width: 100%;
+
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #2e2e2e;
+}
+
+.uploadMediaLinkButtons {
+  display: flex;
+  margin: 12px 0px;
+  width: 100%;
+}
+
+.uploadMediaLinkButtons .urlBtn {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #416bff;
+  padding: 8px;
+  border: none;
+  background: transparent;
+}
+
+.uploadMediaLinkButtons .saveBtn {
+  padding: 8px 24px;
+  background: #416bff;
+  border-radius: 4px;
+
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  margin: 0px 10px;
+  border: none;
+}
+.addImg_icon {
+  font-size: 56px;
+}
+
+
+/*			
+Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
+All rights reserved.			
+This program is free software: you can redistribute it and/or modify			
+it under the terms of the GNU General Public License as published by			
+the Free Software Foundation, either version 3 of the License, or			
+(at your option) any later version.			
+This program is distributed in the hope that it will be useful,			
+but WITHOUT ANY WARRANTY; without even the implied warranty of			
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
+GNU General Public License for more details.			
+You should have received a copy of the GNU General Public License			
+along with this program. If not, see <http://www.gnu.org/licenses/>.			
+*/

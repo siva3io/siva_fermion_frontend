@@ -1,0 +1,85 @@
+.mdm-productsGrid {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-gap: 5px;
+  margin: 10px;
+  /* max-height: 93vh; */
+  width: 98%;
+  height: "184px";
+  overflow: auto;
+  overflow-x: hidden;
+  /* min-height: 73vh; */
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.mdm-productsGrid .eucommonCardTopImgWrapper {
+  min-height: 100%;
+  min-width: 100%;
+}
+@media screen and (max-width: 1300px) {
+  .mdm-productsGrid {
+    /* grid-template-columns: 33.33% 33.33% 33.33%; */
+    /* margin:"10px"; */
+  }
+  .mdm-productsGrid .eucommonCardTopImgWrapper {
+    /* min-height: 100%; */
+    padding: 10px;
+    min-width: 100%;
+    align-items: center;
+    margin:"10px";
+  }
+}
+@media screen and (max-width: 900px) {
+  .mdm-productsGrid {
+    grid-template-columns: 50% 50%;
+  }
+}
+.viewProductTable .pTTableMain {
+  max-height: 73vh;
+  min-height: 73vh;
+  overflow: auto;
+  padding: 0px;
+}
+.viewProductTable .pTTableMain thead {
+  position: sticky;
+  top: 0px;
+  background: #e7f0fd;
+  z-index: 9;
+}
+.viewProductTable .pTTableMain thead .pTheader {
+  height: 42px;
+}
+.viewProductTable .pTfooter {
+  padding: 0px;
+}
+.productsLayout .filterMenu {
+  z-index: 9999999;
+}
+.viewProductTable .contactOptions {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0px;
+  background: #ffffff;
+  box-shadow: 0px 8px 16px rgb(0 0 0 / 10%);
+  border-radius: 4px;
+  position: absolute;
+  z-index: 99;
+  right: 50px;
+  width: 200px;
+}
+.nodata_text {
+  text-align: center;
+  padding: 49px;
+  font-size: 20px;
+  font-weight: 500;
+  /* max-width: 436px; */
+  /* position: absolute; */
+  color: #717171;
+  margin: auto;
+  top: 0;
+  right: 0;
+  left: 10%;
+  bottom: 0;
+  height: 21px;
+  line-height: 30px;
+}

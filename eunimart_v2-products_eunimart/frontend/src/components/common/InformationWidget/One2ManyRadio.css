@@ -1,0 +1,191 @@
+.one2Many_vOne_radio {
+  display: flex;
+  flex-direction: row;
+  padding: 16px;
+  background: #ffffff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+
+  width: 272px;
+  margin: 20px auto;
+}
+
+.one2Many_vOne_text {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #000000;
+
+  padding-right: 120px;
+}
+
+/* checkbox */
+.one2Many_vOne_radio .container {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.one2Many_vOne_radio .container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.one2Many_vOne_radio .checkmark {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  border: 0.5px solid #165ecc;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.one2Many_vOne_radio .container:hover input ~ .checkmark {
+  background-color: #fff;
+}
+
+/* When the checkbox is checked, add a blue background */
+.one2Many_vOne_radio .container input:checked ~ .checkmark {
+  background-color: #ffffff;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.one2Many_vOne_radio .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.one2Many_vOne_radio .container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.one2Many_vOne_radio .container .checkmark:after {
+  left: 3.2px;
+  top: 3px;
+  width: 8px;
+  height: 8px;
+  background: #165ecc;
+  border-radius: 50%;
+}
+
+.one2Many_vTwo_radio {
+  display: flex;
+  flex-direction: row;
+  padding: 16px;
+  background: #ffffff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+
+  width: 187px;
+  margin: 20px auto;
+}
+
+.one2Many_vTwo_text {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #000000;
+
+  margin: 0 0 0 16px;
+}
+
+/* checkbox */
+.one2Many_vTwo_radio .container {
+  display: block;
+  position: relative;
+  padding-left: 16px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.one2Many_vTwo_radio .container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.one2Many_vTwo_radio .checkmark {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  border: 0.5px solid #165ecc;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.one2Many_vTwo_radio .container:hover input ~ .checkmark {
+  background-color: #fff;
+}
+
+/* When the checkbox is checked, add a blue background */
+.one2Many_vTwo_radio .container input:checked ~ .checkmark {
+  background-color: #ffffff;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.one2Many_vTwo_radio .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.one2Many_vTwo_radio .container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.one2Many_vTwo_radio .container .checkmark:after {
+  left: 3.2px;
+  top: 3px;
+  width: 8px;
+  height: 8px;
+  background: #165ecc;
+  border-radius: 50%;
+}
+
+
+/*			
+Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
+All rights reserved.			
+This program is free software: you can redistribute it and/or modify			
+it under the terms of the GNU General Public License as published by			
+the Free Software Foundation, either version 3 of the License, or			
+(at your option) any later version.			
+This program is distributed in the hope that it will be useful,			
+but WITHOUT ANY WARRANTY; without even the implied warranty of			
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
+GNU General Public License for more details.			
+You should have received a copy of the GNU General Public License			
+along with this program. If not, see <http://www.gnu.org/licenses/>.			
+*/

@@ -1,0 +1,67 @@
+.addVendorBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  width: 100%;
+  border: none;
+  padding: 8px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.addVendorBtn_icon {
+  color: #416bff;
+  font-size: 16px;
+}
+
+.addVendorBtn_text {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #416bff;
+  margin: 0px 4px;
+}
+.pTcommonTable.shippingDetailTable tr {
+  width: 100%;
+}
+.pTcommonTable.shippingDetailTable .pTtableHeading {
+  width: 25% !important;
+}
+.pTcommonTable.shippingDetailTable .pTTableTd {
+  width: 25% !important;
+}
+.pTcommonTable.shippingDetailTable select {
+  padding: 12px 12px 12px 16px;
+  background: #ffffff;
+  border: 0.5px solid #2e2e2e;
+  border-radius: 4px;
+  /* margin: 0px 0 0 16px; */
+  width: 100%;
+}
+.delete {
+  background: none;
+  padding: 10px;
+}
+.pTcommonTable.shippingDetailTable p {
+  padding: 0px 10px;
+}
+
+
+/*			
+Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
+All rights reserved.			
+This program is free software: you can redistribute it and/or modify			
+it under the terms of the GNU General Public License as published by			
+the Free Software Foundation, either version 3 of the License, or			
+(at your option) any later version.			
+This program is distributed in the hope that it will be useful,			
+but WITHOUT ANY WARRANTY; without even the implied warranty of			
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
+GNU General Public License for more details.			
+You should have received a copy of the GNU General Public License			
+along with this program. If not, see <http://www.gnu.org/licenses/>.			
+*/

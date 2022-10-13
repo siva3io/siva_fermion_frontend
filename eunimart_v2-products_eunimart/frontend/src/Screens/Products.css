@@ -1,0 +1,100 @@
+.mdm-productsGrid {
+  display: grid;
+  grid-template-columns: 19% 19% 19% 19% 19%;
+  grid-gap: 16px;
+  margin: 16px;
+  max-height: 90vh;
+  overflow: auto;
+  grid-template-rows: 324px;
+  /* overflow-x: hidden; */
+  min-height: 89vh;
+}
+.mdm-productsGrid .eucommonCardTopImgWrapper {
+  /* min-height: 100%; */
+  min-width: 100%;
+}
+@media screen and (max-width: 1300px) {
+  .mdm-productsGrid {
+    grid-template-columns: 33.33% 33.33% 33.33%;
+  }
+  .mdm-productsGrid .eucommonCardTopImgWrapper {
+    /* min-height: 100%; */
+    padding: 10px;
+    min-width: 100%;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 900px) {
+  .mdm-productsGrid {
+    grid-template-columns: 50% 50%;
+  }
+}
+.viewProductTable {
+  padding: 16px !important;
+}
+.viewProductTable .pTTableMain {
+  max-height: 73vh;
+  min-height: 73vh;
+  overflow: auto;
+  padding: 0px;
+}
+.viewProductTable .pTTableMain thead {
+  position: sticky;
+  top: 0px;
+  background: #e7f0fd;
+  z-index: 9;
+}
+.viewProductTable .pTTableMain thead .pTheader {
+  height: 42px;
+}
+.viewProductTable .pTfooter {
+  padding: 0px;
+}
+.productsLayout .filterMenu {
+  z-index: 9999999;
+}
+.viewProductTable .contactOptions {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  background: #ffffff;
+  box-shadow: 0px 8px 16px rgb(0 0 0 / 10%);
+  border-radius: 4px;
+  position: absolute;
+  z-index: 99;
+  right: 50px;
+  width: 200px;
+}
+.nodata_text {
+  height: 88vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nodata_text_list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: max-content;
+}
+
+
+
+
+
+
+/*			
+Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
+All rights reserved.			
+This program is free software: you can redistribute it and/or modify			
+it under the terms of the GNU General Public License as published by			
+the Free Software Foundation, either version 3 of the License, or			
+(at your option) any later version.			
+This program is distributed in the hope that it will be useful,			
+but WITHOUT ANY WARRANTY; without even the implied warranty of			
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
+GNU General Public License for more details.			
+You should have received a copy of the GNU General Public License			
+along with this program. If not, see <http://www.gnu.org/licenses/>.			
+*/

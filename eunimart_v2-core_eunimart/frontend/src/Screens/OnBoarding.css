@@ -1,0 +1,155 @@
+.main-content {
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+}
+.main-content-1{
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+    padding-top: 20px;
+}
+.main_wrapper_onboard{
+    height: 84vh;
+    display: block;
+    overflow: auto;
+}
+.main-content-2{
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+    padding-top: 10px;
+}
+.bottom-content {
+    justify-content: space-between;
+    display: flex;
+    margin: 0px 40px;
+}
+.crossborder {
+    background: url("../Assets/Images/onBoarding/crossborder.png") no-repeat;
+    height: 220px;
+    width: 400px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+padding: 12px;
+gap: 12px;
+width: 400px;
+height: 220px;
+}
+.crossborder:hover {
+    background: url("../Assets/Images/onBoarding/crossborder2.png") no-repeat;
+}
+
+.marketplaces {
+    background: url("../Assets/Images/onBoarding/marketplaces.png") no-repeat;
+    height: 220px;
+    width: 400px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+padding: 12px;
+gap: 12px;
+width: 400px;
+height: 220px;
+}
+
+
+.manufacturer{
+    background: url("../Assets/Images/onBoarding/manufacturer.png") no-repeat;
+    height: 220px;
+    width: 400px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+padding: 12px;
+gap: 12px;
+width: 400px;
+height: 220px; 
+}
+.section-1{
+    /* margin-right: 9rem; */
+}
+.section-2 {
+    /* margin-right: 9rem; */
+}
+.warehouse{
+    background: url("../Assets/Images/onBoarding/warehouse.png") no-repeat;
+    height: 220px;
+    width: 400px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+padding: 12px;
+gap: 12px;
+width: 400px;
+height: 220px; 
+}
+/* .warehouse:active {
+    background: url("../Assets/Images/onBoarding/retail.png") no-repeat; 
+} */
+.social-ecommerce{
+    background: url("../Assets/Images/onBoarding/socialecommerce.png") no-repeat;
+    height: 220px;
+    width: 400px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+padding: 12px;
+gap: 12px;
+width: 400px;
+height: 220px; 
+}
+.social-ecommerce:hover {
+    background: url("../Assets/Images/onBoarding/socialecommerce2.png") no-repeat;
+}
+.shipping{
+    background: url("../Assets/Images/onBoarding/shipping.png") no-repeat;
+    height: 220px;
+    width: 400px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+padding: 12px;
+gap: 12px;
+width: 400px;
+height: 220px; 
+}
+.shipping:hover {
+    background: url("../Assets/Images/onBoarding/shipping2.png") no-repeat;
+}
+.retail{
+    background: url("../Assets/Images/onBoarding/retail.png") no-repeat;
+    height: 220px;
+    width: 400px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.05);
+border-radius: 16px;
+padding: 12px;
+gap: 12px;
+width: 400px;
+height: 220px;    
+}
+.retail:hover {
+    background: url("../Assets/Images/onBoarding/retail2.png") no-repeat;
+}
+
+
+.trader{
+    background: url("../Assets/Images/onBoarding/trader.png") no-repeat;
+    height: 220px;
+    width: 400px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.05);
+border-radius: 16px;
+padding: 12px;
+gap: 12px;
+width: 400px;
+height: 220px;    
+}
+.trader:hover {
+    background: url("../Assets/Images/onBoarding/trader2.png") no-repeat;
+}
+.accounting{
+    background: url("../Assets/Images/onBoarding/accounting.png") no-repeat;
+    height: 220px;
+    width: 400px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.05);
+border-radius: 16px;
+padding: 12px;
+gap: 12px;
+width: 400px;
+height: 220px;    
+}

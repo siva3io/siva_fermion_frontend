@@ -1,0 +1,63 @@
+.labeledTextWrapper {
+  display: flex;
+  align-items: center;
+
+  padding: 0px;
+  margin: 8px 0px;
+  width: 100%;
+}
+
+.labeledTextWrapper_m_4 {
+  display: flex;
+  align-items: baseline;
+
+  padding: 0px;
+  margin: 4px 0px;
+  width: 100%;
+}
+
+.labelWrap {
+  padding: 12px 16px 12px 0px;
+  width: 280px;
+}
+
+.labelWrap_card {
+  padding: 12px 16px 12px 0px;
+  width: 180px;
+}
+.labeledText {
+  padding: 12px 12px 12px 16px;
+  background: #ffffff;
+  border-radius: 4px;
+  margin: 0px 0 0 16px;
+  width: 100%;
+  font-size: 14px;
+
+  /* font-family: Inter Neue; */
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  align-self: center;
+  letter-spacing: 0.5px;
+  color: #838383;
+}
+
+
+
+.labeledText_disabled {
+  padding: 12px 12px 12px 16px;
+  background: #ffffff;
+  border: 0.5px solid #b9b9b9;
+  border-radius: 4px;
+  margin: 0px 0 0 16px;
+  width: 100%;
+
+  position: relative;
+}
+
+.dot_icon {
+  margin-right: 8px;
+}

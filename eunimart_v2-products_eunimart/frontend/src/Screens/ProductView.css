@@ -1,0 +1,192 @@
+.productDetails_main {
+  background-color: #f9f9f9;
+  padding: 16px;
+}
+
+.product_detail_menu_card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 24px 24px 12px;
+}
+
+.header_action {
+  display: flex;
+  justify-content: space-between;
+}
+
+.actionButtonBlock {
+  display: flex;
+  align-items: center;
+  /* margin: 6px;
+    min-width: 535px;
+    max-width: 700px;
+    justify-content: space-between;
+    padding: 4px;
+    height: 30px; */
+}
+.actionButton {
+  background-color: #416bff;
+  border-radius: 4px;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  font-weight: bolder;
+  font-size: small;
+  cursor: pointer;
+  margin: 0px 5px;
+}
+
+.actionButton:hover {
+  background-color: #1a3df5;
+}
+
+.ratingBadge {
+  background-color: #f4a346;
+  padding: 5px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: small;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  height: 25px;
+}
+
+.product_tags {
+  display: flex;
+  justify-content: space-between;
+  width: 15%;
+  padding: 8px 0px;
+}
+
+.product_tag {
+  color: #b677ae;
+  font-weight: 600;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.product_varients_block {
+  display: flex;
+  flex-direction: column;
+}
+
+.product_varient_block_header {
+  padding: 8px 0px;
+}
+
+.product_varient_header_text {
+  float: left;
+  font-weight: 600;
+  font-size: 20px;
+  color: #405088;
+}
+
+.product_varient_cards {
+  display: flex;
+  padding: 8px 0px;
+  overflow-x: auto;
+}
+
+#style-4::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #ffffff;
+}
+
+#style-4::-webkit-scrollbar {
+  width: 10px;
+  height: 4px;
+  background-color: #ffffff;
+}
+
+#style-4::-webkit-scrollbar-thumb {
+  background-color: #416bff;
+  border: 1px solid #416bff;
+}
+
+/* .product_details_menu {
+    display: flex;
+    padding: 8px;
+  }
+  
+  .menuButton {
+    border: none;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #000000;
+  } */
+
+.product_details_menu {
+  overflow: hidden;
+  border: none;
+  background-color: #fff;
+}
+
+.product_details_menu button {
+  /* background-color: inherit; */
+  float: left;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 15px;
+  color: black;
+  text-transform: none;
+}
+
+.product_details_menu button:hover {
+  background-color: #f2f5fe;
+}
+
+.product_details_menu button.active {
+  background-color: #f2f5fe;
+}
+
+.activeTab {
+  background-color: #f2f5fe;
+}
+
+.nonActiveTab {
+  background-color: #fff;
+}
+
+.product-pricing-background {
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*			
+Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
+All rights reserved.			
+This program is free software: you can redistribute it and/or modify			
+it under the terms of the GNU General Public License as published by			
+the Free Software Foundation, either version 3 of the License, or			
+(at your option) any later version.			
+This program is distributed in the hope that it will be useful,			
+but WITHOUT ANY WARRANTY; without even the implied warranty of			
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
+GNU General Public License for more details.			
+You should have received a copy of the GNU General Public License			
+along with this program. If not, see <http://www.gnu.org/licenses/>.			
+*/

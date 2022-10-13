@@ -1,0 +1,106 @@
+.modal-backdrop {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: #252424cc;
+  height: 100%;
+  width: 100%;
+}
+.modal {
+  position: absolute;
+  right: 5vw;
+  top:5vw;
+  background-color: rgba(0, 0, 0, 0);
+  /* width: 500px; */
+  height: 100%;
+
+}
+    .modelContainer{
+        background-color:#fff;
+        border-radius:25px;
+        position:relative;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        overflow: hidden;
+    }
+.profileContainer{
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 350px;
+    /* background-color: red; */
+    z-index: 1;
+}
+.breakLine{
+    background-color:#D3CFCF;
+    width: 400px;
+    height: 4px;
+}
+.secPart{
+  margin: 0%;
+  padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 100px;
+    width: 350px;
+}
+
+.logoutBtnCon{
+    height: 75px;
+    width: 350px;
+}
+
+.backdrop{
+    position: absolute;
+    top:0;
+    height: 100px;
+    width: 100%;
+    background-color: #001661;
+    border-radius: 25px;
+    z-index: 0;
+}
+
+.Bot_logo2{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    margin-left: 100px;
+  }
+
+  .roleCon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #001661; */
+    width: 100%;
+  }
+  .roleNames{
+    background-color:#FC817C;
+    padding: 5px 10px 5px 10px;
+    border-radius: 25px;
+    margin: 2%;
+    color: #fff;
+  }
+
+  .logoutBtnCon{
+    padding-top: 3%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    height: auto;
+  }
+  .logoutBtn{
+    color: #416BFF;
+    border: 3px solid #416BFF;
+    border-radius: 5px;
+    font-size: larger;
+    padding: 2% 5% 2% ;
+  }

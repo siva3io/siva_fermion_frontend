@@ -1,0 +1,153 @@
+.locationCards {
+    margin: 15px 0;
+    padding: 24px;
+    /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); */
+    /* border-radius: 8px; */
+    position: relative;
+    display: flex;
+    width: 100%;
+    background: #b9b9b9;
+    border: 0.5px solid #416bff;
+    border-radius: 8px;
+  }
+  p.MuiTypography-root.MuiTypography-body2.css-68o8xu {padding-top: 35px  !important;}
+  .locationCard_header {
+    /* font-family: Inter; */
+    font-style: normal;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 28px;
+    letter-spacing: 0.15px;
+    color: #001661;
+  
+    /* margin-bottom: 10px; */
+    margin-bottom: 0px;
+  }
+  
+  .locationCard_body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .locationCard_body_head {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .locationCard_body_info {
+    margin-bottom: 8px;
+    width: 100%;
+  }
+  
+  .locationCard_body_info_key {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 8px;
+    line-height: 10px;
+    text-transform: uppercase;
+    color: #b9b9b9;
+  }
+  
+  .locationCard_body_info_value {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    color: #2e2e2e;
+  }
+  
+  .locationCard_icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    background: rgba(239, 242, 254, 0.75);
+    border-radius: 50%;
+  
+    position: relative;
+  }
+  
+  .locationCard_icon_vertDot {
+    color: #416bff;
+    font-size: 18px;
+  }
+  
+  .locationCard_dropdown {
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 280px;
+    background: #ffffff;
+    position: absolute;
+    top: 35px;
+    left: 0px;
+    z-index: 999;
+  }
+  
+  .locationCard_dropdown_option {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+  
+    padding: 16px;
+    background: #ffffff;
+    border-radius: 4px 4px 0px 0px;
+  }
+
+
+  .adressSec{
+    display: flex !important;
+    justify-content:space-evenly;
+  
+  }
+  .address{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: space-evenly;
+    /* justify-content:space-evenly; */
+    padding: 15px;
+    background: #ffffff;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 16px 0px;
+  }
+  .css-bhp9pd-MuiPaper-root-MuiCard-root{
+    color:transparent;
+  }
+  .adressSec{
+    display: flex;
+    /* flex-direction: column; */
+    align-items: space-evenly;
+    flex-wrap: wrap;
+    flex-grow: 1;
+  }
+
+
+
+  /*			
+Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
+All rights reserved.			
+This program is free software: you can redistribute it and/or modify			
+it under the terms of the GNU General Public License as published by			
+the Free Software Foundation, either version 3 of the License, or			
+(at your option) any later version.			
+This program is distributed in the hope that it will be useful,			
+but WITHOUT ANY WARRANTY; without even the implied warranty of			
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
+GNU General Public License for more details.			
+You should have received a copy of the GNU General Public License			
+along with this program. If not, see <http://www.gnu.org/licenses/>.			
+*/

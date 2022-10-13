@@ -1,0 +1,121 @@
+.CardDetails {
+    background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 2px rgb(0 0 0 / 10%);
+      /* display: flex; */
+      flex-direction: column;
+      margin: 16px !important;
+      padding: 31px 10px 44px 17px;
+      width: 25%;
+     height: fit-content;
+  }
+  .pic_wrapper {
+    width: 20%;
+    display:flex;
+  }
+  .bot_logo {
+    position: static;
+    width: 0px;
+    height: 40px;
+    left: 0px;
+    top: 0px;
+    border-radius: 50%;
+    /* background: #ffffff; */
+  
+    /* Inside auto layout */
+  
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+    /* margin: 0px 8px; */
+  }
+  .bot_pic{
+    border-radius: 50%;
+    margin-right: 2%;
+  }
+  
+  .Bot_logo2{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+  }
+  
+  .bot_logo2 {
+    position: static;
+    width: 10px;
+    height: 10px;
+    left: 0px;
+    top: 0px;
+    border-radius: 50%;
+    /* background: #ffffff; */
+  
+    /* Inside auto layout */
+  
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+    /* margin: 0px 8px; */
+  }
+  .CardHeader{
+  
+  /* Material design/Heading H4 */
+  
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 33px;
+  line-height: 50px;
+  /* identical to box height */
+  
+  letter-spacing: 0.25px;
+  
+  color: #000000;
+  
+  }
+  
+  .CardContent{
+  
+  width: 1493px;
+  height: 50px;
+  
+  /* Material design/Subtitle 1 */
+  
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 22px;
+  /* identical to box height */
+  
+  letter-spacing: 0.15px;
+  
+  /* Black/36 Black */
+  
+  color: #5D5D5D;
+  
+  
+  /* Inside auto layout */
+  
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  /* padding-right: 100px !important; */
+  }
+
+
+  /*			
+Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
+All rights reserved.			
+This program is free software: you can redistribute it and/or modify			
+it under the terms of the GNU General Public License as published by			
+the Free Software Foundation, either version 3 of the License, or			
+(at your option) any later version.			
+This program is distributed in the hope that it will be useful,			
+but WITHOUT ANY WARRANTY; without even the implied warranty of			
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
+GNU General Public License for more details.			
+You should have received a copy of the GNU General Public License			
+along with this program. If not, see <http://www.gnu.org/licenses/>.			
+*/

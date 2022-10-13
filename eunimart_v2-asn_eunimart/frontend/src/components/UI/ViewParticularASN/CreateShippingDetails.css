@@ -1,0 +1,305 @@
+
+  .inputasn{
+    width:80% !important;
+  }
+  
+  .asnDetails_form_img{
+    display: flex;
+    align-items: center;
+  }
+ 
+  .select1{
+    width: 5.5em;
+  }
+  
+  .asnDetails_formBtn {
+    padding: 6px 12px 6px 6px;
+    background: #ffffff;
+    border: 0.5px solid #2e2e2e;
+    border-radius: 4px;
+    width: 100%;
+  }
+  
+  .asnDetails_addImgBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 16px;
+    background: #416bff;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .asnDetails_addImgBtn_text {
+    font-family: Inter Neue;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+  }
+  
+  .asnDetails_selectAppVariBtn {
+    padding: 8px;
+    border-radius: 4px;
+    margin: 16px 0px;
+  
+    font-family: Inter Neue;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+  
+    letter-spacing: 0.5px;
+    color: #416bff;
+    border: none;
+    background: transparent;
+  }
+  
+  .asnDetails_form_checkBox_wrap {
+    display: flex;
+  }
+  
+  .asnDetails_form_checkBox {
+    display: flex;
+    width: 100%;
+  }
+  
+  .asnDetailsHeader_btn {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 8px;
+  }
+  
+  .asnDetailsHeader_preBtn {
+    margin: 0px 8px;
+    border-radius: 4px;
+  
+    font-family: Inter Neue;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    color: #416bff;
+    background-color: transparent;
+    /* border: none; */
+    border: 0.5px solid #416bff;
+    padding: 6px 15px;
+  }
+  
+  .asnDetailsHeader_nextBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 15px;
+    background: #416bff;
+    border-radius: 4px;
+    margin: 0px 8px;
+    font-family: Inter Neue;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    border: none;
+  
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .asnDetailsHeader_nextBtn span {
+    margin: 0 4px;
+  }
+  
+  .asnDetailsHeader_nextBtn i {
+    font-size: 16px;
+    margin: 0 4px;
+  }
+
+  .createshipping{
+    display:flex !important;
+}
+/* .date1{
+  display:-webkit-flex;
+
+} */
+.doCreate{
+  background-color: #F9F9F9;
+  padding-top: 1px;
+}
+
+.addressButton{
+  margin-left:1200px !important;
+  position: relative  !important;
+}
+
+.modalFooterBlock {
+  display: flex;
+  justify-content: flex-end;
+  /* align-items: center; */
+  /* padding: 0px; */
+  margin: 10px 15px !important;
+  /* float: right; */
+}
+
+.modalFooterBtnDiv {
+  /* width: 25%; */
+  width:100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modalCancelBtn {
+  margin-right: 10px;
+  background-color: #fff;
+  border: 1px solid #416bff;
+  color: #416bff;
+  /* width: 70px; */
+  /* width: 100%; */
+  height: 35px;
+  border-radius: 4px;
+}
+
+.modalConfrimBtn {
+  margin-right: 10px;
+  background-color: #416bff;
+  border: 1px solid #416bff;
+  color: white;
+  height: 35px;
+  border-radius: 4px;
+  /* width: 18%; */
+}
+.modalConfrimBtn1 {
+
+  background-color: #416bff;
+  border: 1px solid #416bff;
+  color: white;
+  height: 35px;
+  border-radius: 4px;
+  /* width: 18%; */
+}
+.modalHeaderBtnDiv {
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.modalHeaderBtnDiv i {
+  cursor: pointer;
+}
+.modalHeaderBtnDiv label {
+  font-weight: 500;
+}
+.image_upload_popup {
+  padding: 20px;
+  background: #f9f9f9;
+}
+.modalHeaderBlock {
+  width: 600px;
+  position: sticky;
+  top: 0px;
+  background: white;
+}
+
+.shipment_type_title {
+  margin: 10px 10px 10px 0px;
+  /* align-items: center; */
+}
+
+
+p.middle-to {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.modal_header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.modal_title{
+   font-weight: 400;
+   font-size: 16px;
+   line-height: 24px;
+   color: #121417;
+}
+.modal_body{
+  padding-top: 41.5px;
+  padding-left: 48px;
+  overflow-y:auto;
+  background: #F9F9F9;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.05), inset 0px -4px 4px rgba(0, 0, 0, 0.05);
+   /* height: 618px; */
+}
+.modal_body_producttable{
+  padding-top: 41.5px;
+  padding-left: 19px;
+  padding-right:20px;
+  overflow-y:auto;
+  background: #F9F9F9;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.05), inset 0px -4px 4px rgba(0, 0, 0, 0.05); 
+  height: 560px; 
+}
+.modal_body_gridtable{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  overflow-y: auto;
+  height: 500px;
+  margin-top: 50px;
+  
+
+}
+
+.modal_body_header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.modal_body_header_title{
+  font-weight: 500;
+  font-size: 19px;  
+  line-height: 28px;
+  letter-spacing: 0.15px;
+}
+.modal_body_header_search{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.modal_body_table{
+  margin-top: 20px;
+}
+.Address {
+  display: grid;
+  grid-template-columns: 32% 32% 34%;
+  /* grid-gap: 10px; */
+  gap: 10px;
+  grid-auto-rows: minmax(144px,auto);
+}
+.addressBackground{
+  background-color: #ffffff ;
+  padding: 14px;
+}
+
+/*			
+Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
+All rights reserved.			
+This program is free software: you can redistribute it and/or modify			
+it under the terms of the GNU General Public License as published by			
+the Free Software Foundation, either version 3 of the License, or			
+(at your option) any later version.			
+This program is distributed in the hope that it will be useful,			
+but WITHOUT ANY WARRANTY; without even the implied warranty of			
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
+GNU General Public License for more details.			
+You should have received a copy of the GNU General Public License			
+along with this program. If not, see <http://www.gnu.org/licenses/>.			
+*/
+
+  

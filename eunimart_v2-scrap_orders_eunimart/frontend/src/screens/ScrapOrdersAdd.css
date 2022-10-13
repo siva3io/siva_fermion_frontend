@@ -1,0 +1,143 @@
+.walletWrapper {
+    display: flex;
+    justify-content: space-between;
+    margin: 16px 0px;
+    width: 100%;
+}
+.walletBody {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px;
+}
+.walletBody_head {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 23px;
+    line-height: 34px;
+    color: #2e2e2e;
+    margin: 6px 0px;
+}
+.walletBody_text {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    color: #2e2e2e;
+    margin: 6px 0px;
+}
+.wallet {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    background: #f9f9f9;
+    border-radius: 4px;
+    margin-left: 24px;
+}
+.wallet_balance {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 28px;
+    letter-spacing: 0.15px;
+    color: #2e2e2e;
+    margin: 6px 0 12px;
+}
+.wallet_balance_amt {
+    margin: 0px 24px;
+}
+.wallet_rechgBtn {
+    padding: 8px 16px;
+    background: #416bff;
+    border-radius: 4px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+}
+
+.ShippingDetailsWrapper {
+    background: #fff;
+    box-shadow: 0px 2px 12px rgb(0 0 0 / 10%);
+    padding: 24px;
+    margin: 16px 0px;
+    font-family: Poppins;
+    border-radius: 8px;
+}
+.eu1commonCardTopImgWrapper {
+    width: 210px !important;
+    margin: 4px !important;
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 5px;
+    margin: auto;
+    background: #ffffff;
+    box-shadow: 0px 4px 8px rgb(0 0 0 / 10%);
+    margin-bottom: 10px;
+}
+pricelistHeading {
+    position: static;
+    width: 313.5px;
+    height: 29px;
+    left: 0px;
+    top: 0px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 28px;
+    letter-spacing: 0.15px;
+    color: #001661;
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 0px 0px;
+}
+.pricelistHeading2 {
+    position: static;
+    width: 313.5px;
+    height: 24px;
+    left: 0px;
+    top: 12px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    color: #2E2E2E;
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 0px 0px;
+}
+.warehousecardDetailss1 {
+    display: flex !important;
+    /* justify-content: end; */
+}
+
+
+
+
+
+
+
+/*
+Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+All rights reserved.
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+You should have received a copy of the GNU General Public License
+along with this program. If not, see http://www.gnu.org/licenses/.
+*/

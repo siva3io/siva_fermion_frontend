@@ -1,0 +1,133 @@
+.viewLocationDetailMain {
+  background: #f9f9f9;
+}
+
+.locationDetailHeader {
+  background: #fff;
+  /* margin: 8px; */
+  /* padding: 16px; */
+  border-radius: 8px;
+}
+
+.viewLocationDetailHeaderBody {
+  display: flex;
+  justify-content: space-between;
+}
+.tabs-header:hover{
+  background-color:"red";
+}
+.storeName,
+.typeOfLocation {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 33px;
+  line-height: 38px;
+  letter-spacing: 0.25px;
+  color: #121417;
+}
+
+.typeOfLocation {
+  font-size: 17px;
+}
+
+.storeAddressTitle {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 28px;
+  letter-spacing: 0.15px;
+  color: #a35599;
+}
+
+.storeAddress {
+  display: flex;
+  line-height: 28px;
+}
+
+.editInfoBtn {
+  padding: 6px 30px;
+  background: #416bff;
+  border-radius: 4px;
+  margin: 0px 8px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  color: #ffffff;
+  border: none;
+}
+
+.locationDetailMenu {
+  overflow: hidden;
+  border: none;
+  background-color: #fff;
+  margin-top: 14px;
+}
+
+.locationDetailMenu button {
+  /* background-color: inherit; */
+  float: left;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 15px;
+}
+
+.locationDetailMenu button:hover {
+  background-color: #f2f5fe;
+}
+
+.locationDetailMenu button.active {
+  background-color: #f2f5fe;
+}
+
+.activeTab {
+  background-color: #f2f5fe;
+}
+
+.nonActiveTab {
+  background-color: #fff;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardHeaderTitle {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 28px;
+  /* identical to box height */
+
+  letter-spacing: 0.15px;
+
+  /* Neutral / 900 */
+
+  color: #121417;
+}
+.cardHeaderActionBtns {
+  padding: 16px 0px;
+}
+
+/*			
+Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
+All rights reserved.			
+This program is free software: you can redistribute it and/or modify			
+it under the terms of the GNU General Public License as published by			
+the Free Software Foundation, either version 3 of the License, or			
+(at your option) any later version.			
+This program is distributed in the hope that it will be useful,			
+but WITHOUT ANY WARRANTY; without even the implied warranty of			
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
+GNU General Public License for more details.			
+You should have received a copy of the GNU General Public License			
+along with this program. If not, see <http://www.gnu.org/licenses/>.			
+*/

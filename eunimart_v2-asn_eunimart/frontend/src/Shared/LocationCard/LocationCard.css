@@ -1,0 +1,107 @@
+.locationCards {
+  margin: 15px 0;
+  padding: 24px;
+  /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); */
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  width: 100%;
+  background: #ffffff;
+  border: 0.5px solid #416bff;
+  border-radius: 8px;
+}
+
+.locationCard_header {
+  /* font-family: Poppins; */
+  font-style: normal;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 28px;
+  letter-spacing: 0.15px;
+  color: #001661;
+
+  /* margin-bottom: 10px; */
+  margin-bottom: 0px;
+}
+
+.locationCard_body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.locationCard_body_head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.locationCard_body_info {
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.locationCard_body_info_key {
+  font-family: Inter Neue;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 8px;
+  line-height: 10px;
+  text-transform: uppercase;
+  color: #b9b9b9;
+}
+
+.locationCard_body_info_value {
+  font-family: Inter Neue;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #2e2e2e;
+}
+
+.locationCard_icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  background: rgba(239, 242, 254, 0.75);
+  border-radius: 50%;
+
+  position: relative;
+}
+
+.locationCard_icon_vertDot {
+  color: #416bff;
+  font-size: 18px;
+}
+
+.locationCard_dropdown {
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 280px;
+  background: #ffffff;
+  position: absolute;
+  top: 35px;
+  left: 0px;
+  z-index: 999;
+}
+
+.locationCard_dropdown_option {
+  font-family: Inter Neue;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+
+  padding: 16px;
+  background: #ffffff;
+  border-radius: 4px 4px 0px 0px;
+}

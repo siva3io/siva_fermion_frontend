@@ -1,0 +1,130 @@
+.labeledTextWrapper {
+  display: flex;
+  align-items: center;
+  padding: 0px;
+  margin: 8px 0px;
+  width: 100%;
+}
+
+.labelWrap {
+  padding: 12px 16px 12px 0px;
+  width: 280px;
+}
+
+.labelWrap_card {
+  padding: 12px 16px 12px 0px;
+  width: 50%;
+}
+.labelWrap_card1 {
+  padding: 12px 16px 12px 0px;
+  width: 50%;
+}
+
+.Commonlabel {
+  /* font-family: Poppins; */
+  font-style: normal;
+  font-weight: 500;
+  width: 100%;
+  font-size: 16px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.5px;
+  color: "#00000";
+}
+
+.commonlabel_disabled {
+  /* font-family: Poppins; */
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.5px;
+  color: "#00000";
+  /* width: 150px; */
+}
+
+.inputText {
+  padding: 12px 12px 12px 18px;
+  /* padding: 12px 12px 12px 16px; */
+  background: #ffffff;
+  border-radius: 4px;
+  /* margin: 0px 0 0 16px; */
+  width: 100%;
+
+  /* font-family: Poppins; */
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.5px;
+  color: #838383;
+  border: none;
+}
+
+.inputText_card {
+  padding: 6px 6px 6px 16px;
+  /* padding: 12px 12px 12px 16px; */
+  background: #ffffff;
+  border-radius: 4px;
+  /* margin: 0px 0 0 16px; */
+  /* width: 28%; */
+  font-size: 14px;
+  width: 100%;
+  /* font-family: Poppins; */
+  font-style: normal;
+  font-weight: normal;
+  /* font-size: 16px; */
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.5px;
+  color: #838383;
+  outline: none;
+  border: 1px solid lightgray;
+}
+
+.labeledText_disabled {
+  padding: 12px 12px 12px 16px;
+  background: #ffffff;
+  border: 0.5px solid #b9b9b9;
+  border-radius: 4px;
+  margin: 0px 0 0 16px;
+  width: 100%;
+
+  position: relative;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*			
+Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
+All rights reserved.			
+This program is free software: you can redistribute it and/or modify			
+it under the terms of the GNU General Public License as published by			
+the Free Software Foundation, either version 3 of the License, or			
+(at your option) any later version.			
+This program is distributed in the hope that it will be useful,			
+but WITHOUT ANY WARRANTY; without even the implied warranty of			
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
+GNU General Public License for more details.			
+You should have received a copy of the GNU General Public License			
+along with this program. If not, see <http://www.gnu.org/licenses/>.			
+*/

@@ -1,0 +1,86 @@
+.mapContainer {
+  /* display: flex; */
+  position: absolute;
+  width: 98%;
+  height: 556px;
+  background-image: url("https://risanb.com/code/colorful-google-maps-marker/default-marker.jpg");
+  border-radius: 8px;
+  margin: 12px;
+}
+
+.locationCard {
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+  background: #fff;
+  margin: 4px;
+  padding: 8px;
+  width: 20%;
+  float: right;
+  border-radius: 8px;
+}
+
+.locationCardHeader {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.locationCardMiddle {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.divider {
+  margin: 1px;
+}
+
+.locationCardBody {
+  margin: 8px 16px;
+}
+.locationCardSpecs {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bodyKey {
+  width: 50%;
+}
+
+.bodyValue {
+  width: 50%;
+  color: #8b8b8b;
+}
+
+.locationKeyCard {
+  position: absolute;
+  width: 10%;
+  padding: 12px;
+  margin: 4px;
+  float: left;
+  background-color: #fff;
+  border-radius: 8px;
+  bottom: 0;
+}
+
+.locationKeys {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+/*			
+Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
+All rights reserved.			
+This program is free software: you can redistribute it and/or modify			
+it under the terms of the GNU General Public License as published by			
+the Free Software Foundation, either version 3 of the License, or			
+(at your option) any later version.			
+This program is distributed in the hope that it will be useful,			
+but WITHOUT ANY WARRANTY; without even the implied warranty of			
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
+GNU General Public License for more details.			
+You should have received a copy of the GNU General Public License			
+along with this program. If not, see <http://www.gnu.org/licenses/>.			
+*/

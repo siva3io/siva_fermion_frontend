@@ -1,0 +1,160 @@
+.selectServiceableAreaMain {
+    display: flex;
+    padding: 16px 0px;
+/*     height: 100%;
+ */  }
+  
+  .ssaTitle {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 28px;
+    letter-spacing: 0.15px;
+    color: #121417;
+  }
+  
+  .ssaFormBlock1 {
+    background: #fff;
+    padding: 16px;
+    border-radius: 4px;
+    width: 20%;
+    /* height: 540px; */
+    margin: 4px;
+    border-radius: 8px;
+  }
+  
+  .m2mNote {
+    margin-left: 25%;
+  }
+  
+  .ssaMapBlock {
+    /* width: 50%; */
+    background: #fff;
+    border-radius: 8px;
+    margin: 4px;
+    /* height: 540px; */
+  }
+  
+  .input_with_searchIcon {
+   
+    width: 100%;
+    
+  }
+  
+  .ssaSearch {
+    padding: 12px 12px 12px 16px;
+    background: #f9f9f9;
+    border: 0.5px solid #f9f9f9;
+    border-radius: 4px;
+    /* margin: 0px 0 0 0px; */
+    width: 100%;
+    color: #838383;
+    position: relative;
+  }
+  
+  .ssaTags {
+    display: flex;
+    margin: 10px 0px;
+    overflow: auto;
+  }
+  
+  .ssaResult {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    background: #ffffff;
+    /* Primary Button/ Hover */
+    margin: 5px;
+    border: 0.5px solid #1a3df5;
+    border-radius: 4px;
+  }
+  
+  .ssaResultLabel {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    /* or 150% */
+  
+    letter-spacing: 0.5px;
+  
+    /* Black/18 Black */
+  
+    color: #2e2e2e;
+  }
+  .ssaResultBlock {
+    display: flex;
+    margin-top: 15px;
+  }
+  .ssaSearchResultsV2 {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    background: #fff;
+  }
+  
+  .ssaV2CardTitle {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 28px;
+    letter-spacing: 0.15px;
+    color: #121417;
+  }
+  
+
+  .leaflet-container {
+    height: 550px;
+    width: 100%;
+  }
+
+  .MapMain{
+    width:80%;
+    padding: 5px;
+  }
+
+  .MapMain1{
+    width:100%;
+    padding: 5px;
+  }
+
+ .mainmain{
+   display: flex;
+ }
+
+.leaflet-control-geosearch.active form {
+  display: block;
+  width: 350px;
+}
+
+.leaflet-control-geosearch form input {
+  min-width: 200px;
+  width: 100%;
+  outline: none;
+  border: none;
+  margin: 2px;
+  padding: 0;
+  font-size: 12px;
+  height: 26px;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  text-indent: 8px;
+}
+
+/*			
+Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
+All rights reserved.			
+This program is free software: you can redistribute it and/or modify			
+it under the terms of the GNU General Public License as published by			
+the Free Software Foundation, either version 3 of the License, or			
+(at your option) any later version.			
+This program is distributed in the hope that it will be useful,			
+but WITHOUT ANY WARRANTY; without even the implied warranty of			
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
+GNU General Public License for more details.			
+You should have received a copy of the GNU General Public License			
+along with this program. If not, see <http://www.gnu.org/licenses/>.			
+*/

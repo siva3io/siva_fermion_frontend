@@ -1,0 +1,38 @@
+.textAreaLabelWrap {
+  padding: 12px 16px 12px 0px;
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.catTextArea {
+  width: 100%;
+}
+.RichTextEditor__editor___1QqIU {
+  cursor: text;
+  font-size: 16px;
+  min-height: 120px;
+}
+.staticFormCardForm {
+  display: grid;
+  grid-gap: 12px 50px;
+  grid-template-columns: auto auto;
+  margin-top: 16px;
+}
+
+
+/*			
+Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
+All rights reserved.			
+This program is free software: you can redistribute it and/or modify			
+it under the terms of the GNU General Public License as published by			
+the Free Software Foundation, either version 3 of the License, or			
+(at your option) any later version.			
+This program is distributed in the hope that it will be useful,			
+but WITHOUT ANY WARRANTY; without even the implied warranty of			
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
+GNU General Public License for more details.			
+You should have received a copy of the GNU General Public License			
+along with this program. If not, see <http://www.gnu.org/licenses/>.			
+*/
+

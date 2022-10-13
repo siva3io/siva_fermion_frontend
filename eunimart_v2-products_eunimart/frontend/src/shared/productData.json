@@ -1,0 +1,352 @@
+[
+  {
+    "id": 1002,
+    "is_archive": false,
+    "product_name": "CASIO - G662 G-Shock",
+    "product_images": [
+      "https://rukminim1.flixcart.com/image/880/1056/k4rcmfk0pkrrdj/watch-refurbished/c/a/f/c-g661-casio-original-imaeymexaf94txht.jpeg?q=50"
+    ],
+    "product_desc": "Do not Iron on print/embroidery/embellishment, Do not bleach, Do not dry clean, Gentle Machine Wash, Wash with like colors\nThe Nike Sportswear T-Shirt features soft cotton for all-day comfort and a bold, multi-colored graphic on the chest.",
+    "dimensions": {
+      "height": "100cm",
+      "width": "20cm",
+      "weight": "200gm",
+      "type": "round neck",
+      "sleeve": "short sleeve"
+    },
+    "attribute_ids": [3003, 3006],
+    "brand": "Nike",
+    "condition_type": "New",
+    "price": 1567,
+    "title": "Printed Men Round Neck Black T-Shirt\n",
+    "account_id": null,
+    "status_timestamp": null,
+    "created_datetime": null,
+    "updated_datetime": null,
+    "created_by": null,
+    "updated_by": null,
+    "product_template_id": 4004,
+    "sku_id": "582165SKU",
+    "product_ids": [4004],
+    "template_name": "CASIO - G662 G-Shock",
+    "category_id": 1002,
+    "shipping_partner_ids": [1001, 1003],
+    "vendor_ids": [2001, 2002],
+    "category_name": "Wrist Watches",
+    "category_desc": "Filled with dummy data that is not at all important and most importantly not need to type all this",
+    "parent_category_id": 1001,
+    "parent_cat_name": "Watches",
+    "shipping_array": [
+      {
+        "id": 1001,
+        "is_archive": false,
+        "name": "DTDC",
+        "pack_lead_time": "10Hrs",
+        "shipping_lead_time": "12Hrs",
+        "created_datetime": null,
+        "updated_datetime": null,
+        "created_by": null,
+        "updated_by": null
+      },
+      {
+        "id": 1003,
+        "is_archive": false,
+        "name": "Delhivery Standard Surface",
+        "pack_lead_time": "16Hrs",
+        "shipping_lead_time": "16Hrs",
+        "created_datetime": null,
+        "updated_datetime": null,
+        "created_by": null,
+        "updated_by": null
+      }
+    ],
+    "vendors_array": [
+      {
+        "id": 2001,
+        "is_archive": false,
+        "name": "EKart Logistics",
+        "supply_lead_time": "8Hrs",
+        "cost": "1000",
+        "credit_period": "15 Days",
+        "created_datetime": null,
+        "updated_datetime": null,
+        "created_by": null,
+        "updated_by": null
+      },
+      {
+        "id": 2002,
+        "is_archive": false,
+        "name": "Amazon Fulfillment",
+        "supply_lead_time": "10Hrs",
+        "cost": "500",
+        "credit_period": "20 Days",
+        "created_datetime": null,
+        "updated_datetime": null,
+        "created_by": null,
+        "updated_by": null
+      }
+    ],
+    "varients_array": [
+      {
+        "id": 2002,
+        "is_archive": false,
+        "value_name": "Beige",
+        "account_ids": "{12098098}",
+        "at_cat_tem_id": 1001,
+        "status_timestamp": null,
+        "created_datetime": null,
+        "updated_datetime": null,
+        "created_by": "akshay",
+        "updated_by": null,
+        "att_parent_name": "Size"
+      },
+      {
+        "id": 2005,
+        "is_archive": false,
+        "value_name": "S",
+        "account_ids": "{12098098}",
+        "at_cat_tem_id": 1002,
+        "status_timestamp": null,
+        "created_datetime": null,
+        "updated_datetime": null,
+        "created_by": "akshay\n",
+        "updated_by": null,
+        "att_parent_name": "Strap Color"
+      }
+    ]
+  },
+  {
+    "id": 1002,
+    "is_archive": false,
+    "product_name": "CASIO - G662 G-Shock",
+    "product_images": [
+      "https://rukminim1.flixcart.com/image/880/1056/k4rcmfk0pkrrdj/watch-refurbished/6/z/h/c-g660-casio-original-imafdcj8wczcxbdy.jpeg?q=50"
+    ],
+    "product_desc": "Do not Iron on print/embroidery/embellishment, Do not bleach, Do not dry clean, Gentle Machine Wash, Wash with like colors\nThe Nike Sportswear T-Shirt features soft cotton for all-day comfort and a bold, multi-colored graphic on the chest.",
+    "dimensions": {
+      "height": "100cm",
+      "width": "20cm",
+      "weight": "200gm",
+      "type": "round neck",
+      "sleeve": "short sleeve"
+    },
+    "attribute_ids": [3004, 3006],
+    "brand": "Nike",
+    "condition_type": "New",
+    "price": 1678,
+    "title": "Printed Men Round Neck Black T-Shirt\n",
+    "account_id": null,
+    "status_timestamp": null,
+    "created_datetime": null,
+    "updated_datetime": null,
+    "created_by": null,
+    "updated_by": null,
+    "product_template_id": 4004,
+    "sku_id": "582165SKU",
+    "product_ids": [4004],
+    "template_name": "CASIO - G662 G-Shock",
+    "category_id": 1002,
+    "shipping_partner_ids": [1001, 1003],
+    "vendor_ids": [2001, 2002],
+    "category_name": "Wrist Watches",
+    "category_desc": "Filled with dummy data that is not at all important and most importantly not need to type all this",
+    "parent_category_id": 1001,
+    "parent_cat_name": "Watches",
+    "shipping_array": [
+      {
+        "id": 1001,
+        "is_archive": false,
+        "name": "DTDC",
+        "pack_lead_time": "10Hrs",
+        "shipping_lead_time": "12Hrs",
+        "created_datetime": null,
+        "updated_datetime": null,
+        "created_by": null,
+        "updated_by": null
+      },
+      {
+        "id": 1003,
+        "is_archive": false,
+        "name": "Delhivery Standard Surface",
+        "pack_lead_time": "16Hrs",
+        "shipping_lead_time": "16Hrs",
+        "created_datetime": null,
+        "updated_datetime": null,
+        "created_by": null,
+        "updated_by": null
+      }
+    ],
+    "vendors_array": [
+      {
+        "id": 2001,
+        "is_archive": false,
+        "name": "EKart Logistics",
+        "supply_lead_time": "8Hrs",
+        "cost": "1000",
+        "credit_period": "15 Days",
+        "created_datetime": null,
+        "updated_datetime": null,
+        "created_by": null,
+        "updated_by": null
+      },
+      {
+        "id": 2002,
+        "is_archive": false,
+        "name": "Amazon Fulfillment",
+        "supply_lead_time": "10Hrs",
+        "cost": "500",
+        "credit_period": "20 Days",
+        "created_datetime": null,
+        "updated_datetime": null,
+        "created_by": null,
+        "updated_by": null
+      }
+    ],
+    "varients_array": [
+      {
+        "id": 2003,
+        "is_archive": false,
+        "value_name": "Black",
+        "account_ids": "{12098098}",
+        "at_cat_tem_id": 1001,
+        "status_timestamp": null,
+        "created_datetime": null,
+        "updated_datetime": null,
+        "created_by": "akshay",
+        "updated_by": null,
+        "att_parent_name": "Size"
+      },
+      {
+        "id": 2005,
+        "is_archive": false,
+        "value_name": "S",
+        "account_ids": "{12098098}",
+        "at_cat_tem_id": 1002,
+        "status_timestamp": null,
+        "created_datetime": null,
+        "updated_datetime": null,
+        "created_by": "akshay\n",
+        "updated_by": null,
+        "att_parent_name": "Strap Color"
+      }
+    ]
+  },
+  {
+    "id": 1002,
+    "is_archive": false,
+    "product_name": "CASIO - G662 G-Shock",
+    "product_images": [
+      "https://rukminim1.flixcart.com/image/880/1056/krxtrww0/watch/e/7/f/g662-casio-original-imaeymgpefzzknhy.jpeg?q=50"
+    ],
+    "product_desc": "Do not Iron on print/embroidery/embellishment, Do not bleach, Do not dry clean, Gentle Machine Wash, Wash with like colors\nThe Nike Sportswear T-Shirt features soft cotton for all-day comfort and a bold, multi-colored graphic on the chest.",
+    "dimensions": {
+      "height": "100cm",
+      "width": "20cm",
+      "weight": "200gm",
+      "type": "round neck",
+      "sleeve": "short sleeve"
+    },
+    "attribute_ids": [3005, 3006],
+    "brand": "Nike",
+    "condition_type": "New",
+    "price": 4321,
+    "title": "Printed Men Round Neck Black T-Shirt\n",
+    "account_id": null,
+    "status_timestamp": null,
+    "created_datetime": null,
+    "updated_datetime": null,
+    "created_by": null,
+    "updated_by": null,
+    "product_template_id": 4004,
+    "sku_id": "582165SKU",
+    "product_ids": [4004],
+    "template_name": "CASIO - G662 G-Shock",
+    "category_id": 1002,
+    "shipping_partner_ids": [1001, 1003],
+    "vendor_ids": [2001, 2002],
+    "category_name": "Wrist Watches",
+    "category_desc": "Filled with dummy data that is not at all important and most importantly not need to type all this",
+    "parent_category_id": 1001,
+    "parent_cat_name": "Watches",
+    "shipping_array": [
+      {
+        "id": 1001,
+        "is_archive": false,
+        "name": "DTDC",
+        "pack_lead_time": "10Hrs",
+        "shipping_lead_time": "12Hrs",
+        "created_datetime": null,
+        "updated_datetime": null,
+        "created_by": null,
+        "updated_by": null
+      },
+      {
+        "id": 1003,
+        "is_archive": false,
+        "name": "Delhivery Standard Surface",
+        "pack_lead_time": "16Hrs",
+        "shipping_lead_time": "16Hrs",
+        "created_datetime": null,
+        "updated_datetime": null,
+        "created_by": null,
+        "updated_by": null
+      }
+    ],
+    "vendors_array": [
+      {
+        "id": 2001,
+        "is_archive": false,
+        "name": "EKart Logistics",
+        "supply_lead_time": "8Hrs",
+        "cost": "1000",
+        "credit_period": "15 Days",
+        "created_datetime": null,
+        "updated_datetime": null,
+        "created_by": null,
+        "updated_by": null
+      },
+      {
+        "id": 2002,
+        "is_archive": false,
+        "name": "Amazon Fulfillment",
+        "supply_lead_time": "10Hrs",
+        "cost": "500",
+        "credit_period": "20 Days",
+        "created_datetime": null,
+        "updated_datetime": null,
+        "created_by": null,
+        "updated_by": null
+      }
+    ],
+    "varients_array": [
+      {
+        "id": 2004,
+        "is_archive": false,
+        "value_name": "Green",
+        "account_ids": "{12098098}",
+        "at_cat_tem_id": 1001,
+        "status_timestamp": null,
+        "created_datetime": null,
+        "updated_datetime": null,
+        "created_by": "akshay",
+        "updated_by": null,
+        "att_parent_name": "Size"
+      },
+      {
+        "id": 2005,
+        "is_archive": false,
+        "value_name": "S",
+        "account_ids": "{12098098}",
+        "at_cat_tem_id": 1002,
+        "status_timestamp": null,
+        "created_datetime": null,
+        "updated_datetime": null,
+        "created_by": "akshay\n",
+        "updated_by": null,
+        "att_parent_name": "Strap Color"
+      }
+    ]
+  }
+]
+
+

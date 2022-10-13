@@ -1,0 +1,54 @@
+.inputDiv{
+width: 844px;
+height: 48px;
+margin-bottom: 8.5px;
+flex-direction: row;
+display: flex;
+}
+
+.inputDiv label{
+font-weight: 500;
+}
+.inputLabel{
+width: 205px!important;
+height: 48px;
+padding: 12px 16px 12px 0px;
+margin: 0px 10px;
+text-align: left;
+color: black;
+font-size: 16px;
+font-weight: 500;
+}
+
+.enterInput::placeholder{
+    color: #8B8B8B;
+}
+
+.enterInput{
+width: 629px;
+height: 48px;
+margin: 0px 10px;
+background: #FFFFFF;
+color: #8B8B8B;
+border: 0.5px solid #8B8B8B;
+border-radius: 4px;
+padding: 12px 12px 12px 16px;
+outline: none;
+}
+
+
+
+/*			
+Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
+All rights reserved.			
+This program is free software: you can redistribute it and/or modify			
+it under the terms of the GNU General Public License as published by			
+the Free Software Foundation, either version 3 of the License, or			
+(at your option) any later version.			
+This program is distributed in the hope that it will be useful,			
+but WITHOUT ANY WARRANTY; without even the implied warranty of			
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
+GNU General Public License for more details.			
+You should have received a copy of the GNU General Public License			
+along with this program. If not, see <http://www.gnu.org/licenses/>.			
+*/

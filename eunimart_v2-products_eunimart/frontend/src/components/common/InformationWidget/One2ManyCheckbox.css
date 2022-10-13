@@ -1,0 +1,194 @@
+.one2Many_vOne_chkbx {
+  display: flex;
+  flex-direction: row;
+  padding: 8px;
+  background: #ffffff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+
+  width: 204px;
+  margin: 20px auto;
+}
+
+.one2Many_vOne_chkbx .one2Many_vOne_text {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #000000;
+
+  padding-right: 50px;
+}
+
+/* checkbox */
+.one2Many_vOne_chkbx .container {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.one2Many_vOne_chkbx .container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.one2Many_vOne_chkbx .checkmark {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  height: 17.07px;
+  width: 17.07px;
+  border: 0.5px solid #165ecc;
+  margin-right: 8px;
+}
+
+/* On mouse-over, add a grey background color */
+.one2Many_vOne_chkbx .container:hover input ~ .checkmark {
+  background-color: #fff;
+}
+
+/* When the checkbox is checked, add a blue background */
+.one2Many_vOne_chkbx .container input:checked ~ .checkmark {
+  background-color: #ffffff;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.one2Many_vOne_chkbx .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.one2Many_vOne_chkbx .container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.one2Many_vOne_chkbx .container .checkmark:after {
+  left: 4px;
+  top: 1px;
+  width: 4px;
+  height: 9px;
+  border: solid #165ecc;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.one2Many_vTwo_chkbx {
+  display: flex;
+  flex-direction: row;
+  padding: 8px;
+  background: #ffffff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+
+  width: 174px;
+  margin: 20px auto;
+}
+
+.one2Many_vTwo_text {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #000000;
+
+  margin: 4px;
+}
+
+/* checkbox */
+.one2Many_vTwo_chkbx .container {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.one2Many_vTwo_chkbx .container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.one2Many_vTwo_chkbx .checkmark {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  height: 17.07px;
+  width: 17.07px;
+  border: 0.5px solid #165ecc;
+  margin-left: 8px;
+}
+
+/* On mouse-over, add a grey background color */
+.one2Many_vTwo_chkbx .container:hover input ~ .checkmark {
+  background-color: #fff;
+}
+
+/* When the checkbox is checked, add a blue background */
+.one2Many_vTwo_chkbx .container input:checked ~ .checkmark {
+  background-color: #ffffff;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.one2Many_vTwo_chkbx .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.one2Many_vTwo_chkbx .container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.one2Many_vTwo_chkbx .container .checkmark:after {
+  left: 4px;
+  top: 1px;
+  width: 4px;
+  height: 9px;
+  border: solid #165ecc;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+
+/*			
+Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
+All rights reserved.			
+This program is free software: you can redistribute it and/or modify			
+it under the terms of the GNU General Public License as published by			
+the Free Software Foundation, either version 3 of the License, or			
+(at your option) any later version.			
+This program is distributed in the hope that it will be useful,			
+but WITHOUT ANY WARRANTY; without even the implied warranty of			
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
+GNU General Public License for more details.			
+You should have received a copy of the GNU General Public License			
+along with this program. If not, see <http://www.gnu.org/licenses/>.			
+*/

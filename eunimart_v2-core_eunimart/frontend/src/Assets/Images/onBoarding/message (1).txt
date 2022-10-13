@@ -1,0 +1,107 @@
+{
+    "shipping_number": "SHIPORDER8",
+    "reference_number": "REFER-0990",
+    "channel_id": 1,
+    "sender_address": {
+        "sender_name": "Paul",
+        "mobile_number": 1234567890,
+        "pickup_nickname": "paul",
+        "email": "qwerty@gmail.com",
+        "address_line1": "no:87",
+        "address_line2": "tag street",
+        "address_line3": "status",
+        "zipcode": 900900,
+        "city": "hyderabad",
+        "state": "telangana",
+        "country": "India"
+    },
+    "receiver_address": {
+        "receiver_name": "Paul",
+        "mobile_number": 1234567890,
+        "email": "qwerty@gmail.com",
+        "address_line1": "no:87",
+        "address_line2": "tag street",
+        "address_line3": "status",
+        "zipcode": 900900,
+        "city": "hyderabad",
+        "state": "telangana",
+        "country": "India"
+    },
+    "billing_address": {
+        "receiver_name": "Paul",
+        "mobile_number": 1234567890,
+        "email": "qwerty@gmail.com",
+        "address_line1": "no:87",
+        "address_line2": "tag street",
+        "address_line3": "status",
+        "zipcode": 900900,
+        "city": "hyderabad",
+        "state": "telangana",
+        "country": "India"
+    },
+    "shipping_date": "2022-05-30T08:54:24.32947Z",
+    "partner_id": 1,
+    "package_details": {
+        "package_height": 3,
+        "package_length": 3,
+        "package_weight": 3,
+        "package_width": 2
+    },
+    "shipping_cost": 878.98,
+    "shipping_status_id": 193,
+    "shipping_label_id": {
+        "name": "shipping_label_docs"
+    },
+    "shipping_manifest_id": {
+        "name": "shipping_manifest_docs"
+    },
+    "shipping_invoice_id": {
+        "name": "shipping_invoice_docs"
+    },
+    "order_value": 78.23,
+    "shipping_payment_type_id": 37,
+    "expected_delivery_date": "2022-05-30T08:54:24.32947Z",
+    "pickup_attempted": 2,
+    "is_marketplace_order": false,
+    "order_id": 1,
+    "order_date": "2022-05-30T08:54:24.32947Z",
+    "eunimart_wallet_amount": 989.89,
+    "set_pickup_date": "2022-05-30T08:54:24.32947Z",
+    "set_pickup_time": "2022-05-30T08:54:24.32947Z",
+    "shipping_partner_id": 2,
+    "awb_number": "AWB-6273911",
+    "is_cod": false,
+    "shipping_type_id": 252,
+    "shipping_mode_id": 253,
+    "quantity": 50,
+    "billing_details": {
+        "order_id": "ORD-1234",
+        "invoice_number": "INV-0987",
+        "currency": "INR",
+        "tax_amount": 898.2,
+        "invoice_amount": 972.3,
+        "gstin": "GST876092",
+        "iec_number": "IEC-7969",
+        "hsn_code": "HSC-8R98978"
+    },
+    "destination_country_id": 1,
+    "destination_zipcode": 800900,
+    "origin_country_id": 2,
+    "origin_zipcode": 909890,
+    "package_direction_id": 246,
+    "cod_status": "Not Received",
+    "cod_due_amount": 989.98,
+    "cod_amount_received": 343.34,
+    "cod_date_and_time_of_receiving": "2022-05-30T08:54:24.32947Z",
+    "shipping_order_lines": [
+        {
+            "product_id": 1,
+            "product_template_id": 1,
+            "item_quantity": 4,
+            "unit_price": 98.78,
+            "tax_price": 678.98,
+            "gstin": "GST-97869O89",
+            "discount": 25.5
+        }
+    ]
+}

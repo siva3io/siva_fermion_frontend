@@ -1,0 +1,261 @@
+.individual-invoice-detail-wrapper {
+    /* width: 100%; */
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+    /* padding: 24px; */
+    /* height:16rem; */
+    background: white;
+    /* padding: 16px 0px; */
+    padding-bottom: 16px;
+    margin-right: 16px;
+    margin-top: 18px;
+    margin-bottom: 16px;
+  }
+  .sec3{
+    margin-top: 2rem !important;
+  }
+  .staticFormCardTitle.details{
+    padding:10px;
+  }
+
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px; /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: "liga";
+}
+.setColor {
+  color: #f3a445;
+  margin: 0px 10px 0px 0px;
+}
+
+.setMailColor {
+  color: #f3a445;
+  margin: 0px 10px 0px 10px;
+}
+
+  .eucommoncardLeftImage {
+    width: 120px;
+    height: 120px;
+    margin-right: 16px;
+    /* background: #a0bbff; */
+    border-radius: 50%;
+  }
+  .individual-contact-card-detail-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    padding: 24px;
+  }
+  
+  .individual-contact-card-with-detail {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .invoiceNo {
+    font-weight: normal;
+    font-size: 28px !important;
+    line-height: 5px !important;
+    margin: 0px !important;
+    letter-spacing: 0.25px;
+  }
+  
+  .contact-img {
+    width: 120px;
+    height: 120px;
+    margin-right: 16px;
+    background: #a0bbff;
+    border-radius: 50%;
+  }
+  
+  .contact-other-details {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .contact-name {
+    font-weight: 500;
+    font-size: 25px;
+    margin-bottom: 8px;
+    letter-spacing: 0.8px;
+  }
+  
+  .contact-company {
+    color: darkblue;
+    font-weight: 500;
+    font-size: 14px;
+  }
+  
+  .mb2 {
+    margin-bottom: 8px;
+  }
+  .phoneDetails {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+  }
+  
+  .ph2 {
+    margin-left: 30px;
+  }
+  
+  .moreVertIcon {
+    color: #416bff;
+    font-size: 18px;
+  }
+  
+  .action-iconWrap {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(239, 242, 254, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .Invoicebadge {
+    padding: 4px 12px;
+    border-radius: 16px;
+    width: 82px;
+  }
+  .viewInvoicePdf {
+    /* height: 35px; */
+    height: fit-content;
+    padding: 6px 30px;
+    background: #416bff;
+    border-radius: 4px;
+    margin: 0px 8px;
+    /* font-family: Inter Neue; */
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    border: none;
+  }
+  
+  .viewOptions {
+    display: flex;
+  }
+  .address{
+    padding: 13px;
+  }
+  .adressSec{
+    display: flex;
+  }
+  .main-sec-2{
+    border-radius: 8px;
+  }
+  /*View Page Header part & Tabs*/
+  .sale-order-wrap {
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 24px;
+    background: rgb(241 241 241);
+    /* background: #fff; */
+    box-shadow: 0 2px 2px rgb(0 0 0 / 10%);
+    width: 100%;
+  }
+  .product-sale-order-wrap {
+    width: 100%;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    /* margin-bottom: 25px;  */
+    padding: 24px;
+  }
+  .product-sale-order-detail-wrap {
+    display: flex;
+    flex-direction: column;
+    /* padding: 24px; */
+  }
+  .product-name {
+    font-weight: 500;
+    font-size: 25px;
+    margin-bottom: 8px;
+    letter-spacing: 0.8px;
+    margin-top: 0px;
+  }
+  .product_status {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+  }
+  .locationDetailsMain {
+    background: #fff;
+    margin-top: 2rem !important;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+    margin: 16px 0px;
+    font-family: Poppins;
+    border-radius: 8px;
+  }
+  .shippingpage{
+    padding: 10px;
+    background-color: #F5F5F5;
+  }
+  .product-sale-order-wrap {
+    margin: 16px;
+}
+.div-sec {
+  display: flex;
+}
+  .product-staticFormCardForm  {
+    display: grid;
+    grid-gap: 8px 30px;
+    grid-template-columns: 49% 49%;
+    align-items: center;
+    margin-top: 16px;
+   
+  }
+  .product-staticFormCardFormSec  {
+    display: grid;
+    grid-template-columns: 90% 49%;
+    align-items: center;
+    margin-top: 16px;
+    margin-left: 20px;
+  }
+  
+
+
+
+
+
+
+
+/*
+Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
+All rights reserved.			
+This program is free software: you can redistribute it and/or modify			
+it under the terms of the GNU General Public License as published by			
+the Free Software Foundation, either version 3 of the License, or			
+(at your option) any later version.			
+This program is distributed in the hope that it will be useful,			
+but WITHOUT ANY WARRANTY; without even the implied warranty of			
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
+GNU General Public License for more details.			
+You should have received a copy of the GNU General Public License			
+along with this program. If not, see <http://www.gnu.org/licenses/>.			
+*/

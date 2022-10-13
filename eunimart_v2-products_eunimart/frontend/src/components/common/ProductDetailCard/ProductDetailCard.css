@@ -1,0 +1,97 @@
+.detailCard {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 5px 16px;
+  margin-top: 10px;
+}
+.variantDetailsCard_card_right {
+  width: 100%;
+  /* margin-top: 60px; */
+  margin-left: 30px;
+}
+.variantDetailsCard_card_left {
+  width: 100%;
+}
+.variantDetailsCard_card_right .label_Wrap {
+  width: 200px;
+}
+.variantDetailsCard_card_right .label_Wrap .select {
+  width: 97% !important;
+}
+.description_wrapper {
+  width: 100%;
+  display: flex;
+}
+.desc_title {
+  width: 20%;
+}
+
+.desc_box {
+  width: 100%;
+}
+.variantDetailsCard_card_right .inputWrapper .labelWrap {
+  width: 50% !important;
+  white-space: nowrap;
+}
+.variantDetailsCard_card_left .inputWrapper .labelWrap {
+  width: 50% !important;
+}
+.variantDetailsCard_card_right #variant_type {
+  padding: 12px 12px 12px 16px;
+  background: #ffffff;
+  color: #838383;
+  border-radius: 4px;
+  margin: 0px 0 0 2px !important;
+  width: 100%;
+  border: 1px solid lightgray;
+}
+.variantDetailsCard_card_left #condition {
+  padding: 12px 12px 12px 16px;
+  background: #ffffff;
+  color: #838383;
+  border-radius: 4px;
+  /* margin: 0px 0 0 2px; */
+  width: 100%;
+  border: 1px solid lightgray;
+}
+.disabled_save_button {
+  background: lightgray;
+  border-radius: 4px;
+  padding: 8px 16px;
+  color: white;
+  margin-left: 20px;
+}
+.desc_box {
+  width: 100%;
+  color: #b9b9b9;
+}
+
+.bodyTextEditor {
+  background: #fff;
+  border: none !important;
+  border-radius: 3px;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  margin-top: 5px;
+  color: #838383;
+}
+
+.textAreaLabelWrap {
+  color: #b9b9b9;
+}
+
+
+/*			
+Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
+All rights reserved.			
+This program is free software: you can redistribute it and/or modify			
+it under the terms of the GNU General Public License as published by			
+the Free Software Foundation, either version 3 of the License, or			
+(at your option) any later version.			
+This program is distributed in the hope that it will be useful,			
+but WITHOUT ANY WARRANTY; without even the implied warranty of			
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
+GNU General Public License for more details.			
+You should have received a copy of the GNU General Public License			
+along with this program. If not, see <http://www.gnu.org/licenses/>.			
+*/

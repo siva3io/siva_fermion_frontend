@@ -1,0 +1,94 @@
+.locationDetailsMain {
+  background: #fff;
+  padding: 24px;
+  margin: 16px;
+  border-radius: 8px;
+}
+.staticFormCardTitle {
+  padding: 16px 0px;
+}
+
+.staticFormCardForm {
+  display: grid;
+  grid-gap: 0px 50px;
+  grid-template-columns: auto auto;
+}
+
+.buttonWrapper {
+  display: flex;
+  padding: 0px;
+  margin: 8px 0px;
+}
+.btnLabelWrap {
+  padding: 12px 32px 12px 0px;
+}
+
+
+.inputWrapper {
+  display: flex;
+  padding: 0px;
+ /*  margin: 8px 0px; */
+  width: 100%;
+  align-items: center;
+}
+
+.labelWrap {
+  /* padding: 12px 16px 12px 0px; */
+  /* width: 220px; */
+  width: 34%;
+}
+
+.input_disabled {
+  padding: 12px 12px 12px 16px;
+  background: #ffffff;
+  border: 0.5px solid #b9b9b9;
+  border-radius: 4px;
+  margin: 0px 0 0 16px;
+  width: 100%;
+  position: relative;
+}
+
+.labelInput{
+  width: 280px;
+}
+
+label.btnLabelWrap-switch {
+  width: 200px;
+}
+
+.buttonWrapper-switch {
+  display: flex;
+  height: 60px;
+}
+
+label.uploadImg {
+  height: 40px;
+  padding: 6px 30px;
+  background: #416bff;
+  border-radius: 4px;
+  margin: 0px 8px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  border: none;
+}
+
+
+/*			
+Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
+All rights reserved.			
+This program is free software: you can redistribute it and/or modify			
+it under the terms of the GNU General Public License as published by			
+the Free Software Foundation, either version 3 of the License, or			
+(at your option) any later version.			
+This program is distributed in the hope that it will be useful,			
+but WITHOUT ANY WARRANTY; without even the implied warranty of			
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
+GNU General Public License for more details.			
+You should have received a copy of the GNU General Public License			
+along with this program. If not, see <http://www.gnu.org/licenses/>.			
+*/

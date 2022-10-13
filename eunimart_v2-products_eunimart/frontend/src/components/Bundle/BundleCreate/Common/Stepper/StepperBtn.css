@@ -1,0 +1,87 @@
+.productstepperBtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: #ffffff;
+  box-shadow: 0px 2px 2px rgb(0 0 0 / 10%);
+  border-radius: 8px;
+}
+
+.productstepperBtn_preBtn {
+  margin: 0px 8px;
+  border-radius: 4px;
+
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #416bff;
+  border: none;
+  background-color: transparent;
+}
+
+.productstepperBtn_nextBtn {
+  padding: 6px 30px;
+  background: #416bff;
+  border-radius: 4px;
+  margin: 0px 8px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  border: none;
+}
+
+.productstepperBtn_nextBtn_disabled {
+  padding: 6px 30px;
+  border-radius: 4px;
+  margin: 0px 8px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  border: none;
+  background-color: #cccccc;
+  color: #666666;
+}
+.productstepperBtn_draftBtn {
+  padding: 6px 30px;
+  background-color: #fcb32f;
+  border-radius: 4px;
+  margin: 0px 8px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  border: none;
+}
+.stepper_btn_grp {
+  display: flex;
+}
+
+
+/*			
+Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
+All rights reserved.			
+This program is free software: you can redistribute it and/or modify			
+it under the terms of the GNU General Public License as published by			
+the Free Software Foundation, either version 3 of the License, or			
+(at your option) any later version.			
+This program is distributed in the hope that it will be useful,			
+but WITHOUT ANY WARRANTY; without even the implied warranty of			
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
+GNU General Public License for more details.			
+You should have received a copy of the GNU General Public License			
+along with this program. If not, see <http://www.gnu.org/licenses/>.			
+*/
