@@ -95,7 +95,7 @@ const base_url = GLOBAL_API_SOURCE.url;
 
 const drawerWidth = 240;
 
-const openedMixin = (theme) => ({
+const openedMixin = theme => ({
   width: drawerWidth,
   transition: theme.transitions.create("width", {
     easing: theme.transitions.easing.sharp,
@@ -104,7 +104,7 @@ const openedMixin = (theme) => ({
   overflowX: "hidden",
 });
 
-const closedMixin = (theme) => ({
+const closedMixin = theme => ({
   transition: theme.transitions.create("width", {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
@@ -131,7 +131,7 @@ const reloadPage = () => {
   console.log("reloadPage");
 };
 const Drawer = styled(MuiDrawer, {
-  shouldForwardProp: (prop) => prop !== "open",
+  shouldForwardProp: prop => prop !== "open",
 })(({ theme, open }) => ({
   width: drawerWidth,
   flexShrink: 0,
@@ -383,19 +383,31 @@ export default function MiniDrawer({ sessionId }) {
                     <Route path="/ndr" component={NDR_WD_RTO}></Route>
                     <Route path="/rto" component={NDR_WD_RTO}></Route>
                     <Route path="/wd" component={NDR_WD_RTO}></Route>
-                    <Route path="/grn" component={GRN}></Route> 
+                    <Route path="/grn" component={GRN}></Route>
                     <Route path="/ScrapOrders" component={ScrapOrders}></Route>
                     <Route path="/pickList" component={pickListApp}></Route>
                     <Route path="/ist" component={IST}></Route>
                     <Route path="/creditNote" component={CreditNote}></Route>
                     <Route path="/debitNote" component={DebitNote}></Route>
 
-                    <Route path="/marketplaces" component={Marketplaces}></Route>
+                    <Route
+                      path="/marketplaces"
+                      component={Marketplaces}
+                    ></Route>
                     <Route path="/webstores" component={Webstores}></Route>
                     <Route path="/retail" component={Retail}></Route>
-                    <Route path="/virtualWarehouse" component={VirtualWarehouse}></Route>
-                    <Route path="/logisticspartners" component={LogisticPartners}></Route>
-                    <Route path="/localWarehouse" component={LocalWarehouse}></Route>
+                    <Route
+                      path="/virtualWarehouse"
+                      component={VirtualWarehouse}
+                    ></Route>
+                    <Route
+                      path="/logisticspartners"
+                      component={LogisticPartners}
+                    ></Route>
+                    <Route
+                      path="/localWarehouse"
+                      component={LocalWarehouse}
+                    ></Route>
                     <Route path="/accounting" component={Accounting}></Route>
                     <Route path="/pos" component={POS}></Route>
 
@@ -471,7 +483,7 @@ const InactiveBot = ({ setDisplay }) => {
           setShowText(true);
         }}
         onClick={() => {
-          setDisplay((prevState) => !prevState);
+          setDisplay(prevState => !prevState);
         }}
       >
         <img
@@ -485,17 +497,17 @@ const InactiveBot = ({ setDisplay }) => {
   );
 };
 
-const MainMenu = (props) => {
+const MainMenu = props => {
   const [showModal, setShowModal] = useState(false);
 
   const [state, setState] = useState({});
 
   useEffect(() => {
-    menuService().then((resp) => {
+    menuService().then(resp => {
       if (resp.status == 200 && resp.data && resp.data.data) {
-        var selectMenu = resp.data.data.filter((o) => o.parent_module_id)[0];
+        var selectMenu = resp.data.data.filter(o => o.parent_module_id)[0];
         var tabs = resp.data.data.filter(
-          (o) => o.parent_module_id == selectMenu.parent_module_id
+          o => o.parent_module_id == selectMenu.parent_module_id
         );
         props.onChange(selectMenu, 0, tabs);
         //menuPress(selectMenu,0)
@@ -526,14 +538,12 @@ const MainMenu = (props) => {
     });
     if (item.parent_module_id) {
       var tabs = state.data.filter(
-        (o) => o.parent_module_id == item.parent_module_id
+        o => o.parent_module_id == item.parent_module_id
       );
       props.onChange(item, index, tabs);
     } else {
-      var selectMenu = state.data.filter(
-        (o) => o.parent_module_id == item.id
-      )[0];
-      var tabs = state.data.filter((o) => o.parent_module_id == item.id);
+      var selectMenu = state.data.filter(o => o.parent_module_id == item.id)[0];
+      var tabs = state.data.filter(o => o.parent_module_id == item.id);
       props.onChange(selectMenu, 0, tabs);
     }
   };
@@ -607,7 +617,7 @@ const MainMenu = (props) => {
 
           {state.data &&
             state.data
-              .filter((o) => o.parent_module_id == null)
+              .filter(o => o.parent_module_id == null)
               .map((item, index) => (
                 <>
                   {/* <IconButton
@@ -680,8 +690,7 @@ const MainMenu = (props) => {
                       {state.data &&
                         state.data
                           .filter(
-                            (o) =>
-                              o.ParentModule && o.parent_module_id == item.id
+                            o => o.ParentModule && o.parent_module_id == item.id
                           )
                           .map((sitem, sindex) => (
                             // <ListItemButton onClick={() => menuPress(sitem, sindex)} sx={{ pl: 4, background: "#001661" }}>
@@ -743,3 +752,17 @@ const MainMenu = (props) => {
     </>
   );
 };
+/*
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
+*/

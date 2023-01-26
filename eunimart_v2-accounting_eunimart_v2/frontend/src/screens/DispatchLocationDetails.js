@@ -32,9 +32,9 @@ export default function CustomerBillingAddress({
   props,
 }) {
   const dispatch = useDispatch();
-  const address = useSelector((state) => state.fetchAddress?.data);
-  const countryData = useSelector((state) => state.Countries?.countries);
-  const stateData = useSelector((state) => state.States2?.states1);
+  const address = useSelector(state => state.fetchAddress?.data);
+  const countryData = useSelector(state => state.Countries?.countries);
+  const stateData = useSelector(state => state.States2?.states1);
   console.log(";localcheck", dispatch_location_details);
   useEffect(() => {
     console.log(address, "contactsInEffect ");
@@ -51,7 +51,7 @@ export default function CustomerBillingAddress({
   const [params, setParams] = useState({ per_page: "10", page_no: "1" });
   const [contacts, setContats] = useState([]);
   const [mainData, setMainData] = useState({});
-  const salesdata = useSelector((state) => state.data.salesdata);
+  const salesdata = useSelector(state => state.data.salesdata);
 
   useEffect(() => {
     if (dispatch_location_details) {
@@ -61,7 +61,7 @@ export default function CustomerBillingAddress({
       var newdispatch_location_details = staticFields;
       var selectedAdd = [];
       // var selectedAdd = dispatch_location_details?.address_details[0];
-      newdispatch_location_details.find((o) => {
+      newdispatch_location_details.find(o => {
         if (o.key == "name")
           o.value = dispatch_location_details?.contact_person_name;
         // if (o.key == "primary_email")
@@ -87,7 +87,7 @@ export default function CustomerBillingAddress({
 
       var keyValuePairMainData = {};
 
-      newMainData.map((o) => {
+      newMainData.map(o => {
         if (o.key != null) {
           keyValuePairMainData[o.key] = o.value;
         }
@@ -343,7 +343,7 @@ export default function CustomerBillingAddress({
     setStaticFields(tempStaticField);
 
     try {
-      var newStaticFields = staticFields.map((o) => {
+      var newStaticFields = staticFields.map(o => {
         if (o.key == key) o.value = value;
         return o;
       });
@@ -378,33 +378,33 @@ export default function CustomerBillingAddress({
   };
 
   const searchContactHandler = () => {
-    setSelectedOption((prev) => !prev);
+    setSelectedOption(prev => !prev);
     setBtnOption("selectedContacts");
   };
 
   const handleClosePopUp = (option, row) => {
     if (option === "priceList") {
-      setSelectedOption((prev) => !prev);
+      setSelectedOption(prev => !prev);
     }
     if (option === "products") {
-      setSelectedOption((prev) => !prev);
+      setSelectedOption(prev => !prev);
     }
     if (option === "selectedContacts") {
-      setSelectedOption((prev) => !prev);
+      setSelectedOption(prev => !prev);
     }
     if (option === "selectedBillingContacts") {
-      setSelectedOption((prev) => !prev);
+      setSelectedOption(prev => !prev);
     }
   };
 
   const contactShippingHandler = () => {
     set_dispatch_location_details(selectedValue);
-    const selCon = contacts.find((item) => {
+    const selCon = contacts.find(item => {
       return item.id == selectedValue;
     });
     console.log("selCon", selCon, contacts);
     const temp = staticFields;
-    temp.map((fields) => {
+    temp.map(fields => {
       const index = temp.findIndex(function (rows) {
         return rows.key == fields.key;
       });
@@ -433,7 +433,7 @@ export default function CustomerBillingAddress({
       >
         <Typography variant="div" sx={{ width: "100%" }}>
           <div className="product-staticFormCardForm">
-            {staticFields.map((feilds) => {
+            {staticFields.map(feilds => {
               if (feilds.type == "input") {
                 return (
                   <MatInput
@@ -447,7 +447,7 @@ export default function CustomerBillingAddress({
                     name={feilds.key}
                     value={feilds.value}
                     placeholder={`Type Your ${feilds.label}`}
-                    onChange={(e) => onInputChange(feilds.key, e.target.value)}
+                    onChange={e => onInputChange(feilds.key, e.target.value)}
                   />
                 );
               } else if (feilds.type == "select") {
@@ -521,17 +521,17 @@ export default function CustomerBillingAddress({
   );
 }
 
-/*			
-Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
-All rights reserved.			
-This program is free software: you can redistribute it and/or modify			
-it under the terms of the GNU General Public License as published by			
-the Free Software Foundation, either version 3 of the License, or			
-(at your option) any later version.			
-This program is distributed in the hope that it will be useful,			
-but WITHOUT ANY WARRANTY; without even the implied warranty of			
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
-GNU General Public License for more details.			
-You should have received a copy of the GNU General Public License			
-along with this program. If not, see <http://www.gnu.org/licenses/>.			
+/*
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
 */

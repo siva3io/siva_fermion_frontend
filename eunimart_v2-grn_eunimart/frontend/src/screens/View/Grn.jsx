@@ -5,8 +5,8 @@ import "./Grn.css";
 import { lazy, Suspense } from "react";
 import ErrorBoundary from "../../ErrorBoundary";
 import { fetchGrnData } from "../../redux/Action/FetchGrnListAction";
-import {deleteGrn} from "../../redux/Action/FetchGrnDeleteAction";
-import {  useNavigate } from 'react-router-dom';
+import { deleteGrn } from "../../redux/Action/FetchGrnDeleteAction";
+import { useNavigate } from "react-router-dom";
 import { fetchAccessManagement } from "../../redux/Action/FetchAccessManagement";
 const RemoteDynamicTable = React.lazy(() => import("Remote/DynamicTable"));
 const RemoteDynamicAppBar = React.lazy(() => import("Remote/DynamicAppBar"));
@@ -22,28 +22,17 @@ const RemoteWrapper = ({ children }) => (
 );
 
 const Grn = () => {
-
   const dispatch = useDispatch();
-  const grnData = useSelector((state) => state.fetchGrnData?.grn);
+  const grnData = useSelector(state => state.fetchGrnData?.grn);
   console.log(grnData, grnData?.meta, grnData?.meta?.info, "grnDatawww");
   const [params, setParams] = useState({ limit: 10, offset: 1 });
   const [selectedId, setId] = useState(0);
   const [dynamicAppBar, setDynamicAppBar] = useState([]);
   const [searchType, setSearchType] = useState("uom_name");
 
-
-  
-const access = useSelector(
-    (state) => state.access?.access
-  );
-  console.log("Access",access)
-  const searchOptions = [
-    { label: "GRN Number : ", value: "name" },
-
-  ]
-
-
-
+  const access = useSelector(state => state.access?.access);
+  console.log("Access", access);
+  const searchOptions = [{ label: "GRN Number : ", value: "name" }];
 
   const sortOptions = [
     {
@@ -58,7 +47,7 @@ const access = useSelector(
           key: "desc",
         },
       ],
-      func: (value) => {
+      func: value => {
         dispatch(fetchGrnData("created_date", value, "sorting"));
       },
     },
@@ -74,10 +63,8 @@ const access = useSelector(
           key: "desc",
         },
       ],
-      func: (value) => {
-        dispatch(
-          fetchGrnData("GRN_Number", value, "sorting")
-        );
+      func: value => {
+        dispatch(fetchGrnData("GRN_Number", value, "sorting"));
       },
     },
     {
@@ -92,7 +79,7 @@ const access = useSelector(
           key: "desc",
         },
       ],
-      func: (value) => {
+      func: value => {
         dispatch(fetchGrnData("reference_number", value, "sorting"));
       },
     },
@@ -100,7 +87,7 @@ const access = useSelector(
     {
       label: "Clear All",
       endIcon: null,
-      func: (value) => {
+      func: value => {
         dispatch(fetchGrnData("", "", "sorting"));
       },
     },
@@ -110,64 +97,53 @@ const access = useSelector(
     dispatch(fetchAccessManagement());
   }, [params]);
 
-  const [filterOptions, setFilterOptions] = useState(
-    [
-      {
-        label: "Filter By Date",
-        collapseState: false,
-        value: "name",
-      },
-      {
-        label: "Filter by GRN Status",
-        collapseState: false,
-        value: "uom_class_name",
-      },
-      {
-        label: "Filter by Reference Number",
-        collapseState: false,
-        value: "base_uom",
-      },
-      {
-        label: "Filter by Warehouse Name",
-        collapseState: false,
-        value: "code",
-      },
-      {
-        label: "Filter By Status",
-        collapseState: false,
-        value: "code",
-      },
-
-
-    ]
-
-  );
+  const [filterOptions, setFilterOptions] = useState([
+    {
+      label: "Filter By Date",
+      collapseState: false,
+      value: "name",
+    },
+    {
+      label: "Filter by GRN Status",
+      collapseState: false,
+      value: "uom_class_name",
+    },
+    {
+      label: "Filter by Reference Number",
+      collapseState: false,
+      value: "base_uom",
+    },
+    {
+      label: "Filter by Warehouse Name",
+      collapseState: false,
+      value: "code",
+    },
+    {
+      label: "Filter By Status",
+      collapseState: false,
+      value: "code",
+    },
+  ]);
 
   const filterSearchItems = (searchValue, searchTyp) => {
     if (searchValue.length === 0) {
       dispatch(fetchSearchProduct({ "": "" }, "filters"));
     } else {
-      dispatch(
-        fetchSearchProduct({ [searchTyp]: searchValue }, "filters")
-      );
+      dispatch(fetchSearchProduct({ [searchTyp]: searchValue }, "filters"));
     }
   };
 
-  const searchItems = (searchValue) => {
+  const searchItems = searchValue => {
     if (searchValue.length === 0) {
       dispatch(fetchGrnData({ "": "" }, "filters"));
     } else {
-      dispatch(
-        fetchGrnData("search", searchValue, "filters")
-      );
+      dispatch(fetchGrnData("search", searchValue, "filters"));
     }
   };
 
-
-  const handleChangeDyanmicAppBar = (value) => {
+  const handleChangeDyanmicAppBar = value => {
     setDynamicAppBar(value);
   };
-
 
   useEffect(() => {
     dispatch(fetchGrnData(params, "s2", "pagination"));
@@ -226,65 +202,74 @@ const access = useSelector(
       type: "action",
     },
   ];
-  const handlePutaway = (id) => {
+  const handlePutaway = id => {
     setId(id);
 
-    setmodalOpenPutaway((prev) => !prev);
+    setmodalOpenPutaway(prev => !prev);
   };
 
   const history = useNavigate();
-  const handleView = (id) => {
-    history(`/grn/viewGrn/${id}`)
+  const handleView = id => {
+    history(`/grn/viewGrn/${id}`);
+  };
 
-  }
+  const handleEdit = id => {
+    history(`/grn/editGrn/${id}`);
+  };
 
-  const handleEdit = (id) => {
-    history(`/grn/editGrn/${id}`)
-  }
-
-  const handleButtonClick = (value) => {
-    console.log("clicked")
+  const handleButtonClick = value => {
+    console.log("clicked");
     history("/grn/create");
-  }
+  };
 
   useEffect(() => {
-    setCustomOptions(
-      [  {
+    setCustomOptions([
+      {
         label: "View",
-        func: (idchange) => handleView(idchange),
-        flag: access?.find(row => row === row)?.view_actions_json?.find(o => o.lookup_code === "READ")?.ctrl_flag,
+        func: idchange => handleView(idchange),
+        flag: access
+          ?.find(row => row === row)
+          ?.view_actions_json?.find(o => o.lookup_code === "READ")?.ctrl_flag,
       },
       {
         label: "Edit",
-        func: (idchange) => handleEdit(idchange),
-        flag: access?.find(row => row === row)?.view_actions_json?.find(o => o.lookup_code === "UPDATE")?.ctrl_flag
+        func: idchange => handleEdit(idchange),
+        flag: access
+          ?.find(row => row === row)
+          ?.view_actions_json?.find(o => o.lookup_code === "UPDATE")?.ctrl_flag,
       },
       {
         label: "Delete",
-        func: (product_id) => handleDeleteGrn(product_id),
-        flag: access?.find(row => row === row)?.view_actions_json?.find(o => o.lookup_code === "DELETE")?.ctrl_flag,
-      }]
-    )
-  }, [access])
-
+        func: product_id => handleDeleteGrn(product_id),
+        flag: access
+          ?.find(row => row === row)
+          ?.view_actions_json?.find(o => o.lookup_code === "DELETE")?.ctrl_flag,
+      },
+    ]);
+  }, [access]);
 
   const [customOptions, setCustomOptions] = useState([
     {
       label: "View",
-      func: (idchange) => handleView(idchange),
-      flag: access?.find(row => row === row)?.view_actions_json?.find(o => o.lookup_code === "READ")?.ctrl_flag,
+      func: idchange => handleView(idchange),
+      flag: access
+        ?.find(row => row === row)
+        ?.view_actions_json?.find(o => o.lookup_code === "READ")?.ctrl_flag,
     },
     {
       label: "Edit",
-      func: (idchange) => handleEdit(idchange),
-      flag: access?.find(row => row === row)?.view_actions_json?.find(o => o.lookup_code === "UPDATE")?.ctrl_flag
+      func: idchange => handleEdit(idchange),
+      flag: access
+        ?.find(row => row === row)
+        ?.view_actions_json?.find(o => o.lookup_code === "UPDATE")?.ctrl_flag,
     },
     {
       label: "Delete",
-      func: (product_id) => handleDeleteGrn(product_id),
-      flag: access?.find(row => row === row)?.view_actions_json?.find(o => o.lookup_code === "DELETE")?.ctrl_flag,
+      func: product_id => handleDeleteGrn(product_id),
+      flag: access
+        ?.find(row => row === row)
+        ?.view_actions_json?.find(o => o.lookup_code === "DELETE")?.ctrl_flag,
     },
-
   ]);
 
   const RemoteModalViewV2 = React.lazy(() => import("Remote/ModalViewV2"));
@@ -293,48 +278,60 @@ const access = useSelector(
 
   const [deleteModalOpen, setdeleteModalOpen] = useState(false);
 
-  const handleDeleteGrn = (id) => {
-    setgrnId(id)
-    setdeleteModalOpen(true)
-  }
+  const handleDeleteGrn = id => {
+    setgrnId(id);
+    setdeleteModalOpen(true);
+  };
 
-  const handleDeleteProduct = (value) => {
+  const handleDeleteProduct = value => {
     dispatch(deleteGrn(grnId));
     setTimeout(() => {
       dispatch(fetchGrnData(params, "s2", "pagination"));
     }, 300);
     setdeleteModalOpen(false);
-  }
+  };
 
-  const handleDeleteModalClose = (value) => {
-    setdeleteModalOpen(false)
-  }
-  console.log("ctrlflages",access[0]?.view_actions_json?.find(o=>o.lookup_code === "CREATE" )?.ctrl_flag );
+  const handleDeleteModalClose = value => {
+    setdeleteModalOpen(false);
+  };
+  console.log(
+    "ctrlflages",
+    access[0]?.view_actions_json?.find(o => o.lookup_code === "CREATE")
+      ?.ctrl_flag
+  );
   return (
     <>
-    {
-        
-          grnData?.data?.length > 0 && access && access[0]?.module_ctrl_flag && access[0]?.view_actions_json?.find(o=>o.lookup_code === "LIST" )?.ctrl_flag ===1 && (
-
-      <Suspense fallback={<div>Loading... </div>}>
-        <RemoteWrapper>
-          <RemoteDynamicAppBar
-            dynamicAppBar={dynamicAppBar}
-            sortOptions={sortOptions}
-            filterOptions={filterOptions}
-            setFilterOptions={setFilterOptions}
-            filterSearchItems={filterSearchItems}
-            searchItems={searchItems}
-            searchOptions={searchOptions}
-            searchType={searchType}
-            setSearchType={setSearchType}
-            // handleButtonClick={handleButtonClick}
-            buttons={[{name:"Create",handleButtonClick:handleButtonClick,flag:access[0]?.view_actions_json?.find(o=>o.lookup_code === "CREATE" )?.ctrl_flag}]}
-          />
-        </RemoteWrapper>
-      </Suspense>
-          )
-          }
+      {grnData?.data?.length > 0 &&
+        access &&
+        access[0]?.module_ctrl_flag &&
+        access[0]?.view_actions_json?.find(o => o.lookup_code === "LIST")
+          ?.ctrl_flag === 1 && (
+          <Suspense fallback={<div>Loading... </div>}>
+            <RemoteWrapper>
+              <RemoteDynamicAppBar
+                dynamicAppBar={dynamicAppBar}
+                sortOptions={sortOptions}
+                filterOptions={filterOptions}
+                setFilterOptions={setFilterOptions}
+                filterSearchItems={filterSearchItems}
+                searchItems={searchItems}
+                searchOptions={searchOptions}
+                searchType={searchType}
+                setSearchType={setSearchType}
+                // handleButtonClick={handleButtonClick}
+                buttons={[
+                  {
+                    name: "Create",
+                    handleButtonClick: handleButtonClick,
+                    flag: access[0]?.view_actions_json?.find(
+                      o => o.lookup_code === "CREATE"
+                    )?.ctrl_flag,
+                  },
+                ]}
+              />
+            </RemoteWrapper>
+          </Suspense>
+        )}
       {deleteModalOpen && (
         <Suspense fallback={<div>Loading... </div>}>
           <RemoteWrapper>
@@ -346,49 +343,56 @@ const access = useSelector(
                 "Selected GRN will be deleted permanentely. Are you sure you want to do this?"
               }
               secondary={""}
-              disclaimer={"Note: This will get deleted permanantly from the list"}
+              disclaimer={
+                "Note: This will get deleted permanantly from the list"
+              }
               actionBtns={["Cancel", "Delete"]}
-            />
-          </RemoteWrapper></Suspense>
-      )}
-      
-      {grnData && grnData?.data && grnData.meta && 
-      grnData?.data?.length > 0 && access && access[0]?.module_ctrl_flag && 
-      access[0]?.view_actions_json?.find(o=>o.lookup_code === "LIST" )?.ctrl_flag ===1 &&
-      (
-        <Suspense fallback={<div>Loading... </div>}>
-          <RemoteWrapper>
-            <RemoteDynamicTable
-              table_data={grnData?.data}
-              headCells={headCells}
-              customOptions={customOptions}
-              setCustomOptions={setCustomOptions}
-              info={grnData?.meta?.info}
-              setParams={setParams}
-              handleChangeDyanmicAppBar={handleChangeDyanmicAppBar}
-              setId={setId}
-              enablepagination={true}
             />
           </RemoteWrapper>
         </Suspense>
       )}
+
+      {grnData &&
+        grnData?.data &&
+        grnData.meta &&
+        grnData?.data?.length > 0 &&
+        access &&
+        access[0]?.module_ctrl_flag &&
+        access[0]?.view_actions_json?.find(o => o.lookup_code === "LIST")
+          ?.ctrl_flag === 1 && (
+          <Suspense fallback={<div>Loading... </div>}>
+            <RemoteWrapper>
+              <RemoteDynamicTable
+                table_data={grnData?.data}
+                headCells={headCells}
+                customOptions={customOptions}
+                setCustomOptions={setCustomOptions}
+                info={grnData?.meta?.info}
+                setParams={setParams}
+                handleChangeDyanmicAppBar={handleChangeDyanmicAppBar}
+                setId={setId}
+                enablepagination={true}
+              />
+            </RemoteWrapper>
+          </Suspense>
+        )}
     </>
   );
 };
 
 export default Grn;
 
-/*			
-Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
-All rights reserved.			
-This program is free software: you can redistribute it and/or modify			
-it under the terms of the GNU General Public License as published by			
-the Free Software Foundation, either version 3 of the License, or			
-(at your option) any later version.			
-This program is distributed in the hope that it will be useful,			
-but WITHOUT ANY WARRANTY; without even the implied warranty of			
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
-GNU General Public License for more details.			
-You should have received a copy of the GNU General Public License			
-along with this program. If not, see <http://www.gnu.org/licenses/>.			
+/*
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
 */

@@ -24,12 +24,12 @@ const RemoteWrapper = ({ children }) => (
 );
 
 const CycleCountIndex = () => {
-  const { cyclecountaccess } = useSelector((state) => state.data);
+  const { cyclecountaccess } = useSelector(state => state.data);
 
   let dispatch = useDispatch();
 
   const { cyclecountdata, cyclecountdata_meta } = useSelector(
-    (state) => state.data
+    state => state.data
   );
 
   useEffect(() => {
@@ -45,7 +45,7 @@ const CycleCountIndex = () => {
 
   const [cycleCountId, setcycleCountId] = useState();
 
-  const handleDeleteProduct = (value) => {
+  const handleDeleteProduct = value => {
     dispatch(deletecycleCountbyId(cycleCountId));
     setTimeout(() => {
       dispatch(loadCycleCountData(params));
@@ -53,11 +53,11 @@ const CycleCountIndex = () => {
     setdeleteModalOpen(false);
   };
 
-  const handleDeleteModalClose = (value) => {
+  const handleDeleteModalClose = value => {
     setdeleteModalOpen(false);
   };
 
-  const handleDeleteModelOpen = (value) => {
+  const handleDeleteModelOpen = value => {
     setcycleCountId(value);
     setdeleteModalOpen(true);
   };
@@ -73,7 +73,7 @@ const CycleCountIndex = () => {
   const [selectedId, setId] = useState(0);
   const navigate = useHistory();
 
-  const handleChangeDyanmicAppBar = (value) => {
+  const handleChangeDyanmicAppBar = value => {
     setDynamicAppBar(value);
   };
   const handleModalOpen = () => {
@@ -93,7 +93,7 @@ const CycleCountIndex = () => {
           key: "desc",
         },
       ],
-      func: (value) => {
+      func: value => {
         dispatch(
           loadCycleCountData({
             limit: params.limit,
@@ -116,7 +116,7 @@ const CycleCountIndex = () => {
           key: "desc",
         },
       ],
-      func: (value) => {
+      func: value => {
         dispatch(
           loadCycleCountData({
             limit: params.limit,
@@ -139,7 +139,7 @@ const CycleCountIndex = () => {
           key: "desc",
         },
       ],
-      func: (value) => {
+      func: value => {
         dispatch(
           loadCycleCountData({
             limit: params.limit,
@@ -153,7 +153,7 @@ const CycleCountIndex = () => {
     {
       label: "Clear All",
       endIcon: null,
-      func: (value) => {
+      func: value => {
         dispatch(loadCycleCountData({ "": "" }));
       },
     },
@@ -199,7 +199,7 @@ const CycleCountIndex = () => {
     }
   };
 
-  const searchItems = (searchValue) => {
+  const searchItems = searchValue => {
     if (searchValue.length === 0) {
       dispatch(loadCycleCountData({ "": "" }, "search"));
     } else {
@@ -219,26 +219,24 @@ const CycleCountIndex = () => {
     setCustomOptions([
       {
         label: "View",
-        func: (product_id) => handleView(product_id),
+        func: product_id => handleView(product_id),
         flag: cyclecountaccess
-          ?.find((row) => row === row)
-          ?.view_actions_json?.find((o) => o.lookup_code === "READ")?.ctrl_flag,
+          ?.find(row => row === row)
+          ?.view_actions_json?.find(o => o.lookup_code === "READ")?.ctrl_flag,
       },
       {
         label: "Delete",
-        func: (product_id) => handleDeleteModelOpen(product_id),
+        func: product_id => handleDeleteModelOpen(product_id),
         flag: cyclecountaccess
-          ?.find((row) => row === row)
-          ?.view_actions_json?.find((o) => o.lookup_code === "DELETE")
-          ?.ctrl_flag,
+          ?.find(row => row === row)
+          ?.view_actions_json?.find(o => o.lookup_code === "DELETE")?.ctrl_flag,
       },
       {
         label: "Edit draft",
         //func: (product_id) => handleEditProductTemplate(product_id),
         flag: cyclecountaccess
-          ?.find((row) => row === row)
-          ?.view_actions_json?.find((o) => o.lookup_code === "UPDATE")
-          ?.ctrl_flag,
+          ?.find(row => row === row)
+          ?.view_actions_json?.find(o => o.lookup_code === "UPDATE")?.ctrl_flag,
       },
     ]);
   }, [cyclecountaccess]);
@@ -246,24 +244,24 @@ const CycleCountIndex = () => {
   const [customOptions, setCustomOptions] = useState([
     {
       label: "View",
-      func: (product_id) => handleView(product_id),
+      func: product_id => handleView(product_id),
       flag: cyclecountaccess
-        ?.find((row) => row === row)
-        ?.view_actions_json?.find((o) => o.lookup_code === "READ")?.ctrl_flag,
+        ?.find(row => row === row)
+        ?.view_actions_json?.find(o => o.lookup_code === "READ")?.ctrl_flag,
     },
     {
       label: "Delete",
-      func: (product_id) => handleDeleteModelOpen(product_id),
+      func: product_id => handleDeleteModelOpen(product_id),
       flag: cyclecountaccess
-        ?.find((row) => row === row)
-        ?.view_actions_json?.find((o) => o.lookup_code === "DELETE")?.ctrl_flag,
+        ?.find(row => row === row)
+        ?.view_actions_json?.find(o => o.lookup_code === "DELETE")?.ctrl_flag,
     },
     {
       label: "Edit draft",
       //func: (product_id) => handleEditProductTemplate(product_id),
       flag: cyclecountaccess
-        ?.find((row) => row === row)
-        ?.view_actions_json?.find((o) => o.lookup_code === "UPDATE")?.ctrl_flag,
+        ?.find(row => row === row)
+        ?.view_actions_json?.find(o => o.lookup_code === "UPDATE")?.ctrl_flag,
     },
     // {
     //   label: "Archive",
@@ -278,7 +276,7 @@ const CycleCountIndex = () => {
     //   //func: (product_id) => handleCancelModalOpen(product_id),
     // },
   ]);
-  const handleView = (id) => {
+  const handleView = id => {
     navigate.push("/cycleCount/view/" + id);
   };
   const headCells = [
@@ -324,7 +322,7 @@ const CycleCountIndex = () => {
     },
   ];
 
-  const handleButtonClick = (value) => {};
+  const handleButtonClick = value => {};
 
   return (
     <>
@@ -346,8 +344,8 @@ const CycleCountIndex = () => {
                 name: "Create",
                 handleButtonClick: handleButtonClick,
                 flag: cyclecountaccess
-                  ?.find((row) => row === row)
-                  ?.view_actions_json?.find((o) => o.lookup_code === "CREATE")
+                  ?.find(row => row === row)
+                  ?.view_actions_json?.find(o => o.lookup_code === "CREATE")
                   ?.ctrl_flag,
               },
             ]}
@@ -405,17 +403,17 @@ const CycleCountIndex = () => {
 };
 export default CycleCountIndex;
 
-/*			
-Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
-All rights reserved.			
-This program is free software: you can redistribute it and/or modify			
-it under the terms of the GNU General Public License as published by			
-the Free Software Foundation, either version 3 of the License, or			
-(at your option) any later version.			
-This program is distributed in the hope that it will be useful,			
-but WITHOUT ANY WARRANTY; without even the implied warranty of			
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
-GNU General Public License for more details.			
-You should have received a copy of the GNU General Public License			
-along with this program. If not, see <http://www.gnu.org/licenses/>.			
+/*
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
 */

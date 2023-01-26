@@ -1,4 +1,3 @@
-
 # Accounting
 
 Eunimart Platform build using React.
@@ -9,10 +8,10 @@ Eunimart Platform build using React.
 
 - Clone the “core_eunimart” repository and login to it.
 - After the login, please go to the localStorage and copy the “token” and “access_template_id”.
-    - Why token ?
-      While hitting the api,we need to pass the token to access the data.
-    - Why access_template_id ?
-      While hiting the api,you need to pass the access_template_id to check whether the user has the access to that particular module or not.
+  - Why token ?
+    While hitting the api,we need to pass the token to access the data.
+  - Why access_template_id ?
+    While hiting the api,you need to pass the access_template_id to check whether the user has the access to that particular module or not.
 
 ## After getting the token
 
@@ -33,6 +32,7 @@ Eunimart Platform build using React.
   token: "Bearer copied_token";
 
 - Open the action.js file to paste the “access_template_id”. For reference, follow the below path.
+
 ```bash
 frontend > src > redux > Action > action.js
 ```
@@ -55,6 +55,7 @@ frontend > src > redux > Action > action.js
   ```bash
   webpack.config.js > output > publicPath
   ```
+
 ## Build & Run
 
 - If you want to run in development, use the following command in the bash.
@@ -65,14 +66,17 @@ frontend > src > redux > Action > action.js
   ```bash
   $ npm run build
   ```
+
 ## Routing
 
 - After running the project, change the path to access the contacts table. For reference, follow the below path:
+
 ```bash
 http://localhost:4010/creditNote
 
 http://localhost:4010/debitNote
 ```
+
 ## Changelog
 
 Checkout the changelog below
@@ -80,4 +84,20 @@ Checkout the changelog below
 [Changelog](CHANGELOG.md)
 
 ## Author
+
 Eunimart
+
+<!--
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
+ -->

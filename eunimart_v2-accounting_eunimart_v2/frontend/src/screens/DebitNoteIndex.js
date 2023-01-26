@@ -27,9 +27,9 @@ const DebitNoteIndex = () => {
   const navigate = useHistory();
   const [deleteModalOpen, setdeleteModalOpen] = useState(false);
   const [deleteId, setdeleteId] = useState(0);
-  const access = useSelector((state) => state.tabData.access);
+  const access = useSelector(state => state.tabData.access);
 
-  const handleChangeDyanmicAppBar = (value) => {
+  const handleChangeDyanmicAppBar = value => {
     setDynamicAppBar(value);
   };
   const handleModalOpen = () => {
@@ -49,7 +49,7 @@ const DebitNoteIndex = () => {
           key: "desc",
         },
       ],
-      func: (value) => {
+      func: value => {
         dispatch(
           loadCycleCountData({
             limit: params.limit,
@@ -95,7 +95,7 @@ const DebitNoteIndex = () => {
     {
       label: "Clear All",
       endIcon: null,
-      func: (value) => {
+      func: value => {
         dispatch(loadCycleCountData({ "": "" }));
       },
     },
@@ -141,7 +141,7 @@ const DebitNoteIndex = () => {
     }
   };
 
-  const searchItems = (searchValue) => {
+  const searchItems = searchValue => {
     if (searchValue.length === 0) {
       dispatch(loadDebitNoteData({ "": "" }, "search"));
     } else {
@@ -162,26 +162,24 @@ const DebitNoteIndex = () => {
     setCustomOptions([
       {
         label: "View",
-        func: (product_id) => handleView(product_id),
+        func: product_id => handleView(product_id),
         flag: access
-          ?.find((row) => row === row)
-          ?.view_actions_json?.find((o) => o.lookup_code === "READ")?.ctrl_flag,
+          ?.find(row => row === row)
+          ?.view_actions_json?.find(o => o.lookup_code === "READ")?.ctrl_flag,
       },
       {
         label: "Edit Debit Note ",
-        func: (product_id) => handleEdit(product_id),
+        func: product_id => handleEdit(product_id),
         flag: access
-          ?.find((row) => row === row)
-          ?.view_actions_json?.find((o) => o.lookup_code === "UPDATE")
-          ?.ctrl_flag,
+          ?.find(row => row === row)
+          ?.view_actions_json?.find(o => o.lookup_code === "UPDATE")?.ctrl_flag,
       },
       {
         label: "Delete Debit Note",
-        func: (product_id) => handleDeleteModalOpen(product_id),
+        func: product_id => handleDeleteModalOpen(product_id),
         flag: access
-          ?.find((row) => row === row)
-          ?.view_actions_json?.find((o) => o.lookup_code === "DELETE")
-          ?.ctrl_flag,
+          ?.find(row => row === row)
+          ?.view_actions_json?.find(o => o.lookup_code === "DELETE")?.ctrl_flag,
       },
     ]);
   }, [access]);
@@ -189,30 +187,30 @@ const DebitNoteIndex = () => {
   const [customOptions, setCustomOptions] = useState([
     {
       label: "View",
-      func: (product_id) => handleView(product_id),
+      func: product_id => handleView(product_id),
     },
     {
       label: "Edit Debit Note ",
-      func: (product_id) => handleEdit(product_id),
+      func: product_id => handleEdit(product_id),
     },
     {
       label: "Delete Debit Note",
-      func: (product_id) => handleDeleteModalOpen(product_id),
+      func: product_id => handleDeleteModalOpen(product_id),
     },
   ]);
-  const handleView = (id) => {
+  const handleView = id => {
     navigate.push("/debitNote/view/" + id);
   };
-  const handleEdit = (id) => {
+  const handleEdit = id => {
     navigate.push("/debitNote/edit/" + id);
   };
 
-  const handleDeleteModalOpen = (value) => {
+  const handleDeleteModalOpen = value => {
     setdeleteId(value);
     setdeleteModalOpen(true);
   };
 
-  const handleDeleteModalClose = (value) => {
+  const handleDeleteModalClose = value => {
     console.log("enter close");
     setdeleteModalOpen(false);
   };
@@ -288,7 +286,7 @@ const DebitNoteIndex = () => {
   ];
   let dispatch = useDispatch();
   const { debitnotedata, debitnotedata_meta } = useSelector(
-    (state) => state.data
+    state => state.data
   );
   useEffect(() => {
     dispatch(viewAccessManagement());
@@ -299,7 +297,7 @@ const DebitNoteIndex = () => {
     dispatch(loadDebitNoteData(params));
   }, [params]);
 
-  const handleButtonClick = (value) => {
+  const handleButtonClick = value => {
     navigate.push("/debitNote/create");
   };
 
@@ -331,8 +329,8 @@ const DebitNoteIndex = () => {
               name: "Create",
               handleButtonClick: handleButtonClick,
               flag: access
-                ?.find((row) => row === row)
-                ?.view_actions_json?.find((o) => o.lookup_code === "CREATE")
+                ?.find(row => row === row)
+                ?.view_actions_json?.find(o => o.lookup_code === "CREATE")
                 ?.ctrl_flag,
             },
           ]}
@@ -359,17 +357,17 @@ const DebitNoteIndex = () => {
 };
 export default DebitNoteIndex;
 
-/*			
-Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
-All rights reserved.			
-This program is free software: you can redistribute it and/or modify			
-it under the terms of the GNU General Public License as published by			
-the Free Software Foundation, either version 3 of the License, or			
-(at your option) any later version.			
-This program is distributed in the hope that it will be useful,			
-but WITHOUT ANY WARRANTY; without even the implied warranty of			
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
-GNU General Public License for more details.			
-You should have received a copy of the GNU General Public License			
-along with this program. If not, see <http://www.gnu.org/licenses/>.			
+/*
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
 */

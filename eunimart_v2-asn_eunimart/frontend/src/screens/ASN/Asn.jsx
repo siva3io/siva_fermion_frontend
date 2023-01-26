@@ -26,10 +26,10 @@ const Asn = () => {
   const history = useNavigate();
   const [params, setParams] = useState({ limit: 10, offset: 0 });
   useEffect(() => {
-    dispatch(fetchAccessToken())
+    dispatch(fetchAccessToken());
   }, []);
-  const asnData = useSelector((state) => state.fetchAsnData?.asnData);
-  const access = useSelector((state) => state.fetchAccessToken?.accessData?.data);
+  const asnData = useSelector(state => state.fetchAsnData?.asnData);
+  const access = useSelector(state => state.fetchAccessToken?.accessData?.data);
   const asnData1 = asnData.data;
   const [selectedId, setId] = useState(0);
   const [dynamicAppBar, setDynamicAppBar] = useState([]);
@@ -48,7 +48,7 @@ const Asn = () => {
           key: "desc",
         },
       ],
-      func: (value) => {
+      func: value => {
         dispatch(fetchAsnData("created_date", value, "sorting"));
       },
     },
@@ -64,10 +64,8 @@ const Asn = () => {
           key: "desc",
         },
       ],
-      func: (value) => {
-        dispatch(
-          fetchAsnData("ASN_Number", value, "sorting")
-        );
+      func: value => {
+        dispatch(fetchAsnData("ASN_Number", value, "sorting"));
       },
     },
     {
@@ -82,7 +80,7 @@ const Asn = () => {
           key: "desc",
         },
       ],
-      func: (value) => {
+      func: value => {
         dispatch(fetchAsnData("reference_number", value, "sorting"));
       },
     },
@@ -90,85 +88,71 @@ const Asn = () => {
     {
       label: "Clear All",
       endIcon: null,
-      func: (value) => {
+      func: value => {
         dispatch(fetchSearchProduct("", "", "sorting"));
       },
     },
   ];
 
-  const searchOptions = [
-    { label: "ASN Number : ", value: "name" },
-  ]
+  const searchOptions = [{ label: "ASN Number : ", value: "name" }];
 
-  const [filterOptions, setFilterOptions] = useState(
-    [
-      {
-        label: "Filter by Date",
-        collapseState: false,
-        value: "name",
-      },
-      {
-        label: "Filter by Linked PO",
-        collapseState: false,
-        value: "uom_class_name",
-      },
-      {
-        label: "Filter by Expiry Date",
-        collapseState: false,
-        value: "base_uom",
-      },
-      {
-        label: "Filter by No. of items",
-        collapseState: false,
-        value: "code",
-      },
-      {
-        label: "Filter by Status",
-        collapseState: false,
-        value: "code",
-      },
-      {
-        label: "Filter by GRN Status",
-        collapseState: false,
-        value: "code",
-      },
-      {
-        label: "Filter by Shipping Mode",
-        collapseState: false,
-        value: "code",
-      },
-      {
-        label: "Filter by Shipping Date",
-        collapseState: false,
-        value: "code",
-      },
-
-    ]
-
-  );
+  const [filterOptions, setFilterOptions] = useState([
+    {
+      label: "Filter by Date",
+      collapseState: false,
+      value: "name",
+    },
+    {
+      label: "Filter by Linked PO",
+      collapseState: false,
+      value: "uom_class_name",
+    },
+    {
+      label: "Filter by Expiry Date",
+      collapseState: false,
+      value: "base_uom",
+    },
+    {
+      label: "Filter by No. of items",
+      collapseState: false,
+      value: "code",
+    },
+    {
+      label: "Filter by Status",
+      collapseState: false,
+      value: "code",
+    },
+    {
+      label: "Filter by GRN Status",
+      collapseState: false,
+      value: "code",
+    },
+    {
+      label: "Filter by Shipping Mode",
+      collapseState: false,
+      value: "code",
+    },
+    {
+      label: "Filter by Shipping Date",
+      collapseState: false,
+      value: "code",
+    },
+  ]);
 
   const filterSearchItems = (searchValue, searchTyp) => {
     if (searchValue.length === 0) {
       dispatch(fetchSearchProduct({ "": "" }, "filters"));
     } else {
-      dispatch(
-        fetchSearchProduct({ [searchTyp]: searchValue }, "filters")
-      );
+      dispatch(fetchSearchProduct({ [searchTyp]: searchValue }, "filters"));
     }
   };
-  const searchItems = (searchValue) => {
+  const searchItems = searchValue => {
     if (searchValue.length === 0) {
-      dispatch(fetchAsnData("", "", "filters")
-      );
+      dispatch(fetchAsnData("", "", "filters"));
     } else {
-      dispatch(
-        fetchAsnData("search", searchValue, "filters")
-      );
+      dispatch(fetchAsnData("search", searchValue, "filters"));
     }
   };
-
-
-
 
   const headCells = [
     {
@@ -217,10 +201,10 @@ const Asn = () => {
     },
   ];
 
-  //sends no. of selected checkboxes 
-  const handleChangeDyanmicAppBar = (value) => {
+  //sends no. of selected checkboxes
+  const handleChangeDyanmicAppBar = value => {
     setDynamicAppBar(value);
-    console.log(value,dynamicAppBar,"DynamicAppBar")
+    console.log(value, dynamicAppBar, "DynamicAppBar");
   };
 
   //Refreshes list data on page change
@@ -229,55 +213,60 @@ const Asn = () => {
   }, [params]);
 
   //Navigates to View page
-  const handleView = (id) => {
+  const handleView = id => {
     history(`/asn/viewAsn/${id}`);
   };
 
-  const handleButtonClick = (value) => {
+  const handleButtonClick = value => {
     history("/asn/create");
-  }
-  const handleEditsn = (id) => {
+  };
+  const handleEditsn = id => {
     history(`/asn/edit/${id}`);
   };
-  useEffect(()=>{
-    setCustomOptions(
-      [
-        {
-          label: "View",
-          func: (product_id) => handleView(product_id),
-          flag:access?.find(row=>row === row)?.view_actions_json?.find(o=>o.lookup_code === "READ" )?.ctrl_flag
-        },
-        {
-          label: "Edit",
-          func: (product_id) => handleEditsn(product_id),
-          flag:access?.find(row=>row === row)?.view_actions_json?.find(o=>o.lookup_code === "UPDATE" )?.ctrl_flag
-        },
-        {
-          label: "Delete",
-          func: (product_id) => handleDeleteAsn(product_id),
-          flag:1
-        },
-    ]
-    )
-  },[access])
-
+  useEffect(() => {
+    setCustomOptions([
+      {
+        label: "View",
+        func: product_id => handleView(product_id),
+        flag: access
+          ?.find(row => row === row)
+          ?.view_actions_json?.find(o => o.lookup_code === "READ")?.ctrl_flag,
+      },
+      {
+        label: "Edit",
+        func: product_id => handleEditsn(product_id),
+        flag: access
+          ?.find(row => row === row)
+          ?.view_actions_json?.find(o => o.lookup_code === "UPDATE")?.ctrl_flag,
+      },
+      {
+        label: "Delete",
+        func: product_id => handleDeleteAsn(product_id),
+        flag: 1,
+      },
+    ]);
+  }, [access]);
 
   //Action buttons
   const [customOptions, setCustomOptions] = useState([
     {
       label: "View",
-      func: (product_id) => handleView(product_id),
-      flag:access?.find(row=>row === row)?.view_actions_json?.find(o=>o.lookup_code === "READ" )?.ctrl_flag
+      func: product_id => handleView(product_id),
+      flag: access
+        ?.find(row => row === row)
+        ?.view_actions_json?.find(o => o.lookup_code === "READ")?.ctrl_flag,
     },
     {
       label: "Edit",
-      func: (product_id) => handleEditsn(product_id),
-      flag:access?.find(row=>row === row)?.view_actions_json?.find(o=>o.lookup_code === "UPDATE" )?.ctrl_flag
+      func: product_id => handleEditsn(product_id),
+      flag: access
+        ?.find(row => row === row)
+        ?.view_actions_json?.find(o => o.lookup_code === "UPDATE")?.ctrl_flag,
     },
     {
       label: "Delete",
-      func: (product_id) => handleDeleteAsn(product_id),
-      flag:1
+      func: product_id => handleDeleteAsn(product_id),
+      flag: 1,
     },
     // {
     //   label: "Clone",
@@ -309,7 +298,6 @@ const Asn = () => {
     // },
   ]);
 
-
   const RemoteModalViewV2 = React.lazy(() => import("Remote/ModalViewV2"));
 
   const [asnId, setAsnId] = useState(0);
@@ -322,23 +310,22 @@ const Asn = () => {
     </div>
   );
 
-  const handleDeleteAsn = (id) => {
-    setAsnId(id)
-    setdeleteModalOpen(true)
-  }
+  const handleDeleteAsn = id => {
+    setAsnId(id);
+    setdeleteModalOpen(true);
+  };
 
-  const handleDeleteProduct = (value) => {
+  const handleDeleteProduct = value => {
     dispatch(deleteAsn(asnId));
     setTimeout(() => {
       dispatch(fetchAsnData(params, "s2", "pagination"));
     }, 300);
     setdeleteModalOpen(false);
-  }
+  };
 
-  const handleDeleteModalClose = (value) => {
-    setdeleteModalOpen(false)
-  }
-
+  const handleDeleteModalClose = value => {
+    setdeleteModalOpen(false);
+  };
 
   return (
     <>
@@ -356,11 +343,21 @@ const Asn = () => {
               searchType={searchType}
               setSearchType={setSearchType}
               // handleButtonClick={handleButtonClick}
-              buttons={[{name:"Create",handleButtonClick:handleButtonClick,flag:access?.find(row=>row === row)?.view_actions_json?.find(o=>o.lookup_code === "CREATE" )?.ctrl_flag}]}
+              buttons={[
+                {
+                  name: "Create",
+                  handleButtonClick: handleButtonClick,
+                  flag: access
+                    ?.find(row => row === row)
+                    ?.view_actions_json?.find(o => o.lookup_code === "CREATE")
+                    ?.ctrl_flag,
+                },
+              ]}
             />
-          </RemoteWrapper></Suspense>
+          </RemoteWrapper>
+        </Suspense>
         <>
-          {deleteModalOpen &&  (
+          {deleteModalOpen && (
             <Suspense fallback={<div>Loading... </div>}>
               <RemoteWrapper>
                 <RemoteModalViewV2
@@ -371,32 +368,40 @@ const Asn = () => {
                     "Selected ASN will be deleted permanentely. Are you sure you want to do this?"
                   }
                   secondary={""}
-                  disclaimer={"Note: This will get deleted permanantly from the list"}
+                  disclaimer={
+                    "Note: This will get deleted permanantly from the list"
+                  }
                   actionBtns={["Cancel", "Delete"]}
-                />
-              </RemoteWrapper></Suspense>
-          )}
-          
-
-          {asnData && asnData?.data && asnData.meta && access && access[0]?.module_ctrl_flag && access?.find(row=>row === row)?.view_actions_json?.find(o=>o.lookup_code === "LIST" )?.ctrl_flag ===1 &&(
-            <Suspense fallback={<div>Loading... </div>}>
-              <RemoteWrapper>
-                <RemoteDynamicTable
-                  table_data={asnData?.data}
-                  headCells={headCells}
-                  customOptions={customOptions}
-                  setCustomOptions={setCustomOptions}
-                  info={asnData?.meta?.info}
-                  setParams={setParams}
-                  handleChangeDyanmicAppBar={handleChangeDyanmicAppBar}
-                  setId={setId}
-                  enablepagination={true}
-                 
-              
                 />
               </RemoteWrapper>
             </Suspense>
           )}
+
+          {asnData &&
+            asnData?.data &&
+            asnData.meta &&
+            access &&
+            access[0]?.module_ctrl_flag &&
+            access
+              ?.find(row => row === row)
+              ?.view_actions_json?.find(o => o.lookup_code === "LIST")
+              ?.ctrl_flag === 1 && (
+              <Suspense fallback={<div>Loading... </div>}>
+                <RemoteWrapper>
+                  <RemoteDynamicTable
+                    table_data={asnData?.data}
+                    headCells={headCells}
+                    customOptions={customOptions}
+                    setCustomOptions={setCustomOptions}
+                    info={asnData?.meta?.info}
+                    setParams={setParams}
+                    handleChangeDyanmicAppBar={handleChangeDyanmicAppBar}
+                    setId={setId}
+                    enablepagination={true}
+                  />
+                </RemoteWrapper>
+              </Suspense>
+            )}
         </>
       </Box>
     </>
@@ -405,17 +410,17 @@ const Asn = () => {
 
 export default Asn;
 
-/*			
-Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
-All rights reserved.			
-This program is free software: you can redistribute it and/or modify			
-it under the terms of the GNU General Public License as published by			
-the Free Software Foundation, either version 3 of the License, or			
-(at your option) any later version.			
-This program is distributed in the hope that it will be useful,			
-but WITHOUT ANY WARRANTY; without even the implied warranty of			
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
-GNU General Public License for more details.			
-You should have received a copy of the GNU General Public License			
-along with this program. If not, see <http://www.gnu.org/licenses/>.			
+/*
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
 */

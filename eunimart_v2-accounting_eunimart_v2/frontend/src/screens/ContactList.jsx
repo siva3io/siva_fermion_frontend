@@ -83,14 +83,14 @@ function EnhancedTableHead(props) {
     rowCount,
     onRequestSort,
   } = props;
-  const createSortHandler = (property) => (event) => {
+  const createSortHandler = property => event => {
     onRequestSort(event, property);
   };
 
   return (
     <TableHead>
       <TableRow>
-        {headCells.map((headCell) => (
+        {headCells.map(headCell => (
           <TableCell
             key={headCell.id}
             align={"center"}
@@ -129,7 +129,7 @@ EnhancedTableHead.propTypes = {
   rowCount: PropTypes.number.isRequired,
 };
 
-const EnhancedTableToolbar = (props) => {
+const EnhancedTableToolbar = props => {
   const { numSelected } = props;
 
   return (
@@ -138,7 +138,7 @@ const EnhancedTableToolbar = (props) => {
         pl: { sm: 2 },
         pr: { xs: 1, sm: 1 },
         ...(numSelected > 0 && {
-          bgcolor: (theme) =>
+          bgcolor: theme =>
             alpha(
               theme.palette.primary.main,
               theme.palette.action.activatedOpacity
@@ -181,7 +181,7 @@ export default function ContactList({
   const [productId, setProductId] = useState(0);
   const [allContactData, setAllContactData] = useState();
 
-  const contactsData = useSelector((state) => state.allContacts?.contacts);
+  const contactsData = useSelector(state => state.allContacts?.contacts);
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
@@ -189,9 +189,9 @@ export default function ContactList({
     setOrderBy(property);
   };
 
-  const handleSelectAllClick = (event) => {
+  const handleSelectAllClick = event => {
     if (event.target.checked) {
-      const newSelecteds = contactsData.map((n) => n.id);
+      const newSelecteds = contactsData.map(n => n.id);
 
       setSelected(newSelecteds);
       return;
@@ -239,17 +239,17 @@ export default function ContactList({
     });
   };
 
-  const handleChangeDense = (event) => {
+  const handleChangeDense = event => {
     setDense(event.target.checked);
   };
 
-  const isSelected = (name) => selected.indexOf(name) !== -1;
+  const isSelected = name => selected.indexOf(name) !== -1;
 
   // Avoid a layout jump when reaching the last page with empty rows.
   // const emptyRows =
   //   page > 0 ? Math.max(0, (1 + page) * rowsPerPage - contactsData.length) : 0;
 
-  const datePipe = (dateString) => {
+  const datePipe = dateString => {
     let date = new Date(dateString);
     return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
   };
@@ -261,7 +261,7 @@ export default function ContactList({
     setAllContactData(contactsData);
   }, [contactsData]);
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     setSelectedValue(event.target.value);
   };
   return (
@@ -373,17 +373,17 @@ export default function ContactList({
   );
 }
 
-/*			
-Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
-All rights reserved.			
-This program is free software: you can redistribute it and/or modify			
-it under the terms of the GNU General Public License as published by			
-the Free Software Foundation, either version 3 of the License, or			
-(at your option) any later version.			
-This program is distributed in the hope that it will be useful,			
-but WITHOUT ANY WARRANTY; without even the implied warranty of			
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
-GNU General Public License for more details.			
-You should have received a copy of the GNU General Public License			
-along with this program. If not, see <http://www.gnu.org/licenses/>.			
+/*
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
 */

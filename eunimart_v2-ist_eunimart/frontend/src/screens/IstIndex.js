@@ -34,7 +34,7 @@ const IstIndex = () => {
   const [searchType, setSearchType] = useState("uom_name");
   const [deleteModalOpen, setdeleteModalOpen] = useState(false);
 
-  const { istdata, istdata_meta, access } = useSelector((state) => state.data);
+  const { istdata, istdata_meta, access } = useSelector(state => state.data);
   useEffect(() => {
     dispatch(viewAccessManagement());
     dispatch(loadIstData(params));
@@ -57,7 +57,7 @@ const IstIndex = () => {
           key: "desc",
         },
       ],
-      func: (value) => {
+      func: value => {
         dispatch(loadIstData("created_date", value, "sorting"));
       },
     },
@@ -73,7 +73,7 @@ const IstIndex = () => {
           key: "desc",
         },
       ],
-      func: (value) => {
+      func: value => {
         dispatch(loadIstData("ASN_Number", value, "sorting"));
       },
     },
@@ -89,7 +89,7 @@ const IstIndex = () => {
           key: "desc",
         },
       ],
-      func: (value) => {
+      func: value => {
         dispatch(loadIstData("reference_number", value, "sorting"));
       },
     },
@@ -97,7 +97,7 @@ const IstIndex = () => {
     {
       label: "Clear All",
       endIcon: null,
-      func: (value) => {
+      func: value => {
         dispatch(fetchSearchProduct("", "", "sorting"));
       },
     },
@@ -155,7 +155,7 @@ const IstIndex = () => {
       dispatch(fetchSearchProduct({ [searchTyp]: searchValue }, "filters"));
     }
   };
-  const searchItems = (searchValue) => {
+  const searchItems = searchValue => {
     if (searchValue.length === 0) {
       dispatch(loadIstData("", "", "filters"));
     } else {
@@ -243,7 +243,7 @@ const IstIndex = () => {
   ];
 
   //sends no. of selected checkboxes
-  const handleChangeDyanmicAppBar = (value) => {
+  const handleChangeDyanmicAppBar = value => {
     setDynamicAppBar(value);
   };
 
@@ -257,20 +257,20 @@ const IstIndex = () => {
   //   history.push(`/asn/viewAsn/${id}`);
   // };
 
-  const handleButtonClick = (value) => {
+  const handleButtonClick = value => {
     history.push("/ist/Create");
   };
 
-  const handleViewProduct = (id) => {
+  const handleViewProduct = id => {
     history.push(`/ist/View/${id}`);
   };
 
-  const handleEditProductTemplate = (id) => {
+  const handleEditProductTemplate = id => {
     console.log("handleEditProductTemplate", id);
     history.push("/ist/edit/" + id);
   };
 
-  const handleDeleteProduct = (value) => {
+  const handleDeleteProduct = value => {
     console.log("enter");
     dispatch(deleteIst(istId));
     setTimeout(() => {
@@ -279,12 +279,12 @@ const IstIndex = () => {
     setdeleteModalOpen(false);
   };
 
-  const handleDeleteModalClose = (value) => {
+  const handleDeleteModalClose = value => {
     console.log("enter close");
     setdeleteModalOpen(false);
   };
 
-  const handleDeleteModalOpen = (value) => {
+  const handleDeleteModalOpen = value => {
     setistId(value);
     setdeleteModalOpen(true);
   };
@@ -294,26 +294,24 @@ const IstIndex = () => {
     setCustomOptions([
       {
         label: "View ",
-        func: (product_id) => handleViewProduct(product_id),
+        func: product_id => handleViewProduct(product_id),
         flag: access
-          ?.find((row) => row === row)
-          ?.view_actions_json?.find((o) => o.lookup_code === "READ")?.ctrl_flag,
+          ?.find(row => row === row)
+          ?.view_actions_json?.find(o => o.lookup_code === "READ")?.ctrl_flag,
       },
       {
         label: "Edit",
-        func: (product_id) => handleEditProductTemplate(product_id),
+        func: product_id => handleEditProductTemplate(product_id),
         flag: access
-          ?.find((row) => row === row)
-          ?.view_actions_json?.find((o) => o.lookup_code === "UPDATE")
-          ?.ctrl_flag,
+          ?.find(row => row === row)
+          ?.view_actions_json?.find(o => o.lookup_code === "UPDATE")?.ctrl_flag,
       },
       {
         label: "Delete",
-        func: (product_id) => handleDeleteModalOpen(product_id),
+        func: product_id => handleDeleteModalOpen(product_id),
         flag: access
-          ?.find((row) => row === row)
-          ?.view_actions_json?.find((o) => o.lookup_code === "DELETE")
-          ?.ctrl_flag,
+          ?.find(row => row === row)
+          ?.view_actions_json?.find(o => o.lookup_code === "DELETE")?.ctrl_flag,
       },
     ]);
   }, [access]);
@@ -322,19 +320,19 @@ const IstIndex = () => {
   const [customOptions, setCustomOptions] = useState([
     {
       label: "View",
-      func: (product_id) => handleViewProduct(product_id),
+      func: product_id => handleViewProduct(product_id),
       flag: access
-        ?.find((row) => row === row)
-        ?.view_actions_json?.find((o) => o.lookup_code === "READ")?.ctrl_flag,
+        ?.find(row => row === row)
+        ?.view_actions_json?.find(o => o.lookup_code === "READ")?.ctrl_flag,
     },
     {
       label: "Edit",
-      func: (product_id) => handleEditProductTemplate(product_id),
+      func: product_id => handleEditProductTemplate(product_id),
       flag: 1,
     },
     {
       label: "Delete",
-      func: (product_id) => handleDeleteModalOpen(product_id),
+      func: product_id => handleDeleteModalOpen(product_id),
       flag: 1,
     },
     // {
@@ -367,8 +365,8 @@ const IstIndex = () => {
                   name: "Create",
                   handleButtonClick: handleButtonClick,
                   flag: access
-                    ?.find((row) => row === row)
-                    ?.view_actions_json?.find((o) => o.lookup_code === "CREATE")
+                    ?.find(row => row === row)
+                    ?.view_actions_json?.find(o => o.lookup_code === "CREATE")
                     ?.ctrl_flag,
                 },
               ]}
@@ -418,17 +416,17 @@ const IstIndex = () => {
 
 export default IstIndex;
 
-/*			
-Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
-All rights reserved.			
-This program is free software: you can redistribute it and/or modify			
-it under the terms of the GNU General Public License as published by			
-the Free Software Foundation, either version 3 of the License, or			
-(at your option) any later version.			
-This program is distributed in the hope that it will be useful,			
-but WITHOUT ANY WARRANTY; without even the implied warranty of			
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
-GNU General Public License for more details.			
-You should have received a copy of the GNU General Public License			
-along with this program. If not, see <http://www.gnu.org/licenses/>.			
+/*
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
 */

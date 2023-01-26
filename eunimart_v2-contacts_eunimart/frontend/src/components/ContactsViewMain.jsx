@@ -19,13 +19,13 @@ import React, { useEffect, useRef, useState } from "react";
 import "./ContactsViewMain.css";
 import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import { useTheme } from "@mui/material/styles";
 import useStyles from "./styles";
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 import { TabContext } from "@mui/lab";
 import { Card } from "@mui/material";
 import { lazy, Suspense } from "react";
@@ -34,7 +34,7 @@ import { getcontactsRelatedById } from "../redux/Action/relatedContactAction";
 import ErrorBoundary from "../ErrorBoundary";
 import RelatedContact from "./RelatedContact";
 import ContactsDetail from "./ContactsDetail";
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 //  import LocationCard from "./LocationCard";
 const RemoteDynamicTable = React.lazy(() => import("Remote/DynamicTable"));
@@ -63,7 +63,7 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box >
+        <Box>
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -80,7 +80,7 @@ TabPanel.propTypes = {
 function a11yProps(index) {
   return {
     id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
+    "aria-controls": `simple-tabpanel-${index}`,
   };
 }
 
@@ -92,7 +92,7 @@ const ContactsViewMain = () => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  const handleClick = (event) => {
+  const handleClick = event => {
     setAnchorEl(event.currentTarget);
   };
   const dispatch = useDispatch();
@@ -100,7 +100,7 @@ const ContactsViewMain = () => {
   // const { id } = useParams();
   const products = useRef(null);
   const askSessionIdHandler = (name, ref) => {
-    let details = { type: name, data: localStorage.getItem('token') };
+    let details = { type: name, data: localStorage.getItem("token") };
     postCrossDomainMessage(details, ref);
   };
   const postCrossDomainMessage = (msg, ref) => {
@@ -129,22 +129,20 @@ const ContactsViewMain = () => {
     // dispatch(getcontactsRelatedById(id));
   }, [id]);
   // useEffect(() => dispatch(getcontactsRelatedById(id)), [dispatch]);
-  const contactData = useSelector((state) => state.viewData?.contactsViewData);
-  useEffect(() => {
-
-  }, [contactData]);
-  const relatedContactData = useSelector((state) => state.relatedContact.contact);
-  const datePipe = (dateString) => {
+  const contactData = useSelector(state => state.viewData?.contactsViewData);
+  useEffect(() => {}, [contactData]);
+  const relatedContactData = useSelector(state => state.relatedContact.contact);
+  const datePipe = dateString => {
     let date = new Date(dateString);
     return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
   };
   const [toggleState, setToggleState] = useState(0);
-  const toggleTab = (index) => {
+  const toggleTab = index => {
     setToggleState(index);
   };
   const [dynamicAppBar, setDynamicAppBar] = useState([]); //state to manage dynamic appbar
 
-  const handleChangeDyanmicAppBar = (value) => {
+  const handleChangeDyanmicAppBar = value => {
     //setDynamicAppBar(value);
   };
   const [params, setParams] = useState({ limit: 10, offset: 1 });
@@ -156,49 +154,43 @@ const ContactsViewMain = () => {
 
       text: contactData?.contact_type?.display_name
         ? contactData?.contact_type?.display_name
-        : "0000000"
+        : "0000000",
     },
     {
       label: "Last Name",
       type: "input",
       text: contactData?.parent?.last_name
         ? contactData?.parent?.last_name
-        : "--"
+        : "--",
     },
     {
       label: "Company Name",
       type: "input",
-      text: contactData?.company_name
-        ? contactData?.company_name
-        : "--"
+      text: contactData?.company_name ? contactData?.company_name : "--",
     },
     {
       label: "Relationship",
       type: "input",
       text: contactData?.receipt_routing?.display_name
         ? contactData?.receipt_routing?.display_name
-        : "--"
+        : "--",
     },
     {
       label: "Email",
       type: "input",
-      text: contactData?.primary_email
-        ? contactData?.primary_email
-        : "--"
+      text: contactData?.primary_email ? contactData?.primary_email : "--",
     },
     {
       label: "Contact Number",
       type: "input",
-      text: contactData?.primary_phone
-        ? contactData?.primary_phone
-        : "--"
+      text: contactData?.primary_phone ? contactData?.primary_phone : "--",
     },
     {
       label: "Parent Contact",
       type: "input",
       text: contactData?.parent?.primary_phone
         ? contactData?.parent?.primary_phone
-        : "--"
+        : "--",
     },
   ]);
   const [staticFieldsTwo, setStaticFieldsTwo] = useState([
@@ -207,35 +199,35 @@ const ContactsViewMain = () => {
       type: "input",
       text: contactData?.billing_details?.account_name
         ? contactData?.billing_details?.account_name
-        : "--"
+        : "--",
     },
     {
       label: "Account Number",
       type: "input",
       text: contactData?.billing_details?.account_number
         ? contactData?.billing_details?.account_number
-        : "--"
+        : "--",
     },
     {
       label: "Bank",
       type: "input",
       text: contactData?.billing_details?.bank_name
         ? contactData?.billing_details?.bank_name
-        : "--"
+        : "--",
     },
     {
       label: "IFSC Code",
       type: "input",
       text: contactData?.billing_details?.ifsc_code
         ? contactData?.billing_details?.ifsc_code
-        : "--"
+        : "--",
     },
     {
       label: "UPI",
       type: "input",
       text: contactData?.billing_details?.upi
         ? contactData?.billing_details?.upi
-        : "--"
+        : "--",
     },
   ]);
   const [staticFieldsThree, setStaticFieldsThree] = useState([
@@ -244,77 +236,77 @@ const ContactsViewMain = () => {
       type: "input",
       text: contactData?.additional_information?.date_of_birth
         ? datePipe(contactData?.additional_information?.date_of_birth)
-        : "--"
+        : "--",
     },
     {
       label: "Emergency Contact",
       type: "input",
       text: contactData?.additional_information?.additional_contact
         ? contactData?.additional_information?.additional_contact
-        : "--"
+        : "--",
     },
     {
       label: "Work Information",
       type: "input",
       text: contactData?.billing_details?.bank_name
         ? contactData?.billing_details?.bank_name
-        : "--"
+        : "--",
     },
     {
       label: "Notes",
       type: "input",
       text: contactData?.billing_details?.ifsc_code
         ? contactData?.billing_details?.ifsc_code
-        : "--"
+        : "--",
     },
     {
       label: "Additional Information",
       type: "input",
       text: contactData?.billing_details?.upi
         ? contactData?.billing_details?.upi
-        : "--"
+        : "--",
     },
     {
       label: "Work Phone",
       type: "input",
       text: contactData?.additional_information?.emergency_contact
         ? contactData?.additional_information?.emergency_contact
-        : "--"
+        : "--",
     },
     {
       label: "Custom Field",
       type: "input",
       text: contactData?.billing_details?.upi
         ? contactData?.billing_details?.upi
-        : "--"
+        : "--",
     },
     {
       label: "Additional Contact",
       type: "input",
       text: contactData?.billing_details?.upi
         ? contactData?.billing_details?.upi
-        : "--"
+        : "--",
     },
     {
       label: "Additional Information",
       type: "input",
       text: contactData?.billing_details?.upi
         ? contactData?.billing_details?.upi
-        : "--"
+        : "--",
     },
     {
       label: "GST Doc",
       type: "input",
       text: contactData?.parent?.address_details?.gst_in_number
         ? contactData?.parent?.address_details?.gst_in_number
-        : "--"
+        : "--",
     },
     {
       label: "GST ID",
       type: "input",
       text: contactData?.address_details?.gst_in_number
         ? contactData?.address_details?.gst_in_number
-        : "--"
+        : "--",
     },
   ]);
 
@@ -474,7 +466,11 @@ const ContactsViewMain = () => {
               <img
                 className={`eucommoncardLeftImage`}
                 src={
-                  contactData && contactData.image_options && contactData.image_options.link != "" ? "data:image/png;base64," + contactData.image_options.data : "https://www.iuminnesota.com/wp-content/uploads/2020/03/dummy-avatar-300x300-1.jpg"
+                  contactData &&
+                  contactData.image_options &&
+                  contactData.image_options.link != ""
+                    ? "data:image/png;base64," + contactData.image_options.data
+                    : "https://www.iuminnesota.com/wp-content/uploads/2020/03/dummy-avatar-300x300-1.jpg"
                   // contactData?.image_options
                   //   ? "data:image/png;base64," +
                   //   contactData?.image_options?.data
@@ -490,7 +486,7 @@ const ContactsViewMain = () => {
               >
                 {contactData?.first_name
                   ? contactData?.first_name.charAt(0).toUpperCase() +
-                  contactData?.first_name.slice(1)
+                    contactData?.first_name.slice(1)
                   : contactData?.company_name}
               </Typography>
 
@@ -575,15 +571,11 @@ const ContactsViewMain = () => {
       </Paper>
 
       <TabPanel value={value} index={0} contactData={contactData}>
-
-
-
         <ContactsDetail contactData={contactData} />
         {/* <ContactDetail contactData={contactData} /> */}
       </TabPanel>
       <TabPanel value={value} index={1}>
         <RelatedContact contactData={contactData} />
-
       </TabPanel>
       <TabPanel value={value} index={2}>
         {/* <PaymentHistory /> */}
@@ -639,24 +631,17 @@ const ContactsViewMain = () => {
 
 export default ContactsViewMain;
 
-
-
-
-
-
-
-
 /*
-Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
-All rights reserved.			
-This program is free software: you can redistribute it and/or modify			
-it under the terms of the GNU General Public License as published by			
-the Free Software Foundation, either version 3 of the License, or			
-(at your option) any later version.			
-This program is distributed in the hope that it will be useful,			
-but WITHOUT ANY WARRANTY; without even the implied warranty of			
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
-GNU General Public License for more details.			
-You should have received a copy of the GNU General Public License			
-along with this program. If not, see <http://www.gnu.org/licenses/>.			
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
 */

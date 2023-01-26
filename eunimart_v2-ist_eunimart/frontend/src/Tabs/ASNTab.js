@@ -27,7 +27,7 @@ const ASNTab = ({ id }) => {
   }, [params]);
 
   // const { ASNData, ASNData_meta } = useSelector((state) => state.fetchAsn);
-  const { asnData, asnData_meta } = useSelector((state) => state?.data);
+  const { asnData, asnData_meta } = useSelector(state => state?.data);
   // var ID = 0;
   // while (ID !== ASNViewData?.id) {
   //   ID++;
@@ -76,12 +76,12 @@ const ASNTab = ({ id }) => {
   const [customOptions, setCustomOptions] = useState([
     {
       label: "View",
-      func: (product_id) => handleView(product_id),
+      func: product_id => handleView(product_id),
     },
   ]);
 
   //Navigates to View page
-  const handleView = (id) => {
+  const handleView = id => {
     history.push(`/asn/viewAsn/${id}`);
   };
 
@@ -130,17 +130,17 @@ const ASNTab = ({ id }) => {
 
 export default ASNTab;
 
-/*			
-Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
-All rights reserved.			
-This program is free software: you can redistribute it and/or modify			
-it under the terms of the GNU General Public License as published by			
-the Free Software Foundation, either version 3 of the License, or			
-(at your option) any later version.			
-This program is distributed in the hope that it will be useful,			
-but WITHOUT ANY WARRANTY; without even the implied warranty of			
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
-GNU General Public License for more details.			
-You should have received a copy of the GNU General Public License			
-along with this program. If not, see <http://www.gnu.org/licenses/>.			
+/*
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
 */

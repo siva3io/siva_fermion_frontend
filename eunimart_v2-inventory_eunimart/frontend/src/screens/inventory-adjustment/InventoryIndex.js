@@ -12,7 +12,7 @@ import ErrorBoundary from "../../ErrorBoundary";
 import { viewInvAdjAccessManagement } from "../../redux/actions/action";
 
 const InventoryIndex = () => {
-  const { invadjaccess } = useSelector((state) => state.data);
+  const { invadjaccess } = useSelector(state => state.data);
 
   let dispatch = useDispatch();
   const history = useHistory();
@@ -39,7 +39,7 @@ const InventoryIndex = () => {
 
   const [selectedId, setId] = useState(0);
 
-  const handleChangeDyanmicAppBar = (value) => {
+  const handleChangeDyanmicAppBar = value => {
     //setDynamicAppBar(value);
   };
 
@@ -51,7 +51,7 @@ const InventoryIndex = () => {
     });
   };
 
-  const handleChangeRowsPerPage = (event) => {
+  const handleChangeRowsPerPage = event => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
     setParams({
@@ -119,19 +119,17 @@ const InventoryIndex = () => {
     setCustomOptions([
       {
         label: "Edit",
-        func: (product_id) => handleEditProduct(product_id),
+        func: product_id => handleEditProduct(product_id),
         flag: invadjaccess
-          ?.find((row) => row === row)
-          ?.view_actions_json?.find((o) => o.lookup_code === "UPDATE")
-          ?.ctrl_flag,
+          ?.find(row => row === row)
+          ?.view_actions_json?.find(o => o.lookup_code === "UPDATE")?.ctrl_flag,
       },
       {
         label: "Delete",
-        func: (product_id) => handleDeleteInventory(product_id),
+        func: product_id => handleDeleteInventory(product_id),
         flag: invadjaccess
-          ?.find((row) => row === row)
-          ?.view_actions_json?.find((o) => o.lookup_code === "DELETE")
-          ?.ctrl_flag,
+          ?.find(row => row === row)
+          ?.view_actions_json?.find(o => o.lookup_code === "DELETE")?.ctrl_flag,
       },
     ]);
   }, [invadjaccess]);
@@ -139,17 +137,17 @@ const InventoryIndex = () => {
   const [customOptions, setCustomOptions] = useState([
     {
       label: "Edit",
-      func: (product_id) => handleEditProduct(product_id),
+      func: product_id => handleEditProduct(product_id),
       flag: invadjaccess
-        ?.find((row) => row === row)
-        ?.view_actions_json?.find((o) => o.lookup_code === "UPDATE")?.ctrl_flag,
+        ?.find(row => row === row)
+        ?.view_actions_json?.find(o => o.lookup_code === "UPDATE")?.ctrl_flag,
     },
     {
       label: "Delete",
-      func: (product_id) => handleDeleteInventory(product_id),
+      func: product_id => handleDeleteInventory(product_id),
       flag: invadjaccess
-        ?.find((row) => row === row)
-        ?.view_actions_json?.find((o) => o.lookup_code === "DELETE")?.ctrl_flag,
+        ?.find(row => row === row)
+        ?.view_actions_json?.find(o => o.lookup_code === "DELETE")?.ctrl_flag,
     },
     // {
     //   label: "Clone",
@@ -161,16 +159,16 @@ const InventoryIndex = () => {
     // },
   ]);
 
-  const handleEditProduct = (id) => {
+  const handleEditProduct = id => {
     history.push("/inventoryAdjustment/edit/" + id);
   };
 
-  const handleDeleteInventory = (id) => {
+  const handleDeleteInventory = id => {
     setinventoryId(id);
     setdeleteModalOpen(true);
   };
 
-  const handleDeleteProduct = (value) => {
+  const handleDeleteProduct = value => {
     dispatch(deleteInventory(inventoryId));
     setTimeout(() => {
       dispatch(loadIventoryData(params));
@@ -178,12 +176,12 @@ const InventoryIndex = () => {
     setdeleteModalOpen(false);
   };
 
-  const handleDeleteModalClose = (value) => {
+  const handleDeleteModalClose = value => {
     setdeleteModalOpen(false);
   };
 
   const { inventorydata, inventorydata_meta } = useSelector(
-    (state) => state.inventorydata
+    state => state.inventorydata
   );
 
   useEffect(() => {
@@ -227,7 +225,7 @@ const InventoryIndex = () => {
           key: "desc",
         },
       ],
-      func: (value) => {
+      func: value => {
         dispatch(fetchSearchProduct({ picklist_id: value }, "sort"));
       },
     },
@@ -260,7 +258,7 @@ const InventoryIndex = () => {
     // }
   };
 
-  const searchItems = (searchValue) => {
+  const searchItems = searchValue => {
     // if (searchValue.length === 0) {
     //   dispatch(fetchSearchProduct({ "": "" }, "search"));
     // } else {
@@ -270,7 +268,7 @@ const InventoryIndex = () => {
     // }
   };
 
-  const handleButtonClick = (value) => {
+  const handleButtonClick = value => {
     history.push("/inventoryAdjustment/create");
   };
 
@@ -317,8 +315,8 @@ const InventoryIndex = () => {
                   name: "Create",
                   handleButtonClick: handleButtonClick,
                   flag: invadjaccess
-                    ?.find((row) => row === row)
-                    ?.view_actions_json?.find((o) => o.lookup_code === "CREATE")
+                    ?.find(row => row === row)
+                    ?.view_actions_json?.find(o => o.lookup_code === "CREATE")
                     ?.ctrl_flag,
                 },
               ]}
@@ -348,18 +346,17 @@ const InventoryIndex = () => {
   );
 };
 export default InventoryIndex;
-
-/*			
-Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
-All rights reserved.			
-This program is free software: you can redistribute it and/or modify			
-it under the terms of the GNU General Public License as published by			
-the Free Software Foundation, either version 3 of the License, or			
-(at your option) any later version.			
-This program is distributed in the hope that it will be useful,			
-but WITHOUT ANY WARRANTY; without even the implied warranty of			
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
-GNU General Public License for more details.			
-You should have received a copy of the GNU General Public License			
-along with this program. If not, see <http://www.gnu.org/licenses/>.			
+/*
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
 */

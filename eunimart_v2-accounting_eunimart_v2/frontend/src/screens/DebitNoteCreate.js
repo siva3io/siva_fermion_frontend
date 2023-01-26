@@ -51,13 +51,13 @@ import moment from "moment";
 import { loadDebitNoteDataById } from "../redux/getDebitNoteById";
 import { toast } from "react-toastify";
 
-const DebitNoteCreate = (props) => {
+const DebitNoteCreate = props => {
   const navigate = useHistory();
   const [selectedOption, setSelectedOption] = useState(false);
   const [btnOption, setBtnOption] = useState();
   const [selected, setSelected] = useState([]);
   const [productsData, setProductsData] = useState(false);
-  const address = useSelector((state) => state.fetchAddress?.data);
+  const address = useSelector(state => state.fetchAddress?.data);
   const [params, setParams] = useState({ per_page: "10", page_no: "1" });
   const [selectedValue, setSelectedValue] = useState();
   const [selectedAddress, setselectedAddress] = useState([]);
@@ -96,8 +96,8 @@ const DebitNoteCreate = (props) => {
     PurchaseOrdersViewData,
     PurchaseInvoiceViewData,
     SalesOrdersViewData,
-  } = useSelector((state) => state.data);
-  const debitnotedata = useSelector((state) => state.dataById.debitnotedataId);
+  } = useSelector(state => state.data);
+  const debitnotedata = useSelector(state => state.dataById.debitnotedataId);
 
   useEffect(() => {
     dispatch(loadCurrencyData());
@@ -133,7 +133,7 @@ const DebitNoteCreate = (props) => {
       console.log("debitnotedata", debitnotedata);
       var newMainData = [];
 
-      var newDebitNoteDetails = debitnotedetails.map((o) => {
+      var newDebitNoteDetails = debitnotedetails.map(o => {
         if (o.key == "vendor_id")
           o.value = {
             label: debitnotedata?.vendor?.name,
@@ -195,42 +195,38 @@ const DebitNoteCreate = (props) => {
 
       var newselectedProductData = [];
       if (debitnotedata.debit_note_line_items)
-        newselectedProductData = debitnotedata.debit_note_line_items.map(
-          (o) => {
-            console.log(o, "product lines");
-            return {
-              sku_id: {
-                id: o.product_variant_id,
-                label: o?.product_variant_id
-                  ? o?.product_variant_id
-                  : "SKUV001",
-              },
-              product_template_id: o.product_template_id,
-              product_name: o?.product_template?.product_name
-                ? o?.product_template?.product_name
-                : "product_name",
-              // "warehouse_id": 1,
-              // "inventory_id": 1,
-              description: { data: o?.data ? o?.data : "data" },
-              uom: {
-                id: o.uom_id,
-                label: o.uom?.uom_class_name ? o.uom?.uom_class_name : "EACH",
-              },
-              serial_number: o.serial_number,
-              Quantity: parseInt(o.quantity),
-              selling_price: parseFloat(o.price),
-              discount: parseFloat(o.discount),
-              product_pricing_details: { tax_options: o.tax },
-              Amount: o.amount,
-              Payment_Terms: o.payment_term_id,
-              tax: o.tax,
-            };
-          }
-        );
+        newselectedProductData = debitnotedata.debit_note_line_items.map(o => {
+          console.log(o, "product lines");
+          return {
+            sku_id: {
+              id: o.product_variant_id,
+              label: o?.product_variant_id ? o?.product_variant_id : "SKUV001",
+            },
+            product_template_id: o.product_template_id,
+            product_name: o?.product_template?.product_name
+              ? o?.product_template?.product_name
+              : "product_name",
+            // "warehouse_id": 1,
+            // "inventory_id": 1,
+            description: { data: o?.data ? o?.data : "data" },
+            uom: {
+              id: o.uom_id,
+              label: o.uom?.uom_class_name ? o.uom?.uom_class_name : "EACH",
+            },
+            serial_number: o.serial_number,
+            Quantity: parseInt(o.quantity),
+            selling_price: parseFloat(o.price),
+            discount: parseFloat(o.discount),
+            product_pricing_details: { tax_options: o.tax },
+            Amount: o.amount,
+            Payment_Terms: o.payment_term_id,
+            tax: o.tax,
+          };
+        });
       setSelectedProductData(newselectedProductData);
 
       var newAdditionalInformationFields = AdditionalInformationFields.map(
-        (o) => {
+        o => {
           if (o.key == "Additional_Information_Note")
             o.value = debitnotedata?.external_notes;
           if (o.key == "Additional_Information_Terms_Conditions")
@@ -266,7 +262,7 @@ const DebitNoteCreate = (props) => {
       ];
 
       var keyValuePairMainData = {};
-      newMainData.map((o) => {
+      newMainData.map(o => {
         if (o.key != null) {
           keyValuePairMainData[o.key] = o.value;
         }
@@ -290,7 +286,7 @@ const DebitNoteCreate = (props) => {
       console.log("PurchaseReturnsViewData", PurchaseReturnsViewData);
       var newMainData = [];
 
-      var newDebitNoteDetails = debitnotedetails.map((o) => {
+      var newDebitNoteDetails = debitnotedetails.map(o => {
         if (o.key == "reference_id")
           o.value = PurchaseReturnsViewData?.reference_number;
         return o;
@@ -300,7 +296,7 @@ const DebitNoteCreate = (props) => {
       var newselectedProductData = [];
       if (PurchaseReturnsViewData?.purchase_return_lines)
         newselectedProductData =
-          PurchaseReturnsViewData?.purchase_return_lines.map((o) => {
+          PurchaseReturnsViewData?.purchase_return_lines.map(o => {
             console.log(o, "product lines");
             return {
               sku_id: {
@@ -328,7 +324,7 @@ const DebitNoteCreate = (props) => {
       setSelectedProductData(newselectedProductData);
 
       var newAdditionalInformationFields = AdditionalInformationFields.map(
-        (o) => {
+        o => {
           if (o.key == "Additional_Information_Note")
             o.value = PurchaseReturnsViewData?.additional_information?.notes;
           if (o.key == "Additional_Information_Terms_Conditions")
@@ -363,7 +359,7 @@ const DebitNoteCreate = (props) => {
       ];
 
       var keyValuePairMainData = {};
-      newMainData.map((o) => {
+      newMainData.map(o => {
         if (o.key != null) {
           keyValuePairMainData[o.key] = o.value;
         }
@@ -386,7 +382,7 @@ const DebitNoteCreate = (props) => {
       console.log("SalesReturnsViewData", SalesReturnsViewData);
       var newMainData = [];
 
-      var newDebitNoteDetails = debitnotedetails.map((o) => {
+      var newDebitNoteDetails = debitnotedetails.map(o => {
         if (o.key == "reference_id")
           o.value = SalesReturnsViewData?.reference_number;
         if (o.key == "reason_id")
@@ -401,7 +397,7 @@ const DebitNoteCreate = (props) => {
       var newselectedProductData = [];
       if (SalesReturnsViewData?.sales_return_lines)
         newselectedProductData = SalesReturnsViewData?.sales_return_lines.map(
-          (o) => {
+          o => {
             console.log(o, "product lines");
             return {
               sku_id: {
@@ -428,7 +424,7 @@ const DebitNoteCreate = (props) => {
       setSelectedProductData(newselectedProductData);
 
       var newAdditionalInformationFields = AdditionalInformationFields.map(
-        (o) => {
+        o => {
           if (o.key == "Additional_Information_Note")
             o.value = SalesReturnsViewData?.additional_information?.notes;
           if (o.key == "Additional_Information_Terms_Conditions")
@@ -463,7 +459,7 @@ const DebitNoteCreate = (props) => {
       ];
 
       var keyValuePairMainData = {};
-      newMainData.map((o) => {
+      newMainData.map(o => {
         if (o.key != null) {
           keyValuePairMainData[o.key] = o.value;
         }
@@ -486,7 +482,7 @@ const DebitNoteCreate = (props) => {
       console.log("SalesOrdersViewData", SalesOrdersViewData);
       var newMainData = [];
 
-      var newDebitNoteDetails = debitnotedetails.map((o) => {
+      var newDebitNoteDetails = debitnotedetails.map(o => {
         if (o.key == "reference_id")
           o.value = SalesOrdersViewData?.reference_number;
         return o;
@@ -496,7 +492,7 @@ const DebitNoteCreate = (props) => {
       var newselectedProductData = [];
       if (SalesOrdersViewData?.sales_order_lines)
         newselectedProductData = SalesOrdersViewData?.sales_order_lines.map(
-          (o) => {
+          o => {
             console.log(o, "product lines");
             return {
               sku_id: {
@@ -526,7 +522,7 @@ const DebitNoteCreate = (props) => {
       setSelectedProductData(newselectedProductData);
 
       var newAdditionalInformationFields = AdditionalInformationFields.map(
-        (o) => {
+        o => {
           if (o.key == "Additional_Information_Note")
             o.value = SalesOrdersViewData?.additional_information?.notes;
           if (o.key == "Additional_Information_Terms_Conditions")
@@ -561,7 +557,7 @@ const DebitNoteCreate = (props) => {
       ];
 
       var keyValuePairMainData = {};
-      newMainData.map((o) => {
+      newMainData.map(o => {
         if (o.key != null) {
           keyValuePairMainData[o.key] = o.value;
         }
@@ -583,7 +579,7 @@ const DebitNoteCreate = (props) => {
       console.log(" PurchaseOrdersViewData", PurchaseOrdersViewData);
       var newMainData = [];
 
-      var newDebitNoteDetails = debitnotedetails.map((o) => {
+      var newDebitNoteDetails = debitnotedetails.map(o => {
         if (o.key == "reference_id")
           o.value = PurchaseOrdersViewData?.reference_number;
         return o;
@@ -593,7 +589,7 @@ const DebitNoteCreate = (props) => {
       var newselectedProductData = [];
       if (PurchaseOrdersViewData?.purchase_order_lines)
         newselectedProductData =
-          PurchaseOrdersViewData?.purchase_order_lines.map((o) => {
+          PurchaseOrdersViewData?.purchase_order_lines.map(o => {
             return {
               sku_id: {
                 id: o?.inventory?.product_details?.id,
@@ -621,7 +617,7 @@ const DebitNoteCreate = (props) => {
       setSelectedProductData(newselectedProductData);
 
       var newAdditionalInformationFields = AdditionalInformationFields.map(
-        (o) => {
+        o => {
           if (o.key == "Additional_Information_Note")
             o.value = PurchaseOrdersViewData?.additional_information?.notes;
           if (o.key == "Additional_Information_Terms_Conditions")
@@ -656,7 +652,7 @@ const DebitNoteCreate = (props) => {
       ];
 
       var keyValuePairMainData = {};
-      newMainData.map((o) => {
+      newMainData.map(o => {
         if (o.key != null) {
           keyValuePairMainData[o.key] = o.value;
         }
@@ -681,7 +677,7 @@ const DebitNoteCreate = (props) => {
       );
       var newMainData = [];
 
-      var newDebitNoteDetails = debitnotedetails.map((o) => {
+      var newDebitNoteDetails = debitnotedetails.map(o => {
         if (o.key == "reference_id")
           o.value = PurchaseInvoiceViewData?.reference_number;
         if (o.key == "currency_id")
@@ -693,7 +689,7 @@ const DebitNoteCreate = (props) => {
       var newselectedProductData = [];
       if (PurchaseInvoiceViewData?.purchase_invoice_lines)
         newselectedProductData =
-          PurchaseInvoiceViewData?.purchase_invoice_lines.map((o) => {
+          PurchaseInvoiceViewData?.purchase_invoice_lines.map(o => {
             return {
               sku_id: {
                 id: o?.id,
@@ -718,7 +714,7 @@ const DebitNoteCreate = (props) => {
       setSelectedProductData(newselectedProductData);
 
       var newAdditionalInformationFields = AdditionalInformationFields.map(
-        (o) => {
+        o => {
           if (o.key == "Additional_Information_Note")
             o.value = PurchaseInvoiceViewData?.additional_information?.notes;
           if (o.key == "Additional_Information_Terms_Conditions")
@@ -753,7 +749,7 @@ const DebitNoteCreate = (props) => {
       ];
 
       var keyValuePairMainData = {};
-      newMainData.map((o) => {
+      newMainData.map(o => {
         if (o.key != null) {
           keyValuePairMainData[o.key] = o.value;
         }
@@ -775,7 +771,7 @@ const DebitNoteCreate = (props) => {
       console.log("DeliveryOrdersViewData", DeliveryOrdersViewData);
       var newMainData = [];
 
-      var newDebitNoteDetails = debitnotedetails.map((o) => {
+      var newDebitNoteDetails = debitnotedetails.map(o => {
         if (o.key == "reference_id")
           o.value =
             DeliveryOrdersViewData?.delivery_order_details?.reference_id;
@@ -786,7 +782,7 @@ const DebitNoteCreate = (props) => {
       var newselectedProductData = [];
       if (DeliveryOrdersViewData?.delivery_order_lines)
         newselectedProductData =
-          DeliveryOrdersViewData?.delivery_order_lines.map((o) => {
+          DeliveryOrdersViewData?.delivery_order_lines.map(o => {
             return {
               sku_id: {
                 id: o?.product_details?.id,
@@ -811,7 +807,7 @@ const DebitNoteCreate = (props) => {
       setSelectedProductData(newselectedProductData);
 
       var newAdditionalInformationFields = AdditionalInformationFields.map(
-        (o) => {
+        o => {
           if (o.key == "Additional_Information_Note")
             o.value = DeliveryOrdersViewData?.additional_information?.notes;
           if (o.key == "Additional_Information_Terms_Conditions")
@@ -845,7 +841,7 @@ const DebitNoteCreate = (props) => {
       ];
 
       var keyValuePairMainData = {};
-      newMainData.map((o) => {
+      newMainData.map(o => {
         if (o.key != null) {
           keyValuePairMainData[o.key] = o.value;
         }
@@ -867,7 +863,7 @@ const DebitNoteCreate = (props) => {
       console.log("ScrapOrdersViewData", ScrapOrdersViewData);
       var newMainData = [];
 
-      var newDebitNoteDetails = debitnotedetails.map((o) => {
+      var newDebitNoteDetails = debitnotedetails.map(o => {
         if (o.key == "reference_id")
           o.value = ScrapOrdersViewData?.reference_id;
         return o;
@@ -876,7 +872,7 @@ const DebitNoteCreate = (props) => {
 
       var newselectedProductData = [];
       if (ScrapOrdersViewData?.order_lines)
-        newselectedProductData = ScrapOrdersViewData?.order_lines.map((o) => {
+        newselectedProductData = ScrapOrdersViewData?.order_lines.map(o => {
           return {
             sku_id: {
               id: o?.product_details?.id,
@@ -903,7 +899,7 @@ const DebitNoteCreate = (props) => {
       newMainData = [...newDebitNoteDetails, ...newselectedProductData];
 
       var keyValuePairMainData = {};
-      newMainData.map((o) => {
+      newMainData.map(o => {
         if (o.key != null) {
           keyValuePairMainData[o.key] = o.value;
         }
@@ -925,7 +921,7 @@ const DebitNoteCreate = (props) => {
       console.log("ISTViewdata", ISTViewdata);
       var newMainData = [];
 
-      var newDebitNoteDetails = debitnotedetails.map((o) => {
+      var newDebitNoteDetails = debitnotedetails.map(o => {
         if (o.key == "reference_id") o.value = ISTViewdata?.reference_number;
         if (o.key == "reason_id") o.value = ISTViewdata?.reason_id;
         return o;
@@ -934,32 +930,30 @@ const DebitNoteCreate = (props) => {
 
       var newselectedProductData = [];
       if (ISTViewdata?.internal_transfer_lines)
-        newselectedProductData = ISTViewdata?.internal_transfer_lines.map(
-          (o) => {
-            return {
-              sku_id: {
-                id: o?.inventory?.product_details?.id,
-                label: o?.inventory?.product_details?.sku_id,
-              },
-              product_template_id:
-                o?.inventory?.product_details?.product_template_id,
-              product_name: o?.inventory?.product_details?.product_name,
-              description: o?.inventory?.product_details?.description,
-              uom: o?.inventory?.product_details?.product_dimensions?.uom,
-              serial_number: o?.inventory?.product_details?.serial_number,
-              // Quantity: parseInt(o?.inventory?.quantity),
-              selling_price: parseFloat(
-                o?.inventory?.product_details?.selling_price
-              ),
-              discount: parseFloat(o?.discount),
-              Amount: o?.amount,
-              Payment_Terms: {
-                id: o.payment_term_id,
-                label: o?.payment_terms?.display_name,
-              },
-            };
-          }
-        );
+        newselectedProductData = ISTViewdata?.internal_transfer_lines.map(o => {
+          return {
+            sku_id: {
+              id: o?.inventory?.product_details?.id,
+              label: o?.inventory?.product_details?.sku_id,
+            },
+            product_template_id:
+              o?.inventory?.product_details?.product_template_id,
+            product_name: o?.inventory?.product_details?.product_name,
+            description: o?.inventory?.product_details?.description,
+            uom: o?.inventory?.product_details?.product_dimensions?.uom,
+            serial_number: o?.inventory?.product_details?.serial_number,
+            // Quantity: parseInt(o?.inventory?.quantity),
+            selling_price: parseFloat(
+              o?.inventory?.product_details?.selling_price
+            ),
+            discount: parseFloat(o?.discount),
+            Amount: o?.amount,
+            Payment_Terms: {
+              id: o.payment_term_id,
+              label: o?.payment_terms?.display_name,
+            },
+          };
+        });
       setSelectedProductData(newselectedProductData);
 
       // var newPaymentDetailsFields = {
@@ -981,7 +975,7 @@ const DebitNoteCreate = (props) => {
       ];
 
       var keyValuePairMainData = {};
-      newMainData.map((o) => {
+      newMainData.map(o => {
         if (o.key != null) {
           keyValuePairMainData[o.key] = o.value;
         }
@@ -1003,7 +997,7 @@ const DebitNoteCreate = (props) => {
       console.log("GRNViewdata", GRNViewdata);
       var newMainData = [];
 
-      var newDebitNoteDetails = debitnotedetails.map((o) => {
+      var newDebitNoteDetails = debitnotedetails.map(o => {
         if (o.key == "reference_id") o.value = GRNViewdata?.reference_number;
         return o;
       });
@@ -1011,7 +1005,7 @@ const DebitNoteCreate = (props) => {
 
       var newselectedProductData = [];
       if (GRNViewdata?.grn_order_lines)
-        newselectedProductData = GRNViewdata?.grn_order_lines.map((o) => {
+        newselectedProductData = GRNViewdata?.grn_order_lines.map(o => {
           return {
             sku_id: { id: o?.product?.id, label: o?.product?.sku_id },
             product_template_id: o?.product?.product_template_id,
@@ -1035,7 +1029,7 @@ const DebitNoteCreate = (props) => {
       newMainData = [...newDebitNoteDetails, ...newselectedProductData];
 
       var keyValuePairMainData = {};
-      newMainData.map((o) => {
+      newMainData.map(o => {
         if (o.key != null) {
           keyValuePairMainData[o.key] = o.value;
         }
@@ -1057,7 +1051,7 @@ const DebitNoteCreate = (props) => {
       console.log("ASNViewdata", ASNViewdata);
       var newMainData = [];
 
-      var newDebitNoteDetails = debitnotedetails.map((o) => {
+      var newDebitNoteDetails = debitnotedetails.map(o => {
         if (o.key == "reference_id") o.value = ASNViewdata?.reference_number;
         return o;
       });
@@ -1065,7 +1059,7 @@ const DebitNoteCreate = (props) => {
 
       var newselectedProductData = [];
       if (ASNViewdata?.asn_order_lines)
-        newselectedProductData = ASNViewdata?.asn_order_lines.map((o) => {
+        newselectedProductData = ASNViewdata?.asn_order_lines.map(o => {
           return {
             sku_id: {
               id: o?.product_variant?.id,
@@ -1090,7 +1084,7 @@ const DebitNoteCreate = (props) => {
       setSelectedProductData(newselectedProductData);
 
       var newAdditionalInformationFields = AdditionalInformationFields.map(
-        (o) => {
+        o => {
           if (o.key == "Additional_Information_Note")
             o.value = ASNViewdata?.link_po?.additional_information?.notes;
           if (o.key == "Additional_Information_Terms_Conditions")
@@ -1125,7 +1119,7 @@ const DebitNoteCreate = (props) => {
       ];
 
       var keyValuePairMainData = {};
-      newMainData.map((o) => {
+      newMainData.map(o => {
         if (o.key != null) {
           keyValuePairMainData[o.key] = o.value;
         }
@@ -1155,12 +1149,12 @@ const DebitNoteCreate = (props) => {
 
         if (key === "sku_id") {
           console.log("sku_id");
-          var selectVarient = productVariantData.find((o) => o.id == value.id);
+          var selectVarient = productVariantData.find(o => o.id == value.id);
           newSelectedProductData[index] = selectVarient;
           newSelectedProductData[index][key] = value.label;
         } else if (key === "uom.name") {
           console.log("uom.name");
-          var selectVarient = uomData.find((o) => o.id == value.id);
+          var selectVarient = uomData.find(o => o.id == value.id);
           newSelectedProductData[index].uom = {
             name: value.label,
             id: value.id,
@@ -1215,7 +1209,7 @@ const DebitNoteCreate = (props) => {
     }
 
     try {
-      var newDebitNoteDetails = debitnotedetails.map((o) => {
+      var newDebitNoteDetails = debitnotedetails.map(o => {
         if (o.key == key) o.value = value;
         return o;
       });
@@ -1226,7 +1220,7 @@ const DebitNoteCreate = (props) => {
 
     try {
       var newAdditionalInformationFields = AdditionalInformationFields.map(
-        (o) => {
+        o => {
           if (o.key == key) o.value = value;
           return o;
         }
@@ -1368,8 +1362,8 @@ const DebitNoteCreate = (props) => {
       label: "Product SKU",
       type: "select",
       // data: useSelector((state) => productsListData.map(o => { return { id: o.id, label: o.product_name } }))
-      data: useSelector((state) =>
-        state.data.productVariantData.map((o) => {
+      data: useSelector(state =>
+        state.data.productVariantData.map(o => {
           return { id: o.id, label: o.sku_id };
         })
       ),
@@ -1393,8 +1387,8 @@ const DebitNoteCreate = (props) => {
       key: "uom.name",
       label: "Unit of Measurements",
       type: "select",
-      data: useSelector((state) =>
-        state.data.uomData.map((o) => {
+      data: useSelector(state =>
+        state.data.uomData.map(o => {
           return { id: o.id, label: o.name };
         })
       ),
@@ -1425,12 +1419,12 @@ const DebitNoteCreate = (props) => {
       key: "Action",
       label: "Action",
       type: "view",
-      renderView: (item) => (
+      renderView: item => (
         <div>
           <DeleteIcon
             onClick={() =>
               setSelectedProductData(
-                selectedProductData.filter((o) => o.id != item.id)
+                selectedProductData.filter(o => o.id != item.id)
               )
             }
           />
@@ -1567,7 +1561,7 @@ const DebitNoteCreate = (props) => {
     switch (key) {
       case "currency_id": {
         setdebitnotedetails(
-          debitnotedetails.map((o) => {
+          debitnotedetails.map(o => {
             if (o.key == key) return { ...o, value: value };
             return o;
           })
@@ -1577,7 +1571,7 @@ const DebitNoteCreate = (props) => {
       }
       case "reason_id": {
         setdebitnotedetails(
-          debitnotedetails.map((o) => {
+          debitnotedetails.map(o => {
             if (o.key == key) return { ...o, value: value };
             return o;
           })
@@ -1587,7 +1581,7 @@ const DebitNoteCreate = (props) => {
       }
       case "vendor_id": {
         setdebitnotedetails(
-          debitnotedetails.map((o) => {
+          debitnotedetails.map(o => {
             if (o.key == key) return { ...o, value: value };
             return o;
           })
@@ -1597,7 +1591,7 @@ const DebitNoteCreate = (props) => {
       }
       case "purchase_invoice_id": {
         setdebitnotedetails(
-          debitnotedetails.map((o) => {
+          debitnotedetails.map(o => {
             if (o.key == key) return { ...o, value: value };
             return o;
           })
@@ -1632,7 +1626,7 @@ const DebitNoteCreate = (props) => {
       var taxval = selectedProductData[0].product_pricing_details?.tax;
       setPaymentDetailsFields({ ...paymentDetailsFields, tax: taxval });
       var val1 = selectedProductData
-        .map((o) => o.Amount)
+        .map(o => o.Amount)
         .reduce((previousValue, currentValue) => {
           return previousValue + currentValue;
         });
@@ -1657,12 +1651,12 @@ const DebitNoteCreate = (props) => {
     }
   }
 
-  const handelCheckBoxonChange = (field) => {
+  const handelCheckBoxonChange = field => {
     if (
       field.key == "generate_debit_note_id" ||
       field.key == "generate_reference_id"
     ) {
-      var neworder = debitnotedetails.map((o) => {
+      var neworder = debitnotedetails.map(o => {
         if (o.key == field.key) {
           o.isChecked = !o.isChecked;
         }
@@ -1681,7 +1675,7 @@ const DebitNoteCreate = (props) => {
     console.log("2prop, value", prop, value);
   };
 
-  const handleButtonClick = (key) => {
+  const handleButtonClick = key => {
     console.log(mainData, "debitnotecreateData");
     console.log(selectedProductData, "wertgb");
     console.log(paymentDetailsFields);
@@ -1738,7 +1732,7 @@ const DebitNoteCreate = (props) => {
 
       available_vendor_credits: 58.25,
 
-      debit_note_line_items: selectedProductData.map((o) => {
+      debit_note_line_items: selectedProductData.map(o => {
         return {
           amount: o?.Amount,
           discount: parseFloat(o?.discount),
@@ -1799,7 +1793,7 @@ const DebitNoteCreate = (props) => {
   };
 
   const searchContactHandler = () => {
-    setSelectedOption((prev) => !prev);
+    setSelectedOption(prev => !prev);
     setBtnOption("selectedContacts");
   };
 
@@ -1807,16 +1801,16 @@ const DebitNoteCreate = (props) => {
     console.log(selectedValue);
     console.log("entered");
     if (selectedValue) {
-      var tempContact = contactsData.filter((o) => o.id == selectedValue);
+      var tempContact = contactsData.filter(o => o.id == selectedValue);
       console.log("tempContact", tempContact[0]);
       setselectedAddress(tempContact[0]);
     }
-    setSelectedOption((prev) => !prev);
+    setSelectedOption(prev => !prev);
   };
 
   const handleClosePopUp = () => {
     console.log(selectedValue);
-    setSelectedOption((prev) => !prev);
+    setSelectedOption(prev => !prev);
   };
 
   const handelInputChangeTable = (key, value, index = null) => {
@@ -1854,12 +1848,12 @@ const DebitNoteCreate = (props) => {
       console.log("newSelectedProductData");
       if (key === "sku_id") {
         console.log("sku_id");
-        var selectVarient = productVariantData.find((o) => o.id == value.id);
+        var selectVarient = productVariantData.find(o => o.id == value.id);
         newSelectedProductData[index] = selectVarient;
         newSelectedProductData[index][key] = value.label;
       } else if (key === "uom.name") {
         console.log("uom.name");
-        var selectVarient = uomData.find((o) => o.id == value.id);
+        var selectVarient = uomData.find(o => o.id == value.id);
         newSelectedProductData[index].uom = { name: value.label, id: value.id };
         console.log("newSelectedProductData uom", newSelectedProductData);
       } else {
@@ -1901,7 +1895,7 @@ const DebitNoteCreate = (props) => {
       setSelectedProductData(newSelectedProductData);
 
       var total = newSelectedProductData
-        .map((o) => o.Amount)
+        .map(o => o.Amount)
         .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
       if (paymentDetailsFields.Final_Adjustment == "+") {
         total = total + paymentDetailsFields.adjustment_amount;
@@ -1949,10 +1943,10 @@ const DebitNoteCreate = (props) => {
     <>
       <AddForm
         header={"Debit Note Details"}
-        data={debitnotedetails.map((field) => {
+        data={debitnotedetails.map(field => {
           switch (field.key) {
             case "vendor_id":
-              field.data = Vendorsdata.map((o) => {
+              field.data = Vendorsdata.map(o => {
                 return {
                   id: o.id,
                   label: o.name,
@@ -1960,7 +1954,7 @@ const DebitNoteCreate = (props) => {
               });
               break;
             case "currency_id":
-              field.data = Currencydata.map((o) => {
+              field.data = Currencydata.map(o => {
                 return {
                   id: o.id,
                   label: o.name,
@@ -1968,7 +1962,7 @@ const DebitNoteCreate = (props) => {
               });
               break;
             case "reason_id":
-              field.data = Reasonsdata.map((o) => {
+              field.data = Reasonsdata.map(o => {
                 return {
                   id: o.id,
                   label: o.display_name,
@@ -1976,7 +1970,7 @@ const DebitNoteCreate = (props) => {
               });
               break;
             case "purchase_invoice_id":
-              field.data = purchaseInvoiceData.map((o) => {
+              field.data = purchaseInvoiceData.map(o => {
                 return {
                   id: o.id,
                   label: o.purchase_invoice_number,
@@ -1984,7 +1978,7 @@ const DebitNoteCreate = (props) => {
               });
               break;
             case "Link_Source_Document_Type": {
-              field.data = SourceDocumentTypesData.map((o) => {
+              field.data = SourceDocumentTypesData.map(o => {
                 return {
                   id: o.id,
                   label: o.display_name,
@@ -2002,40 +1996,40 @@ const DebitNoteCreate = (props) => {
                 mainData &&
                 mainData.Link_Source_Document_Type &&
                 mainData.Link_Source_Document_Type.lookup_code == "SALES_ORDERS"
-                  ? SalesOrdersData.map((o) => {
+                  ? SalesOrdersData.map(o => {
                       console.log("sales_order_number---");
                       return { id: o.id, label: o.sales_order_number, data: o };
                     })
                   : mainData &&
                     mainData.Link_Source_Document_Type &&
                     mainData.Link_Source_Document_Type.lookup_code == "ASN"
-                  ? ASNdata.map((o) => {
+                  ? ASNdata.map(o => {
                       return { id: o.id, label: o.asn_number, data: o };
                     })
                   : mainData &&
                     mainData.Link_Source_Document_Type &&
                     mainData.Link_Source_Document_Type.lookup_code == "GRN"
-                  ? GRNdata.map((o) => {
+                  ? GRNdata.map(o => {
                       return { id: o.id, label: o.grn_number, data: o };
                     })
                   : mainData &&
                     mainData.Link_Source_Document_Type &&
                     mainData.Link_Source_Document_Type.lookup_code == "IST"
-                  ? ISTdata.map((o) => {
+                  ? ISTdata.map(o => {
                       return { id: o.id, label: o.ist_number, data: o };
                     })
                   : mainData &&
                     mainData.Link_Source_Document_Type &&
                     mainData.Link_Source_Document_Type.lookup_code ==
                       "SCRAP_ORDERS"
-                  ? ScrapOrdersData.map((o) => {
+                  ? ScrapOrdersData.map(o => {
                       return { id: o.id, label: o.scrap_order_no, data: o };
                     })
                   : mainData &&
                     mainData.Link_Source_Document_Type &&
                     mainData.Link_Source_Document_Type.lookup_code ==
                       "DELIVERY_ORDERS"
-                  ? DeliveryOrdersData.map((o) => {
+                  ? DeliveryOrdersData.map(o => {
                       return {
                         id: o.id,
                         label: o.delivery_order_details.delivery_order_number,
@@ -2046,7 +2040,7 @@ const DebitNoteCreate = (props) => {
                     mainData.Link_Source_Document_Type &&
                     mainData.Link_Source_Document_Type.lookup_code ==
                       "PURCHASE_RETURNS"
-                  ? PurchaseReturnsData.map((o) => {
+                  ? PurchaseReturnsData.map(o => {
                       return {
                         id: o.id,
                         label: o.purchase_return_number,
@@ -2057,7 +2051,7 @@ const DebitNoteCreate = (props) => {
                     mainData.Link_Source_Document_Type &&
                     mainData.Link_Source_Document_Type.lookup_code ==
                       "SALES_RETURNS"
-                  ? SalesReturnsData.map((o) => {
+                  ? SalesReturnsData.map(o => {
                       return {
                         id: o.id,
                         label: o.sales_return_number,
@@ -2068,7 +2062,7 @@ const DebitNoteCreate = (props) => {
                     mainData.Link_Source_Document_Type &&
                     mainData.Link_Source_Document_Type.lookup_code ==
                       "PURCHASE_ORDERS"
-                  ? PurchaseOrdersData.map((o) => {
+                  ? PurchaseOrdersData.map(o => {
                       return {
                         id: o.id,
                         label: o.purchase_order_number,
@@ -2079,7 +2073,7 @@ const DebitNoteCreate = (props) => {
                     mainData.Link_Source_Document_Type &&
                     mainData.Link_Source_Document_Type.lookup_code ==
                       "PURCHASE_INVOICE"
-                  ? purchaseInvoiceData.map((o) => {
+                  ? purchaseInvoiceData.map(o => {
                       return {
                         id: o.id,
                         label: o.purchase_invoice_number,
@@ -2340,17 +2334,17 @@ const DebitNoteCreate = (props) => {
 };
 export default DebitNoteCreate;
 
-/*			
-Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
-All rights reserved.			
-This program is free software: you can redistribute it and/or modify			
-it under the terms of the GNU General Public License as published by			
-the Free Software Foundation, either version 3 of the License, or			
-(at your option) any later version.			
-This program is distributed in the hope that it will be useful,			
-but WITHOUT ANY WARRANTY; without even the implied warranty of			
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
-GNU General Public License for more details.			
-You should have received a copy of the GNU General Public License			
-along with this program. If not, see <http://www.gnu.org/licenses/>.			
+/*
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
 */

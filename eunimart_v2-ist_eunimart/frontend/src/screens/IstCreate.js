@@ -42,7 +42,7 @@ import {
   CropLandscapeOutlined,
 } from "@mui/icons-material";
 
-const ISTCreate = (props) => {
+const ISTCreate = props => {
   const dispatch = useDispatch();
   const history = useHistory();
   const [inputValue, setInputvalue] = useState({});
@@ -59,7 +59,7 @@ const ISTCreate = (props) => {
     purchaseOrdersDataId,
     GRNdata,
     GRNViewdata,
-  } = useSelector((state) => state.tabData);
+  } = useSelector(state => state.tabData);
   const [selectedProductData, setSelectedProductData] = useState([
     // {
     //   Quantity: 0,
@@ -77,7 +77,7 @@ const ISTCreate = (props) => {
     total: 0,
   });
 
-  const istdata = useSelector((state) => state?.data?.istdataById);
+  const istdata = useSelector(state => state?.data?.istdataById);
   const [isProductChecked, setIsProductChecked] = useState(true);
   const [Country, setCountry] = useState();
   const [formTab, setFormTab] = useState();
@@ -91,12 +91,12 @@ const ISTCreate = (props) => {
   // };
 
   const productVariantData = useSelector(
-    (state) => state.fetchProductsData?.products
+    state => state.fetchProductsData?.products
   );
   useEffect(() => dispatch(fetchProductsData()), []);
   console.log(productVariantData, "productVariantData");
 
-  const states1 = useSelector((state) => state.States2?.states1);
+  const states1 = useSelector(state => state.States2?.states1);
   useEffect(() => dispatch(States2()), []);
   console.log(states1, "states1");
 
@@ -111,7 +111,7 @@ const ISTCreate = (props) => {
       },
     ]);
   };
-  const Countriesdata = useSelector((state) => state.Countries?.countries);
+  const Countriesdata = useSelector(state => state.Countries?.countries);
   useEffect(() => dispatch(Countries()), []);
   console.log(Countriesdata, "countries");
 
@@ -120,31 +120,31 @@ const ISTCreate = (props) => {
     countryoptions = countryoptions.concat(Countriesdata[i].name);
   }
 
-  const Lookups = useSelector((state) => state.fetchLookupsDropdown?.lookups);
+  const Lookups = useSelector(state => state.fetchLookupsDropdown?.lookups);
   useEffect(() => dispatch(fetchLookupsDropdown()), []);
   console.log(Lookups, "LookupsDropdown");
 
   const LookupsRouting = useSelector(
-    (state) => state.fetchLookupsRouting?.lookupsRouting
+    state => state.fetchLookupsRouting?.lookupsRouting
   );
   useEffect(() => dispatch(fetchLookupsRouting()), []);
   console.log(LookupsRouting, "LookupsRouting");
 
   useEffect(() => dispatch(fetchLocationsDropdown()), []);
   const Location = useSelector(
-    (state) => state.fetchLocationsDropdown?.locations
+    state => state.fetchLocationsDropdown?.locations
   );
   console.log(Location, "locations");
 
   useEffect(() => dispatch(fetchSourceDocumentData()), []);
   const SourceDocument = useSelector(
-    (state) => state.fetchSourceDocumentData?.SourceDocument
+    state => state.fetchSourceDocumentData?.SourceDocument
   );
   console.log(SourceDocument, "SourceDocument");
 
   useEffect(() => dispatch(SearchSourceDocumentData()), []);
   const SearchSourceDocument = useSelector(
-    (state) => state.SearchSourceDocumentData?.searchSourceDocument
+    state => state.SearchSourceDocumentData?.searchSourceDocument
   );
   console.log(SearchSourceDocument, "SearchSourceDocument");
 
@@ -312,7 +312,7 @@ const ISTCreate = (props) => {
       console.log("istdataaaaaaaaaaaaaaaaaaaaaaaaaa", istdata);
       var newMainData = [];
 
-      var newISTDetailsFields = ISTDetailsFields.map((o) => {
+      var newISTDetailsFields = ISTDetailsFields.map(o => {
         if (o.key == "reference_number") o.value = istdata?.reference_number;
         if (o.key == "scheduled_delivery_date")
           o.value = moment(istdata?.scheduled_delivery_date).format(
@@ -355,7 +355,7 @@ const ISTCreate = (props) => {
 
       var newselectedProductData = [];
       if (istdata.internal_transfer_lines)
-        newselectedProductData = istdata.internal_transfer_lines.map((o) => {
+        newselectedProductData = istdata.internal_transfer_lines.map(o => {
           return {
             sku_id: { id: o.product_id, label: o.product_template.sku_code },
             product_id: o.product_id,
@@ -375,7 +375,7 @@ const ISTCreate = (props) => {
 
       var newLocationDetailsFields = LocationFields;
       newLocationDetailsFields.find(
-        (o) => o.key == "Dispatch_Location_card"
+        o => o.key == "Dispatch_Location_card"
       ).value = [
         {
           label: "Location Name",
@@ -407,7 +407,7 @@ const ISTCreate = (props) => {
         },
       ];
       newLocationDetailsFields.find(
-        (o) => o.key == "Delivery_Location_card"
+        o => o.key == "Delivery_Location_card"
       ).value = [
         {
           label: "Location Name",
@@ -441,7 +441,7 @@ const ISTCreate = (props) => {
       setLocationFields(newLocationDetailsFields);
 
       var newPackageDetailsFields = PackageDetailsFields;
-      newPackageDetailsFields.map((o) => {
+      newPackageDetailsFields.map(o => {
         if (o.key == "package_length")
           o.value = istdata?.shipping_details?.package_details?.length;
         if (o.key == "package_breadth")
@@ -457,7 +457,7 @@ const ISTCreate = (props) => {
       setPackageDetailsFields(newPackageDetailsFields);
 
       var newSelfDataFields = PackageDetailsFields1;
-      newSelfDataFields.map((o) => {
+      newSelfDataFields.map(o => {
         if (o.key == "Carrier_Name")
           o.value = istdata?.shipping_details?.package_details?.carrier_name;
         if (o.key == "AWB_Number")
@@ -466,13 +466,13 @@ const ISTCreate = (props) => {
       });
       setPackageDetailsFields1(newSelfDataFields);
 
-      var newDateandTime = DateandTime.map((o) => {
+      var newDateandTime = DateandTime.map(o => {
         if (o.key == "pickup_date")
           o.value = moment(istdata?.pickup_date_and_time?.pickup_date).format(
             "yyyy-MM-DD"
           );
         if (o.key == "Schedule_Pickup_time")
-          o.value = o.value.map((p) => {
+          o.value = o.value.map(p => {
             if (p.key == "Schedule_Pickup_from_time")
               p.value = moment(istdata?.pickup_date_and_time?.pickup_from_time);
             if (p.key == "Schedule_Pickup_to_time")
@@ -499,9 +499,9 @@ const ISTCreate = (props) => {
         Estimated_Cost_Select: istdata.shipping_carrier_id,
       };
 
-      newMainData.map((o) => {
+      newMainData.map(o => {
         if (o.key == "Schedule_Pickup_time") {
-          o.value.map((p) => {
+          o.value.map(p => {
             keyValuePairMainData[p.key] = p.value;
           });
         } else if (o.key != null) {
@@ -510,7 +510,7 @@ const ISTCreate = (props) => {
       });
       var index = 0;
       keyValuePairMainData["internal_transfer_lines"] = [];
-      newselectedProductData.map((o) => {
+      newselectedProductData.map(o => {
         keyValuePairMainData["internal_transfer_lines"][index] = o;
         index += 1;
       });
@@ -524,7 +524,7 @@ const ISTCreate = (props) => {
     console.log("key", key, "value", value);
 
     try {
-      var newISTDetailsFields = ISTDetailsFields.map((o) => {
+      var newISTDetailsFields = ISTDetailsFields.map(o => {
         if (o.key == key) o.value = value;
         return o;
       });
@@ -534,7 +534,7 @@ const ISTCreate = (props) => {
     }
 
     try {
-      var newLocationDetailsFields = LocationFields.map((o) => {
+      var newLocationDetailsFields = LocationFields.map(o => {
         if (o.key == key) o.value = value;
         return o;
       });
@@ -544,7 +544,7 @@ const ISTCreate = (props) => {
     }
 
     try {
-      var newShippingDetailsFields = ShippingDetailsFields.map((o) => {
+      var newShippingDetailsFields = ShippingDetailsFields.map(o => {
         if (o.key == key) o.value = value;
         return o;
       });
@@ -554,7 +554,7 @@ const ISTCreate = (props) => {
     }
 
     try {
-      var newPackageDetailsFields = PackageDetailsFields.map((o) => {
+      var newPackageDetailsFields = PackageDetailsFields.map(o => {
         if (o.key == key) o.value = value;
         return o;
       });
@@ -564,7 +564,7 @@ const ISTCreate = (props) => {
     }
 
     try {
-      var newSelfDataFields = PackageDetailsFields1.map((o) => {
+      var newSelfDataFields = PackageDetailsFields1.map(o => {
         if (o.key == key) o.value = value;
         return o;
       });
@@ -574,7 +574,7 @@ const ISTCreate = (props) => {
     }
 
     try {
-      var newEstimatedCostData = EstimatedCostheadCells.map((o) => {
+      var newEstimatedCostData = EstimatedCostheadCells.map(o => {
         if (o.key == key) o.value = value;
         return o;
       });
@@ -584,7 +584,7 @@ const ISTCreate = (props) => {
     }
 
     try {
-      var newDateandTime = DateandTime.map((o) => {
+      var newDateandTime = DateandTime.map(o => {
         if (o.key == key) o.value = value;
         return o;
       });
@@ -611,9 +611,9 @@ const ISTCreate = (props) => {
       key == "Schedule_Pickup_from_time" ||
       key == "Schedule_Pickup_to_time"
     ) {
-      var newSchedule_Pickup_date_and_time = DateandTime.map((o) => {
+      var newSchedule_Pickup_date_and_time = DateandTime.map(o => {
         if (o.key == "Schedule_Pickup_time")
-          o.value.map((p) => {
+          o.value.map(p => {
             if (p.key == key) p.value = new Date(value);
             return p;
           });
@@ -644,7 +644,7 @@ const ISTCreate = (props) => {
 
       if (key === "sku_id") {
         console.log("sku_id");
-        var selectVarient = productVariantData.find((o) => o?.id == value?.id);
+        var selectVarient = productVariantData.find(o => o?.id == value?.id);
         console.log("rowprod0", selectVarient);
         // newSelectedProductData[index] = selectVarient;
         // newSelectedProductData[index][key] = value.label;
@@ -659,7 +659,7 @@ const ISTCreate = (props) => {
           selectVarient["product_template_id"];
         newSelectedProductData[index]["sku_id"] = selectVarient["sku_id"];
       } else if (key == "uomName") {
-        var selectVarient = productVariantData.find((o) => o?.id == value?.id);
+        var selectVarient = productVariantData.find(o => o?.id == value?.id);
         newSelectedProductData[index].uom = {
           name: value.label,
           id: value.id,
@@ -698,7 +698,7 @@ const ISTCreate = (props) => {
         tax:
           newSelectedProductData[0]?.product_pricing_details?.tax_options ?? 0,
         total: newSelectedProductData
-          ?.map((o) => o.Amount)
+          ?.map(o => o.Amount)
           .reduce((accumulator, currentValue) => accumulator + currentValue, 0),
       });
       console.log("newSelectedProductData", newSelectedProductData);
@@ -771,7 +771,7 @@ const ISTCreate = (props) => {
     switch (key) {
       case "Source_Document_Type": {
         setISTDetailsFields(
-          ISTDetailsFields?.map((o) => {
+          ISTDetailsFields?.map(o => {
             if (o.key == key) return { ...o, value: value };
             return o;
           })
@@ -780,7 +780,7 @@ const ISTCreate = (props) => {
       }
       case "Select_Source_Document": {
         setISTDetailsFields(
-          ISTDetailsFields?.map((o) => {
+          ISTDetailsFields?.map(o => {
             if (o.key == key) return { ...o, value: value };
             return o;
           })
@@ -791,9 +791,9 @@ const ISTCreate = (props) => {
 
     if (key == "source_location_id") {
       //dispatch(loadvendorsDataById(value.id));
-      var singleLocationdata = Location.find((o) => o.id == value.id);
+      var singleLocationdata = Location.find(o => o.id == value.id);
       var Dispatch_Location_card = LocationFields.find(
-        (o) => o.key == "Dispatch_Location_card"
+        o => o.key == "Dispatch_Location_card"
       );
       //var newVendorDetailsFields=VendorDetailsFields.filter(o=>o.key!='Vendor_Details_card');
       Dispatch_Location_card.value = [
@@ -851,7 +851,7 @@ const ISTCreate = (props) => {
       Dispatch_Location_card.data = singleLocationdata;
       //newVendorDetailsFields.push(Vendor_Details_card);
 
-      var locationData = LocationFields.map((o) => {
+      var locationData = LocationFields.map(o => {
         if (o.key == "Dispatch_Location_card")
           o.value = Dispatch_Location_card.value;
         if (o.key == "source_location_id") o.value = value;
@@ -863,9 +863,9 @@ const ISTCreate = (props) => {
 
     if (key == "destination_location_id") {
       //dispatch(loadvendorsDataById(value.id));
-      var deliveryLocationdata = Location.find((o) => o.id == value.id);
+      var deliveryLocationdata = Location.find(o => o.id == value.id);
       var Delivery_Location_card = LocationFields.find(
-        (o) => o.key == "Delivery_Location_card"
+        o => o.key == "Delivery_Location_card"
       );
 
       //var newVendorDetailsFields=VendorDetailsFields.filter(o=>o.key!='Vendor_Details_card');
@@ -924,7 +924,7 @@ const ISTCreate = (props) => {
       ];
       Delivery_Location_card.data = deliveryLocationdata;
 
-      var locationData = LocationFields.map((o) => {
+      var locationData = LocationFields.map(o => {
         if (o.key == "Delivery_Location_card")
           o.value = Delivery_Location_card.value;
         if (o.key == "destination_location_id") o.value = value;
@@ -940,7 +940,7 @@ const ISTCreate = (props) => {
       key == "source_location_id"
     ) {
       setISTDetailsFields(
-        ISTDetailsFields.map((o) => {
+        ISTDetailsFields.map(o => {
           if (o.key == key) return { ...o, value: value };
           return o;
         })
@@ -953,7 +953,7 @@ const ISTCreate = (props) => {
     console.log("newMainData", newMainData);
   };
 
-  const handelCheckboxShowForCopyField_valueChange = (field) => {
+  const handelCheckboxShowForCopyField_valueChange = field => {
     //console.log("onCheckboxChanges", field);
     setCheckboxShowForCopyField_value(!CheckboxShowForCopyField_value);
   };
@@ -968,15 +968,15 @@ const ISTCreate = (props) => {
   };
 
   useEffect(() => dispatch(fetchUOMDropdown()), []);
-  const UOM = useSelector((state) => state.fetchUOMDropdown?.uom);
+  const UOM = useSelector(state => state.fetchUOMDropdown?.uom);
   console.log(UOM, "UOM");
 
   const handelRadionButtononChange = (prop, value) => {
     console.log("prop, value", prop, value);
     if (prop == "Shipment_Type") {
-      var OldState = ShippingDetailsFields?.map((o) => {
+      var OldState = ShippingDetailsFields?.map(o => {
         if (o.key == prop)
-          o.sub?.map((p) => {
+          o.sub?.map(p => {
             p.checked = false;
             return p;
           });
@@ -984,9 +984,9 @@ const ISTCreate = (props) => {
       });
       setShippingDetailsFields(OldState);
 
-      var newState = ShippingDetailsFields?.map((o) => {
+      var newState = ShippingDetailsFields?.map(o => {
         if (o.key == prop)
-          o.sub?.map((p) => {
+          o.sub?.map(p => {
             if (p.value == value) p.checked = true;
             return p;
           });
@@ -1002,44 +1002,42 @@ const ISTCreate = (props) => {
   };
 
   useEffect(() => dispatch(estimatedcost()), []);
-  const EstimatedCostdata = useSelector((state) => state.estimatedcost?.cost);
+  const EstimatedCostdata = useSelector(state => state.estimatedcost?.cost);
   console.log(EstimatedCostdata, "EstimatedCostdata");
 
   useEffect(() => {
     if (EstimatedCostdata?.data) {
       var Shipment_Type = ShippingDetailsFields?.find(
-        (o) => o.key == "Shipment_Type"
-      ).sub?.find((o) => o.checked)?.label;
+        o => o.key == "Shipment_Type"
+      ).sub?.find(o => o.checked)?.label;
       console.log(Shipment_Type, "Shipment_Typeq");
 
       if (Shipment_Type == "Eunimart" && EstimatedCostdata?.data?.express) {
         console.log(EstimatedCostdata, "EstimatedCostdataqqqqqqqq");
-        var newEstimated_Cost = EstimatedCostdata?.data?.express?.map(
-          (data) => {
-            var dataRaw = {};
-            EstimatedCostheadCells?.map((tableRaw) => {
-              if (tableRaw.key == "Estimated_Cost_Shipping_Partners") {
-                dataRaw["Estimated_Cost_Shipping_Partners"] = data.name;
-              }
-              if (tableRaw.key == "Estimated_Cost_Charges") {
-                dataRaw["Estimated_Cost_Charges"] = data.charges;
-              }
-              if (tableRaw.key == "Estimated_Cost_Order_Deliver_Time") {
-                dataRaw["Estimated_Cost_Order_Deliver_Time"] =
-                  data.Order_delivery_time;
-              }
-              if (tableRaw.key == "Estimated_Cost_Select") {
-                dataRaw["Estimated_Cost_Select"] = data.supplier_id;
-              }
-            });
-            return dataRaw;
-          }
-        );
+        var newEstimated_Cost = EstimatedCostdata?.data?.express?.map(data => {
+          var dataRaw = {};
+          EstimatedCostheadCells?.map(tableRaw => {
+            if (tableRaw.key == "Estimated_Cost_Shipping_Partners") {
+              dataRaw["Estimated_Cost_Shipping_Partners"] = data.name;
+            }
+            if (tableRaw.key == "Estimated_Cost_Charges") {
+              dataRaw["Estimated_Cost_Charges"] = data.charges;
+            }
+            if (tableRaw.key == "Estimated_Cost_Order_Deliver_Time") {
+              dataRaw["Estimated_Cost_Order_Deliver_Time"] =
+                data.Order_delivery_time;
+            }
+            if (tableRaw.key == "Estimated_Cost_Select") {
+              dataRaw["Estimated_Cost_Select"] = data.supplier_id;
+            }
+          });
+          return dataRaw;
+        });
         setEstimated_Cost(newEstimated_Cost);
       } else if (Shipment_Type == "Eunimart") {
-        var newEstimated_Cost = EstimatedCostdata.express?.map((data) => {
+        var newEstimated_Cost = EstimatedCostdata.express?.map(data => {
           var dataRaw = {};
-          EstimatedCostheadCells?.map((tableRaw) => {
+          EstimatedCostheadCells?.map(tableRaw => {
             if (tableRaw.key == "Estimated_Cost_Shipping_Partners") {
               dataRaw["Estimated_Cost_Shipping_Partners"] = data.name;
             }
@@ -1074,7 +1072,7 @@ const ISTCreate = (props) => {
     ) {
       var newMainData = [];
 
-      var newISTDetailsFields = ISTDetailsFields.map((o) => {
+      var newISTDetailsFields = ISTDetailsFields.map(o => {
         if (o.key == "reference_number") o.value = ASNViewdata?.asn_number;
         if (o.key == "scheduled_delivery_date")
           o.value = moment(ASNViewdata?.scheduled_delivery_date).format(
@@ -1086,7 +1084,7 @@ const ISTCreate = (props) => {
 
       var newLocationDetailsFields = LocationFields;
       newLocationDetailsFields.find(
-        (o) => o.key == "Dispatch_Location_card"
+        o => o.key == "Dispatch_Location_card"
       ).value = [
         {
           label: "Location Name",
@@ -1119,7 +1117,7 @@ const ISTCreate = (props) => {
         },
       ];
       newLocationDetailsFields.find(
-        (o) => o.key == "Delivery_Location_card"
+        o => o.key == "Delivery_Location_card"
       ).value = [
         {
           label: "Location Name",
@@ -1154,7 +1152,7 @@ const ISTCreate = (props) => {
 
       var newselectedProductData2 = [];
       if (ASNViewdata.asn_order_lines)
-        newselectedProductData2 = ASNViewdata.asn_order_lines.map((o) => {
+        newselectedProductData2 = ASNViewdata.asn_order_lines.map(o => {
           return {
             id: o.product_id,
             sku_id: {
@@ -1176,7 +1174,7 @@ const ISTCreate = (props) => {
         });
       setSelectedProductData(newselectedProductData2);
 
-      var newPackageDetailsFields = PackageDetailsFields.map((o) => {
+      var newPackageDetailsFields = PackageDetailsFields.map(o => {
         if (o.key == "package_length")
           o.value = ASNViewdata?.shipping_details?.package_details?.length;
         if (o.key == "package_width")
@@ -1213,13 +1211,13 @@ const ISTCreate = (props) => {
       // ];
       // setEstimated_Cost(newEstimated_Cost);
 
-      var newSchedule_Pickup_date_and_time = DateandTime.map((o) => {
+      var newSchedule_Pickup_date_and_time = DateandTime.map(o => {
         if (o.key == "pickup_date")
           o.value = moment(
             ASNViewdata?.pickup_date_and_time?.pickup_date
           ).format("YYYY-MM-DD");
         if (o.key == "Schedule_Pickup_time")
-          o.value = o.value.map((p) => {
+          o.value = o.value.map(p => {
             if (p.key == "Schedule_Pickup_from_time")
               p.value = moment(
                 ASNViewdata?.pickup_date_and_time?.pickup_from_time
@@ -1247,9 +1245,9 @@ const ISTCreate = (props) => {
         Estimated_Cost_Select: ASNViewdata.shipping_mode_id,
       };
 
-      newMainData.map((o) => {
+      newMainData.map(o => {
         if (o.key == "Schedule_Pickup_time") {
-          o.value.map((p) => {
+          o.value.map(p => {
             keyValuePairMainData[p.key] = p.value;
           });
         } else if (o.key != null) {
@@ -1271,7 +1269,7 @@ const ISTCreate = (props) => {
     ) {
       var newMainData = [];
 
-      var newISTDetailsFields = ISTDetailsFields.map((o) => {
+      var newISTDetailsFields = ISTDetailsFields.map(o => {
         if (o.key == "reference_number")
           o.value = SalesViewdata?.sales_order_number;
         return o;
@@ -1280,7 +1278,7 @@ const ISTCreate = (props) => {
 
       var newLocationDetailsFields = LocationFields;
       newLocationDetailsFields.find(
-        (o) => o.key == "Dispatch_Location_card"
+        o => o.key == "Dispatch_Location_card"
       ).value = [
         {
           label: "Location Name",
@@ -1313,7 +1311,7 @@ const ISTCreate = (props) => {
         },
       ];
       newLocationDetailsFields.find(
-        (o) => o.key == "Delivery_Location_card"
+        o => o.key == "Delivery_Location_card"
       ).value = [
         {
           label: "Location Name",
@@ -1348,7 +1346,7 @@ const ISTCreate = (props) => {
 
       var nweselectedProductData3 = [];
       if (SalesViewdata.sales_order_lines)
-        nweselectedProductData3 = SalesViewdata.sales_order_lines.map((o) => {
+        nweselectedProductData3 = SalesViewdata.sales_order_lines.map(o => {
           return {
             id: o.product_id,
             sku_id: {
@@ -1379,9 +1377,9 @@ const ISTCreate = (props) => {
         Estimated_Cost_Select: SalesViewdata.shipping_carrier_id,
       };
 
-      newMainData.map((o) => {
+      newMainData.map(o => {
         if (o.key == "Schedule_Pickup_time") {
-          o.value.map((p) => {
+          o.value.map(p => {
             keyValuePairMainData[p.key] = p.value;
           });
         } else if (o.key != null) {
@@ -1403,7 +1401,7 @@ const ISTCreate = (props) => {
     ) {
       var newMainData = [];
 
-      var newISTDetailsFields = ISTDetailsFields.map((o) => {
+      var newISTDetailsFields = ISTDetailsFields.map(o => {
         if (o.key == "reference_number")
           o.value =
             DeliveryViewdata?.delivery_order_details?.delivery_order_number;
@@ -1413,7 +1411,7 @@ const ISTCreate = (props) => {
 
       var newLocationDetailsFields = LocationFields;
       newLocationDetailsFields.find(
-        (o) => o.key == "Dispatch_Location_card"
+        o => o.key == "Dispatch_Location_card"
       ).value = [
         {
           label: "Location Name",
@@ -1446,7 +1444,7 @@ const ISTCreate = (props) => {
         },
       ];
       newLocationDetailsFields.find(
-        (o) => o.key == "Delivery_Location_card"
+        o => o.key == "Delivery_Location_card"
       ).value = [
         {
           label: "Location Name",
@@ -1482,7 +1480,7 @@ const ISTCreate = (props) => {
       var nweselectedProductData4 = [];
       if (DeliveryViewdata.delivery_order_lines)
         nweselectedProductData4 = DeliveryViewdata.delivery_order_lines.map(
-          (o) => {
+          o => {
             return {
               id: o.product_id,
               sku_id: {
@@ -1514,9 +1512,9 @@ const ISTCreate = (props) => {
         Estimated_Cost_Select: DeliveryViewdata.shipping_carrier_id,
       };
 
-      newMainData.map((o) => {
+      newMainData.map(o => {
         if (o.key == "Schedule_Pickup_time") {
-          o.value.map((p) => {
+          o.value.map(p => {
             keyValuePairMainData[p.key] = p.value;
           });
         } else if (o.key != null) {
@@ -1538,7 +1536,7 @@ const ISTCreate = (props) => {
     ) {
       var newMainData = [];
 
-      var newISTDetailsFields = ISTDetailsFields.map((o) => {
+      var newISTDetailsFields = ISTDetailsFields.map(o => {
         if (o.key == "scheduled_delivery_date")
           o.value = moment(purchaseOrdersDataId?.expected_delivery_date).format(
             "yyyy-MM-DD"
@@ -1551,7 +1549,7 @@ const ISTCreate = (props) => {
 
       var newLocationDetailsFields = LocationFields;
       newLocationDetailsFields.find(
-        (o) => o.key == "Dispatch_Location_card"
+        o => o.key == "Dispatch_Location_card"
       ).value = [
         {
           label: "Location Name",
@@ -1584,7 +1582,7 @@ const ISTCreate = (props) => {
         },
       ];
       newLocationDetailsFields.find(
-        (o) => o.key == "Delivery_Location_card"
+        o => o.key == "Delivery_Location_card"
       ).value = [
         {
           label: "Location Name",
@@ -1620,7 +1618,7 @@ const ISTCreate = (props) => {
       var newselectedProductData5 = [];
       if (purchaseOrdersDataId?.purchase_order_lines)
         newselectedProductData5 =
-          purchaseOrdersDataId?.purchase_order_lines?.map((o) => {
+          purchaseOrdersDataId?.purchase_order_lines?.map(o => {
             return {
               id: o?.product_id,
               sku_id: {
@@ -1652,9 +1650,9 @@ const ISTCreate = (props) => {
         Estimated_Cost_Select: purchaseOrdersDataId.shipping_carrier_id,
       };
 
-      newMainData.map((o) => {
+      newMainData.map(o => {
         if (o.key == "Schedule_Pickup_time") {
-          o.value.map((p) => {
+          o.value.map(p => {
             keyValuePairMainData[p.key] = p.value;
           });
         } else if (o.key != null) {
@@ -1676,7 +1674,7 @@ const ISTCreate = (props) => {
     ) {
       var newMainData = [];
 
-      var newISTDetailsFields = ISTDetailsFields.map((o) => {
+      var newISTDetailsFields = ISTDetailsFields.map(o => {
         if (o.key == "reference_number") o.value = GRNViewdata?.grn_number;
         return o;
       });
@@ -1684,7 +1682,7 @@ const ISTCreate = (props) => {
 
       var nweselectedProductData6 = [];
       if (GRNViewdata.grn_order_lines)
-        nweselectedProductData6 = GRNViewdata.grn_order_lines.map((o) => {
+        nweselectedProductData6 = GRNViewdata.grn_order_lines.map(o => {
           return {
             id: o.product_id,
             sku_id: {
@@ -1711,9 +1709,9 @@ const ISTCreate = (props) => {
         Estimated_Cost_Select: GRNViewdata.shipping_carrier_id,
       };
 
-      newMainData.map((o) => {
+      newMainData.map(o => {
         if (o.key == "Schedule_Pickup_time") {
-          o.value.map((p) => {
+          o.value.map(p => {
             keyValuePairMainData[p.key] = p.value;
           });
         } else if (o.key != null) {
@@ -1730,7 +1728,7 @@ const ISTCreate = (props) => {
       key: "sku_id",
       label: "Product SKU",
       type: "select",
-      data: productVariantData.map((o) => {
+      data: productVariantData.map(o => {
         return { id: o?.id, label: o?.sku_id };
       }),
       required: true,
@@ -1757,7 +1755,7 @@ const ISTCreate = (props) => {
       key: "uomName",
       label: "Unit of Measure",
       type: "select",
-      data: UOM.map((o) => {
+      data: UOM.map(o => {
         return { id: o?.id, label: o?.name };
       }),
       required: true,
@@ -1791,7 +1789,7 @@ const ISTCreate = (props) => {
       key: "Action",
       label: "Action",
       type: "view",
-      renderView: (item) => (
+      renderView: item => (
         <div>
           <DeleteIcon
             onClick={() => {
@@ -1800,7 +1798,7 @@ const ISTCreate = (props) => {
               // dispatch(deleteProductLine(istdata?.id, item?.sku_id?.id));
               setSelectedProductData(
                 selectedProductData.filter(
-                  (o) => o?.sku_id?.id != item?.sku_id?.id
+                  o => o?.sku_id?.id != item?.sku_id?.id
                 )
               );
             }}
@@ -1875,16 +1873,16 @@ const ISTCreate = (props) => {
     },
   ]);
 
-  var Pin_code = LocationFields.map((o) => {
+  var Pin_code = LocationFields.map(o => {
     if (o.key == "Dispatch_Location_card") {
-      var Dispatch_Pincode = o.value.map((pin) => {
+      var Dispatch_Pincode = o.value.map(pin => {
         if (pin.key == "Dispatch_Pincode") {
           return pin.value;
         }
       });
       return Dispatch_Pincode;
     } else if (o.key == "Delivery_Location_card") {
-      var Delivery_Pincode = o.value.map((pin) => {
+      var Delivery_Pincode = o.value.map(pin => {
         if (pin.key == "Delivery_Pincode") {
           return pin.value;
         }
@@ -1944,13 +1942,13 @@ const ISTCreate = (props) => {
   function calulate_total() {
     if (selectedProductData && mainData && Estimated_Cost) {
       var val1 = selectedProductData
-        ?.map((o) => o.Amount)
+        ?.map(o => o.Amount)
         .reduce((previousValue, currentValue) => {
           return previousValue + currentValue;
         });
       var id_Estimated_Cost_Select = mainData.Estimated_Cost_Select;
       var val2 = Estimated_Cost?.find(
-        (o) => o.Estimated_Cost_Select == id_Estimated_Cost_Select
+        o => o.Estimated_Cost_Select == id_Estimated_Cost_Select
       ).Estimated_Cost_Charges;
       var subTotal = val1 + val2;
       //console.log("subTotal",subTotal)
@@ -1973,10 +1971,10 @@ const ISTCreate = (props) => {
 
   var [deletedProducts, setdeletedProducts] = useState([]);
 
-  const handleButtonClick = (key) => {
+  const handleButtonClick = key => {
     console.log("maindataaaaaaaaa", mainData);
     if (props && props.id) {
-      deletedProducts.forEach((e) => {
+      deletedProducts.forEach(e => {
         dispatch(deleteProductLine(istdata.id, e?.sku_id?.id));
       });
     }
@@ -2006,10 +2004,10 @@ const ISTCreate = (props) => {
     }
 
     var Estimated_Cost_details = Estimated_Cost?.find(
-      (o) => o.Estimated_Cost_Select == mainData.Estimated_Cost_Select
+      o => o.Estimated_Cost_Select == mainData.Estimated_Cost_Select
     );
     var Location_Details_card = LocationFields.find(
-      (o) =>
+      o =>
         o.key == "Dispatch_Location_card" || o.key == "Delivery_Location_card"
     ).data;
     console.log(selectedProductData, "selecteProductDataaaaaaa");
@@ -2075,7 +2073,7 @@ const ISTCreate = (props) => {
       //     transfer_quantity: 10,
       //   },
       // ],
-      internal_transfer_lines: selectedProductData.map((o) => {
+      internal_transfer_lines: selectedProductData.map(o => {
         return {
           product_id: Number(o?.product_template_id),
           product_name: o?.product_name,
@@ -2136,7 +2134,7 @@ const ISTCreate = (props) => {
     history.push(`/ist`);
   };
 
-  const handelEstimated_Cost_RadionButtononChange = (value) => {
+  const handelEstimated_Cost_RadionButtononChange = value => {
     console.log("value", value);
     // var Estimated_Cost_details = Estimated_Cost.find(o=> o.Estimated_Cost_Select == value);
     // setPaymentDetailsFields({...paymentDetailsFields, shippingCharge:Estimated_Cost_details.Estimated_Cost_Charges});
@@ -2200,11 +2198,11 @@ const ISTCreate = (props) => {
       <AddForm
         header={"IST Details"}
         // data={ISTDetailsFields}
-        data={ISTDetailsFields.map((field) => {
+        data={ISTDetailsFields.map(field => {
           console.log(field.key, "field key");
           switch (field.key) {
             case "reason_id": {
-              field.data = Lookups?.map((curElem) => {
+              field.data = Lookups?.map(curElem => {
                 return {
                   id: curElem?.id,
                   label: curElem.lookup_code,
@@ -2213,7 +2211,7 @@ const ISTCreate = (props) => {
               break;
             }
             case "receipt_routing_id": {
-              field.data = LookupsRouting?.map((curElem) => {
+              field.data = LookupsRouting?.map(curElem => {
                 return {
                   id: curElem?.id,
                   label: curElem.lookup_code,
@@ -2222,7 +2220,7 @@ const ISTCreate = (props) => {
               break;
             }
             case "source_location_id": {
-              field.data = Location?.map((curElem) => {
+              field.data = Location?.map(curElem => {
                 return {
                   id: curElem?.id,
                   label: curElem.name,
@@ -2231,7 +2229,7 @@ const ISTCreate = (props) => {
               break;
             }
             case "destination_location_id": {
-              field.data = Location?.map((curElem) => {
+              field.data = Location?.map(curElem => {
                 return {
                   id: curElem?.id,
                   label: curElem.name,
@@ -2240,7 +2238,7 @@ const ISTCreate = (props) => {
               break;
             }
             case "Source_Document_Type": {
-              field.data = SourceDocument.map((curElem) => {
+              field.data = SourceDocument.map(curElem => {
                 return {
                   id: curElem,
                   label: curElem.display_name,
@@ -2257,14 +2255,14 @@ const ISTCreate = (props) => {
                 mainData &&
                 mainData.Source_Document_Type &&
                 mainData.Source_Document_Type.lookup_code == "SALES_ORDERS"
-                  ? Salesdata.map((o) => {
+                  ? Salesdata.map(o => {
                       return { id: o.id, label: o.sales_order_number };
                     })
                   : mainData &&
                     mainData.Source_Document_Type &&
                     mainData.Source_Document_Type.lookup_code ==
                       "DELIVERY_ORDERS"
-                  ? Deliverydata.map((o) => {
+                  ? Deliverydata.map(o => {
                       return {
                         id: o.id,
                         label: o?.delivery_order_details?.delivery_order_number,
@@ -2273,20 +2271,20 @@ const ISTCreate = (props) => {
                   : mainData &&
                     mainData.Source_Document_Type &&
                     mainData.Source_Document_Type.lookup_code == "ASN"
-                  ? ASNdata.map((o) => {
+                  ? ASNdata.map(o => {
                       return { id: o.id, label: o.asn_number };
                     })
                   : mainData &&
                     mainData.Source_Document_Type &&
                     mainData.Source_Document_Type.lookup_code ==
                       "PURCHASE_ORDERS"
-                  ? purchaseOrdersData.map((o) => {
+                  ? purchaseOrdersData.map(o => {
                       return { id: o.id, label: o.purchase_order_number };
                     })
                   : mainData &&
                     mainData.Source_Document_Type &&
                     mainData.Source_Document_Type.lookup_code == "GRN"
-                  ? GRNdata.map((o) => {
+                  ? GRNdata.map(o => {
                       return { id: o.id, label: o.grn_number };
                     })
                   : null;
@@ -2323,7 +2321,7 @@ const ISTCreate = (props) => {
       {/* // Location Details */}
       <AddForm
         header={"Location Details"}
-        data={LocationFields.map((field) => {
+        data={LocationFields.map(field => {
           return field;
         })}
         handelInputChange={handelInputChange}
@@ -2452,17 +2450,17 @@ const ISTCreate = (props) => {
 
 export default ISTCreate;
 
-/*			
-Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
-All rights reserved.			
-This program is free software: you can redistribute it and/or modify			
-it under the terms of the GNU General Public License as published by			
-the Free Software Foundation, either version 3 of the License, or			
-(at your option) any later version.			
-This program is distributed in the hope that it will be useful,			
-but WITHOUT ANY WARRANTY; without even the implied warranty of			
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
-GNU General Public License for more details.			
-You should have received a copy of the GNU General Public License			
-along with this program. If not, see <http://www.gnu.org/licenses/>.			
+/*
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
 */

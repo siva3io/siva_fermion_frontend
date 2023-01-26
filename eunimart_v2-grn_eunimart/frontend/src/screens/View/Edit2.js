@@ -40,9 +40,9 @@ const GrnEdit = () => {
       product_template_id: 0,
     },
   ]);
-  const ASNViewdata = useSelector((state) => state?.AsnByIdData?.AsnDataById);
+  const ASNViewdata = useSelector(state => state?.AsnByIdData?.AsnDataById);
   const purchaseOrdersViewdata = useSelector(
-    (state) => state?.POByIdData?.PODataById
+    state => state?.POByIdData?.PODataById
   );
 
   const [params, setParams] = useState({ limit: 10, offset: 1 });
@@ -60,7 +60,7 @@ const GrnEdit = () => {
   useEffect(() => {
     dispatch(fetchGrnbyId(id));
   }, []);
-  const grnData = useSelector((state) => state.fetchGrnById.grn);
+  const grnData = useSelector(state => state.fetchGrnById.grn);
   console.log(grnData, "grnData");
 
   useEffect(() => {
@@ -68,7 +68,7 @@ const GrnEdit = () => {
     if (id && grnData) {
       console.log("grnDatagrnData", grnData);
       //mapping data to 1st container on edit function
-      var newGRNDetailsFields = GRNDetailsFields?.map((o) => {
+      var newGRNDetailsFields = GRNDetailsFields?.map(o => {
         if (o.key == "GRN_Number") o.value = grnData?.grn_number;
         if (o.key == "Reference_ID") o.value = grnData?.reference_number;
         if (o.key == "Source_Document_Type") {
@@ -113,7 +113,7 @@ const GrnEdit = () => {
       var newselectedProductData = [];
       console.log(grnData, "ggg");
       if (grnData.grn_order_lines)
-        newselectedProductData = grnData.grn_order_lines?.map((o) => {
+        newselectedProductData = grnData.grn_order_lines?.map(o => {
           return {
             sku_id: { id: o.product.id, label: o.product.sku_id },
             product_name: o.product.product_name,
@@ -143,7 +143,7 @@ const GrnEdit = () => {
       newMainData = [...newGRNDetailsFields, ...newselectedProductData];
       console.log("maindata2", newMainData);
       var keyValuePairMainData = {};
-      newMainData?.map((o) => {
+      newMainData?.map(o => {
         if (o.key != null) {
           keyValuePairMainData[o.key] = o.value;
         }
@@ -155,27 +155,27 @@ const GrnEdit = () => {
 
   useEffect(() => dispatch(fetchSourceDocumentData()), []);
   const SourceDocument = useSelector(
-    (state) => state.fetchSourceDocumentData?.SourceDocument
+    state => state.fetchSourceDocumentData?.SourceDocument
   );
   console.log(SourceDocument, "SourceDocument");
 
   useEffect(() => dispatch(SearchSourceDocumentData()), []);
 
   const SearchSourceDocument = useSelector(
-    (state) => state.SearchSourceDocumentData?.SearchSourceDocument
+    state => state.SearchSourceDocumentData?.SearchSourceDocument
   );
   console.log(SearchSourceDocument, "SearchSourceDocument");
 
   useEffect(() => dispatch(fetchProductsData()), []);
 
   const productVariantData = useSelector(
-    (state) => state.fetchProductsData?.products
+    state => state.fetchProductsData?.products
   );
   console.log(productVariantData, "productVariantData");
 
   useEffect(() => dispatch(fetchUOMDropdown()), []);
 
-  const UOM = useSelector((state) => state.fetchUOMDropdown?.Uom);
+  const UOM = useSelector(state => state.fetchUOMDropdown?.Uom);
 
   const onAddNewRaw = () => {
     setSelectedProductData([
@@ -254,7 +254,7 @@ const GrnEdit = () => {
       key: "sku_id",
       label: "Product SKU",
       type: "select",
-      data: productVariantData?.map((o) => {
+      data: productVariantData?.map(o => {
         return { id: o?.id, label: o?.sku_id };
       }),
       //   data: useSelector((state) => state.data.productVariantData?.map(o=>{return{id:o.id, label:o.sku_id}})),
@@ -280,7 +280,7 @@ const GrnEdit = () => {
       // key: "uom_id",
       label: "Unit Of Measurement",
       type: "select",
-      data: UOM?.map((o) => {
+      data: UOM?.map(o => {
         return { id: o?.id, label: o?.name };
       }),
     },
@@ -324,7 +324,7 @@ const GrnEdit = () => {
       key: "Action",
       label: "Action",
       type: "view",
-      renderView: (item) => (
+      renderView: item => (
         <div>
           {console.log(item.product_id, "itemid", selectedProductData)}
           <DeleteIcon
@@ -332,7 +332,7 @@ const GrnEdit = () => {
               setSelectedProductData(
                 // selectedProductData.filter((o) => o?.id != item?.id)
                 selectedProductData.filter(
-                  (o) => o?.product_id != item?.product_id
+                  o => o?.product_id != item?.product_id
                 )
               );
               deleteorderlinefun(item);
@@ -343,14 +343,14 @@ const GrnEdit = () => {
     },
   ];
 
-  const deleteorderlinefun = (item) => {
+  const deleteorderlinefun = item => {
     dispatch(deleteProductline(id, item?.sku_id?.id));
   };
-  const handelCheckBoxonChange = (field) => {
+  const handelCheckBoxonChange = field => {
     console.log("onCheckboxChanges", field);
 
     if (field.key == "auto_generate_grn_number") {
-      var neworder = GRNDetailsFields?.map((o) => {
+      var neworder = GRNDetailsFields?.map(o => {
         if (o.key == "GRN_Number") o.disabled = !field.isChecked;
         return o;
       });
@@ -360,7 +360,7 @@ const GrnEdit = () => {
     }
 
     if (field.key == "auto_generate_reference_number") {
-      var neworder = GRNDetailsFields?.map((o) => {
+      var neworder = GRNDetailsFields?.map(o => {
         if (o.key == "Reference_ID") o.disabled = !field.isChecked;
         return o;
       });
@@ -368,7 +368,7 @@ const GrnEdit = () => {
       // setMainData(neworder)
     }
 
-    var newState = GRNDetailsFields?.map((o) => {
+    var newState = GRNDetailsFields?.map(o => {
       if (o.key == field.key) {
         o.isChecked = !o.isChecked;
       }
@@ -401,12 +401,12 @@ const GrnEdit = () => {
 
         if (key === "sku_id") {
           console.log("sku_id");
-          var selectVarient = productVariantData.find((o) => o.id == value.id);
+          var selectVarient = productVariantData.find(o => o.id == value.id);
           newSelectedProductData[index] = selectVarient;
           newSelectedProductData[index][key] = value.label;
         } else if (key === "uom.name") {
           console.log("uom.name");
-          var selectVarient = uomData.find((o) => o.id == value.id);
+          var selectVarient = uomData.find(o => o.id == value.id);
           newSelectedProductData[index].uom = {
             name: value.label,
             id: value.id,
@@ -457,7 +457,7 @@ const GrnEdit = () => {
     //grndetails
 
     try {
-      var newGRNDetailsFields = GRNDetailsFields.map((o) => {
+      var newGRNDetailsFields = GRNDetailsFields.map(o => {
         if (o.key == key) o.value = value;
         return o;
       });
@@ -471,7 +471,7 @@ const GrnEdit = () => {
     var prod_id = 0;
     try {
       console.log("proid:", selectedProductData);
-      var newselectedProductData = selectedProductData.map((o) => {
+      var newselectedProductData = selectedProductData.map(o => {
         console.log("odata", o);
         if (o.key == key) {
           console.log("ifcondition");
@@ -506,7 +506,7 @@ const GrnEdit = () => {
       );
       if (key == "sku_id") {
         console.log("sku_id", productVariantData);
-        var selectVarient = productVariantData.find((o) => o?.id == value?.id);
+        var selectVarient = productVariantData.find(o => o?.id == value?.id);
         console.log("selectvariant", selectVarient.sku_id);
         newSelectedProductData[index] = selectedProductData[index];
         newSelectedProductData[index][key] = value?.label;
@@ -514,7 +514,7 @@ const GrnEdit = () => {
         console.log(newSelectedProductData, "newone", selectedProductData);
       } else if (key === "uom_id") {
         console.log("uom_id");
-        var selectVarient = UOM.find((o) => o?.id == value?.id);
+        var selectVarient = UOM.find(o => o?.id == value?.id);
         console.log(selectVarient, "selec--");
         newSelectedProductData[index].uom = {
           name: value.label,
@@ -525,7 +525,7 @@ const GrnEdit = () => {
         console.log(newSelectedProductData, "newone");
       } else if (key === "uom.name") {
         console.log("uom_id_name", key, value);
-        var selectVarient = UOM.find((o) => o?.id == value?.id);
+        var selectVarient = UOM.find(o => o?.id == value?.id);
         console.log(selectVarient, "selec--");
         newSelectedProductData[index].uom = {
           name: {
@@ -603,7 +603,7 @@ const GrnEdit = () => {
     switch (key) {
       case "Source_Document_Type":
         setGRNDetailsFields(
-          GRNDetailsFields?.map((o) => {
+          GRNDetailsFields?.map(o => {
             if (o.key == key) return { ...o, value: value };
             return o;
           })
@@ -613,7 +613,7 @@ const GrnEdit = () => {
 
       case "Select_Source_Document":
         setGRNDetailsFields(
-          GRNDetailsFields?.map((o) => {
+          GRNDetailsFields?.map(o => {
             if (o.key == key) return { ...o, value: value };
             return o;
           })
@@ -661,7 +661,7 @@ const GrnEdit = () => {
   );
 
   const history = useNavigate();
-  const handleButtonClick = (key) => {
+  const handleButtonClick = key => {
     console.log("key", key);
     console.log(mainData, "mainData222", selectedProductData);
 
@@ -681,7 +681,7 @@ const GrnEdit = () => {
       source_document: mainData?.Select_Source_Document,
 
       warehouse_id: 1,
-      grn_order_lines: selectedProductData?.map((o) => {
+      grn_order_lines: selectedProductData?.map(o => {
         return {
           sku_id: {
             id: o.sku_id.id,
@@ -731,7 +731,7 @@ const GrnEdit = () => {
     if (ASNViewdata) {
       console.log("ASNViewdata", ASNViewdata, mainData);
       //mapping data to 1st container on create function
-      var newGRNDetailsFields = GRNDetailsFields?.map((o) => {
+      var newGRNDetailsFields = GRNDetailsFields?.map(o => {
         if (o.key == "Reference_ID") o.value = ASNViewdata?.reference_number;
 
         return o;
@@ -741,7 +741,7 @@ const GrnEdit = () => {
       // mapping second container
       var newselectedProductData = [];
       if (ASNViewdata?.asn_order_lines)
-        newselectedProductData = ASNViewdata.asn_order_lines?.map((o) => {
+        newselectedProductData = ASNViewdata.asn_order_lines?.map(o => {
           return {
             sku_id: {
               id: o.product_variant.id,
@@ -780,7 +780,7 @@ const GrnEdit = () => {
       console.log("maindata2", newMainData);
       // var keyValuePairMainData = {};
       var keyValuePairMainData = { GRN_Number: mainData?.GRN_Number };
-      newMainData?.map((o) => {
+      newMainData?.map(o => {
         if (o.key != null && o.value) {
           keyValuePairMainData[o.key] = o.value;
         }
@@ -795,7 +795,7 @@ const GrnEdit = () => {
     if (purchaseOrdersViewdata) {
       console.log("purchaseOrdersViewdata", purchaseOrdersViewdata, mainData);
       //mapping data to 1st container on create function
-      var newGRNDetailsFields = GRNDetailsFields?.map((o) => {
+      var newGRNDetailsFields = GRNDetailsFields?.map(o => {
         if (o.key == "Reference_ID")
           o.value = purchaseOrdersViewdata?.reference_number;
         return o;
@@ -810,7 +810,7 @@ const GrnEdit = () => {
       var newselectedProductData = [];
       if (purchaseOrdersViewdata?.purchase_order_lines)
         newselectedProductData =
-          purchaseOrdersViewdata.purchase_order_lines?.map((o) => {
+          purchaseOrdersViewdata.purchase_order_lines?.map(o => {
             return {
               // sku_id: { id: o.product_details?.sku_id, label: o.product_details?.sku_code },
               sku_id: {
@@ -837,7 +837,7 @@ const GrnEdit = () => {
       newMainData = [...newGRNDetailsFields, ...newselectedProductData];
       console.log("maindata2", newMainData);
       var keyValuePairMainData = { GRN_Number: mainData?.GRN_Number };
-      newMainData?.map((o) => {
+      newMainData?.map(o => {
         if (o.key != null && o.value) {
           keyValuePairMainData[o.key] = o.value;
         }
@@ -854,10 +854,10 @@ const GrnEdit = () => {
       {/* //Enter GRN Details */}
       <AddForm
         header={"GRN Details"}
-        data={GRNDetailsFields?.map((field) => {
+        data={GRNDetailsFields?.map(field => {
           switch (field.key) {
             case "Source_Document_Type": {
-              field.data = SourceDocument?.map((curElem) => {
+              field.data = SourceDocument?.map(curElem => {
                 return {
                   id: curElem.id,
                   label: curElem.display_name,
@@ -875,14 +875,14 @@ const GrnEdit = () => {
                   mainData.Source_Document_Type?.id &&
                   mainData.Source_Document_Type.id?.lookup_code ==
                     "PURCHASE_ORDERS"
-                    ? SearchSourceDocument.map((o) => {
+                    ? SearchSourceDocument.map(o => {
                         return { id: o.id, label: o.purchase_order_number };
                       })
                     : mainData &&
                       mainData.Source_Document_Type &&
                       mainData.Source_Document_Type?.id &&
                       mainData.Source_Document_Type.id?.lookup_code == "ASN"
-                    ? SearchSourceDocument.map((o) => {
+                    ? SearchSourceDocument.map(o => {
                         return { id: o.id, label: o.asn_number };
                       })
                     : null;
@@ -891,7 +891,7 @@ const GrnEdit = () => {
               else if (
                 grnData?.document_type?.lookup_code == "PURCHASE_ORDERS"
               ) {
-                field.data = SearchSourceDocument.map((o) => {
+                field.data = SearchSourceDocument.map(o => {
                   return {
                     id: o.id,
                     label: o.purchase_order_number,
@@ -899,7 +899,7 @@ const GrnEdit = () => {
                   };
                 });
               } else if (grnData?.document_type?.lookup_code == "ASN") {
-                field.data = SearchSourceDocument.map((o) => {
+                field.data = SearchSourceDocument.map(o => {
                   return {
                     id: o.id,
                     label: o.asn_number,
@@ -942,7 +942,7 @@ const GrnEdit = () => {
                 <FormControlLabel
                   control={<Checkbox />}
                   label="Create Scrap Order"
-                  onChange={(e) =>
+                  onChange={e =>
                     handelInputChange("create_scrap_order", e.target.checked)
                   }
                 />
@@ -968,17 +968,17 @@ const GrnEdit = () => {
 
 export default GrnEdit;
 
-/*			
-Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
-All rights reserved.			
-This program is free software: you can redistribute it and/or modify			
-it under the terms of the GNU General Public License as published by			
-the Free Software Foundation, either version 3 of the License, or			
-(at your option) any later version.			
-This program is distributed in the hope that it will be useful,			
-but WITHOUT ANY WARRANTY; without even the implied warranty of			
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
-GNU General Public License for more details.			
-You should have received a copy of the GNU General Public License			
-along with this program. If not, see <http://www.gnu.org/licenses/>.			
+/*
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
 */

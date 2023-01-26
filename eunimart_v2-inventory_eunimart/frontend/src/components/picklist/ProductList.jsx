@@ -11,9 +11,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 
 function ProductList({ payload, setPayloadData, qty_ordered_enabled }) {
-  const products = useSelector(
-    (state) => state.picklistviewdata.picklist_lines
-  );
+  const products = useSelector(state => state.picklistviewdata.picklist_lines);
 
   const heading = [
     "Product Name",
@@ -49,7 +47,7 @@ function ProductList({ payload, setPayloadData, qty_ordered_enabled }) {
   const [inventoryAdjustmentViewArr, setinventoryAdjustmentViewArr] =
     React.useState([]);
 
-  const deleteinventoryAdjustment = (index) => {
+  const deleteinventoryAdjustment = index => {
     let tempArray = [...inventoryAdjustmentList];
     let b = tempArray.splice(index, 1);
     setinventoryAdjustmentList(tempArray);
@@ -127,7 +125,6 @@ function ProductList({ payload, setPayloadData, qty_ordered_enabled }) {
     },
   });
 
-
   return (
     <div>
       <ThemeProvider theme={theme}>
@@ -196,7 +193,7 @@ const InventoryAdjustmentRow = ({
     setinventoryAdjustmentList(tempinventoryAdjustmentList);
   }, [inventoryAdjustmentViewArr]);
 
-  const inventoryArrOfObj = inventoryAdjustments.map((elem) => {
+  const inventoryArrOfObj = inventoryAdjustments.map(elem => {
     return {
       id: elem[0],
       value: elem[1],
@@ -249,7 +246,7 @@ const InventoryAdjustmentRow = ({
           <TextField
             disabled={qty_ordered_enabled}
             value={inventoryAdjustmentList[tempCount].quantity_picked}
-            onChange={(e) =>
+            onChange={e =>
               onInputChange(
                 "quantity_picked",
                 Number(e.target.value),
@@ -271,17 +268,17 @@ const InventoryAdjustmentRow = ({
 
 export default ProductList;
 
-/*			
-Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
-All rights reserved.			
-This program is free software: you can redistribute it and/or modify			
-it under the terms of the GNU General Public License as published by			
-the Free Software Foundation, either version 3 of the License, or			
-(at your option) any later version.			
-This program is distributed in the hope that it will be useful,			
-but WITHOUT ANY WARRANTY; without even the implied warranty of			
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
-GNU General Public License for more details.			
-You should have received a copy of the GNU General Public License			
-along with this program. If not, see <http://www.gnu.org/licenses/>.			
+/*
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
 */

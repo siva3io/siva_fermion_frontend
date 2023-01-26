@@ -6,11 +6,11 @@ import { loadTemplateData, loadAccessManagementData } from "../../redux/action";
 import RemoteDynamicAppBar from "Remote/DynamicAppBar";
 import RemoteDynamicTable from "Remote/DynamicTable";
 
-const IndexScreen = (props) => {
+const IndexScreen = props => {
   const navigate = useHistory();
   let dispatch = useDispatch();
   const { templateData, templateMeta, ACCESSdata } = useSelector(
-    (state) => state.data
+    state => state.data
   );
 
   const [params, setParams] = useState({
@@ -55,7 +55,7 @@ const IndexScreen = (props) => {
           key: "desc",
         },
       ],
-      func: (value) => {
+      func: value => {
         //dispatch(loadSalesData({ limit: params.limit, offset: params.offset, filters:params.filters, sort:JSON.stringify([["sales_order_number",value]]) }))
       },
     },
@@ -72,15 +72,15 @@ const IndexScreen = (props) => {
   const [customOptions, setCustomOptions] = useState([
     {
       label: "View",
-      func: (id) => handleView(id),
+      func: id => handleView(id),
     },
     {
       label: "Edit",
-      func: (id) => handleEdit(id),
+      func: id => handleEdit(id),
     },
     {
       label: "Delete",
-      func: (id) => handleDeleteModalOpen(id),
+      func: id => handleDeleteModalOpen(id),
     },
   ]);
 
@@ -88,23 +88,23 @@ const IndexScreen = (props) => {
     setCustomOptions([
       {
         label: "View",
-        func: (id) => handleView(id),
-        flag: ACCESSdata?.find((row) => row === row)?.view_actions_json?.find(
-          (o) => o.lookup_code === "READ"
+        func: id => handleView(id),
+        flag: ACCESSdata?.find(row => row === row)?.view_actions_json?.find(
+          o => o.lookup_code === "READ"
         )?.ctrl_flag,
       },
       {
         label: "Edit",
-        func: (id) => handleEdit(id),
-        flag: ACCESSdata?.find((row) => row === row)?.view_actions_json?.find(
-          (o) => o.lookup_code === "UPDATE"
+        func: id => handleEdit(id),
+        flag: ACCESSdata?.find(row => row === row)?.view_actions_json?.find(
+          o => o.lookup_code === "UPDATE"
         )?.ctrl_flag,
       },
       {
         label: "Delete",
-        func: (id) => handleDeleteModalOpen(id),
-        flag: ACCESSdata?.find((row) => row === row)?.view_actions_json?.find(
-          (o) => o.lookup_code === "DELETE"
+        func: id => handleDeleteModalOpen(id),
+        flag: ACCESSdata?.find(row => row === row)?.view_actions_json?.find(
+          o => o.lookup_code === "DELETE"
         )?.ctrl_flag,
       },
     ]);
@@ -118,7 +118,7 @@ const IndexScreen = (props) => {
     }
   };
 
-  const searchItems = (searchValue) => {
+  const searchItems = searchValue => {
     if (searchValue.length === 0) {
       //dispatch(loadSalesData({ "": "" }, "search"));
     } else {
@@ -131,26 +131,26 @@ const IndexScreen = (props) => {
     { label: "Code:", value: "code" },
   ];
 
-  const handleView = (id) => {
+  const handleView = id => {
     navigate.push("/access-templates/edit/" + id);
   };
 
-  const handleDelete = (id) => {
+  const handleDelete = id => {
     console.log("handleDelete", id);
   };
 
-  const handleEdit = (id) => {
+  const handleEdit = id => {
     navigate.push("/access-templates/edit/" + id);
   };
 
-  const handleButtonClick = (value) => {
+  const handleButtonClick = value => {
     navigate.push("/access-templates/add");
   };
 
   const handleModalOpen = () => {
     //setModalOpen(true);
   };
-  const handleChangeDyanmicAppBar = (value) => {
+  const handleChangeDyanmicAppBar = value => {
     setDynamicAppBar(value);
   };
 
@@ -160,8 +160,8 @@ const IndexScreen = (props) => {
         templateMeta &&
         ACCESSdata &&
         ACCESSdata[0]?.module_ctrl_flag &&
-        ACCESSdata?.find((row) => row === row)?.view_actions_json?.find(
-          (o) => o.lookup_code === "LIST"
+        ACCESSdata?.find(row => row === row)?.view_actions_json?.find(
+          o => o.lookup_code === "LIST"
         )?.ctrl_flag === 1 && (
           <Box sx={{ background: "#F9F9F9" }}>
             <Suspense fallback={<div>Loading... </div>}>
@@ -177,7 +177,16 @@ const IndexScreen = (props) => {
                 searchType={searchType}
                 setSearchType={setSearchType}
                 handleButtonClick={handleButtonClick}
-                buttons={[{name:"Create",handleButtonClick:handleButtonClick,flag:ACCESSdata?.find(row=>row === row)?.view_actions_json?.find(o=>o.lookup_code === "CREATE" )?.ctrl_flag}]}
+                buttons={[
+                  {
+                    name: "Create",
+                    handleButtonClick: handleButtonClick,
+                    flag: ACCESSdata?.find(
+                      row => row === row
+                    )?.view_actions_json?.find(o => o.lookup_code === "CREATE")
+                      ?.ctrl_flag,
+                  },
+                ]}
               />
             </Suspense>
 
@@ -203,19 +212,17 @@ const IndexScreen = (props) => {
 };
 export default IndexScreen;
 
-
-
-/*			
-Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
-All rights reserved.			
-This program is free software: you can redistribute it and/or modify			
-it under the terms of the GNU General Public License as published by			
-the Free Software Foundation, either version 3 of the License, or			
-(at your option) any later version.			
-This program is distributed in the hope that it will be useful,			
-but WITHOUT ANY WARRANTY; without even the implied warranty of			
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
-GNU General Public License for more details.			
-You should have received a copy of the GNU General Public License			
-along with this program. If not, see <http://www.gnu.org/licenses/>.			
+/*
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
 */

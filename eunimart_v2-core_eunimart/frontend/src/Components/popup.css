@@ -6,101 +6,123 @@
   height: 100%;
   width: 100%;
 }
+
 .modal {
   position: absolute;
   right: 5vw;
-  top:5vw;
+  top: 5vw;
   background-color: rgba(0, 0, 0, 0);
   /* width: 500px; */
   height: 100%;
 
 }
-    .modelContainer{
-        background-color:#fff;
-        border-radius:25px;
-        position:relative;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        flex-direction: column;
-        overflow: hidden;
-    }
-.profileContainer{
-    margin-top: 5%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 350px;
-    /* background-color: red; */
-    z-index: 1;
+
+.modelContainer {
+  background-color: #fff;
+  border-radius: 25px;
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
 }
-.breakLine{
-    background-color:#D3CFCF;
-    width: 400px;
-    height: 4px;
+
+.profileContainer {
+  margin-top: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 350px;
+  /* background-color: red; */
+  z-index: 1;
 }
-.secPart{
+
+.breakLine {
+  background-color: #D3CFCF;
+  width: 400px;
+  height: 4px;
+}
+
+.secPart {
   margin: 0%;
   padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction: column;
-    height: 100px;
-    width: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  height: 100px;
+  width: 350px;
 }
 
-.logoutBtnCon{
-    height: 75px;
-    width: 350px;
+.logoutBtnCon {
+  height: 75px;
+  width: 350px;
 }
 
-.backdrop{
-    position: absolute;
-    top:0;
-    height: 100px;
-    width: 100%;
-    background-color: #001661;
-    border-radius: 25px;
-    z-index: 0;
+.backdrop {
+  position: absolute;
+  top: 0;
+  height: 100px;
+  width: 100%;
+  background-color: #001661;
+  border-radius: 25px;
+  z-index: 0;
 }
 
-.Bot_logo2{
-    height: 150px;
-    width: 150px;
-    border-radius: 50%;
-    margin-left: 100px;
-  }
+.Bot_logo2 {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  margin-left: 100px;
+}
 
-  .roleCon{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* background-color: #001661; */
-    width: 100%;
-  }
-  .roleNames{
-    background-color:#FC817C;
-    padding: 5px 10px 5px 10px;
-    border-radius: 25px;
-    margin: 2%;
-    color: #fff;
-  }
+.roleCon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #001661; */
+  width: 100%;
+}
 
-  .logoutBtnCon{
-    padding-top: 3%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: column;
-    cursor: pointer;
-    height: auto;
-  }
-  .logoutBtn{
-    color: #416BFF;
-    border: 3px solid #416BFF;
-    border-radius: 5px;
-    font-size: larger;
-    padding: 2% 5% 2% ;
-  }
+.roleNames {
+  background-color: #FC817C;
+  padding: 5px 10px 5px 10px;
+  border-radius: 25px;
+  margin: 2%;
+  color: #fff;
+}
+
+.logoutBtnCon {
+  padding-top: 3%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+  height: auto;
+}
+
+.logoutBtn {
+  color: #416BFF;
+  border: 3px solid #416BFF;
+  border-radius: 5px;
+  font-size: larger;
+  padding: 2% 5% 2%;
+}
+
+/*
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
+*/

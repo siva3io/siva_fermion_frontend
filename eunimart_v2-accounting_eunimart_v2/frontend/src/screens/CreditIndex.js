@@ -32,8 +32,8 @@ const CreditIndex = () => {
     filters: null,
     sort: null,
   });
-  const { salesdata, salesdata_meta } = useSelector((state) => state.data);
-  const access = useSelector((state) => state.tabData.access);
+  const { salesdata, salesdata_meta } = useSelector(state => state.data);
+  const access = useSelector(state => state.tabData.access);
   const [searchType, setSearchType] = useState("sales_order_number");
   const [salesId, setSalesId] = useState(0);
   const [selectedId, setId] = useState(0);
@@ -91,7 +91,7 @@ const CreditIndex = () => {
     },
   ];
 
-  const handleChangeDyanmicAppBar = (value) => {
+  const handleChangeDyanmicAppBar = value => {
     setDynamicAppBar(value);
   };
   const handleModalOpen = () => {
@@ -111,7 +111,7 @@ const CreditIndex = () => {
           key: "desc",
         },
       ],
-      func: (value) => {
+      func: value => {
         dispatch(
           loadSalesData({
             limit: params.limit,
@@ -134,7 +134,7 @@ const CreditIndex = () => {
           key: "desc",
         },
       ],
-      func: (value) => {
+      func: value => {
         dispatch(
           loadSalesData({
             limit: params.limit,
@@ -157,7 +157,7 @@ const CreditIndex = () => {
           key: "desc",
         },
       ],
-      func: (value) => {
+      func: value => {
         dispatch(
           loadSalesData({
             limit: params.limit,
@@ -180,7 +180,7 @@ const CreditIndex = () => {
           key: "desc",
         },
       ],
-      func: (value) => {
+      func: value => {
         dispatch(
           loadSalesData({
             limit: params.limit,
@@ -203,7 +203,7 @@ const CreditIndex = () => {
           key: "desc",
         },
       ],
-      func: (value) => {
+      func: value => {
         dispatch(
           loadSalesData({
             limit: params.limit,
@@ -217,7 +217,7 @@ const CreditIndex = () => {
     {
       label: "Clear All",
       endIcon: null,
-      func: (value) => {
+      func: value => {
         dispatch(loadSalesData({ "": "" }));
       },
     },
@@ -260,26 +260,24 @@ const CreditIndex = () => {
     setCustomOptions([
       {
         label: "View",
-        func: (sales_id) => handleView(sales_id),
+        func: sales_id => handleView(sales_id),
         flag: access
-          ?.find((row) => row === row)
-          ?.view_actions_json?.find((o) => o.lookup_code === "READ")?.ctrl_flag,
+          ?.find(row => row === row)
+          ?.view_actions_json?.find(o => o.lookup_code === "READ")?.ctrl_flag,
       },
       {
         label: "Edit",
-        func: (sales_id) => handleEdit(sales_id),
+        func: sales_id => handleEdit(sales_id),
         flag: access
-          ?.find((row) => row === row)
-          ?.view_actions_json?.find((o) => o.lookup_code === "UPDATE")
-          ?.ctrl_flag,
+          ?.find(row => row === row)
+          ?.view_actions_json?.find(o => o.lookup_code === "UPDATE")?.ctrl_flag,
       },
       {
         label: "Delete",
-        func: (sales_id) => handleDeleteModalOpen(sales_id),
+        func: sales_id => handleDeleteModalOpen(sales_id),
         flag: access
-          ?.find((row) => row === row)
-          ?.view_actions_json?.find((o) => o.lookup_code === "DELETE")
-          ?.ctrl_flag,
+          ?.find(row => row === row)
+          ?.view_actions_json?.find(o => o.lookup_code === "DELETE")?.ctrl_flag,
       },
     ]);
   }, [access]);
@@ -287,15 +285,15 @@ const CreditIndex = () => {
   const [customOptions, setCustomOptions] = useState([
     {
       label: "View",
-      func: (sales_id) => handleView(sales_id),
+      func: sales_id => handleView(sales_id),
     },
     {
       label: "Edit",
-      func: (sales_id) => handleEdit(sales_id),
+      func: sales_id => handleEdit(sales_id),
     },
     {
       label: "Delete",
-      func: (sales_id) => handleDeleteModalOpen(sales_id),
+      func: sales_id => handleDeleteModalOpen(sales_id),
     },
   ]);
 
@@ -303,16 +301,16 @@ const CreditIndex = () => {
     dispatch(loadSalesData(params, "s2", "pagination"));
   }, [params]);
 
-  const handleView = (id) => {
+  const handleView = id => {
     navigate.push("/creditNote/view/" + id);
   };
 
-  const handleEdit = (id) => {
+  const handleEdit = id => {
     console.log("handleEditProductTemplate", id);
     navigate.push("/creditNote/edit/" + id);
   };
 
-  const handleDeleteProduct = (value) => {
+  const handleDeleteProduct = value => {
     console.log("enter");
     dispatch(deleteSalesData(salesId));
     setTimeout(() => {
@@ -321,17 +319,17 @@ const CreditIndex = () => {
     setdeleteModalOpen(false);
   };
 
-  const handleDeleteModalClose = (value) => {
+  const handleDeleteModalClose = value => {
     console.log("enter close");
     setdeleteModalOpen(false);
   };
 
-  const handleDeleteModalOpen = (value) => {
+  const handleDeleteModalOpen = value => {
     setSalesId(value);
     setdeleteModalOpen(true);
   };
 
-  const handleButtonClick = (value) => {
+  const handleButtonClick = value => {
     navigate.push("/creditNote/add");
   };
 
@@ -351,7 +349,7 @@ const CreditIndex = () => {
     }
   };
 
-  const searchItems = (searchValue) => {
+  const searchItems = searchValue => {
     if (searchValue.length === 0) {
       dispatch(loadSalesData({ "": "" }, "search"));
     } else {
@@ -396,8 +394,8 @@ const CreditIndex = () => {
                 name: "Create",
                 handleButtonClick: handleButtonClick,
                 flag: access
-                  ?.find((row) => row === row)
-                  ?.view_actions_json?.find((o) => o.lookup_code === "CREATE")
+                  ?.find(row => row === row)
+                  ?.view_actions_json?.find(o => o.lookup_code === "CREATE")
                   ?.ctrl_flag,
               },
             ]}
@@ -447,17 +445,17 @@ const CreditIndex = () => {
 };
 export default CreditIndex;
 
-/*			
-Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
-All rights reserved.			
-This program is free software: you can redistribute it and/or modify			
-it under the terms of the GNU General Public License as published by			
-the Free Software Foundation, either version 3 of the License, or			
-(at your option) any later version.			
-This program is distributed in the hope that it will be useful,			
-but WITHOUT ANY WARRANTY; without even the implied warranty of			
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
-GNU General Public License for more details.			
-You should have received a copy of the GNU General Public License			
-along with this program. If not, see <http://www.gnu.org/licenses/>.			
+/*
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
 */

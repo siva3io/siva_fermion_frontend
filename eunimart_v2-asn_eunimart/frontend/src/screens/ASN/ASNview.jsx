@@ -19,17 +19,16 @@ import SalesReturnsTab from "../../components/UI/ViewParticularASN/Tabs/SalesRet
 import ScrapTab from "../../components/UI/ViewParticularASN/Tabs/ScrapTab";
 import InventoryTab from "../../components/UI/ViewParticularASN/Tabs/InventoryTab";
 
-
 const ASNview = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
-  const asnData = useSelector((state) => state.fetchAsnDataById?.asn);
+  const asnData = useSelector(state => state.fetchAsnDataById?.asn);
   const [value, setValue] = React.useState(0);
 
   useEffect(() => dispatch(fetchAsnDataById(id)), [id]);
 
   const [toggleState, setToggleState] = useState(0);
-  const toggleTab = (index) => {
+  const toggleTab = index => {
     setToggleState(index);
   };
 
@@ -105,47 +104,46 @@ const ASNview = () => {
                 <Typography sx={{ fontSize: "33px" }} fontFamily={"Poppins"}>
                   {asnData?.asn_number ? asnData?.asn_number : "--"}
                 </Typography>
-            
               </Box>
             </Box>
 
             <div>
-            <Box
-              sx={{
-                borderBottom: 1,
-                borderColor: "divider",
-              }}
-            >
-              <Tabs
-                value={value}
-                onChange={handleChange}
-                aria-label="basic tabs example"
+              <Box
+                sx={{
+                  borderBottom: 1,
+                  borderColor: "divider",
+                }}
               >
-                <Tab label="ASN" {...a11yProps(0)} />
+                <Tabs
+                  value={value}
+                  onChange={handleChange}
+                  aria-label="basic tabs example"
+                >
+                  <Tab label="ASN" {...a11yProps(0)} />
 
-                {/* <Tab label={asnData?.source_document_type?.display_name} {...a11yProps(1)} /> */}
-                <Tab label="GRN" {...a11yProps(1)} />
-                <Tab label="Stock Overview" {...a11yProps(2)} />
-                {/* <Tab label="Returns" {...a11yProps(2)} />
-                <Tab label="Scrap" {...a11yProps(3)} /> */} 
-              </Tabs>
+                  {/* <Tab label={asnData?.source_document_type?.display_name} {...a11yProps(1)} /> */}
+                  <Tab label="GRN" {...a11yProps(1)} />
+                  <Tab label="Stock Overview" {...a11yProps(2)} />
+                  {/* <Tab label="Returns" {...a11yProps(2)} />
+                <Tab label="Scrap" {...a11yProps(3)} /> */}
+                </Tabs>
               </Box>
 
               <Box className="bundleViewContent">
-              <TabPanel value={value} index={0}>
-                {asnData && <ViewParticularASN asnData={asnData} />}
-              </TabPanel>
+                <TabPanel value={value} index={0}>
+                  {asnData && <ViewParticularASN asnData={asnData} />}
+                </TabPanel>
 
-              {/* {asnData?.source_document_type?.display_name=="Sales Orders" && */}
+                {/* {asnData?.source_document_type?.display_name=="Sales Orders" && */}
 
-              <TabPanel value={value} index={1}>
-                <GRNTab id={id}/>
-              </TabPanel>
-              <TabPanel value={value} index={2}>
-                <InventoryTab id={id}/>
-              </TabPanel>
+                <TabPanel value={value} index={1}>
+                  <GRNTab id={id} />
+                </TabPanel>
+                <TabPanel value={value} index={2}>
+                  <InventoryTab id={id} />
+                </TabPanel>
 
-             {/*  <TabPanel value={value} index={2}>
+                {/*  <TabPanel value={value} index={2}>
                 <SalesReturnsTab />
               </TabPanel>
               <TabPanel value={value} index={3}>
@@ -162,18 +160,17 @@ const ASNview = () => {
 
 export default ASNview;
 
-
-/*			
-Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
-All rights reserved.			
-This program is free software: you can redistribute it and/or modify			
-it under the terms of the GNU General Public License as published by			
-the Free Software Foundation, either version 3 of the License, or			
-(at your option) any later version.			
-This program is distributed in the hope that it will be useful,			
-but WITHOUT ANY WARRANTY; without even the implied warranty of			
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
-GNU General Public License for more details.			
-You should have received a copy of the GNU General Public License			
-along with this program. If not, see <http://www.gnu.org/licenses/>.			
+/*
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
 */

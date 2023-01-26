@@ -6,16 +6,16 @@ import CssBaseline from "@mui/material/CssBaseline";
 import IconButton from "@mui/material/IconButton";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
-import SettingsApplicationsIcon from '@mui/icons-material/SettingsApplications';
-import LocalShippingIcon from '@mui/icons-material/LocalShipping';
-import PersonIcon from '@mui/icons-material/Person';
-import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
-import AirplayIcon from '@mui/icons-material/Airplay';
-import InventoryIcon from '@mui/icons-material/Inventory';
-import InventoryOutlinedIcon from '@mui/icons-material/InventoryOutlined';  
-import AutoAwesomeMosaicIcon from '@mui/icons-material/AutoAwesomeMosaic';  
-import HelpCenterIcon from '@mui/icons-material/HelpCenter';
-import FolderIcon from '@mui/icons-material/Folder';
+import SettingsApplicationsIcon from "@mui/icons-material/SettingsApplications";
+import LocalShippingIcon from "@mui/icons-material/LocalShipping";
+import PersonIcon from "@mui/icons-material/Person";
+import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
+import AirplayIcon from "@mui/icons-material/Airplay";
+import InventoryIcon from "@mui/icons-material/Inventory";
+import InventoryOutlinedIcon from "@mui/icons-material/InventoryOutlined";
+import AutoAwesomeMosaicIcon from "@mui/icons-material/AutoAwesomeMosaic";
+import HelpCenterIcon from "@mui/icons-material/HelpCenter";
+import FolderIcon from "@mui/icons-material/Folder";
 import LOGO from "../Assets/Images/Logo.png";
 import Mdm from "../Assets/Icons/MDM.svg";
 import Orders from "../Assets/Icons/Orders.svg";
@@ -24,8 +24,8 @@ import Accounting from "../Assets/Icons/Accounting.svg";
 import Returns from "../Assets/Icons/Returns.svg";
 import Omini from "../Assets/Icons/Omnichannel.svg";
 import CLOSE from "../Assets/Icons/open.svg";
-import HelpOutlineRoundedIcon from '@mui/icons-material/HelpOutlineRounded';
-import SettingsIcon from '@mui/icons-material/Settings';
+import HelpOutlineRoundedIcon from "@mui/icons-material/HelpOutlineRounded";
+import SettingsIcon from "@mui/icons-material/Settings";
 import MailIcon from "@mui/icons-material/Mail";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
@@ -33,7 +33,7 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import PropTypes from "prop-types";
 import SearchIcon from "@mui/icons-material/Search";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
-import LogoutIcon from '@mui/icons-material/Logout';
+import LogoutIcon from "@mui/icons-material/Logout";
 import {
   CardMedia,
   Collapse,
@@ -52,16 +52,14 @@ import {
 //analytics
 import useAnalyticsEventTracker from "../useAnalyticsEventTracker";
 import { useNavigate } from "react-router-dom";
-import GridViewIcon from '@mui/icons-material/GridView';
-
+import GridViewIcon from "@mui/icons-material/GridView";
 
 import ChatBot from "../Components/ChatBot";
 import logo from "../Components/Chatbot.png";
 
-
 const drawerWidth = 240;
 
-const openedMixin = (theme) => ({
+const openedMixin = theme => ({
   width: drawerWidth,
   transition: theme.transitions.create("width", {
     easing: theme.transitions.easing.sharp,
@@ -70,7 +68,7 @@ const openedMixin = (theme) => ({
   overflowX: "hidden",
 });
 
-const closedMixin = (theme) => ({
+const closedMixin = theme => ({
   transition: theme.transitions.create("width", {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
@@ -92,7 +90,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 }));
 
 const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== "open",
+  shouldForwardProp: prop => prop !== "open",
 })(({ theme, open }) => ({
   zIndex: theme.zIndex.drawer + 1,
   transition: theme.transitions.create(["width", "margin"], {
@@ -109,15 +107,15 @@ const AppBar = styled(MuiAppBar, {
   }),
 }));
 // const reloadPage = () =>{
-  const reloadPage = () => {
+const reloadPage = () => {
   window.location.reload();
   console.log("reloadPage");
   // window.open("https://frontend.eunimart.com/salesOrders","_self")
-}
+};
 const Drawer = styled(MuiDrawer, {
-  shouldForwardProp: (prop) => prop !== "open",
+  shouldForwardProp: prop => prop !== "open",
 })(({ theme, open }) => ({
-  width: drawerWidth, 
+  width: drawerWidth,
   flexShrink: 0,
   whiteSpace: "nowrap",
   boxSizing: "border-box",
@@ -174,7 +172,7 @@ export default function MiniDrawer({ sessionId }) {
   const theme = useTheme();
   const navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
-  
+
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -245,7 +243,7 @@ export default function MiniDrawer({ sessionId }) {
   const [askSessionId, setAskSessionId] = useState(null);
 
   const askSessionIdHandler = (name, ref) => {
-    let details = { type: name, data: localStorage.getItem('token') };
+    let details = { type: name, data: localStorage.getItem("token") };
     postCrossDomainMessage(details, ref);
 
     // setAskSessionId(name);
@@ -276,7 +274,6 @@ export default function MiniDrawer({ sessionId }) {
   const [openOmnichannelHub, setOpenOmnichannelHub] = React.useState(false);
   const [openSettings, setOpenSettings] = React.useState(false);
   const [openAppStore, setOpenAppStore] = React.useState(false);
-
 
   const MDM = [
     "Products",
@@ -318,9 +315,7 @@ export default function MiniDrawer({ sessionId }) {
     "Local Warehouse",
   ];
 
-  const SETTINGS = [
-    "Logout",
-  ];
+  const SETTINGS = ["Logout"];
 
   const [optionSelected, setOptionSelected] = useState(ORDERS);
   const [tabName, setTabName] = useState();
@@ -437,7 +432,7 @@ export default function MiniDrawer({ sessionId }) {
 
   const handleSettingsClick = () => {
     console.log("handleSettingsClick");
-     setOpenSettings(!openSettings);
+    setOpenSettings(!openSettings);
     // setOpenDrop(false);
     // setOpenOrder(false);
     // setOpenInventory(false);
@@ -463,15 +458,12 @@ export default function MiniDrawer({ sessionId }) {
     setOptionSelected(APP_STORE);
     setTabName("appStore");
   };
-const APP_STORE = [
-    "eunimart appstore",
-  ];
+  const APP_STORE = ["eunimart appstore"];
 
   const logOut = () => {
     console.log("logOut");
     localStorage.clear();
     navigate("/login");
-    
   };
 
   const theme1 = createTheme({
@@ -482,7 +474,6 @@ const APP_STORE = [
           root: {
             // Some CSS
             padding: "4px",
-            
           },
         },
       },
@@ -505,8 +496,8 @@ const APP_STORE = [
             // Some CSS
             backgroundColor: "#001661",
             color: "#54DFFF",
-            borderRight:"1px solid rgb(250 250 250)"
-         
+            borderRight: "1px solid rgb(250 250 250)",
+
             // width:"56px",
             // height:"56px"
           },
@@ -527,16 +518,15 @@ const APP_STORE = [
           root: {
             // Some CSS
             overflowY: "scroll",
-            
           },
         },
       },
-      
+
       MuiTab: {
         styleOverrides: {
           root: {
-           fontWeight:"bold",
-           textTransform:"capitalize",
+            fontWeight: "bold",
+            textTransform: "capitalize",
           },
         },
       },
@@ -545,10 +535,10 @@ const APP_STORE = [
 
   return (
     <>
-    <ThemeProvider theme={theme1} >
-      <Box sx={{ display: "flex"}}>
-        <CssBaseline />
-        {/* <AppBar position="fixed" open={open}>
+      <ThemeProvider theme={theme1}>
+        <Box sx={{ display: "flex" }}>
+          <CssBaseline />
+          {/* <AppBar position="fixed" open={open}>
           <Toolbar>
             {/* <IconButton
               color="inherit"
@@ -564,7 +554,7 @@ const APP_STORE = [
             >
               <MenuOpenIcon />
             </IconButton> */}
-            {/* <CardMedia
+          {/* <CardMedia
               sx={{
                 objectFit: "contain",
                 // background: "#001661",
@@ -601,530 +591,526 @@ const APP_STORE = [
               <NotificationsNoneIcon />
             </IconButton>
           </Toolbar> */}
-        {/* </AppBar>  */}
-        <Drawer variant="permanent" open={open} >
-          <DrawerHeader style={{background:"#FAFAFA"}}>
-          <ListItemButton
-              // onClick={() => {
-              //   handleClick();
-              //   setValue(0);
-              // }}
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? "initial" : "center",
-                px: 2.5,
-                background:"#FAFAFA"
-              }}
-            >
-              <ListItemIcon
+          {/* </AppBar>  */}
+          <Drawer variant="permanent" open={open}>
+            <DrawerHeader style={{ background: "#FAFAFA" }}>
+              <ListItemButton
+                // onClick={() => {
+                //   handleClick();
+                //   setValue(0);
+                // }}
                 sx={{
-                  maxWidth: "10px",
-                  mr: open ? 3 : "auto",
-                  justifyContent: "center",
-                  height: "47px",
-                  // color: "#54DFFF",
-                  
-                  ...(open && { display: "none" }),
+                  minHeight: 48,
+                  justifyContent: open ? "initial" : "center",
+                  px: 2.5,
+                  background: "#FAFAFA",
                 }}
               >
-                 <img src={LOGO}
-                  onClick={reloadPage}
-  
-                 />
-              </ListItemIcon>
-                 <CardMedia
+                <ListItemIcon
+                  sx={{
+                    maxWidth: "10px",
+                    mr: open ? 3 : "auto",
+                    justifyContent: "center",
+                    height: "47px",
+                    // color: "#54DFFF",
+
+                    ...(open && { display: "none" }),
+                  }}
+                >
+                  <img src={LOGO} onClick={reloadPage} />
+                </ListItemIcon>
+                <CardMedia
                   sx={{
                     objectFit: "contain",
                     background: "#FAFAFA",
                     height: "47px",
-                    width:"210px",
+                    width: "210px",
                     // ...(open && { display: "none" }),
-                    // ...(open != { display: "none" }),  
-    
+                    // ...(open != { display: "none" }),
                   }}
-                 
                   component="img"
                   image="https://eunimart.com/wp-content/uploads/2021/10/Full-width-logo-1200-Px-5.png.webp"
                   alt="Paella dish"
                   onClick={reloadPage}
                 />
-              
-            </ListItemButton>
-          </DrawerHeader>
-          {/* <Divider /> */}
-          <List style={{backgroundColor: "#001661",}}>
-            {/* MDM */}
-            <IconButton
-              // color="inherit"
-              style={{ color: "#54DFFF",marginLeft:"10px" }}
-              aria-label="open drawer"
-              onClick={handleDrawerOpen}
-              edge="start"
-              sx={{
-                // marginRight: 5,  
-                marginLeft:"3px",
-                color: "#001661",
+              </ListItemButton>
+            </DrawerHeader>
+            {/* <Divider /> */}
+            <List style={{ backgroundColor: "#001661" }}>
+              {/* MDM */}
+              <IconButton
+                // color="inherit"
+                style={{ color: "#54DFFF", marginLeft: "10px" }}
+                aria-label="open drawer"
+                onClick={handleDrawerOpen}
+                edge="start"
+                sx={{
+                  // marginRight: 5,
+                  marginLeft: "3px",
+                  color: "#001661",
 
-                ...(open && { display: "none" }),
-              }}
-            >
-              {/* <MenuOpenIcon /> */}
-              <img src={CLOSE} />
-            </IconButton>
-            <IconButton
-              onClick={handleDrawerClose}
-              style={{ color: "#54DFFF",marginLeft:"190px" }}
-            >
-             
-              {theme.direction === "rtl" ? (
-                <MenuOpenIcon color="#54DFFF" />
-              ) : (
-                <MenuOpenIcon color="#54DFFF" />
+                  ...(open && { display: "none" }),
+                }}
+              >
+                {/* <MenuOpenIcon /> */}
+                <img src={CLOSE} />
+              </IconButton>
+              <IconButton
+                onClick={handleDrawerClose}
+                style={{ color: "#54DFFF", marginLeft: "190px" }}
+              >
+                {theme.direction === "rtl" ? (
+                  <MenuOpenIcon color="#54DFFF" />
+                ) : (
+                  <MenuOpenIcon color="#54DFFF" />
+                )}
+              </IconButton>
+              <ListItemButton
+                onClick={() => {
+                  handleClick();
+                  setValue(0);
+                }}
+                sx={{
+                  minHeight: 48,
+                  justifyContent: open ? "initial" : "center",
+                  px: 2.5,
+                }}
+              >
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : "auto",
+                    justifyContent: "center",
+                    color: "#54DFFF",
+                  }}
+                >
+                  {/* <FolderIcon /> */}
+                  <img src={Mdm} />
+                </ListItemIcon>
+                <ListItemText primary="MDM" value="MDM" />
+                {/* onMouseOver={handleOver} */}
+                {open ? (
+                  openDrop ? (
+                    <KeyboardArrowUpIcon />
+                  ) : (
+                    <KeyboardArrowDownIcon />
+                  )
+                ) : null}
+              </ListItemButton>
+
+              {open && (
+                <Collapse in={openDrop} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding>
+                    {MDM.map((item, index) => {
+                      return (
+                        <ListItemButton
+                          sx={{ pl: 4, background: "#001661" }}
+                          onClick={() => {
+                            //   handleClick();
+                            gaEventTracker(item);
+                            setValue(index);
+                          }}
+                        >
+                          <ListItemText primary={item} />
+                        </ListItemButton>
+                      );
+                    })}
+                  </List>
+                </Collapse>
               )}
-            </IconButton>
-            <ListItemButton
-              onClick={() => {
-                handleClick();
-                setValue(0);
-              }}
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? "initial" : "center",
-                px: 2.5,
-              }}
-            >
-              <ListItemIcon
+
+              {/* ORDERS */}
+              <ListItemButton
+                onClick={() => {
+                  handleOrderClick();
+                  setValue(0);
+                }}
                 sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : "auto",
-                  justifyContent: "center",
-                  color: "#54DFFF",
+                  minHeight: 48,
+                  justifyContent: open ? "initial" : "center",
+                  px: 2.5,
                 }}
               >
-                {/* <FolderIcon /> */}
-                <img src={Mdm} />
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : "auto",
+                    justifyContent: "center",
+                    color: "#54DFFF",
+                  }}
+                >
+                  {/* <AutoAwesomeMosaicIcon /> */}
+                  <img src={Orders} />
+                </ListItemIcon>
+                <ListItemText primary="Order" value="Order" />
+                {/* onMouseOver={handleOver} */}
+                {open ? (
+                  openOrder ? (
+                    <KeyboardArrowUpIcon />
+                  ) : (
+                    <KeyboardArrowDownIcon />
+                  )
+                ) : null}
+              </ListItemButton>
 
-              </ListItemIcon>
-              <ListItemText primary="MDM" value="MDM" />
-              {/* onMouseOver={handleOver} */}
-              {open ? (
-                openDrop ? (
-                  <KeyboardArrowUpIcon />
-                ) : (
-                  <KeyboardArrowDownIcon />
-                )
-              ) : null}
-            </ListItemButton>
+              {open && (
+                <Collapse in={openOrder} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding>
+                    {ORDERS.map((item, index) => {
+                      return (
+                        <ListItemButton
+                          sx={{ pl: 4, background: "#001661" }}
+                          onClick={() => {
+                            //   handleOrderClick();
+                            gaEventTracker(item);
+                            setValue(index);
+                          }}
+                        >
+                          <ListItemText primary={item} />
+                        </ListItemButton>
+                      );
+                    })}
+                  </List>
+                </Collapse>
+              )}
 
-            {open && (
-              <Collapse in={openDrop} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  {MDM.map((item, index) => {
-                    return (
-                      <ListItemButton
-                        sx={{ pl: 4, background: "#001661" }}
-                        onClick={() => {
-                          //   handleClick();
-                          gaEventTracker(item);
-                          setValue(index);
-                        }}
-                      >
-                        <ListItemText primary={item} />
-                      </ListItemButton>
-                    );
-                  })}
-                </List>
-              </Collapse>
-            )}
-
-            {/* ORDERS */}
-            <ListItemButton
-              onClick={() => {
-                handleOrderClick();
-                setValue(0);
-              }}
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? "initial" : "center",
-                px: 2.5,
-              }}
-            >
-              <ListItemIcon
+              {/* Inventory */}
+              <ListItemButton
+                onClick={() => {
+                  handleInventoryClick();
+                  setValue(0);
+                }}
                 sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : "auto",
-                  justifyContent: "center",
-                  color: "#54DFFF",
+                  minHeight: 48,
+                  justifyContent: open ? "initial" : "center",
+                  px: 2.5,
                 }}
               >
-                {/* <AutoAwesomeMosaicIcon /> */}
-                <img src={Orders} />
-              </ListItemIcon>
-              <ListItemText primary="Order" value="Order" />
-              {/* onMouseOver={handleOver} */}
-              {open ? (
-                openOrder ? (
-                  <KeyboardArrowUpIcon />
-                ) : (
-                  <KeyboardArrowDownIcon />
-                )
-              ) : null}
-            </ListItemButton>
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : "auto",
+                    justifyContent: "center",
+                    color: "#54DFFF",
+                  }}
+                >
+                  {/* <InventoryIcon /> */}
+                  <img src={Inventory} />
+                </ListItemIcon>
+                <ListItemText primary="Inventory" value="Inventory" />
+                {/* onMouseOver={handleOver} */}
+                {open ? (
+                  openInventory ? (
+                    <KeyboardArrowUpIcon />
+                  ) : (
+                    <KeyboardArrowDownIcon />
+                  )
+                ) : null}
+              </ListItemButton>
 
-            {open && (
-              <Collapse in={openOrder} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  {ORDERS.map((item, index) => {
-                    return (
-                      <ListItemButton
-                        sx={{ pl: 4, background: "#001661" }}
-                        onClick={() => {
-                          //   handleOrderClick();
-                          gaEventTracker(item);
-                          setValue(index);
-                        }}
-                      >
-                        <ListItemText primary={item} />
-                      </ListItemButton>
-                    );
-                  })}
-                </List>
-              </Collapse>
-            )}
-
-            {/* Inventory */}
-            <ListItemButton
-              onClick={() => {
-                handleInventoryClick();
-                setValue(0);
-              }}
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? "initial" : "center",
-                px: 2.5,
-              }}
-            >
-              <ListItemIcon
+              {open && (
+                <Collapse in={openInventory} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding>
+                    {INVENTORY.map((item, index) => {
+                      return (
+                        <ListItemButton
+                          sx={{ pl: 4, background: "#001661" }}
+                          onClick={() => {
+                            //   handleInventoryClick();
+                            gaEventTracker(item);
+                            setValue(index);
+                          }}
+                        >
+                          <ListItemText primary={item} />
+                        </ListItemButton>
+                      );
+                    })}
+                  </List>
+                </Collapse>
+              )}
+              {/* Inventory task */}
+              <ListItemButton
+                onClick={() => {
+                  handleInventoryTaskClick();
+                  setValue(0);
+                }}
                 sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : "auto",
-                  justifyContent: "center",
-                  color: "#54DFFF",
+                  minHeight: 48,
+                  justifyContent: open ? "initial" : "center",
+                  px: 2.5,
                 }}
               >
-                {/* <InventoryIcon /> */}
-                <img src={Inventory} />
-              </ListItemIcon>
-              <ListItemText primary="Inventory" value="Inventory" />
-              {/* onMouseOver={handleOver} */}
-              {open ? (
-                openInventory ? (
-                  <KeyboardArrowUpIcon />
-                ) : (
-                  <KeyboardArrowDownIcon />
-                )
-              ) : null}
-            </ListItemButton>
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : "auto",
+                    justifyContent: "center",
+                    color: "#54DFFF",
+                  }}
+                >
+                  <InventoryOutlinedIcon />
+                </ListItemIcon>
+                <ListItemText primary="Inventory Task" value="Inventory Task" />
+                {/* onMouseOver={handleOver} */}
+                {open ? (
+                  openInventoryTask ? (
+                    <KeyboardArrowUpIcon />
+                  ) : (
+                    <KeyboardArrowDownIcon />
+                  )
+                ) : null}
+              </ListItemButton>
 
-            {open && (
-              <Collapse in={openInventory} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  {INVENTORY.map((item, index) => {
-                    return (
-                      <ListItemButton
-                        sx={{ pl: 4, background: "#001661" }}
-                        onClick={() => {
-                          //   handleInventoryClick();
-                          gaEventTracker(item);
-                          setValue(index);
-                        }}
-                      >
-                        <ListItemText primary={item} />
-                      </ListItemButton>
-                    );
-                  })}
-                </List>
-              </Collapse>
-            )}
-            {/* Inventory task */}
-            <ListItemButton
-              onClick={() => {
-                handleInventoryTaskClick();
-                setValue(0);
-              }}
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? "initial" : "center",
-                px: 2.5,
-              }}
-            >
-              <ListItemIcon
+              {open && (
+                <Collapse in={openInventoryTask} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding>
+                    {INVENTORY_TASKS.map((item, index) => {
+                      return (
+                        <ListItemButton
+                          sx={{ pl: 4, background: "#001661" }}
+                          onClick={() => {
+                            //   handleInventoryTaskClick();
+                            setValue(index);
+                          }}
+                        >
+                          <ListItemText primary={item} />
+                        </ListItemButton>
+                      );
+                    })}
+                  </List>
+                </Collapse>
+              )}
+              {/* Accounting */}
+              <ListItemButton
+                onClick={() => {
+                  handleAccountingClick();
+                  setValue(0);
+                }}
                 sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : "auto",
-                  justifyContent: "center",
-                  color: "#54DFFF",
+                  minHeight: 48,
+                  justifyContent: open ? "initial" : "center",
+                  px: 2.5,
                 }}
               >
-                <InventoryOutlinedIcon />
-              </ListItemIcon>
-              <ListItemText primary="Inventory Task" value="Inventory Task" />
-              {/* onMouseOver={handleOver} */}
-              {open ? (
-                openInventoryTask ? (
-                  <KeyboardArrowUpIcon />
-                ) : (
-                  <KeyboardArrowDownIcon />
-                )
-              ) : null}
-            </ListItemButton>
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : "auto",
+                    justifyContent: "center",
+                    color: "#54DFFF",
+                  }}
+                >
+                  {/* <AccountBalanceIcon /> */}
+                  <img src={Accounting} />
+                </ListItemIcon>
+                <ListItemText primary="Accounting" value="Accounting" />
+                {/* onMouseOver={handleOver} */}
+                {open ? (
+                  openAccounting ? (
+                    <KeyboardArrowUpIcon />
+                  ) : (
+                    <KeyboardArrowDownIcon />
+                  )
+                ) : null}
+              </ListItemButton>
 
-            {open && (
-              <Collapse in={openInventoryTask} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  {INVENTORY_TASKS.map((item, index) => {
-                    return (
-                      <ListItemButton
-                        sx={{ pl: 4, background: "#001661" }}
-                        onClick={() => {
-                          //   handleInventoryTaskClick();
-                          setValue(index);
-                        }}
-                      >
-                        <ListItemText primary={item} />
-                      </ListItemButton>
-                    );
-                  })}
-                </List>
-              </Collapse>
-            )}
-            {/* Accounting */}
-            <ListItemButton
-              onClick={() => {
-                handleAccountingClick();
-                setValue(0);
-              }}
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? "initial" : "center",
-                px: 2.5,
-              }}
-            >
-              <ListItemIcon
+              {open && (
+                <Collapse in={openAccounting} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding>
+                    {ACCOUNTING.map((item, index) => {
+                      console.log(">>>>>", item);
+                      return (
+                        <ListItemButton
+                          sx={{ pl: 4, background: "#001661" }}
+                          onClick={() => {
+                            //   handleAccountingClick();
+                            setValue(index);
+                          }}
+                        >
+                          <ListItemText primary={item} />
+                        </ListItemButton>
+                      );
+                    })}
+                  </List>
+                </Collapse>
+              )}
+              {/* Return management */}
+              <ListItemButton
+                onClick={() => {
+                  handleReturnsManagementClick();
+                  setValue(0);
+                }}
                 sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : "auto",
-                  justifyContent: "center",
-                  color: "#54DFFF",
+                  minHeight: 48,
+                  justifyContent: open ? "initial" : "center",
+                  px: 2.5,
                 }}
               >
-                {/* <AccountBalanceIcon /> */}
-                <img src={Accounting} />
-              </ListItemIcon>
-              <ListItemText primary="Accounting" value="Accounting" />
-              {/* onMouseOver={handleOver} */}
-              {open ? (
-                openAccounting ? (
-                  <KeyboardArrowUpIcon />
-                ) : (
-                  <KeyboardArrowDownIcon />
-                )
-              ) : null}
-            </ListItemButton>
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : "auto",
+                    justifyContent: "center",
+                    color: "#54DFFF",
+                  }}
+                >
+                  {/* <InboxIcon /> */}
+                  <img src={Returns} />
+                </ListItemIcon>
+                <ListItemText
+                  primary="Returns Management"
+                  value="Returns Management"
+                />
+                {/* onMouseOver={handleOver} */}
+                {open ? (
+                  openReturnsManagement ? (
+                    <KeyboardArrowUpIcon />
+                  ) : (
+                    <KeyboardArrowDownIcon />
+                  )
+                ) : null}
+              </ListItemButton>
 
-            {open && (
-              <Collapse in={openAccounting} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  {ACCOUNTING.map((item, index) => {
-                    console.log(">>>>>", item);
-                    return (
-                      <ListItemButton
-                        sx={{ pl: 4, background: "#001661" }}
-                        onClick={() => {
-                          //   handleAccountingClick();
-                          setValue(index);
-                        }}
-                      >
-                        <ListItemText primary={item} />
-                      </ListItemButton>
-                    );
-                  })}
-                </List>
-              </Collapse>
-            )}
-            {/* Return management */}
-            <ListItemButton
-              onClick={() => {
-                handleReturnsManagementClick();
-                setValue(0);
-              }}
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? "initial" : "center",
-                px: 2.5,
-              }}
-            >
-              <ListItemIcon
+              {open && (
+                <Collapse
+                  in={openReturnsManagement}
+                  timeout="auto"
+                  unmountOnExit
+                >
+                  <List component="div" disablePadding>
+                    {RETURNS_MANAGEMENT.map((item, index) => {
+                      return (
+                        <ListItemButton
+                          sx={{ pl: 4, background: "#001661" }}
+                          onClick={() => {
+                            //   handleReturnsManagementClick();
+                            setValue(index);
+                          }}
+                        >
+                          <ListItemText primary={item} />
+                        </ListItemButton>
+                      );
+                    })}
+                  </List>
+                </Collapse>
+              )}
+              {/* Shipping management */}
+              <ListItemButton
+                onClick={() => {
+                  handleShippingManagementClick();
+                  setValue(0);
+                }}
                 sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : "auto",
-                  justifyContent: "center",
-                  color: "#54DFFF",
+                  minHeight: 48,
+                  justifyContent: open ? "initial" : "center",
+                  px: 2.5,
                 }}
               >
-                {/* <InboxIcon /> */}
-                <img src={Returns} />
-              </ListItemIcon>
-              <ListItemText
-                primary="Returns Management"
-                value="Returns Management"
-              />
-              {/* onMouseOver={handleOver} */}
-              {open ? (
-                openReturnsManagement ? (
-                  <KeyboardArrowUpIcon />
-                ) : (
-                  <KeyboardArrowDownIcon />
-                )
-              ) : null}
-            </ListItemButton>
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : "auto",
+                    justifyContent: "center",
+                    color: "#54DFFF",
+                  }}
+                >
+                  <LocalShippingIcon />
+                </ListItemIcon>
+                <ListItemText
+                  primary="Shipping Management"
+                  value="Shipping Management"
+                />
+                {/* onMouseOver={handleOver} */}
+                {open ? (
+                  openShippingManagement ? (
+                    <KeyboardArrowUpIcon />
+                  ) : (
+                    <KeyboardArrowDownIcon />
+                  )
+                ) : null}
+              </ListItemButton>
 
-            {open && (
-              <Collapse in={openReturnsManagement} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  {RETURNS_MANAGEMENT.map((item, index) => {
-                    return (
-                      <ListItemButton
-                        sx={{ pl: 4, background: "#001661" }}
-                        onClick={() => {
-                          //   handleReturnsManagementClick();
-                          setValue(index);
-                        }}
-                      >
-                        <ListItemText primary={item} />
-                      </ListItemButton>
-                    );
-                  })}
-                </List>
-              </Collapse>
-            )}
-            {/* Shipping management */}
-            <ListItemButton
-              onClick={() => {
-                handleShippingManagementClick();
-                setValue(0);
-              }}
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? "initial" : "center",
-                px: 2.5,
-              }}
-            >
-              <ListItemIcon
+              {open && (
+                <Collapse
+                  in={openShippingManagement}
+                  timeout="auto"
+                  unmountOnExit
+                >
+                  <List component="div" disablePadding>
+                    {SHIPPING_MANAGEMENT.map((item, index) => {
+                      return (
+                        <ListItemButton
+                          sx={{ pl: 4, background: "#001661" }}
+                          onClick={() => {
+                            //   handleShippingManagementClick();
+                            setValue(index);
+                          }}
+                        >
+                          <ListItemText primary={item} />
+                        </ListItemButton>
+                      );
+                    })}
+                  </List>
+                </Collapse>
+              )}
+              {/* Omnichannel hub */}
+              <ListItemButton
+                onClick={() => {
+                  handleOmnichannelHubClick();
+                  setValue(0);
+                }}
                 sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : "auto",
-                  justifyContent: "center",
-                  color: "#54DFFF",
+                  minHeight: 48,
+                  justifyContent: open ? "initial" : "center",
+                  px: 2.5,
                 }}
               >
-                <LocalShippingIcon  />
-              </ListItemIcon>
-              <ListItemText
-                primary="Shipping Management"
-                value="Shipping Management"
-              />
-              {/* onMouseOver={handleOver} */}
-              {open ? (
-                openShippingManagement ? (
-                  <KeyboardArrowUpIcon />
-                ) : (
-                  <KeyboardArrowDownIcon />
-                )
-              ) : null}
-            </ListItemButton>
-
-            {open && (
-              <Collapse
-                in={openShippingManagement}
-                timeout="auto"
-                unmountOnExit
-              >
-                <List component="div" disablePadding>
-                  {SHIPPING_MANAGEMENT.map((item, index) => {
-                    return (
-                      <ListItemButton
-                        sx={{ pl: 4, background: "#001661" }}
-                        onClick={() => {
-                          //   handleShippingManagementClick();
-                          setValue(index);
-                        }}
-                      >
-                        <ListItemText primary={item} />
-                      </ListItemButton>
-                    );
-                  })}
-                </List>
-              </Collapse>
-            )}
-            {/* Omnichannel hub */}
-            <ListItemButton
-              onClick={() => {
-                handleOmnichannelHubClick();
-                setValue(0);
-              }}
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? "initial" : "center",
-                px: 2.5,
-              }}
-            >
-              <ListItemIcon
-                sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : "auto",
-                  justifyContent: "center",
-                  color: "#54DFFF",
-                }}
-              >
-                {/* <AirplayIcon /> */}
-                <img src={Omini} />
-              </ListItemIcon>
-              <ListItemText primary="OmnichannelHub" value="OmnichannelHub" />
-              {/* onMouseOver={handleOver} */}
-              {open ? (
-                openOmnichannelHub ? (
-                  <KeyboardArrowUpIcon />
-                ) : (
-                  <KeyboardArrowDownIcon />
-                )
-              ) : null}
-            </ListItemButton>
-            {open && (
-              <Collapse in={openOmnichannelHub} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  {OMNICHANNEL_HUB.map((item, index) => {
-                    return (
-                      <ListItemButton
-                        sx={{ pl: 4, background: "#001661" }}
-                        onClick={() => {
-                          //   handleOmnichannelHubClick();
-                          setValue(index);
-                        }}
-                      >
-                        <ListItemText primary={item} />
-                      </ListItemButton>
-                    );
-                  })}
-                </List>
-              </Collapse>
-            )}
-          </List>
-          {/* <Box sx={{ flexGrow: 1 }} /> */}
-          {/* <Divider /> */}
-          <List style={{backgroundColor: "#001661",marginTop:"auto"}}>
-            {/* settings */ }
-           {/*  < ListItemButton
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : "auto",
+                    justifyContent: "center",
+                    color: "#54DFFF",
+                  }}
+                >
+                  {/* <AirplayIcon /> */}
+                  <img src={Omini} />
+                </ListItemIcon>
+                <ListItemText primary="OmnichannelHub" value="OmnichannelHub" />
+                {/* onMouseOver={handleOver} */}
+                {open ? (
+                  openOmnichannelHub ? (
+                    <KeyboardArrowUpIcon />
+                  ) : (
+                    <KeyboardArrowDownIcon />
+                  )
+                ) : null}
+              </ListItemButton>
+              {open && (
+                <Collapse in={openOmnichannelHub} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding>
+                    {OMNICHANNEL_HUB.map((item, index) => {
+                      return (
+                        <ListItemButton
+                          sx={{ pl: 4, background: "#001661" }}
+                          onClick={() => {
+                            //   handleOmnichannelHubClick();
+                            setValue(index);
+                          }}
+                        >
+                          <ListItemText primary={item} />
+                        </ListItemButton>
+                      );
+                    })}
+                  </List>
+                </Collapse>
+              )}
+            </List>
+            {/* <Box sx={{ flexGrow: 1 }} /> */}
+            {/* <Divider /> */}
+            <List style={{ backgroundColor: "#001661", marginTop: "auto" }}>
+              {/* settings */}
+              {/*  < ListItemButton
             onClick = {() => {
               handleSettingsClick();
             setValue(0);
@@ -1154,107 +1140,104 @@ const APP_STORE = [
               )
             ) : null}
           </ListItemButton> */}
-          {open && (
-            <Collapse in={openSettings} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding>
-                {SETTINGS.map((item, index) => {
-                  return (
-                    <ListItemButton
-                      sx={{ pl: 4, background: "#001661" }}
-                      onClick={() => {
-                       logOut();
-                        setValue(index);
-                      }}
-                    >
-                      <ListItemText primary={item} />
-                    </ListItemButton>
-                  );
-                })}
-              </List>
-            </Collapse>
-          )}
-            {["Settings","Profile", "Help"].map((text, index) => (
-              <ListItemButton
-                key={text}
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? "initial" : "center",
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
+              {open && (
+                <Collapse in={openSettings} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding>
+                    {SETTINGS.map((item, index) => {
+                      return (
+                        <ListItemButton
+                          sx={{ pl: 4, background: "#001661" }}
+                          onClick={() => {
+                            logOut();
+                            setValue(index);
+                          }}
+                        >
+                          <ListItemText primary={item} />
+                        </ListItemButton>
+                      );
+                    })}
+                  </List>
+                </Collapse>
+              )}
+              {["Settings", "Profile", "Help"].map((text, index) => (
+                <ListItemButton
+                  key={text}
                   sx={{
-                    minWidth: 0,
-                    mr: open ? 2 : "auto",
-                    justifyContent: "center",
-
-                    color: "#54DFFF",
+                    minHeight: 48,
+                    justifyContent: open ? "initial" : "center",
+                    px: 2.5,
                   }}
                 >
-                  {/* {index % 2 === 0 ? <SettingsApplicationsIcon /> : <PersonIcon />} */}
-                  {index === 0 && <SettingsIcon/>}
-                  {index === 1 && <PersonIcon/>}
-                  {index === 2 && <HelpOutlineRoundedIcon/>}
-                </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            ))}
-          </List>
-          
-        </Drawer>
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 2 : "auto",
+                      justifyContent: "center",
 
-        <Box component="main" sx={{ flexGrow: 1, p: 1 }} >
-          <DrawerHeader style={{ minHeight: "8px" }} />
-          <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-            <Tabs
-              value={value}
-              onChange={handleChange}
-              aria-label="basic tabs example"
-            >
-              {optionSelected?.map((item, i) => {
-                return <Tab label={item} {...a11yProps(i)} />;
-              })}
-              <Box sx={{
-                marginLeft:"auto",
-                // marginRight: 2,
-                // display: "contents",
-                // display: "-webkit-inline-box"
-              }}
+                      color: "#54DFFF",
+                    }}
+                  >
+                    {/* {index % 2 === 0 ? <SettingsApplicationsIcon /> : <PersonIcon />} */}
+                    {index === 0 && <SettingsIcon />}
+                    {index === 1 && <PersonIcon />}
+                    {index === 2 && <HelpOutlineRoundedIcon />}
+                  </ListItemIcon>
+                  <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+                </ListItemButton>
+              ))}
+            </List>
+          </Drawer>
+
+          <Box component="main" sx={{ flexGrow: 1, p: 1 }}>
+            <DrawerHeader style={{ minHeight: "8px" }} />
+            <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+              <Tabs
+                value={value}
+                onChange={handleChange}
+                aria-label="basic tabs example"
               >
-              
-              <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="end"
-              sx={{
-                marginRight: 1,
-                color: "#001661",
-                // ...(open && { display: "contents"}),
-              }}
-            >
-              <SearchIcon />
-              </IconButton>
+                {optionSelected?.map((item, i) => {
+                  return <Tab label={item} {...a11yProps(i)} />;
+                })}
+                <Box
+                  sx={{
+                    marginLeft: "auto",
+                    // marginRight: 2,
+                    // display: "contents",
+                    // display: "-webkit-inline-box"
+                  }}
+                >
+                  <IconButton
+                    color="inherit"
+                    aria-label="open drawer"
+                    edge="end"
+                    sx={{
+                      marginRight: 1,
+                      color: "#001661",
+                      // ...(open && { display: "contents"}),
+                    }}
+                  >
+                    <SearchIcon />
+                  </IconButton>
 
-              <IconButton
-                color="inherit"
-                aria-label="open drawer"
-                edge="end"
-                onClick = {() => {
-                  handleAppStoreClick();
+                  <IconButton
+                    color="inherit"
+                    aria-label="open drawer"
+                    edge="end"
+                    onClick={() => {
+                      handleAppStoreClick();
+                    }}
+                    sx={{
+                      marginRight: 1,
+                      marginLeft: 1,
+                      // color: "#001661",
+                      // ...(open && {  display: "flex",marginRight:"240px" }),
+                    }}
+                  >
+                    <GridViewIcon />
+                  </IconButton>
 
-                }}
-                sx={{
-                  marginRight: 1,
-                  marginLeft:1
-                  // color: "#001661",
-                  // ...(open && {  display: "flex",marginRight:"240px" }),
-                }}
-              >
-                <GridViewIcon />
-              </IconButton>
-
-
-              {/* <IconButton
+                  {/* <IconButton
                 color="inherit"
                 aria-label="open drawer"
                 edge="end"
@@ -1269,123 +1252,122 @@ const APP_STORE = [
               >
                 <LogoutIcon />
               </IconButton> */}
-              </Box>
-            </Tabs>
-            
-          </Box>
+                </Box>
+              </Tabs>
+            </Box>
 
-          {tabName === "mdm" && (
-            <>
-              <TabPanel
-                value={value}
-                index={0}
-                sx={{
-                  color: "black",
-                  fontWeight: "Bold",
-                  display: "flex",
-                  alignItems: "center",
-                }}
-              >
-                <iframe
-                  src="https://frontend.eunimart.com/products"
-                  onLoad={() => {
-                    askSessionIdHandler("products", products);
+            {tabName === "mdm" && (
+              <>
+                <TabPanel
+                  value={value}
+                  index={0}
+                  sx={{
+                    color: "black",
+                    fontWeight: "Bold",
+                    display: "flex",
+                    alignItems: "center",
                   }}
-                  ref={products}
-                  id="products"
-                  title="products"
-                  style={{
-                    width: "100%",
-                    padding: "0px",
-                    border: "none",
-                    margin: "0px",
+                >
+                  <iframe
+                    src="https://frontend.eunimart.com/products"
+                    onLoad={() => {
+                      askSessionIdHandler("products", products);
+                    }}
+                    ref={products}
+                    id="products"
+                    title="products"
+                    style={{
+                      width: "100%",
+                      padding: "0px",
+                      border: "none",
+                      margin: "0px",
 
-                    height: "92vh",
-                    overflow: "auto",
-                  }}
-                ></iframe>
-              </TabPanel>
-              <TabPanel value={value} index={1}>
-                <iframe
-                  src="https://frontend.eunimart.com/contacts"
-                  onLoad={() => {
-                    askSessionIdHandler("contacts", contacts);
-                  }}
-                  ref={contacts}
-                  id="contacts"
-                  title="contacts"
-                  style={{
-                    width: "100%",
-                    padding: "0px",
-                    border: "none",
-                    margin: "0px",
+                      height: "92vh",
+                      overflow: "auto",
+                    }}
+                  ></iframe>
+                </TabPanel>
+                <TabPanel value={value} index={1}>
+                  <iframe
+                    src="https://frontend.eunimart.com/contacts"
+                    onLoad={() => {
+                      askSessionIdHandler("contacts", contacts);
+                    }}
+                    ref={contacts}
+                    id="contacts"
+                    title="contacts"
+                    style={{
+                      width: "100%",
+                      padding: "0px",
+                      border: "none",
+                      margin: "0px",
 
-                    height: "92vh",
-                    overflow: "auto",
-                  }}
-                ></iframe>
-              </TabPanel>
-              <TabPanel value={value} index={2}>
-                <iframe
-                  src="https://frontend.eunimart.com/locations"
-                  onLoad={() => {
-                    askSessionIdHandler("locations", locations);
-                  }}
-                  ref={locations}
-                  id="locations"
-                  title="locations"
-                  style={{
-                    width: "100%",
-                    padding: "0px",
-                    border: "none",
-                    margin: "0px",
+                      height: "92vh",
+                      overflow: "auto",
+                    }}
+                  ></iframe>
+                </TabPanel>
+                <TabPanel value={value} index={2}>
+                  <iframe
+                    src="https://frontend.eunimart.com/locations"
+                    onLoad={() => {
+                      askSessionIdHandler("locations", locations);
+                    }}
+                    ref={locations}
+                    id="locations"
+                    title="locations"
+                    style={{
+                      width: "100%",
+                      padding: "0px",
+                      border: "none",
+                      margin: "0px",
 
-                    height: "92vh",
-                    overflow: "auto",
-                  }}
-                ></iframe>
-              </TabPanel>
-              <TabPanel value={value} index={3}>
-                <iframe
-                  src="https://frontend.eunimart.com/uom"
-                  onLoad={() => {
-                    askSessionIdHandler("uom", uom);
-                  }}
-                  ref={uom}
-                  id="uom"
-                  title="uom"
-                  style={{
-                    width: "100%",
-                    padding: "0px",
-                    border: "none",
-                    margin: "0px",
+                      height: "92vh",
+                      overflow: "auto",
+                    }}
+                  ></iframe>
+                </TabPanel>
+                <TabPanel value={value} index={3}>
+                  <iframe
+                    src="https://frontend.eunimart.com/uom"
+                    onLoad={() => {
+                      askSessionIdHandler("uom", uom);
+                    }}
+                    ref={uom}
+                    id="uom"
+                    title="uom"
+                    style={{
+                      width: "100%",
+                      padding: "0px",
+                      border: "none",
+                      margin: "0px",
 
-                    height: "92vh",
-                    overflow: "auto",
-                  }}
-                ></iframe>
-              </TabPanel>
-              <TabPanel value={value} index={4}>
-                <iframe
-                  src="https://frontend.eunimart.com/pricing"
-                  onLoad={() => {
-                    askSessionIdHandler("pricing", pricing);
-                  }}
-                  ref={pricing}
-                  id="pricing"
-                  title="pricing"
-                  style={{
-                    width: "100%",
-                    padding: "0px",
-                    border: "none",
-                    margin: "0px",
+                      height: "92vh",
+                      overflow: "auto",
+                    }}
+                  ></iframe>
+                </TabPanel>
+                <TabPanel value={value} index={4}>
+                  <iframe
+                    src="https://frontend.eunimart.com/pricing"
+                    onLoad={() => {
+                      askSessionIdHandler("pricing", pricing);
+                    }}
+                    ref={pricing}
+                    id="pricing"
+                    title="pricing"
+                    style={{
+                      width: "100%",
+                      padding: "0px",
+                      border: "none",
+                      margin: "0px",
 
-                    height: "92vh",
-                    overflow: "auto",
-                  }}
-                ></iframe>
-              </TabPanel>
-             {/*  <TabPanel value={value} index={5}>
+                      height: "92vh",
+                      overflow: "auto",
+                    }}
+                  ></iframe>
+                </TabPanel>
+                {/*  <TabPanel value={value} index={5}>
                 <iframe
                   src="https://frontend.eunimart.com/basicLocations"
                   onLoad={() => {
@@ -1404,152 +1386,146 @@ const APP_STORE = [
                   }}
                 ></iframe>
               </TabPanel> */}
-              <TabPanel
-                value={value}
-                index={5}
-                sx={{
-                  color: "black",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <iframe
-                  src={`https://frontend.eunimart.com/inventory`}
-                 
-                  ref={inventory}
-                  id="inventory"
-                  title="inventory"
-                  onLoad={() => {
-                    askSessionIdHandler(
-                      "inventory",
-                      inventory
-                    );
+                <TabPanel
+                  value={value}
+                  index={5}
+                  sx={{
+                    color: "black",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
-                  style={{
-                    width: "100%",
-                    padding: "0px",
-                    border: "none",
-                    margin: "0px",
-                    height: "92vh",
-                    overflow: "auto",
+                >
+                  <iframe
+                    src={`https://frontend.eunimart.com/inventory`}
+                    ref={inventory}
+                    id="inventory"
+                    title="inventory"
+                    onLoad={() => {
+                      askSessionIdHandler("inventory", inventory);
+                    }}
+                    style={{
+                      width: "100%",
+                      padding: "0px",
+                      border: "none",
+                      margin: "0px",
+                      height: "92vh",
+                      overflow: "auto",
+                    }}
+                  ></iframe>
+                </TabPanel>
+              </>
+            )}
+            {tabName === "orders" && (
+              <>
+                <TabPanel
+                  value={value}
+                  index={0}
+                  sx={{
+                    color: "black",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
-                ></iframe>
-              </TabPanel>
-              
-            </>
-          )}
-          {tabName === "orders" && (
-            <>
-              <TabPanel
-                value={value}
-                index={0}
-                sx={{
-                  color: "black",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <iframe
-                  src={`https://frontend.eunimart.com/salesOrders`}
-                  ref={salesOrders}
-                  id="sales_orders"
-                  title="sales_orders"
-                  onLoad={() => {
-                    askSessionIdHandler("salesOrders", salesOrders);
-                  }}
-                  style={{
-                    width: "100%",
-                    padding: "0px",
-                    border: "none",
-                    margin: "0px",
-                    height: "92vh",
-                    overflow: "auto",
-                  }}
-                ></iframe>
-              </TabPanel>
+                >
+                  <iframe
+                    src={`https://frontend.eunimart.com/salesOrders`}
+                    ref={salesOrders}
+                    id="sales_orders"
+                    title="sales_orders"
+                    onLoad={() => {
+                      askSessionIdHandler("salesOrders", salesOrders);
+                    }}
+                    style={{
+                      width: "100%",
+                      padding: "0px",
+                      border: "none",
+                      margin: "0px",
+                      height: "92vh",
+                      overflow: "auto",
+                    }}
+                  ></iframe>
+                </TabPanel>
 
-              <TabPanel value={value} index={1}>
-                <iframe
-                  src={`https://frontend.eunimart.com/ist`}
-                  ref={ist}
-                  title="ist"
-                  id="ist"
-                  onLoad={() => {
-                    askSessionIdHandler("ist", ist);
-                  }}
-                  style={{
-                    width: "100%",
-                    padding: "0px",
-                    border: "none",
-                    margin: "0px",
-                    height: "92vh",
-                    overflow: "auto",
-                  }}
-                ></iframe>
-              </TabPanel>
-              <TabPanel value={value} index={2}>
-                <iframe
-                  src={`https://frontend.eunimart.com/scrapOrders`}
-                  ref={scrapOrders}
-                  title="scrapOrders"
-                  id="scrapOrders"
-                  onLoad={() => {
-                    askSessionIdHandler("scrapOrders", scrapOrders);
-                  }}
-                  style={{
-                    width: "100%",
-                    padding: "0px",
-                    border: "none",
-                    margin: "0px",
-                    height: "92vh",
-                    overflow: "auto",
-                  }}
-                ></iframe>
-              </TabPanel>
-              <TabPanel value={value} index={3}>
-                <iframe
-                  src={`https://frontend.eunimart.com/deliveryOrders`}
-                  ref={deliveryOrders}
-                  title="deliveryOrders"
-                  id="deliveryOrders"
-                  onLoad={() => {
-                    askSessionIdHandler("deliveryOrders", deliveryOrders);
-                  }}
-                  style={{
-                    width: "100%",
-                    padding: "0px",
-                    border: "none",
-                    margin: "0px",
-                    height: "92vh",
-                    overflow: "auto",
-                  }}
-                ></iframe>
-              </TabPanel>
-              <TabPanel value={value} index={4}>
-                <iframe
-                  src={`https://frontend.eunimart.com/purchaseOrders`}
-                  ref={purchaseOrders}
-                  title="purchaseOrders"
-                  id="purchaseOrders"
-                  onLoad={() => {
-                    askSessionIdHandler("purchaseOrders", purchaseOrders);
-                  }}
-                  style={{
-                    width: "100%",
-                    padding: "0px",
-                    border: "none",
-                    margin: "0px",
-                    height: "92vh",
-                    overflow: "auto",
-                  }}
-                ></iframe>
-              </TabPanel>
-             
-            </>
-          )}
-          {tabName === "inventory" && (
-            <>
-              {/* <TabPanel
+                <TabPanel value={value} index={1}>
+                  <iframe
+                    src={`https://frontend.eunimart.com/ist`}
+                    ref={ist}
+                    title="ist"
+                    id="ist"
+                    onLoad={() => {
+                      askSessionIdHandler("ist", ist);
+                    }}
+                    style={{
+                      width: "100%",
+                      padding: "0px",
+                      border: "none",
+                      margin: "0px",
+                      height: "92vh",
+                      overflow: "auto",
+                    }}
+                  ></iframe>
+                </TabPanel>
+                <TabPanel value={value} index={2}>
+                  <iframe
+                    src={`https://frontend.eunimart.com/scrapOrders`}
+                    ref={scrapOrders}
+                    title="scrapOrders"
+                    id="scrapOrders"
+                    onLoad={() => {
+                      askSessionIdHandler("scrapOrders", scrapOrders);
+                    }}
+                    style={{
+                      width: "100%",
+                      padding: "0px",
+                      border: "none",
+                      margin: "0px",
+                      height: "92vh",
+                      overflow: "auto",
+                    }}
+                  ></iframe>
+                </TabPanel>
+                <TabPanel value={value} index={3}>
+                  <iframe
+                    src={`https://frontend.eunimart.com/deliveryOrders`}
+                    ref={deliveryOrders}
+                    title="deliveryOrders"
+                    id="deliveryOrders"
+                    onLoad={() => {
+                      askSessionIdHandler("deliveryOrders", deliveryOrders);
+                    }}
+                    style={{
+                      width: "100%",
+                      padding: "0px",
+                      border: "none",
+                      margin: "0px",
+                      height: "92vh",
+                      overflow: "auto",
+                    }}
+                  ></iframe>
+                </TabPanel>
+                <TabPanel value={value} index={4}>
+                  <iframe
+                    src={`https://frontend.eunimart.com/purchaseOrders`}
+                    ref={purchaseOrders}
+                    title="purchaseOrders"
+                    id="purchaseOrders"
+                    onLoad={() => {
+                      askSessionIdHandler("purchaseOrders", purchaseOrders);
+                    }}
+                    style={{
+                      width: "100%",
+                      padding: "0px",
+                      border: "none",
+                      margin: "0px",
+                      height: "92vh",
+                      overflow: "auto",
+                    }}
+                  ></iframe>
+                </TabPanel>
+              </>
+            )}
+            {tabName === "inventory" && (
+              <>
+                {/* <TabPanel
                 value={value}
                 index={0}
                 sx={{
@@ -1579,711 +1555,708 @@ const APP_STORE = [
                   }}
                 ></iframe>
               </TabPanel> */}
-              <TabPanel
-                value={value}
-                index={0}
-                sx={{
-                  color: "black",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <iframe
-                  src={`https://frontend.eunimart.com/asn`}
-                  ref={asn}
-                  id="asn"
-                  title="asn"
-                  onLoad={() => {
-                    askSessionIdHandler("asn", asn);
+                <TabPanel
+                  value={value}
+                  index={0}
+                  sx={{
+                    color: "black",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
-                  style={{
-                    width: "100%",
-                    padding: "0px",
-                    border: "none",
-                    margin: "0px",
-                    height: "92vh",
-                    overflow: "auto",
+                >
+                  <iframe
+                    src={`https://frontend.eunimart.com/asn`}
+                    ref={asn}
+                    id="asn"
+                    title="asn"
+                    onLoad={() => {
+                      askSessionIdHandler("asn", asn);
+                    }}
+                    style={{
+                      width: "100%",
+                      padding: "0px",
+                      border: "none",
+                      margin: "0px",
+                      height: "92vh",
+                      overflow: "auto",
+                    }}
+                  ></iframe>
+                </TabPanel>
+                <TabPanel
+                  value={value}
+                  index={1}
+                  sx={{
+                    color: "black",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
-                ></iframe>
-              </TabPanel>
-              <TabPanel
-                value={value}
-                index={1}
-                sx={{
-                  color: "black",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <iframe
-                  src={`https://frontend.eunimart.com/grn`}
-                  ref={grn}
-                  id="grn"
-                  title="grn"
-                  onLoad={() => {
-                    askSessionIdHandler("grn", grn);
+                >
+                  <iframe
+                    src={`https://frontend.eunimart.com/grn`}
+                    ref={grn}
+                    id="grn"
+                    title="grn"
+                    onLoad={() => {
+                      askSessionIdHandler("grn", grn);
+                    }}
+                    style={{
+                      width: "100%",
+                      padding: "0px",
+                      border: "none",
+                      margin: "0px",
+                      height: "92vh",
+                      overflow: "auto",
+                    }}
+                  ></iframe>
+                </TabPanel>
+                <TabPanel
+                  value={value}
+                  index={2}
+                  sx={{
+                    color: "black",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
-                  style={{
-                    width: "100%",
-                    padding: "0px",
-                    border: "none",
-                    margin: "0px",
-                    height: "92vh",
-                    overflow: "auto",
+                >
+                  <iframe
+                    src={`https://frontend.eunimart.com/inventoryAdjustment`}
+                    ref={inventoryAdjustment}
+                    id="inventoryAdjustment"
+                    title="inventoryAdjustment"
+                    onLoad={() => {
+                      askSessionIdHandler(
+                        "inventoryAdjustment",
+                        inventoryAdjustment
+                      );
+                    }}
+                    style={{
+                      width: "100%",
+                      padding: "0px",
+                      border: "none",
+                      margin: "0px",
+                      height: "92vh",
+                      overflow: "auto",
+                    }}
+                  ></iframe>
+                </TabPanel>
+              </>
+            )}
+            {tabName === "inventoryTask" && (
+              <>
+                <TabPanel
+                  value={value}
+                  index={0}
+                  sx={{
+                    color: "black",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
-                ></iframe>
-              </TabPanel>
-              <TabPanel
-                value={value}
-                index={2}
-                sx={{
-                  color: "black",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <iframe
-                  src={`https://frontend.eunimart.com/inventoryAdjustment`}
-                 
-                  ref={inventoryAdjustment}
-                  id="inventoryAdjustment"
-                  title="inventoryAdjustment"
-                  onLoad={() => {
-                    askSessionIdHandler(
-                      "inventoryAdjustment",
-                      inventoryAdjustment
-                    );
+                >
+                  <iframe
+                    src={`https://frontend.eunimart.com/pickList`}
+                    ref={pickList}
+                    id="pickList"
+                    title="pickList"
+                    onLoad={() => {
+                      askSessionIdHandler("pickList", pickList);
+                    }}
+                    style={{
+                      width: "100%",
+                      padding: "0px",
+                      border: "none",
+                      margin: "0px",
+                      height: "92vh",
+                      overflow: "auto",
+                    }}
+                  ></iframe>
+                </TabPanel>
+                <TabPanel
+                  value={value}
+                  index={1}
+                  sx={{
+                    color: "black",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
-                  style={{
-                    width: "100%",
-                    padding: "0px",
-                    border: "none",
-                    margin: "0px",
-                    height: "92vh",
-                    overflow: "auto",
+                >
+                  <iframe
+                    src={`https://frontend.eunimart.com/cycleCount`}
+                    ref={cycleCount}
+                    id="cycleCount"
+                    title="cycleCount"
+                    onLoad={() => {
+                      askSessionIdHandler("cycleCount", cycleCount);
+                    }}
+                    style={{
+                      width: "100%",
+                      padding: "0px",
+                      border: "none",
+                      margin: "0px",
+                      height: "92vh",
+                      overflow: "auto",
+                    }}
+                  ></iframe>
+                </TabPanel>
+              </>
+            )}
+            {tabName === "accounting" && (
+              <>
+                <TabPanel
+                  value={value}
+                  index={0}
+                  sx={{
+                    color: "black",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
-                ></iframe>
-              </TabPanel>
-            
-              
-            </>
-          )}
-          {tabName === "inventoryTask" && (
-            <>
-              <TabPanel
-                value={value}
-                index={0}
-                sx={{
-                  color: "black",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <iframe
-                  src={`https://frontend.eunimart.com/pickList`}
-                  ref={pickList}
-                  id="pickList"
-                  title="pickList"
-                  onLoad={() => {
-                    askSessionIdHandler("pickList", pickList);
+                >
+                  <iframe
+                    src={`https://frontend.eunimart.com/salesInvoice`}
+                    ref={salesInvoice}
+                    id="salesInvoice"
+                    title="salesInvoice"
+                    onLoad={() => {
+                      askSessionIdHandler("salesInvoice", salesInvoice);
+                    }}
+                    style={{
+                      width: "100%",
+                      padding: "0px",
+                      border: "none",
+                      margin: "0px",
+                      height: "92vh",
+                      overflow: "auto",
+                    }}
+                  ></iframe>
+                </TabPanel>
+                <TabPanel
+                  value={value}
+                  index={1}
+                  sx={{
+                    color: "black",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
-                  style={{
-                    width: "100%",
-                    padding: "0px",
-                    border: "none",
-                    margin: "0px",
-                    height: "92vh",
-                    overflow: "auto",
+                >
+                  <iframe
+                    src={`https://frontend.eunimart.com/purchaseInvoice`}
+                    ref={purchaseInvoice}
+                    id="purchaseInvoice"
+                    title="purchaseInvoice"
+                    onLoad={() => {
+                      askSessionIdHandler("purchaseInvoice", purchaseInvoice);
+                    }}
+                    style={{
+                      width: "100%",
+                      padding: "0px",
+                      border: "none",
+                      margin: "0px",
+                      height: "92vh",
+                      overflow: "auto",
+                    }}
+                  ></iframe>
+                </TabPanel>
+                <TabPanel
+                  value={value}
+                  index={2}
+                  sx={{
+                    color: "black",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
-                ></iframe>
-              </TabPanel>
-              <TabPanel
-                value={value}
-                index={1}
-                sx={{
-                  color: "black",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <iframe
-                  src={`https://frontend.eunimart.com/cycleCount`}
-                  ref={cycleCount}
-                  id="cycleCount"
-                  title="cycleCount"
-                  onLoad={() => {
-                    askSessionIdHandler("cycleCount", cycleCount);
+                >
+                  <iframe
+                    src={`https://frontend.eunimart.com/debitNote`}
+                    ref={debitNote}
+                    id="debitNote"
+                    title="debitNote"
+                    onLoad={() => {
+                      askSessionIdHandler("debitNote", debitNote);
+                    }}
+                    style={{
+                      width: "100%",
+                      padding: "0px",
+                      border: "none",
+                      margin: "0px",
+                      height: "92vh",
+                      overflow: "auto",
+                    }}
+                  ></iframe>
+                </TabPanel>
+                <TabPanel
+                  value={value}
+                  index={3}
+                  sx={{
+                    color: "black",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
-                  style={{
-                    width: "100%",
-                    padding: "0px",
-                    border: "none",
-                    margin: "0px",
-                    height: "92vh",
-                    overflow: "auto",
+                >
+                  <iframe
+                    src={`https://frontend.eunimart.com/creditNote`}
+                    ref={creditNote}
+                    id="creditNote"
+                    title="creditNote"
+                    onLoad={() => {
+                      askSessionIdHandler("creditNote", creditNote);
+                    }}
+                    style={{
+                      width: "100%",
+                      padding: "0px",
+                      border: "none",
+                      margin: "0px",
+                      height: "92vh",
+                      overflow: "auto",
+                    }}
+                  ></iframe>
+                </TabPanel>
+                <TabPanel
+                  value={value}
+                  index={4}
+                  sx={{
+                    color: "black",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
-                ></iframe>
-              </TabPanel>
-            </>
-          )}
-          {tabName === "accounting" && (
-            <>
-              <TabPanel
-                value={value}
-                index={0}
-                sx={{
-                  color: "black",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <iframe
-                  src={`https://frontend.eunimart.com/salesInvoice`}
-                  ref={salesInvoice}
-                  id="salesInvoice"
-                  title="salesInvoice"
-                  onLoad={() => {
-                    askSessionIdHandler("salesInvoice", salesInvoice);
+                >
+                  <iframe
+                    src={`https://frontend.eunimart.com/currencyExchange`}
+                    ref={currencyExchange}
+                    id="currencyExchange"
+                    title="currencyExchange"
+                    onLoad={() => {
+                      askSessionIdHandler("currencyExchange", currencyExchange);
+                    }}
+                    style={{
+                      width: "100%",
+                      padding: "0px",
+                      border: "none",
+                      margin: "0px",
+                      height: "92vh",
+                      overflow: "auto",
+                    }}
+                  ></iframe>
+                </TabPanel>
+                <TabPanel
+                  value={value}
+                  index={5}
+                  sx={{
+                    color: "black",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
-                  style={{
-                    width: "100%",
-                    padding: "0px",
-                    border: "none",
-                    margin: "0px",
-                    height: "92vh",
-                    overflow: "auto",
+                >
+                  <iframe
+                    src={`https://frontend.eunimart.com/paymentTermsRecordPayment`}
+                    ref={paymentTermsRecordPayment}
+                    id="paymentTermsRecordPayment"
+                    title="paymentTermsRecordPayment"
+                    onLoad={() => {
+                      askSessionIdHandler(
+                        "paymentTermsRecordPayment",
+                        paymentTermsRecordPayment
+                      );
+                    }}
+                    style={{
+                      width: "100%",
+                      padding: "0px",
+                      border: "none",
+                      margin: "0px",
+                      height: "92vh",
+                      overflow: "auto",
+                    }}
+                  ></iframe>
+                </TabPanel>
+              </>
+            )}
+            {tabName === "returnsManagement" && (
+              <>
+                <TabPanel
+                  value={value}
+                  index={0}
+                  sx={{
+                    color: "black",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
-                ></iframe>
-              </TabPanel>
-              <TabPanel
-                value={value}
-                index={1}
-                sx={{
-                  color: "black",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <iframe
-                  src={`https://frontend.eunimart.com/purchaseInvoice`}
-                  ref={purchaseInvoice}
-                  id="purchaseInvoice"
-                  title="purchaseInvoice"
-                  onLoad={() => {
-                    askSessionIdHandler("purchaseInvoice", purchaseInvoice);
+                >
+                  <iframe
+                    src={`https://frontend.eunimart.com/purchaseReturns`}
+                    ref={purchaseReturns}
+                    id="purchaseReturns"
+                    title="purchaseReturns"
+                    onLoad={() => {
+                      askSessionIdHandler("purchaseReturns", purchaseReturns);
+                    }}
+                    style={{
+                      width: "100%",
+                      padding: "0px",
+                      border: "none",
+                      margin: "0px",
+                      height: "92vh",
+                      overflow: "auto",
+                    }}
+                  ></iframe>
+                </TabPanel>
+                <TabPanel
+                  value={value}
+                  index={1}
+                  sx={{
+                    color: "black",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
-                  style={{
-                    width: "100%",
-                    padding: "0px",
-                    border: "none",
-                    margin: "0px",
-                    height: "92vh",
-                    overflow: "auto",
+                >
+                  <iframe
+                    src={`https://frontend.eunimart.com/salesReturns`}
+                    ref={salesReturns}
+                    id="salesReturns"
+                    title="salesReturns"
+                    onLoad={() => {
+                      askSessionIdHandler("salesReturns", salesReturns);
+                    }}
+                    style={{
+                      width: "100%",
+                      padding: "0px",
+                      border: "none",
+                      margin: "0px",
+                      height: "92vh",
+                      overflow: "auto",
+                    }}
+                  ></iframe>
+                </TabPanel>
+              </>
+            )}
+            {tabName === "shippingManagement" && (
+              <>
+                <TabPanel
+                  value={value}
+                  index={0}
+                  sx={{
+                    color: "black",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
-                ></iframe>
-              </TabPanel>
-              <TabPanel
-                value={value}
-                index={2}
-                sx={{
-                  color: "black",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <iframe
-                  src={`https://frontend.eunimart.com/debitNote`}
-                  ref={debitNote}
-                  id="debitNote"
-                  title="debitNote"
-                  onLoad={() => {
-                    askSessionIdHandler("debitNote", debitNote);
+                >
+                  <iframe
+                    src={`https://frontend.eunimart.com/shippingOrders`}
+                    ref={shippingOrders}
+                    id="shippingOrders"
+                    title="shippingOrders"
+                    onLoad={() => {
+                      askSessionIdHandler("shippingOrders", shippingOrders);
+                    }}
+                    style={{
+                      width: "100%",
+                      padding: "0px",
+                      border: "none",
+                      margin: "0px",
+                      height: "92vh",
+                      overflow: "auto",
+                    }}
+                  ></iframe>
+                </TabPanel>
+                <TabPanel
+                  value={value}
+                  index={1}
+                  sx={{
+                    color: "black",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
-                  style={{
-                    width: "100%",
-                    padding: "0px",
-                    border: "none",
-                    margin: "0px",
-                    height: "92vh",
-                    overflow: "auto",
+                >
+                  <iframe
+                    src={`https://frontend.eunimart.com/ndr`}
+                    ref={ndr}
+                    id="ndr"
+                    title="ndr"
+                    onLoad={() => {
+                      askSessionIdHandler("ndr", ndr);
+                    }}
+                    style={{
+                      width: "100%",
+                      padding: "0px",
+                      border: "none",
+                      margin: "0px",
+                      height: "92vh",
+                      overflow: "auto",
+                    }}
+                  ></iframe>
+                </TabPanel>
+                <TabPanel
+                  value={value}
+                  index={2}
+                  sx={{
+                    color: "black",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
-                ></iframe>
-              </TabPanel>
-              <TabPanel
-                value={value}
-                index={3}
-                sx={{
-                  color: "black",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <iframe
-                  src={`https://frontend.eunimart.com/creditNote`}
-                  ref={creditNote}
-                  id="creditNote"
-                  title="creditNote"
-                  onLoad={() => {
-                    askSessionIdHandler("creditNote", creditNote);
+                >
+                  <iframe
+                    src={`https://frontend.eunimart.com/rto`}
+                    ref={rto}
+                    id="rto"
+                    title="rto"
+                    onLoad={() => {
+                      askSessionIdHandler("rto", rto);
+                    }}
+                    style={{
+                      width: "100%",
+                      padding: "0px",
+                      border: "none",
+                      margin: "0px",
+                      height: "92vh",
+                      overflow: "auto",
+                    }}
+                  ></iframe>
+                </TabPanel>
+                <TabPanel
+                  value={value}
+                  index={3}
+                  sx={{
+                    color: "black",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
-                  style={{
-                    width: "100%",
-                    padding: "0px",
-                    border: "none",
-                    margin: "0px",
-                    height: "92vh",
-                    overflow: "auto",
-                  }}
-                ></iframe>
-              </TabPanel>
-              <TabPanel
-                value={value}
-                index={4}
-                sx={{
-                  color: "black",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <iframe
-                  src={`https://frontend.eunimart.com/currencyExchange`}
-                  ref={currencyExchange}
-                  id="currencyExchange"
-                  title="currencyExchange"
-                  onLoad={() => {
-                    askSessionIdHandler("currencyExchange", currencyExchange);
-                  }}
-                  style={{
-                    width: "100%",
-                    padding: "0px",
-                    border: "none",
-                    margin: "0px",
-                    height: "92vh",
-                    overflow: "auto",
-                  }}
-                ></iframe>
-              </TabPanel>
-              <TabPanel
-                value={value}
-                index={5}
-                sx={{
-                  color: "black",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <iframe
-                  src={`https://frontend.eunimart.com/paymentTermsRecordPayment`}
-                  ref={paymentTermsRecordPayment}
-                  id="paymentTermsRecordPayment"
-                  title="paymentTermsRecordPayment"
-                  onLoad={() => {
-                    askSessionIdHandler(
-                      "paymentTermsRecordPayment",
-                      paymentTermsRecordPayment
-                    );
-                  }}
-                  style={{
-                    width: "100%",
-                    padding: "0px",
-                    border: "none",
-                    margin: "0px",
-                    height: "92vh",
-                    overflow: "auto",
-                  }}
-                ></iframe>
-              </TabPanel>
-            </>
-          )}
-          {tabName === "returnsManagement" && (
-            <>
-              <TabPanel
-                value={value}
-                index={0}
-                sx={{
-                  color: "black",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <iframe
-                  src={`https://frontend.eunimart.com/purchaseReturns`}
-                  ref={purchaseReturns}
-                  id="purchaseReturns"
-                  title="purchaseReturns"
-                  onLoad={() => {
-                    askSessionIdHandler("purchaseReturns", purchaseReturns);
-                  }}
-                  style={{
-                    width: "100%",
-                    padding: "0px",
-                    border: "none",
-                    margin: "0px",
-                    height: "92vh",
-                    overflow: "auto",
-                  }}
-                ></iframe>
-              </TabPanel>
-              <TabPanel
-                value={value}
-                index={1}
-                sx={{
-                  color: "black",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <iframe
-                  src={`https://frontend.eunimart.com/salesReturns`}
-                  ref={salesReturns}
-                  id="salesReturns"
-                  title="salesReturns"
-                  onLoad={() => {
-                    askSessionIdHandler("salesReturns", salesReturns);
-                  }}
-                  style={{
-                    width: "100%",
-                    padding: "0px",
-                    border: "none",
-                    margin: "0px",
-                    height: "92vh",
-                    overflow: "auto",
-                  }}
-                ></iframe>
-              </TabPanel>
-            </>
-          )}
-          {tabName === "shippingManagement" && (
-            <>
-              <TabPanel
-                value={value}
-                index={0}
-                sx={{
-                  color: "black",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <iframe
-                  src={`https://frontend.eunimart.com/shippingOrders`}
-                  ref={shippingOrders}
-                  id="shippingOrders"
-                  title="shippingOrders"
-                  onLoad={() => {
-                    askSessionIdHandler("shippingOrders", shippingOrders);
-                  }}
-                  style={{
-                    width: "100%",
-                    padding: "0px",
-                    border: "none",
-                    margin: "0px",
-                    height: "92vh",
-                    overflow: "auto",
-                  }}
-                ></iframe>
-              </TabPanel>
-              <TabPanel
-                value={value}
-                index={1}
-                sx={{
-                  color: "black",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <iframe
-                  src={`https://frontend.eunimart.com/ndr`}
-                  ref={ndr}
-                  id="ndr"
-                  title="ndr"
-                  onLoad={() => {
-                    askSessionIdHandler("ndr", ndr);
-                  }}
-                  style={{
-                    width: "100%",
-                    padding: "0px",
-                    border: "none",
-                    margin: "0px",
-                    height: "92vh",
-                    overflow: "auto",
-                  }}
-                ></iframe>
-              </TabPanel>
-              <TabPanel
-                value={value}
-                index={2}
-                sx={{
-                  color: "black",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <iframe
-                  src={`https://frontend.eunimart.com/rto`}
-                  ref={rto}
-                  id="rto"
-                  title="rto"
-                  onLoad={() => {
-                    askSessionIdHandler("rto", rto);
-                  }}
-                  style={{
-                    width: "100%",
-                    padding: "0px",
-                    border: "none",
-                    margin: "0px",
-                    height: "92vh",
-                    overflow: "auto",
-                  }}
-                ></iframe>
-              </TabPanel>
-              <TabPanel
-                value={value}
-                index={3}
-                sx={{
-                  color: "black",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <iframe
-                  src={`https://frontend.eunimart.com/wd`}
-                  ref={wd}
-                  id="wd"
-                  title="wd"
-                  onLoad={() => {
-                    askSessionIdHandler("wd", wd);
-                  }}
-                  style={{
-                    width: "100%",
-                    padding: "0px",
-                    border: "none",
-                    margin: "0px",
-                    height: "92vh",
-                    overflow: "auto",
-                  }}
-                ></iframe>
-              </TabPanel>
-            </>
-          )}
+                >
+                  <iframe
+                    src={`https://frontend.eunimart.com/wd`}
+                    ref={wd}
+                    id="wd"
+                    title="wd"
+                    onLoad={() => {
+                      askSessionIdHandler("wd", wd);
+                    }}
+                    style={{
+                      width: "100%",
+                      padding: "0px",
+                      border: "none",
+                      margin: "0px",
+                      height: "92vh",
+                      overflow: "auto",
+                    }}
+                  ></iframe>
+                </TabPanel>
+              </>
+            )}
 
-          {tabName === "omnichannelHub" && (
-            <>
-              <TabPanel
-                value={value}
-                index={0}
-                sx={{
-                  color: "black",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <iframe
-                  src={`https://frontend.eunimart.com/virtualWarehouse`}
-                  ref={virtualWarehouse}
-                  id="virtualWarehouse"
-                  title="virtualWarehouse"
-                  onLoad={() => {
-                    askSessionIdHandler("virtualWarehouse", virtualWarehouse);
+            {tabName === "omnichannelHub" && (
+              <>
+                <TabPanel
+                  value={value}
+                  index={0}
+                  sx={{
+                    color: "black",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
-                  style={{
-                    width: "100%",
-                    padding: "0px",
-                    border: "none",
-                    margin: "0px",
-                    height: "92vh",
-                    overflow: "auto",
+                >
+                  <iframe
+                    src={`https://frontend.eunimart.com/virtualWarehouse`}
+                    ref={virtualWarehouse}
+                    id="virtualWarehouse"
+                    title="virtualWarehouse"
+                    onLoad={() => {
+                      askSessionIdHandler("virtualWarehouse", virtualWarehouse);
+                    }}
+                    style={{
+                      width: "100%",
+                      padding: "0px",
+                      border: "none",
+                      margin: "0px",
+                      height: "92vh",
+                      overflow: "auto",
+                    }}
+                  ></iframe>
+                </TabPanel>
+                <TabPanel
+                  value={value}
+                  index={1}
+                  sx={{
+                    color: "black",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
-                ></iframe>
-              </TabPanel>
-              <TabPanel
-                value={value}
-                index={1}
-                sx={{
-                  color: "black",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <iframe
-                  src={`https://frontend.eunimart.com/retail`}
-                  ref={retail}
-                  id="retail"
-                  title="retail"
-                  onLoad={() => {
-                    askSessionIdHandler("retail", retail);
+                >
+                  <iframe
+                    src={`https://frontend.eunimart.com/retail`}
+                    ref={retail}
+                    id="retail"
+                    title="retail"
+                    onLoad={() => {
+                      askSessionIdHandler("retail", retail);
+                    }}
+                    style={{
+                      width: "100%",
+                      padding: "0px",
+                      border: "none",
+                      margin: "0px",
+                      height: "92vh",
+                      overflow: "auto",
+                    }}
+                  ></iframe>
+                </TabPanel>
+                <TabPanel
+                  value={value}
+                  index={2}
+                  sx={{
+                    color: "black",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
-                  style={{
-                    width: "100%",
-                    padding: "0px",
-                    border: "none",
-                    margin: "0px",
-                    height: "92vh",
-                    overflow: "auto",
+                >
+                  <iframe
+                    src={`https://frontend.eunimart.com/webstores`}
+                    ref={webstores}
+                    id="webstores"
+                    title="webstores"
+                    onLoad={() => {
+                      askSessionIdHandler("webstores", webstores);
+                    }}
+                    style={{
+                      width: "100%",
+                      padding: "0px",
+                      border: "none",
+                      margin: "0px",
+                      height: "92vh",
+                      overflow: "auto",
+                    }}
+                  ></iframe>
+                </TabPanel>
+                <TabPanel
+                  value={value}
+                  index={3}
+                  sx={{
+                    color: "black",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
-                ></iframe>
-              </TabPanel>
-              <TabPanel
-                value={value}
-                index={2}
-                sx={{
-                  color: "black",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <iframe
-                  src={`https://frontend.eunimart.com/webstores`}
-                  ref={webstores}
-                  id="webstores"
-                  title="webstores"
-                  onLoad={() => {
-                    askSessionIdHandler("webstores", webstores);
+                >
+                  <iframe
+                    src={`https://frontend.eunimart.com/marketplaces`}
+                    ref={marketplaces}
+                    id="marketplaces"
+                    title="marketplaces"
+                    onLoad={() => {
+                      askSessionIdHandler("marketplaces", marketplaces);
+                    }}
+                    style={{
+                      width: "100%",
+                      padding: "0px",
+                      border: "none",
+                      margin: "0px",
+                      height: "92vh",
+                      overflow: "auto",
+                    }}
+                  ></iframe>
+                </TabPanel>
+                <TabPanel
+                  value={value}
+                  index={4}
+                  sx={{
+                    color: "black",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
-                  style={{
-                    width: "100%",
-                    padding: "0px",
-                    border: "none",
-                    margin: "0px",
-                    height: "92vh",
-                    overflow: "auto",
+                >
+                  <iframe
+                    src={`https://frontend.eunimart.com/logisticsPartners`}
+                    ref={logisticsPartners}
+                    id="logisticsPartners"
+                    title="logisticsPartners"
+                    onLoad={() => {
+                      askSessionIdHandler(
+                        "logisticsPartners",
+                        logisticsPartners
+                      );
+                    }}
+                    style={{
+                      width: "100%",
+                      padding: "0px",
+                      border: "none",
+                      margin: "0px",
+                      height: "92vh",
+                      overflow: "auto",
+                    }}
+                  ></iframe>
+                </TabPanel>
+                <TabPanel
+                  value={value}
+                  index={5}
+                  sx={{
+                    color: "black",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
-                ></iframe>
-              </TabPanel>
-              <TabPanel
-                value={value}
-                index={3}
-                sx={{
-                  color: "black",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <iframe
-                  src={`https://frontend.eunimart.com/marketplaces`}
-                  ref={marketplaces}
-                  id="marketplaces"
-                  title="marketplaces"
-                  onLoad={() => {
-                    askSessionIdHandler("marketplaces", marketplaces);
-                  }}
-                  style={{
-                    width: "100%",
-                    padding: "0px",
-                    border: "none",
-                    margin: "0px",
-                    height: "92vh",
-                    overflow: "auto",
-                  }}
-                ></iframe>
-              </TabPanel>
-              <TabPanel
-                value={value}
-                index={4}
-                sx={{
-                  color: "black",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <iframe
-                  src={`https://frontend.eunimart.com/logisticsPartners`}
-                  ref={logisticsPartners}
-                  id="logisticsPartners"
-                  title="logisticsPartners"
-                  onLoad={() => {
-                    askSessionIdHandler("logisticsPartners", logisticsPartners);
-                  }}
-                  style={{
-                    width: "100%",
-                    padding: "0px",
-                    border: "none",
-                    margin: "0px",
-                    height: "92vh",
-                    overflow: "auto",
-                  }}
-                ></iframe>
-              </TabPanel>
-              <TabPanel
-                value={value}
-                index={5}
-                sx={{
-                  color: "black",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <iframe
-                  src={`https://frontend.eunimart.com/localWarehouse`}
-                  ref={localWarehouse}
-                  id="localWarehouse"
-                  title="localWarehouse"
-                  onLoad={() => {
-                    askSessionIdHandler("localWarehouse", localWarehouse);
-                  }}
-                  style={{
-                    width: "100%",
-                    padding: "0px",
-                    border: "none",
-                    margin: "0px",
-                    height: "92vh",
-                    overflow: "auto",
-                  }}
-                ></iframe>
-              </TabPanel>
-            </>
-          )}
+                >
+                  <iframe
+                    src={`https://frontend.eunimart.com/localWarehouse`}
+                    ref={localWarehouse}
+                    id="localWarehouse"
+                    title="localWarehouse"
+                    onLoad={() => {
+                      askSessionIdHandler("localWarehouse", localWarehouse);
+                    }}
+                    style={{
+                      width: "100%",
+                      padding: "0px",
+                      border: "none",
+                      margin: "0px",
+                      height: "92vh",
+                      overflow: "auto",
+                    }}
+                  ></iframe>
+                </TabPanel>
+              </>
+            )}
 
-{tabName === "appStore" && (
-            <>
-              <TabPanel
-                value={value}
-                index={0}
-                sx={{
-                  color: "black",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <iframe
-                  src={`https://frontend.eunimart.com/appStore `}
-                  ref={appStore}
-                  id="appStore"
-                  title="appStore"
-                  onLoad={() => {
-                    askSessionIdHandler("appStore", appStore);
+            {tabName === "appStore" && (
+              <>
+                <TabPanel
+                  value={value}
+                  index={0}
+                  sx={{
+                    color: "black",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
-                  style={{
-                    width: "100%",
-                    padding: "0px",
-                    border: "none",
-                    margin: "0px",
-                    height: "92vh",
-                    overflow: "auto",
-                  }}
-                ></iframe>
-              </TabPanel>
-
-            </>
-          )}
-
+                >
+                  <iframe
+                    src={`https://frontend.eunimart.com/appStore `}
+                    ref={appStore}
+                    id="appStore"
+                    title="appStore"
+                    onLoad={() => {
+                      askSessionIdHandler("appStore", appStore);
+                    }}
+                    style={{
+                      width: "100%",
+                      padding: "0px",
+                      border: "none",
+                      margin: "0px",
+                      height: "92vh",
+                      overflow: "auto",
+                    }}
+                  ></iframe>
+                </TabPanel>
+              </>
+            )}
+          </Box>
         </Box>
-      </Box>
-    </ThemeProvider>
+      </ThemeProvider>
 
-<div className="App1">
-<div style={{ margin: "20px" }}>
-  {display ? (
-    <ChatBot setDisplay={setDisplay} />
-  ) : (
-    <InactiveBot setDisplay={setDisplay} />
-  )}
-  {/* <ChatBot /> */}
-</div>
-</div>
-</>
+      <div className="App1">
+        <div style={{ margin: "20px" }}>
+          {display ? (
+            <ChatBot setDisplay={setDisplay} />
+          ) : (
+            <InactiveBot setDisplay={setDisplay} />
+          )}
+          {/* <ChatBot /> */}
+        </div>
+      </div>
+    </>
   );
 }
-
 
 const InactiveBot = ({ setDisplay }) => {
   const [showText, setShowText] = useState(false);
@@ -2298,14 +2271,16 @@ const InactiveBot = ({ setDisplay }) => {
         </div>
       )}
 
-      <div className="bot_cirlce1" onMouseLeave={() => {
+      <div
+        className="bot_cirlce1"
+        onMouseLeave={() => {
           setShowText(false);
         }}
         onMouseOver={() => {
           setShowText(true);
         }}
         onClick={() => {
-          setDisplay((prevState) => !prevState);
+          setDisplay(prevState => !prevState);
         }}
       >
         <img src={logo} className="eunimart_logo1" alt="Bot_logo" />
@@ -2387,3 +2362,18 @@ const InactiveBot = ({ setDisplay }) => {
 //   {label:"Shipping", clickEve:handleShippingManagementClick, openEve: openShippingManagement, sub : SHIPPING_MANAGEMENT},
 //   {label:"Omnichannel Hub", clickEve:handleOmnichannelHubClick, openEve: openOmnichannelHub, sub : OMNICHANNEL_HUB},
 // ])
+
+/*
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
+*/

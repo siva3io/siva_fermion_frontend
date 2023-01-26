@@ -46,8 +46,8 @@ const ContactsDetail = ({ contactData1 }) => {
 
   useEffect(() => dispatch(getcontactsById(id)), [id]);
 
-  const contactData = useSelector((state) => state.viewData?.contactsViewData);
-  const datePipe = (dateString) => {
+  const contactData = useSelector(state => state.viewData?.contactsViewData);
+  const datePipe = dateString => {
     let date = new Date(dateString);
     return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
   };
@@ -61,44 +61,48 @@ const ContactsDetail = ({ contactData1 }) => {
     {
       label: "Last Name",
       type: "input",
-      text: contactData && contactData?.last_name
-        ? contactData?.last_name
-        : "--"
+      text:
+        contactData && contactData?.last_name ? contactData?.last_name : "--",
     },
     {
       label: "Company Name",
       type: "input",
-      text: contactData && contactData?.company_name
-        ? contactData?.company_name
-        : "--"
+      text:
+        contactData && contactData?.company_name
+          ? contactData?.company_name
+          : "--",
     },
     {
       label: "Relationship",
       type: "input",
-      text: contactData && contactData?.receipt_routing?.display_name
-        ? contactData?.receipt_routing?.display_name
-        : "--"
+      text:
+        contactData && contactData?.receipt_routing?.display_name
+          ? contactData?.receipt_routing?.display_name
+          : "--",
     },
     {
       label: "Email",
       type: "input",
-      text: contactData && contactData?.primary_email
-        ? contactData?.primary_email
-        : "--"
+      text:
+        contactData && contactData?.primary_email
+          ? contactData?.primary_email
+          : "--",
     },
     {
       label: "Contact Number",
       type: "input",
-      text: contactData && contactData?.primary_phone
-        ? contactData?.primary_phone
-        : "--"
+      text:
+        contactData && contactData?.primary_phone
+          ? contactData?.primary_phone
+          : "--",
     },
     {
       label: "Parent Contact",
       type: "input",
-      text: contactData && contactData?.parent?.primary_phone
-        ? contactData?.parent?.primary_phone
-        : "--"
+      text:
+        contactData && contactData?.parent?.primary_phone
+          ? contactData?.parent?.primary_phone
+          : "--",
     },
   ];
   // );
@@ -108,35 +112,35 @@ const ContactsDetail = ({ contactData1 }) => {
       type: "input",
       text: contactData?.billing_details?.account_name
         ? contactData?.billing_details?.account_name
-        : "--"
+        : "--",
     },
     {
       label: "Account Number",
       type: "input",
       text: contactData?.billing_details?.account_number
         ? contactData?.billing_details?.account_number
-        : "--"
+        : "--",
     },
     {
       label: "Bank",
       type: "input",
       text: contactData?.billing_details?.bank_name
         ? contactData?.billing_details?.bank_name
-        : "--"
+        : "--",
     },
     {
       label: "IFSC Code",
       type: "input",
       text: contactData?.billing_details?.ifsc_code
         ? contactData?.billing_details?.ifsc_code
-        : "--"
+        : "--",
     },
     {
       label: "UPI",
       type: "input",
       text: contactData?.billing_details?.upi
         ? contactData?.billing_details?.upi
-        : "--"
+        : "--",
     },
   ];
   const staticFieldsThree = [
@@ -145,81 +149,83 @@ const ContactsDetail = ({ contactData1 }) => {
       type: "input",
       text: contactData?.additional_information?.date_of_birth
         ? datePipe(contactData?.additional_information?.date_of_birth)
-        : "--"
+        : "--",
     },
     {
       label: "Emergency Contact",
       type: "input",
       text: contactData?.additional_information?.emergency_contact
         ? contactData?.additional_information?.emergency_contact
-        : "--"
+        : "--",
     },
     {
       label: "Work Information",
       type: "input",
       text: contactData?.billing_details?.bank_name
         ? contactData?.billing_details?.bank_name
-        : "--"
+        : "--",
     },
     {
       label: "Notes",
       type: "input",
       text: contactData?.billing_details?.ifsc_code
         ? contactData?.billing_details?.ifsc_code
-        : "--"
+        : "--",
     },
     {
       label: "Additional Information",
       type: "input",
       text: contactData?.billing_details?.upi
         ? contactData?.billing_details?.upi
-        : "--"
+        : "--",
     },
     {
       label: "Work Phone",
       type: "input",
       text: contactData?.additional_information?.emergency_contact
         ? contactData?.additional_information?.emergency_contact
-        : "--"
+        : "--",
     },
     {
       label: "Custom Field",
       type: "input",
       text: contactData?.billing_details?.upi
         ? contactData?.billing_details?.upi
-        : "--"
+        : "--",
     },
     {
       label: "Additional Contact",
       type: "input",
       text: contactData?.additional_information?.additional_contact
         ? contactData?.additional_information?.additional_contact
-        : "--"
+        : "--",
     },
     {
       label: "Additional Information",
       type: "input",
       text: contactData?.billing_details?.upi
         ? contactData?.billing_details?.upi
-        : "--"
+        : "--",
     },
     {
       label: "GST Doc",
       type: "input",
       text: contactData?.parent?.address_details?.gst_in_number
         ? contactData?.parent?.address_details?.gst_in_number
-        : "--"
+        : "--",
     },
     {
       label: "GST ID",
       type: "input",
-      text: contactData && contactData.address_details ? contactData.address_details[0].gst_in_number : "--"
+      text:
+        contactData && contactData.address_details
+          ? contactData.address_details[0].gst_in_number
+          : "--",
       // contactData?.address_details?.gst_in_number
       //   ? contactData?.address_details?.gst_in_number
       //   : "--"
     },
   ];
-
 
   return (
     <div className="shippingpage">
@@ -236,7 +242,6 @@ const ContactsDetail = ({ contactData1 }) => {
       </div>
       {/* section1 */}
 
-
       {/* section2*/}
       <div className="locationDetailsMain">
         <div className="locationDetailForm">
@@ -249,12 +254,28 @@ const ContactsDetail = ({ contactData1 }) => {
                     <RemoteAddressCard
                       head={"Billing address"}
                       // icon={contactData?.address_details?.address_line_1}
-                      address1={contactData && contactData.address_details ? contactData.address_details[0].address_line_1 : ""}
-                      address2={contactData && contactData.address_details ? contactData.address_details[0].address_line_2 : ""}
-                      city={contactData && contactData.address_details ? contactData.address_details[0].city : ""}
-                      state={contactData && contactData.address_details ? contactData.address_details[0].pin_code : ""}
-                    // state={contactData && contactData.address_details ? contactData.address_details[0].address_line_1 : ""}
-                    // country={contactData && contactData.address_details ? contactData.address_details[0].address_line_1 : ""}
+                      address1={
+                        contactData && contactData.address_details
+                          ? contactData.address_details[0].address_line_1
+                          : ""
+                      }
+                      address2={
+                        contactData && contactData.address_details
+                          ? contactData.address_details[0].address_line_2
+                          : ""
+                      }
+                      city={
+                        contactData && contactData.address_details
+                          ? contactData.address_details[0].city
+                          : ""
+                      }
+                      state={
+                        contactData && contactData.address_details
+                          ? contactData.address_details[0].pin_code
+                          : ""
+                      }
+                      // state={contactData && contactData.address_details ? contactData.address_details[0].address_line_1 : ""}
+                      // country={contactData && contactData.address_details ? contactData.address_details[0].address_line_1 : ""}
                     />
                   </RemoteWrapper>
                 </Suspense>
@@ -265,10 +286,26 @@ const ContactsDetail = ({ contactData1 }) => {
                     <RemoteAddressCard
                       head={"Shipping Locations"}
                       // icon={contactData?.address_details?.address_line_1}
-                      address1={contactData && contactData.address_details ? contactData.address_details[0].address_line_1 : ""}
-                      address2={contactData && contactData.address_details ? contactData.address_details[0].address_line_2 : ""}
-                      city={contactData && contactData.address_details ? contactData.address_details[0].city : ""}
-                      state={contactData && contactData.address_details ? contactData.address_details[0].pin_code : ""}
+                      address1={
+                        contactData && contactData.address_details
+                          ? contactData.address_details[0].address_line_1
+                          : ""
+                      }
+                      address2={
+                        contactData && contactData.address_details
+                          ? contactData.address_details[0].address_line_2
+                          : ""
+                      }
+                      city={
+                        contactData && contactData.address_details
+                          ? contactData.address_details[0].city
+                          : ""
+                      }
+                      state={
+                        contactData && contactData.address_details
+                          ? contactData.address_details[0].pin_code
+                          : ""
+                      }
                     />
                   </RemoteWrapper>
                 </Suspense>
@@ -281,14 +318,13 @@ const ContactsDetail = ({ contactData1 }) => {
 
       {/* section3 */}
       <div className="locationDetailsMainSectin">
-
-        {contactData &&
+        {contactData && (
           <div className="locationDetailsMain">
             <div className="locationDetailForm">
               <div className="staticFormCard">
                 <div className="staticFormCardTitle">Billing Details</div>
                 <div className="product-staticFormCardForm">
-                  {staticFieldsTwo.map((field) => {
+                  {staticFieldsTwo.map(field => {
                     const val = field.label;
                     const typ = field.type;
                     return typ === "input" ? (
@@ -310,20 +346,19 @@ const ContactsDetail = ({ contactData1 }) => {
               </div>
             </div>
           </div>
-        }
+        )}
       </div>
       {/* section3 */}
 
       {/* section4 */}
       <div className="locationDetailsMainSectin">
-
-        {contactData &&
+        {contactData && (
           <div className="locationDetailsMain">
             <div className="locationDetailForm">
               <div className="staticFormCard">
                 <div className="staticFormCardTitle">Extra Information</div>
                 <div className="product-staticFormCardForm">
-                  {staticFieldsThree.map((field) => {
+                  {staticFieldsThree.map(field => {
                     const val = field.label;
                     const text = field.text;
                     const typ = field.type;
@@ -346,34 +381,26 @@ const ContactsDetail = ({ contactData1 }) => {
               </div>
             </div>
           </div>
-        }
+        )}
       </div>
       {/* section4 */}
-
     </div>
   );
 };
 
 export default ContactsDetail;
 
-
-
-
-
-
-
-
 /*
-Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
-All rights reserved.			
-This program is free software: you can redistribute it and/or modify			
-it under the terms of the GNU General Public License as published by			
-the Free Software Foundation, either version 3 of the License, or			
-(at your option) any later version.			
-This program is distributed in the hope that it will be useful,			
-but WITHOUT ANY WARRANTY; without even the implied warranty of			
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
-GNU General Public License for more details.			
-You should have received a copy of the GNU General Public License			
-along with this program. If not, see <http://www.gnu.org/licenses/>.			
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
 */

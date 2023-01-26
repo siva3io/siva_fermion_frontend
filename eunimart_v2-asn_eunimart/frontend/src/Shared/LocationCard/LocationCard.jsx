@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import LabeledText from "../../Shared/LabeledText/LabeledText";
 import "./LocationCard.css";
-import Card from '@mui/material/Card';
+import Card from "@mui/material/Card";
 
 const LocationCards = ({
   head,
@@ -23,7 +23,7 @@ const LocationCards = ({
   const [showDrpDwn, setShowDrpDown] = useState(false);
   const [cardHover, setcardHover] = useState(false);
   const showDrpDwnHandler = () => {
-    setShowDrpDown((showDrpDwn) => !showDrpDwn);
+    setShowDrpDown(showDrpDwn => !showDrpDwn);
   };
   const cardHoverHandler_true = () => {
     setcardHover(true);
@@ -38,13 +38,11 @@ const LocationCards = ({
   };
 
   return (
-    
     <div
       className={"locationCards"}
       onMouseEnter={cardHoverHandler_true}
       onMouseLeave={cardHoverHandler_false}
     >
-      
       <div className="locationCard_body">
         <div className="locationCard_body_head">
           <h5 className="locationCard_header">{head}</h5>
@@ -64,7 +62,7 @@ const LocationCards = ({
                     Edit
                   </p>
                   <p className="locationCard_dropdown_option">
-                    <Link >View</Link>
+                    <Link>View</Link>
                   </p>
                 </div>
               )}
@@ -98,3 +96,17 @@ const LocationCards = ({
 };
 
 export default LocationCards;
+/*
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
+*/

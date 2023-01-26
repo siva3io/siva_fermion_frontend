@@ -14,7 +14,7 @@ const RemoteWrapper = ({ children }) => (
 const ShippingDetails = ({ istData }) => {
   const [params, setParams] = useState({ limit: 10, offset: 1 });
   const [selectedId, setId] = useState(0);
-  const datePipe = (dateString) => {
+  const datePipe = dateString => {
     let date = new Date(dateString);
     return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
   };
@@ -145,7 +145,7 @@ const ShippingDetails = ({ istData }) => {
                 <div className="staticFormCardTitle">Shipping Details</div>
                 <div>
                   {/* <div className="product-staticFormCardForm"> */}
-                  {staticFieldsTwo.map((field) => {
+                  {staticFieldsTwo.map(field => {
                     const val = field.label;
                     const typ = field.type;
                     return typ === "input" ? (
@@ -172,7 +172,7 @@ const ShippingDetails = ({ istData }) => {
                 <div className="staticFormCardTitle">Package Details</div>
                 <div>
                   <div className="product-staticFormCardForm">
-                    {staticFieldsThree.map((field) => {
+                    {staticFieldsThree.map(field => {
                       const val = field.label;
                       const typ = field.type;
                       return typ === "input" ? (
@@ -200,7 +200,7 @@ const ShippingDetails = ({ istData }) => {
                 <div className="staticFormCardTitle">Self Details</div>
                 <div>
                   <div className="product-staticFormCardForm">
-                    {staticFieldsFive.map((field) => {
+                    {staticFieldsFive.map(field => {
                       const val = field.label;
                       const typ = field.type;
                       return typ === "input" ? (
@@ -241,7 +241,7 @@ const ShippingDetails = ({ istData }) => {
             {istData && (
               <RemoteViewBox_Table
                 headCells={headCellsTwo}
-                table_data={shippingDetails.map((item) => {
+                table_data={shippingDetails.map(item => {
                   return {
                     shipping_partner:
                       item &&
@@ -279,7 +279,7 @@ const ShippingDetails = ({ istData }) => {
                 </div>
                 <div style={{ display: "flex" }}>
                   {/* <div className="product-staticFormCardForm"> */}
-                  {staticFieldsFour.map((field) => {
+                  {staticFieldsFour.map(field => {
                     const val = field.label;
                     const typ = field.type;
                     return typ === "input" ? (
@@ -314,17 +314,17 @@ const ShippingDetails = ({ istData }) => {
 
 export default ShippingDetails;
 
-/*			
-Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
-All rights reserved.			
-This program is free software: you can redistribute it and/or modify			
-it under the terms of the GNU General Public License as published by			
-the Free Software Foundation, either version 3 of the License, or			
-(at your option) any later version.			
-This program is distributed in the hope that it will be useful,			
-but WITHOUT ANY WARRANTY; without even the implied warranty of			
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
-GNU General Public License for more details.			
-You should have received a copy of the GNU General Public License			
-along with this program. If not, see <http://www.gnu.org/licenses/>.			
+/*
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
 */

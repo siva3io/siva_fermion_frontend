@@ -181,10 +181,10 @@ function PicklistViewClass({ picklistViewData, id }) {
   ]);
 
   let picklistValue = [];
-  picklistValue = useSelector((state) => state.picklistviewdata.picklistdata);
+  picklistValue = useSelector(state => state.picklistviewdata.picklistdata);
 
   const handleProcessPicklist = () => {
-    setQtyenabled((prev) => !prev);
+    setQtyenabled(prev => !prev);
     let temp_payload = {
       picklist_lines: payload["picklist_lines"],
       status_id: 100,
@@ -235,7 +235,7 @@ function PicklistViewClass({ picklistViewData, id }) {
                 variant="contained"
                 className="btn_primary"
                 onClick={() => {
-                  setQtyenabled((prev) => !prev);
+                  setQtyenabled(prev => !prev);
                 }}
               >
                 Process Picklist
@@ -260,7 +260,7 @@ function PicklistViewClass({ picklistViewData, id }) {
                 variant="outlined"
                 className="btn_no_border"
                 onClick={() => {
-                  setQtyenabled((prev) => !prev);
+                  setQtyenabled(prev => !prev);
                 }}
               >
                 Cancel
@@ -407,17 +407,17 @@ function PicklistViewClass({ picklistViewData, id }) {
 
 export default PicklistViewClass;
 
-/*			
-Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
-All rights reserved.			
-This program is free software: you can redistribute it and/or modify			
-it under the terms of the GNU General Public License as published by			
-the Free Software Foundation, either version 3 of the License, or			
-(at your option) any later version.			
-This program is distributed in the hope that it will be useful,			
-but WITHOUT ANY WARRANTY; without even the implied warranty of			
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
-GNU General Public License for more details.			
-You should have received a copy of the GNU General Public License			
-along with this program. If not, see <http://www.gnu.org/licenses/>.			
+/*
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
 */

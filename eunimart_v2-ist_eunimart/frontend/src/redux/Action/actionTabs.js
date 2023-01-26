@@ -3,12 +3,12 @@ import axios from "axios";
 import { BASE_URL, TOKEN } from "../../Services/api";
 
 //#region Get GRN Order List
-const getGrnData = (data) => ({
+const getGrnData = data => ({
   type: types.GRN_LIST,
   payload: data,
 });
 
-export const loadGrnData = (params1) => {
+export const loadGrnData = params1 => {
   return function (dispatch) {
     const params = {
       per_page: params1?.per_page ? params1?.per_page : params1?.limit,
@@ -29,20 +29,20 @@ export const loadGrnData = (params1) => {
         params,
         headers,
       })
-      .then((resp) => {
+      .then(resp => {
         console.log("qwertyuiop");
         dispatch(getGrnData(resp.data));
       })
-      .catch((error) => console.log(error));
+      .catch(error => console.log(error));
   };
 };
 
-const getGrnDataById = (data) => ({
+const getGrnDataById = data => ({
   type: types.GRN_DATA_BY_ID,
   payload: data,
 });
 
-export const loadGrnDataById = (Id) => {
+export const loadGrnDataById = Id => {
   return function (dispatch) {
     var headers = {
       "Content-type": "application/json",
@@ -51,21 +51,21 @@ export const loadGrnDataById = (Id) => {
 
     axios
       .get(`${BASE_URL}/api/v1/grn/` + Id, { headers })
-      .then((resp) => {
+      .then(resp => {
         dispatch(getGrnDataById(resp.data));
       })
-      .catch((error) => console.log(error));
+      .catch(error => console.log(error));
   };
 };
 //#endregion Get IST Order List
 
 //#region Get ASN Order List
-const getASNData = (data) => ({
+const getASNData = data => ({
   type: types.ASN_LIST,
   payload: data,
 });
 
-export const loadASNData = (param) => {
+export const loadASNData = param => {
   return function (dispatch) {
     var params = {
       per_page: param.limit,
@@ -81,21 +81,21 @@ export const loadASNData = (param) => {
 
     axios
       .get(`${BASE_URL}/api/v1/asn/dropdown`, { params, headers })
-      .then((resp) => {
+      .then(resp => {
         dispatch(getASNData(resp.data));
       })
-      .catch((error) => console.log(error));
+      .catch(error => console.log(error));
   };
 };
 //#endregion Get ASN Order List
 
 //#region Get ASN Order Data By Id
-const getASNDataById = (data) => ({
+const getASNDataById = data => ({
   type: types.ASN_VIEW,
   payload: data,
 });
 
-export const loadASNDataById = (Id) => {
+export const loadASNDataById = Id => {
   return function (dispatch) {
     var headers = {
       "Content-type": "application/json",
@@ -104,21 +104,21 @@ export const loadASNDataById = (Id) => {
 
     axios
       .get(`${BASE_URL}/api/v1/asn/` + Id, { headers })
-      .then((resp) => {
+      .then(resp => {
         dispatch(getASNDataById(resp.data));
       })
-      .catch((error) => console.log(error));
+      .catch(error => console.log(error));
   };
 };
 //#endregion Get ASN Order Data By Id
 
 //#region Get Sales Order List
-const getSalesData = (data) => ({
+const getSalesData = data => ({
   type: types.SALES_LIST,
   payload: data,
 });
 
-export const loadSalesData = (param) => {
+export const loadSalesData = param => {
   return function (dispatch) {
     var params = {
       per_page: param.limit,
@@ -134,21 +134,21 @@ export const loadSalesData = (param) => {
 
     axios
       .get(`${BASE_URL}/api/v1/sales_orders/dropdown`, { params, headers })
-      .then((resp) => {
+      .then(resp => {
         dispatch(getSalesData(resp.data));
       })
-      .catch((error) => console.log(error));
+      .catch(error => console.log(error));
   };
 };
 //#endregion Get Sales Order List
 
 //#region Get Sales Order Data By Id
-const getSalesDataById = (data) => ({
+const getSalesDataById = data => ({
   type: types.SALES_VIEW,
   payload: data,
 });
 
-export const loadSalesDataById = (Id) => {
+export const loadSalesDataById = Id => {
   return function (dispatch) {
     var headers = {
       "Content-type": "application/json",
@@ -157,21 +157,21 @@ export const loadSalesDataById = (Id) => {
 
     axios
       .get(`${BASE_URL}/api/v1/sales_orders/` + Id, { headers })
-      .then((resp) => {
+      .then(resp => {
         dispatch(getSalesDataById(resp.data));
       })
-      .catch((error) => console.log(error));
+      .catch(error => console.log(error));
   };
 };
 //#endregion Get Sales Order Data By Id
 
 //#region Get Delivery Order List
-const getDeliveryData = (data) => ({
+const getDeliveryData = data => ({
   type: types.DELIVERY_LIST,
   payload: data,
 });
 
-export const loadDeliveryData = (param) => {
+export const loadDeliveryData = param => {
   return function (dispatch) {
     var params = {
       per_page: param.limit,
@@ -187,21 +187,21 @@ export const loadDeliveryData = (param) => {
 
     axios
       .get(`${BASE_URL}/api/v1/delivery_orders/dropdown`, { params, headers })
-      .then((resp) => {
+      .then(resp => {
         dispatch(getDeliveryData(resp.data));
       })
-      .catch((error) => console.log(error));
+      .catch(error => console.log(error));
   };
 };
 //#endregion Get Delivery Order List
 
 //#region Get Delivery Order Data By Id
-const getDeliveryDataById = (data) => ({
+const getDeliveryDataById = data => ({
   type: types.DELIVERY_VIEW,
   payload: data,
 });
 
-export const loadDeliveryDataById = (Id) => {
+export const loadDeliveryDataById = Id => {
   return function (dispatch) {
     var headers = {
       "Content-type": "application/json",
@@ -210,21 +210,21 @@ export const loadDeliveryDataById = (Id) => {
 
     axios
       .get(`${BASE_URL}/api/v1/delivery_orders/` + Id, { headers })
-      .then((resp) => {
+      .then(resp => {
         dispatch(getDeliveryDataById(resp.data));
       })
-      .catch((error) => console.log(error));
+      .catch(error => console.log(error));
   };
 };
 //#endregion Get Delivery Order Data By Id
 
 //#region Get Delivery Order List
-const getProductData = (data) => ({
+const getProductData = data => ({
   type: types.PURCHASE_ORDERS_LIST,
   payload: data,
 });
 
-export const loadProductOrdersData = (params1) => {
+export const loadProductOrdersData = params1 => {
   console.log("called");
   var params = {
     per_page: params1?.per_page ? params1?.per_page : params1?.limit,
@@ -240,20 +240,20 @@ export const loadProductOrdersData = (params1) => {
 
     axios
       .get(`${BASE_URL}/api/v1/purchase_orders/dropdown`, { params, headers })
-      .then((resp) => {
+      .then(resp => {
         dispatch(getProductData(resp.data));
       })
-      .catch((error) => console.log(error));
+      .catch(error => console.log(error));
   };
 };
 
 // id
-const getProductDataById = (data) => ({
+const getProductDataById = data => ({
   type: types.PURCHASE_ORDERS_LIST_BY_ID,
   payload: data,
 });
 
-export const loadProductOrdersDataByID = (id) => {
+export const loadProductOrdersDataByID = id => {
   return function (dispatch) {
     var headers = {
       "Content-type": "application/json",
@@ -263,17 +263,17 @@ export const loadProductOrdersDataByID = (id) => {
     if (id !== undefined && id !== null) {
       axios
         .get(`${BASE_URL}/api/v1/purchase_orders/${id}`, { headers })
-        .then((resp) => {
+        .then(resp => {
           dispatch(getProductDataById(resp.data));
         })
-        .catch((error) => console.log(error));
+        .catch(error => console.log(error));
     }
   };
 };
 //#endregion Get Purchase Order Data By Id
 
 // Delete Product Lines
-const getdeleteProductData = (data) => ({
+const getdeleteProductData = data => ({
   type: types.DELETE_PRODUCT_LINE,
   payload: data,
 });
@@ -290,25 +290,25 @@ export const deleteProductLine = (id, plid) => {
         `${BASE_URL}/api/v1/internal_transfers/order_lines/${id}/delete?product_id=${plid}`,
         { headers }
       )
-      .then((resp) => {
+      .then(resp => {
         dispatch(getdeleteProductData(resp.data));
       })
-      .catch((error) => console.log(error));
+      .catch(error => console.log(error));
   };
 };
 //#endregion of Delete Product lines
 
-/*			
-Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
-All rights reserved.			
-This program is free software: you can redistribute it and/or modify			
-it under the terms of the GNU General Public License as published by			
-the Free Software Foundation, either version 3 of the License, or			
-(at your option) any later version.			
-This program is distributed in the hope that it will be useful,			
-but WITHOUT ANY WARRANTY; without even the implied warranty of			
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
-GNU General Public License for more details.			
-You should have received a copy of the GNU General Public License			
-along with this program. If not, see <http://www.gnu.org/licenses/>.			
+/*
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
 */

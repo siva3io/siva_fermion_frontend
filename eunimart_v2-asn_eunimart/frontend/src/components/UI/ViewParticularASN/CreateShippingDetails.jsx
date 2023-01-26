@@ -30,71 +30,71 @@ const RemoteWrapper = ({ children }) => (
   </div>
 );
 
-const CreateShippingDetails = ({edit,step1Data,setStep1Data}) => {
-    const dispatch = useDispatch();
-    const { id } = useParams();
-    useEffect(() => dispatch(fetchAsnDataById(id)), [id]);
-    const asnData = useSelector((state) => state.fetchAsnDataById?.asn);
-    console.log(edit,"edit")
+const CreateShippingDetails = ({ edit, step1Data, setStep1Data }) => {
+  const dispatch = useDispatch();
+  const { id } = useParams();
+  useEffect(() => dispatch(fetchAsnDataById(id)), [id]);
+  const asnData = useSelector(state => state.fetchAsnDataById?.asn);
+  console.log(edit, "edit");
   const [radioValue, setRadioValue] = useState("Eunimart");
 
-  useEffect(()=>{
-    if(asnData && edit){
+  useEffect(() => {
+    if (asnData && edit) {
       var newMainData = [];
-      console.log("asnData1111", asnData.shipping_details?.package_details?.package_length);
-      var newstaticFields = staticFields
-      .map(o=> {
-        if(o.key=="Package_Length") o.value=asnData.shipping_details?.package_details?.package_length;
-        if(o.key=="Package_Width") o.value=asnData.shipping_details?.package_details?.package_width;
-        if(o.key=="Package_Height") o.value=asnData.shipping_details?.package_details?.package_height;
-        if(o.key=="Package_Weight") o.value=asnData.shipping_details?.package_details?.package_weight;
-        if(o.key=="Vol_Weight") o.value=asnData.shipping_details?.package_details?.vol_weight;
-        return o;})
-        setStaticFields(newstaticFields);
+      console.log(
+        "asnData1111",
+        asnData.shipping_details?.package_details?.package_length
+      );
+      var newstaticFields = staticFields.map(o => {
+        if (o.key == "Package_Length")
+          o.value = asnData.shipping_details?.package_details?.package_length;
+        if (o.key == "Package_Width")
+          o.value = asnData.shipping_details?.package_details?.package_width;
+        if (o.key == "Package_Height")
+          o.value = asnData.shipping_details?.package_details?.package_height;
+        if (o.key == "Package_Weight")
+          o.value = asnData.shipping_details?.package_details?.package_weight;
+        if (o.key == "Vol_Weight")
+          o.value = asnData.shipping_details?.package_details?.vol_weight;
+        return o;
+      });
+      setStaticFields(newstaticFields);
 
-      
-      console.log(newstaticFields,"newstaticFieldss")
-      newMainData = [
-        ...newstaticFields,
-      ];
+      console.log(newstaticFields, "newstaticFieldss");
+      newMainData = [...newstaticFields];
       var keyValuePairMainData = {};
       newMainData.map(o => {
         if (o.key == "Schedule_Pickup_time") {
-          o.value.map(p => { keyValuePairMainData[p.key] = p.value; })
-        }
-        else if (o.key != null) {
+          o.value.map(p => {
+            keyValuePairMainData[p.key] = p.value;
+          });
+        } else if (o.key != null) {
           keyValuePairMainData[o.key] = o.value;
         }
       });
       setStep1Data(keyValuePairMainData);
-    
-    console.log(keyValuePairMainData,"Step1Dataqq")
+
+      console.log(keyValuePairMainData, "Step1Dataqq");
     }
+  }, [asnData]);
 
-
-  },[asnData])
-
-
-
-
-  const handleChange = (event) => {
+  const handleChange = event => {
     console.log(event.target.value, "yyyyy");
     // radioValue=event.target.value
     setRadioValue(event.target.value);
-    setStep1Data({ ...step1Data, ["shipping_preference"]: event.target.value});
-
+    setStep1Data({ ...step1Data, ["shipping_preference"]: event.target.value });
 
     console.log(radioValue, "radioValue");
   };
-  
-  const onInputChange =(prop,value)=>{
+
+  const onInputChange = (prop, value) => {
     // setStep1Data({ ...step1Data, [prop]: value });
-    console.log(prop,value,"valueprop")
+    console.log(prop, value, "valueprop");
     let tempStaticField = [...staticFields];
     let index = tempStaticField.findIndex(function (field) {
       return field.key == prop;
     });
-   tempStaticField[index].errorMessage = "";
+    tempStaticField[index].errorMessage = "";
     if (tempStaticField[index].required && (!value || value.length === 0)) {
       tempStaticField[index].errorMessage = prop + " is Required";
     } else if (
@@ -111,20 +111,20 @@ const CreateShippingDetails = ({edit,step1Data,setStep1Data}) => {
         tempStaticField[index].maxLength +
         " characters";
     }
-    tempStaticField[index]["value"]=value;
-    console.log(tempStaticField,"tempStaticField")
+    tempStaticField[index]["value"] = value;
+    console.log(tempStaticField, "tempStaticField");
     setStaticFields(tempStaticField);
     setStep1Data({ ...step1Data, [prop]: value });
-  }
+  };
 
-  const onInputChange1 =(prop,value)=>{
+  const onInputChange1 = (prop, value) => {
     // setStep1Data({ ...step1Data, [prop]: value });
-    console.log(prop,value,"valueprop")
+    console.log(prop, value, "valueprop");
     let tempStaticField = [...staticFields1];
     let index = tempStaticField.findIndex(function (field) {
       return field.key == prop;
     });
-   tempStaticField[index].errorMessage = "";
+    tempStaticField[index].errorMessage = "";
     if (tempStaticField[index].required && (!value || value.length === 0)) {
       tempStaticField[index].errorMessage = prop + " is Required";
     } else if (
@@ -141,51 +141,45 @@ const CreateShippingDetails = ({edit,step1Data,setStep1Data}) => {
         tempStaticField[index].maxLength +
         " characters";
     }
-    tempStaticField[index]["value"]=value;
-    console.log(tempStaticField,"tempStaticField")
+    tempStaticField[index]["value"] = value;
+    console.log(tempStaticField, "tempStaticField");
     setStaticFields1(tempStaticField);
     setStep1Data({ ...step1Data, [prop]: value });
-  }
-
+  };
 
   useEffect(() => dispatch(estimatedcost()), []);
-  const estimatedcostdata = useSelector((state) => state.estimatedcost?.cost);
+  const estimatedcostdata = useSelector(state => state.estimatedcost?.cost);
   console.log(estimatedcostdata, "estimatedcostdata");
-
 
   const headCells = [
     {
       key: "partner_name",
-    
+
       type: "text",
-      
+
       label: "Shipping Partners",
     },
     {
       key: "charges",
       type: "text",
-      
+
       label: "Charges",
     },
     {
-        key: "Order_delivery_time",
-                                    
-        
-        type: "text",
-       
-        label: "Order Deliver Time",
-      },
-      {
-        key: "product_name",
-        
-        type: "text",
-       
-        label: "select",
-      },
+      key: "Order_delivery_time",
 
-    
+      type: "text",
+
+      label: "Order Deliver Time",
+    },
+    {
+      key: "product_name",
+
+      type: "text",
+
+      label: "select",
+    },
   ];
-  
 
   const [staticFields, setStaticFields] = useState([
     {
@@ -194,7 +188,6 @@ const CreateShippingDetails = ({edit,step1Data,setStep1Data}) => {
       required: true,
       errorMessage: "Package Length is required",
       key: "Package_Length",
-   
     },
     {
       label: "Package Width",
@@ -212,7 +205,6 @@ const CreateShippingDetails = ({edit,step1Data,setStep1Data}) => {
       required: true,
       errorMessage: "Package Height is required",
       key: "Package_Height",
-    
     },
 
     {
@@ -221,7 +213,6 @@ const CreateShippingDetails = ({edit,step1Data,setStep1Data}) => {
       required: true,
       errorMessage: "Vol Weight is required",
       key: "Vol_Weight",
-     
     },
     {
       label: "Package Weight",
@@ -229,30 +220,24 @@ const CreateShippingDetails = ({edit,step1Data,setStep1Data}) => {
       required: true,
       errorMessage: "Package Weight is required",
       key: "Package_Weight",
-      
     },
   ]);
 
-
-
-  const [staticFields1,setStaticFields1] =useState([
+  const [staticFields1, setStaticFields1] = useState([
     {
-        label: "Carrier Name",
-        type: "input",
-        required: false,
-        errorMessage: "Carrier Name",
-        key: "Carrier_Name",
-       
-      },
-      {
-        label: "AWB Number",
-        type: "input",
-        required: false,
-        errorMessage: "Carrier Name ",
-        key: "AWB_Number",
-      
-      },
-
+      label: "Carrier Name",
+      type: "input",
+      required: false,
+      errorMessage: "Carrier Name",
+      key: "Carrier_Name",
+    },
+    {
+      label: "AWB Number",
+      type: "input",
+      required: false,
+      errorMessage: "Carrier Name ",
+      key: "AWB_Number",
+    },
   ]);
   return (
     <>
@@ -264,7 +249,7 @@ const CreateShippingDetails = ({edit,step1Data,setStep1Data}) => {
               control={<Checkbox sx={{ color: "blue" }} />}
               name="Shipping_Details"
               label="Shipping Details"
-              onChange={(e) =>
+              onChange={e =>
                 onInputChange("Shipping_Details", e.target.checked)
               }
             />
@@ -303,10 +288,8 @@ const CreateShippingDetails = ({edit,step1Data,setStep1Data}) => {
 
         {radioValue === "Eunimart" && (
           <>
-      
-
             <div className="product-staticFormCardForm">
-              {staticFields.map((field) => {
+              {staticFields.map(field => {
                 const typ = field.type;
                 return typ === "input" ? (
                   <Suspense fallback={<div>Loading... </div>}>
@@ -322,8 +305,8 @@ const CreateShippingDetails = ({edit,step1Data,setStep1Data}) => {
                         label={field.label}
                         name={field.label}
                         placeholder={`Type Your ${field.label}`}
-                        value={field.value?field.value:""}
-                        onChange={(e) => {
+                        value={field.value ? field.value : ""}
+                        onChange={e => {
                           onInputChange(field.key, e.target.value);
                         }}
                       />
@@ -379,7 +362,7 @@ const CreateShippingDetails = ({edit,step1Data,setStep1Data}) => {
         {radioValue === "Self" && (
           <>
             <div className="product-staticFormCardForm">
-              {staticFields1.map((field) => {
+              {staticFields1.map(field => {
                 const typ = field.type;
                 return typ === "input" ? (
                   <Suspense fallback={<div>Loading... </div>}>
@@ -396,7 +379,7 @@ const CreateShippingDetails = ({edit,step1Data,setStep1Data}) => {
                         name={field.label}
                         placeholder={`Type Your ${field.label}`}
                         // value={mainData[field.key] ? mainData[field.key] : ""}
-                        onChange={(e) => {
+                        onChange={e => {
                           onInputChange1(field.key, e.target.value);
                         }}
                       />
@@ -406,7 +389,6 @@ const CreateShippingDetails = ({edit,step1Data,setStep1Data}) => {
               })}
             </div>
           </>
-        
         )}
       </div>
     </>
@@ -415,17 +397,17 @@ const CreateShippingDetails = ({edit,step1Data,setStep1Data}) => {
 
 export default CreateShippingDetails;
 
-/*			
-Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
-All rights reserved.			
-This program is free software: you can redistribute it and/or modify			
-it under the terms of the GNU General Public License as published by			
-the Free Software Foundation, either version 3 of the License, or			
-(at your option) any later version.			
-This program is distributed in the hope that it will be useful,			
-but WITHOUT ANY WARRANTY; without even the implied warranty of			
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
-GNU General Public License for more details.			
-You should have received a copy of the GNU General Public License			
-along with this program. If not, see <http://www.gnu.org/licenses/>.			
+/*
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
 */

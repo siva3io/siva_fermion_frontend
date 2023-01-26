@@ -33,7 +33,7 @@ const CreateShippingDetails = (step1Data, setStep1Data) => {
   const [radioValue, setRadioValue] = useState("Eunimart");
   const [inputValue, setInputValue] = useState();
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     console.log(event.target.value, "yyyyy");
     // radioValue=event.target.value
     setRadioValue(event.target.value);
@@ -42,7 +42,7 @@ const CreateShippingDetails = (step1Data, setStep1Data) => {
     console.log(radioValue, "radioValue");
   };
 
-  const estimatedcostdata = useSelector((state) => state.estimatedcost?.cost);
+  const estimatedcostdata = useSelector(state => state.estimatedcost?.cost);
 
   useEffect(() => dispatch(estimatedcost()), []);
 
@@ -131,7 +131,7 @@ const CreateShippingDetails = (step1Data, setStep1Data) => {
               control={<Checkbox sx={{ color: "blue" }} />}
               name="Shipping_Details"
               label="Shipping Details"
-              onChange={(e) =>
+              onChange={e =>
                 onInputChange("Shipping_Details", e.target.checked)
               }
             />
@@ -171,7 +171,7 @@ const CreateShippingDetails = (step1Data, setStep1Data) => {
         {radioValue === "Eunimart" && (
           <>
             <div className="ist-details">
-              {staticFields.map((field) => {
+              {staticFields.map(field => {
                 const typ = field.type;
                 return typ === "input" ? (
                   <Suspense fallback={<div>Loading... </div>}>
@@ -188,7 +188,7 @@ const CreateShippingDetails = (step1Data, setStep1Data) => {
                         name={field.label}
                         placeholder={`Type Your ${field.label}`}
                         value={step1Data[field.key] ? step1Data[field.key] : ""}
-                        onChange={(e) => {
+                        onChange={e => {
                           onInputChange(field.key, e.target.value);
                         }}
                       />
@@ -265,7 +265,7 @@ const CreateShippingDetails = (step1Data, setStep1Data) => {
           <>
             <div>
               {/* <div className="product-staticFormCardForm"> */}
-              {staticFields1.map((field) => {
+              {staticFields1.map(field => {
                 const typ = field.type;
                 return typ === "input" ? (
                   <Suspense fallback={<div>Loading... </div>}>
@@ -282,7 +282,7 @@ const CreateShippingDetails = (step1Data, setStep1Data) => {
                         name={field.label}
                         placeholder={`Type Your ${field.label}`}
                         value={step1Data[field.key] ? step1Data[field.key] : ""}
-                        onChange={(e) => {
+                        onChange={e => {
                           onInputChange(field.key, e.target.value);
                         }}
                       />
@@ -300,17 +300,17 @@ const CreateShippingDetails = (step1Data, setStep1Data) => {
 
 export default CreateShippingDetails;
 
-/*			
-Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
-All rights reserved.			
-This program is free software: you can redistribute it and/or modify			
-it under the terms of the GNU General Public License as published by			
-the Free Software Foundation, either version 3 of the License, or			
-(at your option) any later version.			
-This program is distributed in the hope that it will be useful,			
-but WITHOUT ANY WARRANTY; without even the implied warranty of			
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
-GNU General Public License for more details.			
-You should have received a copy of the GNU General Public License			
-along with this program. If not, see <http://www.gnu.org/licenses/>.			
+/*
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
 */

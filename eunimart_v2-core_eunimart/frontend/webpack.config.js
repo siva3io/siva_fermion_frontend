@@ -1,7 +1,7 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const deps = require("./package.json").dependencies;
-const webpack = require('webpack');
+const webpack = require("webpack");
 
 module.exports = {
   //entry: "./src/index",
@@ -44,21 +44,21 @@ module.exports = {
         test: /\.m?js$/,
         exclude: /node_modules/,
         use: {
-            loader: 'babel-loader',
-            options: {
-                presets: ['@babel/preset-react', '@babel/preset-env'],
-                plugins: ['@babel/plugin-transform-runtime'],
-            }
-        }
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-react", "@babel/preset-env"],
+            plugins: ["@babel/plugin-transform-runtime"],
+          },
+        },
       },
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
         use: [
-          'file-loader',
+          "file-loader",
           {
-            loader: 'image-webpack-loader',
+            loader: "image-webpack-loader",
             options: {
-              limit:10000,
+              limit: 10000,
               bypassOnDebug: true, // webpack@1.x
               disable: true, // webpack@2.x and newer
             },
@@ -68,15 +68,15 @@ module.exports = {
       {
         test: /\.mp4$/,
         use: [
-            {
-                loader: "file-loader",
-                options: {
-                    name: "[name].[ext]",
-                    outputPath: "video"
-                }
-            }
-        ]
-    }
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+              outputPath: "video",
+            },
+          },
+        ],
+      },
     ],
   },
 
@@ -85,19 +85,18 @@ module.exports = {
       name: "login_eunimart",
       filename: "remoteEntry.js",
       remotes: {
-
         Remote: `Remote@https://frontend.eunimart.com/remote/moduleEntry.js`,
         Cycle_Count: `Cycle_Count@https://frontend.eunimart.com/inventoryAdjustmentBuild/moduleEntry.js`,
         // DeliveryOrdersApp: `DeliveryOrdersApp@https://frontend.eunimart.com/Delivery_ordersBuild/moduleEntry.js`,
         SalesOrder: `SalesOrder@https://frontend.eunimart.com/sales_ordersBuild/remoteEntry.js`,
         purchase_orders: `purchase_orders@https://frontend.eunimart.com/Purchase_ordersBuild/moduleEntry.js`,
         pricing: `pricing@https://frontend.eunimart.com/pricingBuild/moduleEntry.js`,
-        Products:`Products@https://frontend.eunimart.com/productsBuild/moduleEntry.js`,
+        Products: `Products@https://frontend.eunimart.com/productsBuild/moduleEntry.js`,
         purchase_returns: `purchase_returns@https://frontend.eunimart.com/Purchase_returnsBuild/moduleEntry.js`,
         shippingOrders: `shippingOrders@https://frontend.eunimart.com/shippingOrdersBuild/remoteEntry.js`,
-        AccessEngine:  `AccessEngine@https://frontend.eunimart.com/accessEngineBuild/remoteEntry.js`,
-        AccessEngine1:  `AccessEngine@https://frontend.eunimart.com/accessEngineBuild/remoteEntry.js`,
-        AccessEngine2:  `AccessEngine@https://frontend.eunimart.com/accessEngineBuild/remoteEntry.js`,
+        AccessEngine: `AccessEngine@https://frontend.eunimart.com/accessEngineBuild/remoteEntry.js`,
+        AccessEngine1: `AccessEngine@https://frontend.eunimart.com/accessEngineBuild/remoteEntry.js`,
+        AccessEngine2: `AccessEngine@https://frontend.eunimart.com/accessEngineBuild/remoteEntry.js`,
         accounting: `accounting@https://frontend.eunimart.com/accountingBuild/moduleEntry.js`,
         IST: `IST@https://frontend.eunimart.com/istBuild/moduleEntry.js`,
         ScrapOrders: `ScrapOrders@https://frontend.eunimart.com/Scrap_ordersBuild/remoteEntry.js`,
@@ -109,17 +108,13 @@ module.exports = {
         GRN: `GRN@https://frontend.eunimart.com/GRNBuild/moduleEntry.js`,
         locations_eunimart: `locations_eunimart@https://frontend.eunimart.com/locationsBuild/moduleEntry.js`,
         settings: `settings@https://frontend.eunimart.com/settingsBuild/moduleEntry.js`,
-        UserProfileEunimart:`UserProfileEunimart@http://frontend.eunimart.com/profileBuild/moduleEntry.js`,
+        UserProfileEunimart: `UserProfileEunimart@http://frontend.eunimart.com/profileBuild/moduleEntry.js`,
         SalesReturns: `SalesReturns@https://frontend.eunimart.com/saleReturnsBuild/moduleEntry.js`,
         Shipping_Orders: `Shipping_Orders@https://frontend.eunimart.com/ndr_wd_rto_Build/moduleEntry.js`,
         omnichannel_logistic_localwh: `omnichannel_logistic_localwh@https://frontend.eunimart.com/omnichannel_logistic_localwhBuild/moduleEntry.js`,
         omnichannel_virtualwh_retail: `omnichannel_virtualwh_retail@https://frontend.eunimart.com/omnichannel_virtualwh_retailBuild/moduleEntry.js`,
         omnichannel_web_marketplace: `omnichannel_web_marketplace@https://frontend.eunimart.com/omnichannel_web_marketplaceBuild/moduleEntry.js`,
         omnichannel_accounting_pos: `omnichannel_accounting_pos@https://frontend.eunimart.com/omniAccountingPosBuild/moduleEntry.js`,
-
-    
-
-
 
         // Remote: `Remote@https://frontend.eunimart.com/remote/moduleEntry.js`,
         // DeliveryOrdersApp: `DeliveryOrdersApp@http://frontend.eunimart.com:4019/moduleEntry.js`,
@@ -149,13 +144,29 @@ module.exports = {
         // Shipping_Orders: `Shipping_Orders@http://frontend.eunimart.com:4014/moduleEntry.js`,
       },
       exposes: {},
-      shared: deps
-    }), 
+      shared: deps,
+    }),
     new HtmlWebPackPlugin({
       template: "./src/index.html",
-  }),
-  new webpack.DefinePlugin({
-    'process.env.BACKEND_API_URL': JSON.stringify(process.env.BACKEND_API_URL)
-  })
+    }),
+    new webpack.DefinePlugin({
+      "process.env.BACKEND_API_URL": JSON.stringify(
+        process.env.BACKEND_API_URL
+      ),
+    }),
   ],
 };
+/*
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
+*/

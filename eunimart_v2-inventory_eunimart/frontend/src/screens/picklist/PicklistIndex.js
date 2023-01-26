@@ -14,7 +14,7 @@ import ErrorBoundary from "../../ErrorBoundary";
 import { Box } from "@mui/material";
 
 const PicklistIndex = () => {
-  const { picklistaccess } = useSelector((state) => state.data);
+  const { picklistaccess } = useSelector(state => state.data);
 
   const RemoteModalViewV2 = React.lazy(() => import("Remote/ModalViewV2"));
   const sortOptions = [
@@ -30,7 +30,7 @@ const PicklistIndex = () => {
           key: "desc",
         },
       ],
-      func: (value) => {
+      func: value => {
         dispatch(fetchSearchProduct({ picklist_id: value }, "sort"));
       },
     },
@@ -46,7 +46,7 @@ const PicklistIndex = () => {
           key: "desc",
         },
       ],
-      func: (value) => {
+      func: value => {
         dispatch(fetchSearchProduct({ picklist_date: value }, "sort"));
       },
     },
@@ -62,7 +62,7 @@ const PicklistIndex = () => {
           key: "desc",
         },
       ],
-      func: (value) => {
+      func: value => {
         dispatch(fetchSearchProduct({ picklist_refid: value }, "sort"));
       },
     },
@@ -78,7 +78,7 @@ const PicklistIndex = () => {
           key: "desc",
         },
       ],
-      func: (value) => {
+      func: value => {
         dispatch(fetchSearchProduct({ picklist_doc: value }, "sort"));
       },
     },
@@ -94,7 +94,7 @@ const PicklistIndex = () => {
           key: "desc",
         },
       ],
-      func: (value) => {
+      func: value => {
         dispatch(fetchSearchProduct({ picklist_assignee: value }, "sort"));
       },
     },
@@ -110,7 +110,7 @@ const PicklistIndex = () => {
           key: "desc",
         },
       ],
-      func: (value) => {
+      func: value => {
         dispatch(fetchSearchProduct({ picklist_wname: value }, "sort"));
       },
     },
@@ -126,14 +126,14 @@ const PicklistIndex = () => {
           key: "desc",
         },
       ],
-      func: (value) => {
+      func: value => {
         dispatch(fetchSearchProduct({ picklist_status: value }, "sort"));
       },
     },
     {
       label: "Clear All",
       endIcon: null,
-      func: (value) => {
+      func: value => {
         dispatch(fetchSearchProduct({ "": "" }, "sort"));
       },
     },
@@ -199,7 +199,7 @@ const PicklistIndex = () => {
     // }
   };
 
-  const searchItems = (searchValue) => {
+  const searchItems = searchValue => {
     // if (searchValue.length === 0) {
     //   dispatch(fetchSearchProduct({ "": "" }, "search"));
     // } else {
@@ -240,7 +240,7 @@ const PicklistIndex = () => {
 
   const [selectedId, setId] = useState(0);
 
-  const handleChangeDyanmicAppBar = (value) => {
+  const handleChangeDyanmicAppBar = value => {
     //setDynamicAppBar(value);
   };
 
@@ -252,7 +252,7 @@ const PicklistIndex = () => {
     });
   };
 
-  const handleChangeRowsPerPage = (event) => {
+  const handleChangeRowsPerPage = event => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
     setParams({
@@ -261,11 +261,11 @@ const PicklistIndex = () => {
     });
   };
 
-  const handleViewInventory = (id) => {
+  const handleViewInventory = id => {
     history.push(`/pickList/view/${id}`);
   };
 
-  const handleEditInventory = (id) => {
+  const handleEditInventory = id => {
     history.push(`/pickList/edit/${id}`);
   };
 
@@ -273,26 +273,24 @@ const PicklistIndex = () => {
     setCustomOptions([
       {
         label: "View",
-        func: (inventory_id) => handleViewInventory(inventory_id),
+        func: inventory_id => handleViewInventory(inventory_id),
         flag: picklistaccess
-          ?.find((row) => row === row)
-          ?.view_actions_json?.find((o) => o.lookup_code === "READ")?.ctrl_flag,
+          ?.find(row => row === row)
+          ?.view_actions_json?.find(o => o.lookup_code === "READ")?.ctrl_flag,
       },
       {
         label: "Edit",
-        func: (inventory_id) => handleEditInventory(inventory_id),
+        func: inventory_id => handleEditInventory(inventory_id),
         flag: picklistaccess
-          ?.find((row) => row === row)
-          ?.view_actions_json?.find((o) => o.lookup_code === "UPDATE")
-          ?.ctrl_flag,
+          ?.find(row => row === row)
+          ?.view_actions_json?.find(o => o.lookup_code === "UPDATE")?.ctrl_flag,
       },
       {
         label: "Delete Picklist",
-        func: (product_id) => handleDeleteModalOpen(product_id),
+        func: product_id => handleDeleteModalOpen(product_id),
         flag: picklistaccess
-          ?.find((row) => row === row)
-          ?.view_actions_json?.find((o) => o.lookup_code === "DELETE")
-          ?.ctrl_flag,
+          ?.find(row => row === row)
+          ?.view_actions_json?.find(o => o.lookup_code === "DELETE")?.ctrl_flag,
       },
     ]);
   }, [picklistaccess]);
@@ -300,24 +298,24 @@ const PicklistIndex = () => {
   const [customOptions, setCustomOptions] = useState([
     {
       label: "View",
-      func: (inventory_id) => handleViewInventory(inventory_id),
+      func: inventory_id => handleViewInventory(inventory_id),
       flag: picklistaccess
-        ?.find((row) => row === row)
-        ?.view_actions_json?.find((o) => o.lookup_code === "READ")?.ctrl_flag,
+        ?.find(row => row === row)
+        ?.view_actions_json?.find(o => o.lookup_code === "READ")?.ctrl_flag,
     },
     {
       label: "Edit",
-      func: (inventory_id) => handleEditInventory(inventory_id),
+      func: inventory_id => handleEditInventory(inventory_id),
       flag: picklistaccess
-        ?.find((row) => row === row)
-        ?.view_actions_json?.find((o) => o.lookup_code === "UPDATE")?.ctrl_flag,
+        ?.find(row => row === row)
+        ?.view_actions_json?.find(o => o.lookup_code === "UPDATE")?.ctrl_flag,
     },
     {
       label: "Delete Picklist",
-      func: (product_id) => handleDeleteModalOpen(product_id),
+      func: product_id => handleDeleteModalOpen(product_id),
       flag: picklistaccess
-        ?.find((row) => row === row)
-        ?.view_actions_json?.find((o) => o.lookup_code === "DELETE")?.ctrl_flag,
+        ?.find(row => row === row)
+        ?.view_actions_json?.find(o => o.lookup_code === "DELETE")?.ctrl_flag,
     },
     // {
     //   label: "Process Pick list",
@@ -345,12 +343,12 @@ const PicklistIndex = () => {
     // },
   ]);
 
-  const handleDeleteModalOpen = (id) => {
+  const handleDeleteModalOpen = id => {
     setpicklistId(id);
     setdeleteModalOpen(true);
   };
 
-  const handleDeleteProduct = (value) => {
+  const handleDeleteProduct = value => {
     dispatch(deletePickList(picklistId));
     setTimeout(() => {
       dispatch(loadPicklistData(params));
@@ -358,7 +356,7 @@ const PicklistIndex = () => {
     setdeleteModalOpen(false);
   };
 
-  const handleDeleteModalClose = (value) => {
+  const handleDeleteModalClose = value => {
     setdeleteModalOpen(false);
   };
 
@@ -423,7 +421,7 @@ const PicklistIndex = () => {
   ];
 
   const { picklistdata, picklistdata_meta } = useSelector(
-    (state) => state.picklistdata
+    state => state.picklistdata
   );
 
   useEffect(() => {
@@ -459,7 +457,7 @@ const PicklistIndex = () => {
       setCustomOptions([
         {
           label: "Create Bundle",
-          func: (product_id) => handleBundleProducts(newSelected),
+          func: product_id => handleBundleProducts(newSelected),
         },
       ]);
     }
@@ -467,29 +465,29 @@ const PicklistIndex = () => {
       setCustomOptions([
         {
           label: "View Product",
-          func: (product_id) => handleViewProduct(product_id),
+          func: product_id => handleViewProduct(product_id),
         },
         {
           label: "Mark as Favourite",
-          func: (product_id) => handleFavouriteModalOpen(product_id),
+          func: product_id => handleFavouriteModalOpen(product_id),
         },
         {
           label: "Edit Product Template",
-          func: (product_id) => handleEditProductTemplate(product_id),
+          func: product_id => handleEditProductTemplate(product_id),
         },
         {
           label: "Archive Product",
-          func: (product_id) => handleArchiveModalOpen(product_id),
+          func: product_id => handleArchiveModalOpen(product_id),
         },
         {
           label: "Delete Product",
-          func: (product_id) => handleModalOpen(product_id),
+          func: product_id => handleModalOpen(product_id),
         },
       ]);
     }
   }, [dynamicAppBar]);
 
-  const handleButtonClick = (value) => {
+  const handleButtonClick = value => {
     history.push("/pickList/create");
   };
 
@@ -513,8 +511,8 @@ const PicklistIndex = () => {
                 name: "Create",
                 handleButtonClick: handleButtonClick,
                 flag: picklistaccess
-                  ?.find((row) => row === row)
-                  ?.view_actions_json?.find((o) => o.lookup_code === "CREATE")
+                  ?.find(row => row === row)
+                  ?.view_actions_json?.find(o => o.lookup_code === "CREATE")
                   ?.ctrl_flag,
               },
             ]}
@@ -568,17 +566,17 @@ const PicklistIndex = () => {
 };
 export default PicklistIndex;
 
-/*			
-Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
-All rights reserved.			
-This program is free software: you can redistribute it and/or modify			
-it under the terms of the GNU General Public License as published by			
-the Free Software Foundation, either version 3 of the License, or			
-(at your option) any later version.			
-This program is distributed in the hope that it will be useful,			
-but WITHOUT ANY WARRANTY; without even the implied warranty of			
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
-GNU General Public License for more details.			
-You should have received a copy of the GNU General Public License			
-along with this program. If not, see <http://www.gnu.org/licenses/>.			
+/*
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
 */

@@ -74,6 +74,7 @@
   justify-content: flex-end;
   padding: 30px 10px;
 }
+
 .alignBtn button {
   margin-left: 20px;
   color: white;
@@ -88,15 +89,15 @@
 }
 
 .ssaFormBlock2 {
-background: #fff;
-border-radius: 4px;
-border-radius: 8px;
+  background: #fff;
+  border-radius: 4px;
+  border-radius: 8px;
 }
 
-.ssaResult{
-  border:2px double blue;
+.ssaResult {
+  border: 2px double blue;
   padding: 8px;
-  border-radius:10px;
+  border-radius: 10px;
 }
 
 
@@ -104,6 +105,7 @@ border-radius: 8px;
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap");
+
 *,
 *::before,
 *::after {
@@ -114,8 +116,9 @@ border-radius: 8px;
 a {
   text-decoration: none;
 }
-html {
-}
+
+html {}
+
 ul {
   padding: 0;
   margin: 0;
@@ -123,19 +126,23 @@ ul {
   padding-top: 0px !important;
   padding-bottom: 0px !important;
 }
+
 li:hover {
   background-color: rgba(222, 228, 253, 0.75) !important;
 }
+
 .mainwrapper {
   align-items: stretch;
   display: flex;
 }
+
 body {
   margin: 0px;
   font-family: "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 h6 {
   font-family: "Poppins", sans-serif;
 
@@ -148,9 +155,11 @@ h6 {
   line-height: 28px;
   letter-spacing: 0.15px;
 }
+
 .headerbar {
   display: none;
 }
+
 .sidebar {
   background: #001661;
   display: flex;
@@ -165,6 +174,7 @@ h6 {
   transition: all 0.2s;
   z-index: 11;
 }
+
 .favourite {
   display: block;
   width: 100%;
@@ -187,10 +197,12 @@ h6 {
 .mainnav {
   width: 100%;
 }
+
 .mainnav li {
   position: relative;
 }
-.mainnav ul > li:hover > a {
+
+.mainnav ul>li:hover>a {
   background: rgba(222, 228, 253, 0.75) !important;
 }
 
@@ -198,6 +210,7 @@ h6 {
   background: rgba(222, 228, 253, 0.75) !important;
   color: #000000 !important;
 }
+
 .sidebar a {
   font-style: normal;
   font-weight: 600;
@@ -218,6 +231,7 @@ h6 {
   /* padding: 8px 0px; */
   top: 0;
 }
+
 .mainnav li ul li:first-child {
   margin-top: 8px;
 }
@@ -225,18 +239,23 @@ h6 {
 .mainnav li ul li:last-child {
   margin-bottom: 8px;
 }
+
 .mainnav li:hover ul {
   display: block;
 }
+
 .sidebar a:hover {
   background: rgba(255, 255, 255, 0.08);
 }
+
 .sidebar a:focus {
   color: #ffffff;
 }
+
 .sidebar a span {
   display: none;
 }
+
 .page-container {
   min-height: 100vh;
   -webkit-transition: all 0.2s ease;
@@ -245,6 +264,7 @@ h6 {
   width: 100%;
   padding-left: 180px;
 }
+
 .mainmenutabs a {
   font-size: 14px;
   font-weight: 500;
@@ -257,15 +277,18 @@ h6 {
   height: 48px;
   margin-top: 8px;
 }
+
 .mainmenutabs a.activeMenu,
 .mainmenutabs a.activeMenu:hover {
   border-bottom: 4px solid #416bff;
 }
+
 .mainmenutabs a:hover {
   background: rgba(239, 242, 254, 0.5);
   border-radius: 4px 4px 0px 0px;
   border-bottom: 4px solid rgba(239, 242, 254, 0.5);
 }
+
 label.topBarTitle {
   font-size: 23px;
   padding: 10.5px 0px;
@@ -275,6 +298,7 @@ label.topBarTitle {
 .mainmenutabs ul {
   display: block;
 }
+
 .mainmenutabs {
   /* margin-top: 8px; */
   padding-left: 20px;
@@ -284,9 +308,11 @@ label.topBarTitle {
   justify-content: space-between;
   align-items: center;
 }
+
 .mainmenutabs li {
   display: inline-block;
 }
+
 .mainmenutabs li ul {
   display: none;
   background: #c4c4c4;
@@ -299,6 +325,7 @@ label.topBarTitle {
   margin: 0px auto;
   border-radius: 4px;
 }
+
 /* @font-face {
   font-family: "Material Icons";
   font-style: normal;
@@ -314,7 +341,8 @@ label.topBarTitle {
   font-family: "Material Icons";
   font-weight: normal;
   font-style: normal;
-  font-size: 24px; /* Preferred icon size */
+  font-size: 24px;
+  /* Preferred icon size */
   display: inline-block;
   line-height: 1;
   text-transform: none;
@@ -344,6 +372,7 @@ label.topBarTitle {
 .eubtn:not(:disabled):not(.disabled) {
   cursor: pointer;
 }
+
 .eubtn {
   padding: 8px 20px;
   display: inline-block;
@@ -358,50 +387,62 @@ label.topBarTitle {
   border-radius: 0.25rem;
   background-color: transparent;
 }
+
 .btn_primary {
   padding: 8px 20px !important;
   margin-right: 5px !important;
   color: #ffffff !important;
   background-color: #416bff !important;
 }
+
 .btn_primary:hover {
   background-color: #1a3df5 !important;
 }
+
 .btn_primary:focus {
   background-color: #0f2cc4 !important;
 }
+
 .btn_primary:active {
   background-color: #1a3df5 !important;
 }
+
 .btn_primary:disabled {
   background-color: #dadfe5 !important;
 }
+
 .btn_secondary {
   background-color: #ffffff !important;
   color: #001661 !important;
   border: 0.5px solid #001661 !important;
 }
+
 .filter_accordian :hover {
   background-color: rgba(239, 242, 254, 0.75);
 }
+
 .filter_accordian :focus {
   background-color: rgba(222, 228, 253, 0.75);
 }
+
 .btn_secondary:hover {
   background-color: #dbe2fc !important;
   color: #001661 !important;
   border: 0.5px solid #001661 !important;
 }
+
 .btn_secondary:focus {
   background-color: rgba(219, 226, 252, 0.2) !important;
   color: #001661 !important;
   border: 0.5px solid #001661 !important;
 }
+
 .btn_secondary:active {
   background-color: rgba(230, 235, 253, 0.5) !important;
   color: #001661 !important;
   border: 0.5px solid #001661 !important;
 }
+
 .btn_secondary:disabled {
   background-color: #ffffff !important;
   color: #dadfe5 !important;
@@ -412,22 +453,27 @@ label.topBarTitle {
   color: #416bff;
   border: 1px solid #416bff;
 }
+
 .btn_border_primary:hover {
   color: #1a3df5;
   border: 1px solid #1a3df5;
 }
+
 .btn_border_primary:focus {
   color: #0f2cc4;
   border: 1px solid #0f2cc4;
 }
+
 .btn_border_primary:active {
   color: #1a3df5;
   border: 1px solid #1a3df5;
 }
+
 .btn_border_primary:disabled {
   color: #dadfe5;
   border: 1px solid #dadfe5;
 }
+
 button {
   cursor: pointer;
   border: none;
@@ -437,9 +483,11 @@ button {
   /* padding: 16px; */
   display: block !important;
 }
+
 .tabsWithPage_Wrapper .active-content {
   margin-top: 0;
 }
+
 ::-webkit-scrollbar-track {
   border-radius: 10px !important;
   background-color: rgba(0, 0, 0, 0.1) !important;
@@ -447,6 +495,7 @@ button {
   margin: 0 !important;
   width: 10px;
 }
+
 ::-webkit-scrollbar-thumb {
   background-color: #001661 !important;
   border-radius: 10px !important;
@@ -454,6 +503,7 @@ button {
   width: 10px;
   border: 2px solid transparent !important;
 }
+
 ::-webkit-scrollbar {
   width: 10px;
   -webkit-appearance: none;
@@ -502,12 +552,14 @@ button {
 .tab_button {
   display: flex;
 }
+
 .content-tabs .tab_header {
   margin: 16px 0px;
   border: 0;
   border-radius: 8px;
   height: 54px;
 }
+
 .create_button {
   background: #416bff;
   color: white;
@@ -649,6 +701,7 @@ button {
   display: flex;
   flex-direction: column;
 }
+
 .primaryActions {
   display: flex;
   flex-direction: row;
@@ -660,9 +713,11 @@ button {
   margin: 0 5px;
   cursor: pointer;
 }
+
 .pTTableMain {
   padding: 0px;
 }
+
 /*Table Top Header Ends*/
 
 /*==== Table CSS =====*/
@@ -671,33 +726,41 @@ table {
   /* background: #fff; */
   width: 100%;
 }
+
 tr.tableHeader {
   height: 44px;
   margin: 0;
   display: table-row;
 }
+
 th {
   padding: 6px !important;
   text-align: left !important;
   font-size: 14px;
 }
+
 th:first-child {
   border-radius: 8px 0px 0px 0px;
 }
+
 th:last-child {
   border-radius: 0px 8px 0px 0px;
 }
+
 td {
   padding: 6px !important;
   text-align: left !important;
   font-size: 14px;
 }
+
 label {
   font-family: "Inter" !important;
 }
+
 .MuiSelect-root {
   font-family: "Inter" !important;
 }
+
 th {
   text-align: left;
   font-size: 13px;
@@ -710,26 +773,32 @@ th {
 table td {
   white-space: nowrap;
 }
+
 .trSelected {
   cursor: pointer;
   background: rgba(219, 226, 252, 0.7);
 }
+
 td a {
   color: #5d5d5d;
 }
+
 .trSelected:hover,
 tbody tr:hover {
   background: rgba(219, 226, 252, 0.7);
 }
+
 tr {
   display: table-row;
   vertical-align: inherit;
   border-color: inherit;
   height: 48px;
 }
+
 .header {
   background: #e7f0fd;
 }
+
 button {
   text-transform: none !important;
   font-family: "Inter" !important;
@@ -738,6 +807,7 @@ button {
   font-size: 16px !important;
   line-height: 24px !important;
 }
+
 th {
   font-family: "Inter" !important;
   font-style: normal !important;
@@ -750,21 +820,25 @@ th {
 
   font-family: "Poppins" !important;
 }
+
 .MuiTablePagination-selectLabel {
   font-family: "Poppins" !important;
   font-size: 12px !important;
   line-height: 18px !important;
 }
+
 .MuiTablePagination-select {
   font-family: "Poppins" !important;
   font-size: 12px !important;
   line-height: 18px !important;
 }
+
 .MuiTablePagination-displayedRows {
   font-family: "Poppins" !important;
   font-size: 12px !important;
   line-height: 18px !important;
 }
+
 .MuiOutlinedInput-root {
   font-family: "Inter" !important;
   font-size: 16px !important;
@@ -774,6 +848,7 @@ span {
   /* font-family: "Poppins" !important; */
   font-size: 16px !important;
 }
+
 h6 {
   font-family: "Poppins" !important;
   font-style: normal !important;
@@ -783,6 +858,7 @@ h6 {
   letter-spacing: 0.15px !important;
   color: #2e2e2e !important;
 }
+
 th {
   font-family: "Inter" !important;
   font-weight: 500 !important;
@@ -791,6 +867,7 @@ th {
   white-space: nowrap;
   padding: 12px 6px !important;
 }
+
 td {
   font-family: "Inter" !important;
   color: #5d5d5d !important;
@@ -801,6 +878,7 @@ td {
   border-bottom: 1px solid rgba(224, 224, 224, 1);
   padding: 5;
 }
+
 .footer {
   display: flex;
   align-items: center;
@@ -812,10 +890,12 @@ td {
   box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.1);
   background: white;
 }
+
 table td,
 table label {
   font-size: 16px;
 }
+
 .rowPerpage {
   /* margin-left: 76%; */
   font-size: 12px;
@@ -826,6 +906,7 @@ table label {
   margin-left: 1%;
   font-size: 12px;
 }
+
 .selectOption {
   padding: 4px 16px;
   height: 34px;
@@ -840,6 +921,7 @@ table label {
   /* height: 50.6px;
   width: 3% !important; */
 }
+
 .inventoryTable {
   border-collapse: collapse;
   /* height: 262px; */
@@ -850,6 +932,7 @@ table label {
   table-layout: fixed;
   width: 100%;
 }
+
 div.scroll {
   width: 100%;
   overflow-x: auto;
@@ -893,12 +976,12 @@ div.scroll {
   top: 0;
 }
 
-input ~ .checkmark {
+input~.checkmark {
   /* background-color: #ccc; */
   color: #001661;
 }
 
-input:checked ~ .checkmark {
+input:checked~.checkmark {
   background-color: white;
 }
 
@@ -914,7 +997,7 @@ input:checked ~ .checkmark {
 }
 
 /* Show the checkmark when checked */
-.Tablecontainer input:checked ~ .checkmark:after {
+.Tablecontainer input:checked~.checkmark:after {
   display: block;
   top: 0px;
   left: 1px;
@@ -946,6 +1029,7 @@ input:checked ~ .checkmark {
   padding: 8px 12px;
   border-radius: 32px;
 }
+
 .badge_text {
   font-style: normal;
   font-weight: normal;
@@ -957,6 +1041,7 @@ input:checked ~ .checkmark {
   text-align: center;
   margin: 0px;
 }
+
 .greenBadge {
   background: #80bf43;
 }
@@ -1052,6 +1137,7 @@ input:checked ~ .checkmark {
   letter-spacing: 0.5px;
   color: #000000;
 }
+
 .modal2_title {
   font-family: "Poppins" !important;
   font-style: normal;
@@ -1066,7 +1152,8 @@ input:checked ~ .checkmark {
 
   color: #121417;
 }
-.modal2-content > p {
+
+.modal2-content>p {
   font-family: "Poppins" !important;
   font-style: normal;
   font-weight: 400;
@@ -1082,14 +1169,17 @@ input:checked ~ .checkmark {
 
   color: #2e2e2e;
 }
+
 p {
   font-family: "Poppins" !important;
   margin: 5px;
 }
+
 li {
   font-family: "Poppins" !important;
   margin: 5px;
 }
+
 .notebookVersionTwo-tabs:hover {
   border-radius: 4px 4px 0px 0px;
   background: #eff2fe;
@@ -1101,6 +1191,7 @@ li {
   background: #eff2fe;
   border-radius: 4px 4px 0px 0px;
 }
+
 .active-notebookVersionTwo-tabs:hover {
   color: #416bff;
   background: #eff2fe;
@@ -1112,6 +1203,7 @@ li {
   cursor: no-drop;
   padding: 16px 24px;
 }
+
 .disabled-notebookVersionTwo-tabs:hover {
   border-radius: 4px 4px 0px 0px;
   background: #dadfe5;
@@ -1164,6 +1256,7 @@ li {
   color: white;
   background: #001661;
 }
+
 .active-notebookVersionOne-tabs {
   color: white;
   background: #001661;
@@ -1214,6 +1307,7 @@ li {
 .pinkBadge {
   background: #fc817c;
 }
+
 .pinkBadge1 {
   background: #4093b5;
 }
@@ -1226,6 +1320,7 @@ li {
   line-height: 49px;
   font-weight: normal;
 }
+
 input {
   width: 100%;
   height: 40px;
@@ -1235,12 +1330,14 @@ input {
   color: #8b8b8b;
   font-family: "Inter" !important;
 }
+
 input[type="checkbox"] {
   width: auto;
   height: 12px;
   cursor: pointer;
-  font-family: "Inter" !important ;
+  font-family: "Inter" !important;
 }
+
 input[type="radio"] {
   width: auto;
   height: 16px;
@@ -1313,6 +1410,7 @@ legend {
   width: 200px;
   right: 50px;
 }
+
 .contactOptions_text {
   font-style: normal;
   font-weight: normal;
@@ -1322,6 +1420,7 @@ legend {
   color: #000000;
   margin: 8px 16px;
 }
+
 .contactOptions hr {
   height: 0px;
   background-color: #f3f2f2;
@@ -1366,13 +1465,14 @@ legend {
   margin: 0px 12px;
   width: 100%;
 }
-.filterMenu > div > button {
+
+.filterMenu>div>button {
   border-radius: 4px;
   padding: 8px 16px;
   display: inline-block;
 }
 
-.filterMenu > div {
+.filterMenu>div {
   text-align: right;
   width: 100%;
   padding: 12px 16px;
@@ -1382,6 +1482,7 @@ legend {
 .filterOption select {
   font-size: 16px;
 }
+
 /*Stepper*/
 #Stepper {
   display: flex;
@@ -1394,7 +1495,7 @@ legend {
   display: flex;
 }
 
-.stepper_steps > div {
+.stepper_steps>div {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1455,6 +1556,7 @@ legend {
   border-top: 25px solid transparent;
   border-bottom: 20px solid transparent;
 }
+
 .list_view_table {
   display: table;
   width: 100%;
@@ -1464,6 +1566,7 @@ legend {
   max-height: 650px !important;
   overflow: auto;
 }
+
 .stepper_step:before {
   content: "";
   position: absolute;
@@ -1485,6 +1588,7 @@ legend {
 .stepper_step_active::before {
   border-left: 20px solid #416bff;
 }
+
 .selectCustomerContact {
   display: flex;
   flex-direction: column;
@@ -1815,12 +1919,15 @@ legend {
   margin: 0px 0 0 16px;
   width: 100%;
 }
+
 .select_option {
   color: #2e2e2e;
 }
+
 .tableSelect {
   margin: 0 !important;
 }
+
 .tableInput {
   border: 0.5px solid #5d5d5d;
   border-radius: 4px;
@@ -1873,6 +1980,7 @@ legend {
   font-size: 18px;
   color: coral;
 }
+
 /*=====================*/
 
 .addProductOrder {
@@ -2062,6 +2170,7 @@ legend {
   align-items: center;
   width: 100%;
 }
+
 .companyDetailsOrderHeader_btn {
   display: flex;
   justify-content: end;
@@ -2101,6 +2210,7 @@ legend {
 .companyDetailsOrder_card_left {
   width: 100%;
 }
+
 .companyDetailsOrder_card_right {
   width: 100%;
   margin-top: 60px;
@@ -2380,6 +2490,7 @@ legend {
   margin-right: auto;
   margin-left: auto;
 }
+
 .container {
   display: block;
   position: relative;
@@ -2402,6 +2513,7 @@ legend {
   border-radius: 8px;
   margin: 16px 0px;
 }
+
 .asnDetails_header {
   font-family: Poppins;
   font-style: normal;
@@ -2434,6 +2546,7 @@ legend {
   color: #121417;
   margin: 0px;
 }
+
 /**/
 .orderDetils-wrap {
   display: flex;
@@ -2504,6 +2617,7 @@ legend {
   align-items: center;
   width: 100%;
 }
+
 .orderDetailsHeader_btn {
   display: flex;
   justify-content: end;
@@ -2549,6 +2663,7 @@ legend {
 .orderDetails_card_left {
   width: 100%;
 }
+
 .orderDetails_card_right {
   width: 100%;
 }
@@ -2565,38 +2680,48 @@ legend {
 
   position: relative;
 }
+
 .btn_no_border {
   border: none !important;
   color: #416bff !important;
 }
+
 .adjustment_detail p,
 .adjustment_detail span {
   font-family: "Inter" !important;
 }
+
 .orderDetails_action_icon_vertDot {
   color: #416bff;
   font-size: 18px;
 }
+
 .Mui-selected {
   background-color: #dbe2fc;
   color: #000000;
 }
+
 .padding_less_td {
   padding: 0px !important;
 }
+
 .search_searchIcon {
   position: absolute;
   right: 12px;
 }
+
 .MuiChip-deleteIcon {
   color: rgb(65, 107, 255) !important;
 }
+
 .displaynone_currently {
   display: none !important;
 }
+
 .MuiTableRow-hover:hover {
   background-color: rgba(230, 235, 253, 0.5);
 }
+
 .packingDetails_header {
   /* font-family: Poppins; */
   font-style: normal;
@@ -2622,14 +2747,17 @@ legend {
   margin-bottom: 16px;
   width: 100% !important;
 }
+
 .action_class {
   width: 4px;
   height: 16px;
 }
+
 .action_class button {
   padding: 0;
   margin-top: -5px;
 }
+
 .InvoiceDetailsOrder_header {
   /* font-family: Poppins; */
   font-style: normal;
@@ -2657,6 +2785,7 @@ legend {
 .InvoiceDetailsOrder_card_left {
   width: 100%;
 }
+
 .InvoiceDetailsOrder_card_right {
   width: 100%;
   /* margin-top: 60px; */
@@ -2671,11 +2800,13 @@ form.invoiceFrom tr[classname="labelWrap"] {
 .addressCardWrapper {
   border: 0.5px solid transparent;
 }
+
 .PrivateSwitchBase-input {
   width: 32px !important;
   height: 32px !important;
   cursor: pointer;
 }
+
 .classtest1 {
   top: 45px;
   right: 98%;
@@ -2684,6 +2815,7 @@ form.invoiceFrom tr[classname="labelWrap"] {
 .MuiBox-root.css-piqert {
   overflow: auto;
 }
+
 /* 
 h6 {	
   font-family: 'Poppins';	
@@ -2752,7 +2884,8 @@ td {
 .viewProductTable {
   padding: 16px !important;
 }
-.background-white{
+
+.background-white {
   background: white;
 }
 
@@ -2761,3 +2894,18 @@ td {
   overflow-x: auto;
   min-height: auto !important;
 }
+
+/*
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
+*/

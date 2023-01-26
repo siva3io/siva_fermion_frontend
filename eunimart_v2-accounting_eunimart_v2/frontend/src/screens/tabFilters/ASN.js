@@ -5,7 +5,7 @@ import { Suspense } from "react";
 import { useHistory } from "react-router-dom";
 const RemoteDynamicTable = React.lazy(() => import("Remote/DynamicTable"));
 
-const ASN = (asnData) => {
+const ASN = asnData => {
   const navigate = useHistory();
   // const asnData = useSelector((state) => state.fetchAsnData?.asnData);
 
@@ -59,11 +59,11 @@ const ASN = (asnData) => {
   const [customOptions, setCustomOptions] = useState([
     {
       label: "View",
-      func: (product_id) => handleView(product_id),
+      func: product_id => handleView(product_id),
     },
   ]);
 
-  const handleView = (id) => {
+  const handleView = id => {
     navigate.push("/asn/view/" + id);
   };
 
@@ -88,17 +88,17 @@ const ASN = (asnData) => {
 
 export default ASN;
 
-/*			
-Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
-All rights reserved.			
-This program is free software: you can redistribute it and/or modify			
-it under the terms of the GNU General Public License as published by			
-the Free Software Foundation, either version 3 of the License, or			
-(at your option) any later version.			
-This program is distributed in the hope that it will be useful,			
-but WITHOUT ANY WARRANTY; without even the implied warranty of			
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
-GNU General Public License for more details.			
-You should have received a copy of the GNU General Public License			
-along with this program. If not, see <http://www.gnu.org/licenses/>.			
+/*
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
 */

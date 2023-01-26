@@ -24,10 +24,7 @@ import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import React, { useEffect, useRef, useState } from "react";
 
-
-function SalesInvoiceView({
-
-}) {
+function SalesInvoiceView({}) {
   const creditNote = useRef(null);
   const deliveryOrders = useRef(null);
   const salesReturns = useRef(null);
@@ -42,7 +39,7 @@ function SalesInvoiceView({
   //redux
 
   const askSessionIdHandler = (name, ref) => {
-    let details = { type: name, data: localStorage.getItem('token') };
+    let details = { type: name, data: localStorage.getItem("token") };
     postCrossDomainMessage(details, ref);
 
     // setAskSessionId(name);
@@ -56,13 +53,12 @@ function SalesInvoiceView({
   };
   const dispatch = useDispatch();
   const salesInvoiceiViewData = useSelector(
-    (state) => state.data?.salesInvoiceViewdata
+    state => state.data?.salesInvoiceViewdata
   );
-console.log('shcfzx',salesInvoiceiViewData)
-console.log('$#@#',salesInvoiceViewData)
+  console.log("shcfzx", salesInvoiceiViewData);
+  console.log("$#@#", salesInvoiceViewData);
   const handleChange = (event, newValue) => {
     setValue(newValue);
-
   };
 
   useEffect(() => {
@@ -76,7 +72,9 @@ console.log('$#@#',salesInvoiceViewData)
 
   useEffect(() => {
     if (salesInvoiceiViewData) {
-      setsalesInvoiceViewData(salesInvoiceiViewData ? salesInvoiceiViewData : []);
+      setsalesInvoiceViewData(
+        salesInvoiceiViewData ? salesInvoiceiViewData : []
+      );
     }
   }, [salesInvoiceiViewData]);
 
@@ -104,18 +102,19 @@ console.log('$#@#',salesInvoiceViewData)
     <>
       <ThemeProvider theme={theme}>
         {salesInvoiceiViewData && (
-         
           <Box sx={{ background: "#F9F9F9", minHeight: "100vh" }}>
-            <Box className="bundleViewHeader"
-              sx={{ background: "#fff", p: 2, }}>
+            <Box className="bundleViewHeader" sx={{ background: "#fff", p: 2 }}>
               <Box className="bundleViewTopContent">
                 <div className="viewTopContent">
                   <h1>{salesInvoiceiViewData && salesInvoiceiViewData.id}</h1>
-                  <p className="statusTag">{salesInvoiceiViewData && salesInvoiceiViewData.status && salesInvoiceiViewData.status.display_name}</p>
+                  <p className="statusTag">
+                    {salesInvoiceiViewData &&
+                      salesInvoiceiViewData.status &&
+                      salesInvoiceiViewData.status.display_name}
+                  </p>
                 </div>
               </Box>
             </Box>
-
 
             <TabContext value={value}>
               <Box
@@ -137,115 +136,116 @@ console.log('$#@#',salesInvoiceViewData)
 
               <Box className="bundleViewContent">
                 <TabPanel value="0">
-                  {salesInvoiceiViewData  && salesInvoiceiViewData.id ? <SalesInvoiceViewClass
-                    salesInvoiceViewData={salesInvoiceiViewData ? salesInvoiceiViewData : salesInvoiceViewData}
-                  /> : null}
+                  {salesInvoiceiViewData && salesInvoiceiViewData.id ? (
+                    <SalesInvoiceViewClass
+                      salesInvoiceViewData={
+                        salesInvoiceiViewData
+                          ? salesInvoiceiViewData
+                          : salesInvoiceViewData
+                      }
+                    />
+                  ) : null}
                 </TabPanel>
 
                 <TabPanel value="1">
-                {salesInvoiceViewData.salesInvoicedata && salesInvoiceViewData.salesInvoicedata.id &&
-                    <iframe
-                      src={`https://develop.eunimart.com/deliveryOrders/fromSaleInvoice/${salesInvoiceViewData.salesInvoicedata && salesInvoiceViewData.salesInvoicedata.id}`}
-
-                      ref={deliveryOrders}
-                      title="deliveryOrders"
-                      id="deliveryOrders"
-                      onLoad={() => {
-                        askSessionIdHandler("deliveryOrders", deliveryOrders);
-                      }}
-                      style={{
-                        width: "100%",
-                        padding: "0px",
-                        border: "none",
-                        margin: "0px",
-                        height: "92vh",
-                        overflow: "auto",
-                      }}
-                    ></iframe>
-                  }
+                  {salesInvoiceViewData.salesInvoicedata &&
+                    salesInvoiceViewData.salesInvoicedata.id && (
+                      <iframe
+                        src={`https://develop.eunimart.com/deliveryOrders/fromSaleInvoice/${
+                          salesInvoiceViewData.salesInvoicedata &&
+                          salesInvoiceViewData.salesInvoicedata.id
+                        }`}
+                        ref={deliveryOrders}
+                        title="deliveryOrders"
+                        id="deliveryOrders"
+                        onLoad={() => {
+                          askSessionIdHandler("deliveryOrders", deliveryOrders);
+                        }}
+                        style={{
+                          width: "100%",
+                          padding: "0px",
+                          border: "none",
+                          margin: "0px",
+                          height: "92vh",
+                          overflow: "auto",
+                        }}
+                      ></iframe>
+                    )}
                 </TabPanel>
 
                 <TabPanel value="2">
-                  {salesInvoiceViewData.salesInvoicedata && salesInvoiceViewData.salesInvoicedata.id &&
-                    <iframe
-                      src={`https://develop.eunimart.com/creditNote/fromSaleInvoice/${salesInvoiceViewData.salesInvoicedata && salesInvoiceViewData.salesInvoicedata.id}`}
-
-                      ref={creditNote}
-                  id="creditNote"
-                  title="creditNote"
-                  onLoad={() => {
-                    askSessionIdHandler("creditNote", creditNote);
-                  }}
-                  style={{
-                    width: "100%",
-                    padding: "0px",
-                    border: "none",
-                    margin: "0px",
-                    height: "92vh",
-                    overflow: "auto",
-                  }}
-                ></iframe>
-                  }
+                  {salesInvoiceViewData.salesInvoicedata &&
+                    salesInvoiceViewData.salesInvoicedata.id && (
+                      <iframe
+                        src={`https://develop.eunimart.com/creditNote/fromSaleInvoice/${
+                          salesInvoiceViewData.salesInvoicedata &&
+                          salesInvoiceViewData.salesInvoicedata.id
+                        }`}
+                        ref={creditNote}
+                        id="creditNote"
+                        title="creditNote"
+                        onLoad={() => {
+                          askSessionIdHandler("creditNote", creditNote);
+                        }}
+                        style={{
+                          width: "100%",
+                          padding: "0px",
+                          border: "none",
+                          margin: "0px",
+                          height: "92vh",
+                          overflow: "auto",
+                        }}
+                      ></iframe>
+                    )}
                 </TabPanel>
 
                 <TabPanel value="3">
-                {salesInvoiceViewData.salesInvoicedata && salesInvoiceViewData.salesInvoicedata.id &&
-                    <iframe
-                      src={`https://develop.eunimart.com/salesReturns/fromSaleInvoice/${salesInvoiceViewData.salesInvoicedata && salesInvoiceViewData.salesInvoicedata.id}`}
-
-                      ref={salesReturns}
-                      title="salesReturns"
-                      id="salesReturns"
-                      onLoad={() => {
-                        askSessionIdHandler("salesReturns", deliveryOrders);
-                      }}
-                      style={{
-                        width: "100%",
-                        padding: "0px",
-                        border: "none",
-                        margin: "0px",
-                        height: "92vh",
-                        overflow: "auto",
-                      }}
-                    ></iframe>
-                  }
+                  {salesInvoiceViewData.salesInvoicedata &&
+                    salesInvoiceViewData.salesInvoicedata.id && (
+                      <iframe
+                        src={`https://develop.eunimart.com/salesReturns/fromSaleInvoice/${
+                          salesInvoiceViewData.salesInvoicedata &&
+                          salesInvoiceViewData.salesInvoicedata.id
+                        }`}
+                        ref={salesReturns}
+                        title="salesReturns"
+                        id="salesReturns"
+                        onLoad={() => {
+                          askSessionIdHandler("salesReturns", deliveryOrders);
+                        }}
+                        style={{
+                          width: "100%",
+                          padding: "0px",
+                          border: "none",
+                          margin: "0px",
+                          height: "92vh",
+                          overflow: "auto",
+                        }}
+                      ></iframe>
+                    )}
                 </TabPanel>
-
               </Box>
-
             </TabContext>
-
           </Box>
         )}
       </ThemeProvider>
-
     </>
   );
 }
 
 export default SalesInvoiceView;
 
-
-
-
-
-
-
-
-
-
-
 /*
-Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
-All rights reserved.
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-You should have received a copy of the GNU General Public License
-along with this program. If not, see http://www.gnu.org/licenses/.
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
 */

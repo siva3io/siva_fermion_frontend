@@ -84,7 +84,7 @@ function CreditAdd(props) {
     sales_returnsViewdata,
     SalesInvoicedata,
     SalesInvoiceViewdata,
-  } = useSelector((state) => state.tabData);
+  } = useSelector(state => state.tabData);
   const {
     Currencydata,
     Countrydata,
@@ -97,8 +97,8 @@ function CreditAdd(props) {
     SalesMsg,
     contactsData,
     invoiceData,
-  } = useSelector((state) => state.data);
-  const address = useSelector((state) => state.fetchAddress?.data);
+  } = useSelector(state => state.data);
+  const address = useSelector(state => state.fetchAddress?.data);
   useEffect(() => {
     console.log(address, "contactsInEffect ");
   }, [contacts]);
@@ -123,7 +123,7 @@ function CreditAdd(props) {
     dispatch(loadInvoiceData());
   }, []);
 
-  const salesdata = useSelector((state) => state.data.salesdata);
+  const salesdata = useSelector(state => state.data.salesdata);
   useEffect(() => {
     console.log("props", props);
     if (props && props.id) {
@@ -133,13 +133,13 @@ function CreditAdd(props) {
   }, []);
   useEffect(() => dispatch(fetchSourceDocumentData()), []);
   const SourceDocument = useSelector(
-    (state) => state.fetchSourceDocumentData?.SourceDocument
+    state => state.fetchSourceDocumentData?.SourceDocument
   );
   console.log(SourceDocument, "SourceDocument");
 
   useEffect(() => dispatch(SearchSourceDocumentData()), []);
   const SearchSourceDocument = useSelector(
-    (state) => state.SearchSourceDocumentData?.searchSourceDocument
+    state => state.SearchSourceDocumentData?.searchSourceDocument
   );
   console.log(SearchSourceDocument, "SearchSourceDocument");
 
@@ -149,7 +149,7 @@ function CreditAdd(props) {
       console.log("salesData", salesdata);
       var newMainData = [];
 
-      var newSalesOrderDetailsFields = SalesOrderDetailsFields.map((o) => {
+      var newSalesOrderDetailsFields = SalesOrderDetailsFields.map(o => {
         if (o.key == "customer_id") o.value = salesdata?.customer?.first_name;
         if (o.key == "credit_note_date")
           o.value = moment(salesdata?.created_date).format("yyyy-MM-DD");
@@ -170,7 +170,7 @@ function CreditAdd(props) {
 
       var newdispatch_delivery_details = CustomerShippingAddressFields;
       // var selectedAdd = dispatch_delivery_details?.address_details[0];
-      newdispatch_delivery_details.map((o) => {
+      newdispatch_delivery_details.map(o => {
         if (o.key == "shipping_name")
           o.value = salesdata?.shipping_address_id?.name;
 
@@ -198,7 +198,7 @@ function CreditAdd(props) {
 
       var newdispatch_location_details = CustomerBillingAddressFields;
       // var selectedAdd = dispatch_delivery_details?.address_details[0];
-      newdispatch_location_details.map((o) => {
+      newdispatch_location_details.map(o => {
         if (o.key == "billing_name")
           o.value = salesdata?.billing_address_id?.name;
 
@@ -238,7 +238,7 @@ function CreditAdd(props) {
 
       var newselectedProductData = [];
       if (salesdata.credit_note_line_items)
-        newselectedProductData = salesdata.credit_note_line_items.map((o) => {
+        newselectedProductData = salesdata.credit_note_line_items.map(o => {
           return {
             id: o?.product_template_id,
             sku_id: {
@@ -271,10 +271,10 @@ function CreditAdd(props) {
 
       var newAdditionalInformationFields = AdditionalInformationFields;
       newAdditionalInformationFields.find(
-        (o) => o.key == "Additional_Information_Note"
+        o => o.key == "Additional_Information_Note"
       ).value = salesdata?.internal_notes;
       newAdditionalInformationFields.find(
-        (o) => o.key == "Additional_Information_Terms_Conditions"
+        o => o.key == "Additional_Information_Terms_Conditions"
       ).value = salesdata?.terms_and_conditions;
       setAdditionalInformationFields(newAdditionalInformationFields);
 
@@ -303,7 +303,7 @@ function CreditAdd(props) {
       //   Estimated_Cost_Select: istdata.shipping_carrier_id,
       // };
 
-      newMainData.map((o) => {
+      newMainData.map(o => {
         if (o.key != null) {
           keyValuePairMainData[o.key] = o.value;
         }
@@ -590,8 +590,8 @@ function CreditAdd(props) {
       key: "sku_id",
       label: "Product SKU",
       type: "select",
-      data: useSelector((state) =>
-        state.data.productVariantData.map((o) => {
+      data: useSelector(state =>
+        state.data.productVariantData.map(o => {
           return { id: o.id, label: o.sku_id };
         })
       ),
@@ -615,8 +615,8 @@ function CreditAdd(props) {
       key: "uom.name",
       label: "Unit Of Measurement",
       type: "select",
-      data: useSelector((state) =>
-        state.data.uomData.map((o) => {
+      data: useSelector(state =>
+        state.data.uomData.map(o => {
           return { id: o.id, label: o.name };
         })
       ),
@@ -646,14 +646,14 @@ function CreditAdd(props) {
       key: "Action",
       label: "Action",
       type: "view",
-      renderView: (item) => (
+      renderView: item => (
         <div>
           <DeleteIcon
             onClick={() => {
               // setDeletedProductLine([...deletedProductLine, item]);
               // dispatch(deleteProductLine(salesdata?.id, item?.sku_id?.id));
               setSelectedProductData(
-                selectedProductData.filter((o) => o.id != item.id)
+                selectedProductData.filter(o => o.id != item.id)
               );
             }}
           />
@@ -675,7 +675,7 @@ function CreditAdd(props) {
 
         if (key === "sku_id") {
           console.log("sku_id");
-          var selectVarient = productVariantData.find((o) => o.id == value.id);
+          var selectVarient = productVariantData.find(o => o.id == value.id);
           // newSelectedProductData[index] = selectVarient;
           // newSelectedProductData[index][key] = value.label;
           newSelectedProductData[index]["product_id"] = selectVarient["id"];
@@ -686,7 +686,7 @@ function CreditAdd(props) {
           newSelectedProductData[index]["sku_id"] = selectVarient["sku_id"];
         } else if (key === "uom.name") {
           console.log("uom.name");
-          var selectVarient = uomData.find((o) => o.id == value.id);
+          var selectVarient = uomData.find(o => o.id == value.id);
           newSelectedProductData[index].uom = {
             name: value.label,
             id: value.id,
@@ -735,7 +735,7 @@ function CreditAdd(props) {
     }
 
     try {
-      var newSalesOrderDetailsFields = SalesOrderDetailsFields.map((o) => {
+      var newSalesOrderDetailsFields = SalesOrderDetailsFields.map(o => {
         if (o.key == key) o.value = value;
         return o;
       });
@@ -755,19 +755,17 @@ function CreditAdd(props) {
     // }
 
     try {
-      var newdispatch_location_details = CustomerBillingAddressFields.map(
-        (o) => {
-          if (o.key == key) o.value = value;
-          return o;
-        }
-      );
+      var newdispatch_location_details = CustomerBillingAddressFields.map(o => {
+        if (o.key == key) o.value = value;
+        return o;
+      });
       setCustomerBillingAddressFields(newdispatch_location_details);
     } catch (e) {
       console.error("err4", e);
     }
 
     try {
-      var newPaymentTermsFields = PaymentTermsFields.map((o) => {
+      var newPaymentTermsFields = PaymentTermsFields.map(o => {
         if (o.key == key) o.value = value;
         return o;
       });
@@ -778,7 +776,7 @@ function CreditAdd(props) {
 
     try {
       var newAdditionalInformationFields = AdditionalInformationFields.map(
-        (o) => {
+        o => {
           if (o.key == key) o.value = value;
           return o;
         }
@@ -802,7 +800,7 @@ function CreditAdd(props) {
 
     try {
       var newCustomerShippingAddressFields = CustomerShippingAddressFields.map(
-        (o) => {
+        o => {
           if (o.key == key) o.value = value;
           return o;
         }
@@ -844,7 +842,7 @@ function CreditAdd(props) {
 
       if (key === "sku_id") {
         console.log("sku_id");
-        var selectVarient = productVariantData.find((o) => o?.id == value?.id);
+        var selectVarient = productVariantData.find(o => o?.id == value?.id);
         console.log("selectVarientInInputChange", selectVarient);
         // newSelectedProductData[index] = selectVarient;
         // newSelectedProductData[index][key] = value.label;
@@ -856,7 +854,7 @@ function CreditAdd(props) {
         newSelectedProductData[index]["sku_id"] = selectVarient["sku_id"];
       } else if (key === "uom.name") {
         console.log("uom.name");
-        var selectVarient = uomData.find((o) => o?.id == value?.id);
+        var selectVarient = uomData.find(o => o?.id == value?.id);
         newSelectedProductData[index].uom = { name: value.label, id: value.id };
       } else {
         console.log(key);
@@ -897,7 +895,7 @@ function CreditAdd(props) {
       setSelectedProductData(newSelectedProductData);
 
       var total = newSelectedProductData
-        .map((o) => o.Amount)
+        .map(o => o.Amount)
         .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
       if (paymentDetailsFields.Final_Adjustment == "+") {
         total = total + paymentDetailsFields.adjustment_amount;
@@ -952,7 +950,7 @@ function CreditAdd(props) {
   //   dispatch(loadContacsData(params));
   // }, [params]);
 
-  const handleButtonClick = (key) => {
+  const handleButtonClick = key => {
     // if (props && props.id) {
     //   deletedProductLine.forEach((e) => {
     //     dispatch(deleteProductLine(salesdata.id, e?.sku_id?.id));
@@ -1149,7 +1147,7 @@ function CreditAdd(props) {
           id: mainData?.Select_Source_Document?.id,
           label: mainData?.Select_Source_Document?.label,
         },
-        credit_note_line_items: selectedProductData.map((o) => {
+        credit_note_line_items: selectedProductData.map(o => {
           return {
             product_id: o?.product_template_id
               ? parseInt(o?.product_template_id)
@@ -1247,7 +1245,7 @@ function CreditAdd(props) {
       console.log("ASNVie@@@@@@@@@@wdata", ASNViewdata);
       var newMainData = [];
 
-      var newSalesOrderDetailsFields = SalesOrderDetailsFields.map((o) => {
+      var newSalesOrderDetailsFields = SalesOrderDetailsFields.map(o => {
         if (o.key == "reference_id") o.value = ASNViewdata?.reference_number;
 
         return o;
@@ -1255,7 +1253,7 @@ function CreditAdd(props) {
       setSalesOrderDetailsFields(newSalesOrderDetailsFields);
 
       var newCustomerShippingAddressFields = CustomerShippingAddressFields.map(
-        (o) => {
+        o => {
           if (o.key == "shipping_name")
             o.value =
               ASNViewdata?.dispatch_location_details?.contact_person_name;
@@ -1285,7 +1283,7 @@ function CreditAdd(props) {
       setCustomerShippingAddressFields(newCustomerShippingAddressFields);
 
       var newCustomerBillingAddressFields = CustomerBillingAddressFields.map(
-        (o) => {
+        o => {
           if (o.key == "billing_name")
             o.value =
               ASNViewdata?.destination_location_details?.contact_person_name;
@@ -1316,7 +1314,7 @@ function CreditAdd(props) {
 
       var nweselectedProductData = [];
       if (ASNViewdata.asn_order_lines)
-        nweselectedProductData = ASNViewdata.asn_order_lines.map((o) => {
+        nweselectedProductData = ASNViewdata.asn_order_lines.map(o => {
           return {
             id: o.product_id,
             sku_id: { id: o?.product_id, label: o?.product?.sku_code },
@@ -1392,9 +1390,9 @@ function CreditAdd(props) {
         Estimated_Cost_Select: ASNViewdata.shipping_mode_id,
       };
 
-      newMainData.map((o) => {
+      newMainData.map(o => {
         if (o.key == "Schedule_Pickup_time") {
-          o.value.map((p) => {
+          o.value.map(p => {
             keyValuePairMainData[p.key] = p.value;
           });
         } else if (o.key != null) {
@@ -1415,14 +1413,14 @@ function CreditAdd(props) {
     ) {
       var newMainData = [];
 
-      var newSalesOrderDetailsFields = SalesOrderDetailsFields.map((o) => {
+      var newSalesOrderDetailsFields = SalesOrderDetailsFields.map(o => {
         if (o.key == "reference_id") o.value = ISTViewdata?.reference_number;
         return o;
       });
       setSalesOrderDetailsFields(newSalesOrderDetailsFields);
 
       var newCustomerShippingAddressFields = CustomerShippingAddressFields.map(
-        (o) => {
+        o => {
           if (o.key == "shipping_name")
             o.value = ISTViewdata?.source_warehouse?.name;
           if (o.key == "shipping_primary_phone")
@@ -1450,7 +1448,7 @@ function CreditAdd(props) {
       setCustomerShippingAddressFields(newCustomerShippingAddressFields);
 
       var newCustomerBillingAddressFields = CustomerBillingAddressFields.map(
-        (o) => {
+        o => {
           if (o.key == "billing_name")
             o.value = ISTViewdata?.destination_warehouse?.name;
           if (o.key == "billing_primary_phone")
@@ -1483,26 +1481,24 @@ function CreditAdd(props) {
 
       var nweselectedProductData = [];
       if (ISTViewdata.internal_transfer_lines)
-        nweselectedProductData = ISTViewdata.internal_transfer_lines.map(
-          (o) => {
-            return {
-              id: o.product_id,
-              sku_id: { id: o?.product_id, label: o?.product_details?.sku_id },
-              product_template_id: o.product_template_id,
-              product_name: o?.product_details?.product_name,
-              // "warehouse_id": 1,
-              // "inventory_id": 1,
-              uom: { name: { id: o?.uom?.id, label: o?.uom?.name } },
-              serial_number: o?.product_details?.serial_number,
-              Quantity: parseInt(o.quantity),
-              selling_price: parseFloat(o.rate),
-              discount: parseFloat(o.discount_value),
-              product_pricing_details: { tax_options: o.tax },
-              Amount: o.amount,
-              //"Payment_Terms":o.product_details.Payment_Terms
-            };
-          }
-        );
+        nweselectedProductData = ISTViewdata.internal_transfer_lines.map(o => {
+          return {
+            id: o.product_id,
+            sku_id: { id: o?.product_id, label: o?.product_details?.sku_id },
+            product_template_id: o.product_template_id,
+            product_name: o?.product_details?.product_name,
+            // "warehouse_id": 1,
+            // "inventory_id": 1,
+            uom: { name: { id: o?.uom?.id, label: o?.uom?.name } },
+            serial_number: o?.product_details?.serial_number,
+            Quantity: parseInt(o.quantity),
+            selling_price: parseFloat(o.rate),
+            discount: parseFloat(o.discount_value),
+            product_pricing_details: { tax_options: o.tax },
+            Amount: o.amount,
+            //"Payment_Terms":o.product_details.Payment_Terms
+          };
+        });
       setSelectedProductData(nweselectedProductData);
 
       // var newEstimated_Cost = ISTViewdata?.shipping_details?.estimated_cost.map(data=>{
@@ -1560,9 +1556,9 @@ function CreditAdd(props) {
         Estimated_Cost_Select: ISTViewdata.shipping_mode_id,
       };
 
-      newMainData.map((o) => {
+      newMainData.map(o => {
         if (o.key == "Schedule_Pickup_time") {
-          o.value.map((p) => {
+          o.value.map(p => {
             keyValuePairMainData[p.key] = p.value;
           });
         } else if (o.key != null) {
@@ -1583,7 +1579,7 @@ function CreditAdd(props) {
     ) {
       var newMainData = [];
 
-      var newSalesOrderDetailsFields = SalesOrderDetailsFields.map((o) => {
+      var newSalesOrderDetailsFields = SalesOrderDetailsFields.map(o => {
         if (o.key == "reference_id")
           o.value =
             DeliveryViewdata?.delivery_order_details?.delivery_order_number;
@@ -1592,7 +1588,7 @@ function CreditAdd(props) {
       setSalesOrderDetailsFields(newSalesOrderDetailsFields);
 
       var newCustomerBillingAddressFields = CustomerBillingAddressFields.map(
-        (o) => {
+        o => {
           if (o.key == "billing_name")
             o.value =
               DeliveryViewdata?.billing_address_details?.contact_person_name;
@@ -1622,7 +1618,7 @@ function CreditAdd(props) {
       setCustomerBillingAddressFields(newCustomerBillingAddressFields);
 
       var newCustomerShippingAddressFields = CustomerShippingAddressFields.map(
-        (o) => {
+        o => {
           if (o.key == "shipping_name")
             o.value =
               DeliveryViewdata?.delivery_address_details?.contact_person_name;
@@ -1657,7 +1653,7 @@ function CreditAdd(props) {
       var nweselectedProductData = [];
       if (DeliveryViewdata.delivery_order_lines)
         nweselectedProductData = DeliveryViewdata.delivery_order_lines.map(
-          (o) => {
+          o => {
             return {
               id: o.product_id,
               sku_id: { id: o?.product_id, label: o?.product_details?.sku_id },
@@ -1680,10 +1676,10 @@ function CreditAdd(props) {
 
       var newAdditionalInformationFields = AdditionalInformationFields;
       newAdditionalInformationFields.find(
-        (o) => o.key == "Additional_Information_Note"
+        o => o.key == "Additional_Information_Note"
       ).value = DeliveryViewdata?.additional_information?.notes;
       newAdditionalInformationFields.find(
-        (o) => o.key == "Additional_Information_Terms_Conditions"
+        o => o.key == "Additional_Information_Terms_Conditions"
       ).value = DeliveryViewdata?.additional_information?.terms_and_condtion;
       setAdditionalInformationFields(newAdditionalInformationFields);
 
@@ -1717,9 +1713,9 @@ function CreditAdd(props) {
         Estimated_Cost_Select: Deliverydata.shipping_carrier_id,
       };
 
-      newMainData.map((o) => {
+      newMainData.map(o => {
         if (o.key == "Schedule_Pickup_time") {
-          o.value.map((p) => {
+          o.value.map(p => {
             keyValuePairMainData[p.key] = p.value;
           });
         } else if (o.key != null) {
@@ -1740,7 +1736,7 @@ function CreditAdd(props) {
     ) {
       var newMainData = [];
 
-      var newSalesOrderDetailsFields = SalesOrderDetailsFields.map((o) => {
+      var newSalesOrderDetailsFields = SalesOrderDetailsFields.map(o => {
         if (o.key == "scheduled_delivery_date")
           o.value = moment(purchaseOrdersDataId?.expected_delivery_date).format(
             "yyyy-MM-DD"
@@ -1754,7 +1750,7 @@ function CreditAdd(props) {
       setSalesOrderDetailsFields(newSalesOrderDetailsFields);
 
       var newCustomerShippingAddressFields = CustomerShippingAddressFields.map(
-        (o) => {
+        o => {
           if (o.key == "shipping_name")
             o.value =
               purchaseOrdersDataId?.billing_address?.contact_person_name;
@@ -1784,7 +1780,7 @@ function CreditAdd(props) {
       setCustomerShippingAddressFields(newCustomerShippingAddressFields);
 
       var newCustomerBillingAddressFields = CustomerBillingAddressFields.map(
-        (o) => {
+        o => {
           if (o.key == "billing_name")
             o.value =
               purchaseOrdersDataId?.delivery_address?.contact_person_name;
@@ -1816,7 +1812,7 @@ function CreditAdd(props) {
       var nweselectedProductData = [];
       if (purchaseOrdersDataId.purchase_order_lines)
         nweselectedProductData = purchaseOrdersDataId.purchase_order_lines.map(
-          (o) => {
+          o => {
             return {
               id: o.product_id,
               sku_id: { id: o?.product_id, label: o?.product_details?.sku_id },
@@ -1839,10 +1835,10 @@ function CreditAdd(props) {
 
       var newAdditionalInformationFields = AdditionalInformationFields;
       newAdditionalInformationFields.find(
-        (o) => o.key == "Additional_Information_Note"
+        o => o.key == "Additional_Information_Note"
       ).value = purchaseOrdersDataId?.additional_information?.notes;
       newAdditionalInformationFields.find(
-        (o) => o.key == "Additional_Information_Terms_Conditions"
+        o => o.key == "Additional_Information_Terms_Conditions"
       ).value =
         purchaseOrdersDataId?.additional_information?.terms_and_conditions;
       setAdditionalInformationFields(newAdditionalInformationFields);
@@ -1878,9 +1874,9 @@ function CreditAdd(props) {
         Estimated_Cost_Select: purchaseOrdersDataId.shipping_carrier_id,
       };
 
-      newMainData.map((o) => {
+      newMainData.map(o => {
         if (o.key == "Schedule_Pickup_time") {
-          o.value.map((p) => {
+          o.value.map(p => {
             keyValuePairMainData[p.key] = p.value;
           });
         } else if (o.key != null) {
@@ -1901,14 +1897,14 @@ function CreditAdd(props) {
     ) {
       var newMainData = [];
 
-      var newISTDetailsFields = SalesOrderDetailsFields.map((o) => {
+      var newISTDetailsFields = SalesOrderDetailsFields.map(o => {
         if (o.key == "reference_id") o.value = GRNViewdata?.grn_number;
         return o;
       });
       setSalesOrderDetailsFields(newISTDetailsFields);
 
       var newCustomerShippingAddressFields = CustomerShippingAddressFields.map(
-        (o) => {
+        o => {
           if (o.key == "shipping_name")
             o.value = GRNViewdata?.source_warehouse?.name;
           if (o.key == "shipping_primary_phone")
@@ -1936,7 +1932,7 @@ function CreditAdd(props) {
       setCustomerShippingAddressFields(newCustomerShippingAddressFields);
 
       var newCustomerBillingAddressFields = CustomerBillingAddressFields.map(
-        (o) => {
+        o => {
           if (o.key == "billing_name") o.value = GRNViewdata?.warehouse?.name;
           if (o.key == "billing_primary_phone")
             o.value = GRNViewdata?.warehouse?.mobile_number;
@@ -1963,7 +1959,7 @@ function CreditAdd(props) {
 
       var nweselectedProductData = [];
       if (GRNViewdata.grn_order_lines)
-        nweselectedProductData = GRNViewdata.grn_order_lines.map((o) => {
+        nweselectedProductData = GRNViewdata.grn_order_lines.map(o => {
           return {
             id: o.product_id,
             sku_id: {
@@ -1998,9 +1994,9 @@ function CreditAdd(props) {
         Estimated_Cost_Select: GRNViewdata.shipping_carrier_id,
       };
 
-      newMainData.map((o) => {
+      newMainData.map(o => {
         if (o.key == "Schedule_Pickup_time") {
-          o.value.map((p) => {
+          o.value.map(p => {
             keyValuePairMainData[p.key] = p.value;
           });
         } else if (o.key != null) {
@@ -2022,14 +2018,14 @@ function CreditAdd(props) {
     ) {
       var newMainData = [];
       console.log("ScrapOrderViewdata inside effect", ScrapOrderViewdata);
-      var newSalesOrderDetailsFields = SalesOrderDetailsFields.map((o) => {
+      var newSalesOrderDetailsFields = SalesOrderDetailsFields.map(o => {
         if (o.key == "reference_id") o.value = ScrapOrderViewdata?.reference_id;
         return o;
       });
       setSalesOrderDetailsFields(newSalesOrderDetailsFields);
 
       var newCustomerShippingAddressFields = CustomerShippingAddressFields.map(
-        (o) => {
+        o => {
           if (o.key == "shipping_name")
             o.value = ScrapOrderViewdata?.scrap_source_location?.name;
           if (o.key == "shipping_primary_phone")
@@ -2061,7 +2057,7 @@ function CreditAdd(props) {
       setCustomerShippingAddressFields(newCustomerShippingAddressFields);
 
       var newCustomerBillingAddressFields = CustomerBillingAddressFields.map(
-        (o) => {
+        o => {
           if (o.key == "billing_name")
             o.value = ScrapOrderViewdata?.scrap_location_details?.receiver_name;
           if (o.key == "billing_primary_phone")
@@ -2090,7 +2086,7 @@ function CreditAdd(props) {
 
       var nweselectedProductData = [];
       if (ScrapOrderViewdata.order_lines)
-        nweselectedProductData = ScrapOrderViewdata.order_lines.map((o) => {
+        nweselectedProductData = ScrapOrderViewdata.order_lines.map(o => {
           return {
             id: o.product_id,
             sku_id: { id: o?.product_id, label: o?.product_Details?.sku_id },
@@ -2149,9 +2145,9 @@ function CreditAdd(props) {
         Estimated_Cost_Select: ScrapOrderViewdata.shipping_carrier_id,
       };
 
-      newMainData.map((o) => {
+      newMainData.map(o => {
         if (o.key == "Schedule_Pickup_time") {
-          o.value.map((p) => {
+          o.value.map(p => {
             keyValuePairMainData[p.key] = p.value;
           });
         } else if (o.key != null) {
@@ -2173,7 +2169,7 @@ function CreditAdd(props) {
     ) {
       var newMainData = [];
       console.log("SalesInvoiceViewdata inside effect", SalesInvoiceViewdata);
-      var newSalesOrderDetailsFields = SalesOrderDetailsFields.map((o) => {
+      var newSalesOrderDetailsFields = SalesOrderDetailsFields.map(o => {
         if (o.key == "reference_id")
           o.value = SalesInvoiceViewdata?.reference_number;
         if (o.key == "currency_id")
@@ -2183,7 +2179,7 @@ function CreditAdd(props) {
       setSalesOrderDetailsFields(newSalesOrderDetailsFields);
 
       var newCustomerShippingAddressFields = CustomerShippingAddressFields.map(
-        (o) => {
+        o => {
           // if (o.key == "shipping_name")
           //   o.value = SalesInvoiceViewdata?.delivery_address?.name;
           if (o.key == "shipping_primary_phone")
@@ -2213,7 +2209,7 @@ function CreditAdd(props) {
       setCustomerShippingAddressFields(newCustomerShippingAddressFields);
 
       var newCustomerBillingAddressFields = CustomerBillingAddressFields.map(
-        (o) => {
+        o => {
           // if (o.key == "billing_name")
           //   o.value =
           //     SalesInvoiceViewdata?.billing_address?.receiver_name;
@@ -2246,7 +2242,7 @@ function CreditAdd(props) {
       var nweselectedProductData = [];
       if (SalesInvoiceViewdata.sales_invoice_lines)
         nweselectedProductData = SalesInvoiceViewdata.sales_invoice_lines.map(
-          (o) => {
+          o => {
             return {
               id: o.product_id,
               sku_id: { id: o?.product_id, label: o?.product_Details?.sku_id },
@@ -2269,10 +2265,10 @@ function CreditAdd(props) {
 
       var newAdditionalInformationFields = AdditionalInformationFields;
       newAdditionalInformationFields.find(
-        (o) => o.key == "Additional_Information_Note"
+        o => o.key == "Additional_Information_Note"
       ).value = SalesInvoiceViewdata?.internal_notes;
       newAdditionalInformationFields.find(
-        (o) => o.key == "Additional_Information_Terms_Conditions"
+        o => o.key == "Additional_Information_Terms_Conditions"
       ).value = SalesInvoiceViewdata?.terms_and_conditions;
       setAdditionalInformationFields(newAdditionalInformationFields);
 
@@ -2306,9 +2302,9 @@ function CreditAdd(props) {
         Estimated_Cost_Select: SalesInvoiceViewdata.shipping_carrier_id,
       };
 
-      newMainData.map((o) => {
+      newMainData.map(o => {
         if (o.key == "Schedule_Pickup_time") {
-          o.value.map((p) => {
+          o.value.map(p => {
             keyValuePairMainData[p.key] = p.value;
           });
         } else if (o.key != null) {
@@ -2330,7 +2326,7 @@ function CreditAdd(props) {
     ) {
       var newMainData = [];
       console.log("ScrapOrderViewdata inside effect", SalesOrderViewdata);
-      var newSalesOrderDetailsFields = SalesOrderDetailsFields.map((o) => {
+      var newSalesOrderDetailsFields = SalesOrderDetailsFields.map(o => {
         if (o.key == "reference_id")
           o.value = SalesOrderViewdata?.reference_number;
         if (o.key == "currency_id")
@@ -2340,7 +2336,7 @@ function CreditAdd(props) {
       setSalesOrderDetailsFields(newSalesOrderDetailsFields);
 
       var newCustomerShippingAddressFields = CustomerShippingAddressFields.map(
-        (o) => {
+        o => {
           if (o.key == "shipping_name")
             o.value =
               SalesOrderViewdata?.customer_shipping_address?.contact_person_name;
@@ -2373,7 +2369,7 @@ function CreditAdd(props) {
       setCustomerShippingAddressFields(newCustomerShippingAddressFields);
 
       var newCustomerBillingAddressFields = CustomerBillingAddressFields.map(
-        (o) => {
+        o => {
           if (o.key == "billing_name")
             o.value =
               SalesOrderViewdata?.customer_billing_address?.contact_person_name;
@@ -2407,34 +2403,32 @@ function CreditAdd(props) {
 
       var nweselectedProductData = [];
       if (SalesOrderViewdata.sales_order_lines)
-        nweselectedProductData = SalesOrderViewdata.sales_order_lines.map(
-          (o) => {
-            return {
-              id: o.product_id,
-              sku_id: { id: o?.product_id, label: o?.product_details?.sku_id },
-              product_template_id: o.product_template_id,
-              product_name: o?.product_details?.product_name,
-              // "warehouse_id": 1,
-              // "inventory_id": 1,
-              // description: o?.description,
-              uom: { name: { id: o?.uom?.id, label: o?.uom?.name } },
-              serial_number: o?.serial_number,
-              Quantity: parseInt(o?.total_quantity),
-              selling_price: parseFloat(o.price),
-              discount: parseFloat(o.discount),
-              product_pricing_details: { tax_options: o.tax },
-              Amount: o.amount,
-            };
-          }
-        );
+        nweselectedProductData = SalesOrderViewdata.sales_order_lines.map(o => {
+          return {
+            id: o.product_id,
+            sku_id: { id: o?.product_id, label: o?.product_details?.sku_id },
+            product_template_id: o.product_template_id,
+            product_name: o?.product_details?.product_name,
+            // "warehouse_id": 1,
+            // "inventory_id": 1,
+            // description: o?.description,
+            uom: { name: { id: o?.uom?.id, label: o?.uom?.name } },
+            serial_number: o?.serial_number,
+            Quantity: parseInt(o?.total_quantity),
+            selling_price: parseFloat(o.price),
+            discount: parseFloat(o.discount),
+            product_pricing_details: { tax_options: o.tax },
+            Amount: o.amount,
+          };
+        });
       setSelectedProductData(nweselectedProductData);
 
       var newAdditionalInformationFields = AdditionalInformationFields;
       newAdditionalInformationFields.find(
-        (o) => o.key == "Additional_Information_Note"
+        o => o.key == "Additional_Information_Note"
       ).value = SalesOrderViewdata?.additional_information?.notes;
       newAdditionalInformationFields.find(
-        (o) => o.key == "Additional_Information_Terms_Conditions"
+        o => o.key == "Additional_Information_Terms_Conditions"
       ).value =
         SalesOrderViewdata?.additional_information?.terms_and_conditions;
       setAdditionalInformationFields(newAdditionalInformationFields);
@@ -2469,9 +2463,9 @@ function CreditAdd(props) {
         Estimated_Cost_Select: SalesOrderViewdata.shipping_carrier_id,
       };
 
-      newMainData.map((o) => {
+      newMainData.map(o => {
         if (o.key == "Schedule_Pickup_time") {
-          o.value.map((p) => {
+          o.value.map(p => {
             keyValuePairMainData[p.key] = p.value;
           });
         } else if (o.key != null) {
@@ -2497,7 +2491,7 @@ function CreditAdd(props) {
       );
       var newMainData = [];
 
-      var newSalesOrderDetailsFields = SalesOrderDetailsFields.map((o) => {
+      var newSalesOrderDetailsFields = SalesOrderDetailsFields.map(o => {
         if (o.key == "reference_id")
           o.value = purchase_returnsViewdata?.reference_number;
         if (o.key == "currency_id")
@@ -2507,7 +2501,7 @@ function CreditAdd(props) {
       setSalesOrderDetailsFields(newSalesOrderDetailsFields);
 
       var newCustomerShippingAddressFields = CustomerShippingAddressFields.map(
-        (o) => {
+        o => {
           if (o.key == "shipping_name")
             o.value =
               purchase_returnsViewdata?.customer_shipping_address?.contact_person_name;
@@ -2542,7 +2536,7 @@ function CreditAdd(props) {
       setCustomerShippingAddressFields(newCustomerShippingAddressFields);
 
       var newCustomerBillingAddressFields = CustomerBillingAddressFields.map(
-        (o) => {
+        o => {
           if (o.key == "billing_name")
             o.value =
               purchase_returnsViewdata?.customer_billing_address?.contact_person_name;
@@ -2578,7 +2572,7 @@ function CreditAdd(props) {
       var nweselectedProductData = [];
       if (purchase_returnsViewdata.purchase_return_lines)
         nweselectedProductData =
-          purchase_returnsViewdata.purchase_return_lines.map((o) => {
+          purchase_returnsViewdata.purchase_return_lines.map(o => {
             return {
               id: o.product_id,
               sku_id: { id: o?.product_id, label: o?.product_details?.sku_id },
@@ -2600,10 +2594,10 @@ function CreditAdd(props) {
 
       var newAdditionalInformationFields = AdditionalInformationFields;
       newAdditionalInformationFields.find(
-        (o) => o.key == "Additional_Information_Note"
+        o => o.key == "Additional_Information_Note"
       ).value = purchase_returnsViewdata?.additional_information?.notes;
       newAdditionalInformationFields.find(
-        (o) => o.key == "Additional_Information_Terms_Conditions"
+        o => o.key == "Additional_Information_Terms_Conditions"
       ).value =
         purchase_returnsViewdata?.additional_information?.terms_and_conditions;
       setAdditionalInformationFields(newAdditionalInformationFields);
@@ -2638,9 +2632,9 @@ function CreditAdd(props) {
         Estimated_Cost_Select: purchase_returnsViewdata.shipping_carrier_id,
       };
 
-      newMainData.map((o) => {
+      newMainData.map(o => {
         if (o.key == "Schedule_Pickup_time") {
-          o.value.map((p) => {
+          o.value.map(p => {
             keyValuePairMainData[p.key] = p.value;
           });
         } else if (o.key != null) {
@@ -2666,7 +2660,7 @@ function CreditAdd(props) {
       );
       var newMainData = [];
 
-      var newSalesOrderDetailsFields = SalesOrderDetailsFields.map((o) => {
+      var newSalesOrderDetailsFields = SalesOrderDetailsFields.map(o => {
         if (o.key == "reference_id")
           o.value = sales_returnsViewdata?.reference_number;
         if (o.key == "currency_id")
@@ -2676,7 +2670,7 @@ function CreditAdd(props) {
       setSalesOrderDetailsFields(newSalesOrderDetailsFields);
 
       var newCustomerShippingAddressFields = CustomerShippingAddressFields.map(
-        (o) => {
+        o => {
           if (o.key == "shipping_name")
             o.value =
               sales_returnsViewdata?.customer_pickup_address?.customer_name;
@@ -2710,7 +2704,7 @@ function CreditAdd(props) {
       setCustomerShippingAddressFields(newCustomerShippingAddressFields);
 
       var newCustomerBillingAddressFields = CustomerBillingAddressFields.map(
-        (o) => {
+        o => {
           if (o.key == "billing_name")
             o.value =
               sales_returnsViewdata?.customer_billing_address?.customer_name;
@@ -2746,7 +2740,7 @@ function CreditAdd(props) {
       var nweselectedProductData = [];
       if (sales_returnsViewdata.sales_return_lines)
         nweselectedProductData = sales_returnsViewdata.sales_return_lines.map(
-          (o) => {
+          o => {
             return {
               id: o.product_id,
               sku_id: { id: o?.product_id, label: o?.product_details?.sku_id },
@@ -2769,10 +2763,10 @@ function CreditAdd(props) {
 
       var newAdditionalInformationFields = AdditionalInformationFields;
       newAdditionalInformationFields.find(
-        (o) => o.key == "Additional_Information_Note"
+        o => o.key == "Additional_Information_Note"
       ).value = sales_returnsViewdata?.additional_information?.notes;
       newAdditionalInformationFields.find(
-        (o) => o.key == "Additional_Information_Terms_Conditions"
+        o => o.key == "Additional_Information_Terms_Conditions"
       ).value =
         sales_returnsViewdata?.additional_information?.terms_and_conditions;
       setAdditionalInformationFields(newAdditionalInformationFields);
@@ -2807,9 +2801,9 @@ function CreditAdd(props) {
         Estimated_Cost_Select: sales_returnsViewdata.shipping_carrier_id,
       };
 
-      newMainData.map((o) => {
+      newMainData.map(o => {
         if (o.key == "Schedule_Pickup_time") {
-          o.value.map((p) => {
+          o.value.map(p => {
             keyValuePairMainData[p.key] = p.value;
           });
         } else if (o.key != null) {
@@ -2972,7 +2966,7 @@ function CreditAdd(props) {
       // }
       case "currency_id": {
         setSalesOrderDetailsFields(
-          SalesOrderDetailsFields.map((o) => {
+          SalesOrderDetailsFields.map(o => {
             if (o.key == key) return { ...o, value: value };
             return o;
           })
@@ -2981,7 +2975,7 @@ function CreditAdd(props) {
       }
       case "customer_id": {
         setSalesOrderDetailsFields(
-          SalesOrderDetailsFields.map((o) => {
+          SalesOrderDetailsFields.map(o => {
             if (o.key == key) return { ...o, value: value };
             return o;
           })
@@ -2990,7 +2984,7 @@ function CreditAdd(props) {
       }
       case "purchase_invoice_id": {
         setSalesOrderDetailsFields(
-          SalesOrderDetailsFields.map((o) => {
+          SalesOrderDetailsFields.map(o => {
             if (o.key == key) return { ...o, value: value };
             return o;
           })
@@ -2999,7 +2993,7 @@ function CreditAdd(props) {
       }
       case "PaymentTerms_PaymentTerms": {
         setPaymentTermsFields(
-          PaymentTermsFields.map((o) => {
+          PaymentTermsFields.map(o => {
             if (o.key == key) return { ...o, value: value };
             return o;
           })
@@ -3008,7 +3002,7 @@ function CreditAdd(props) {
       }
       case "Source_Document_Type":
         setSalesOrderDetailsFields(
-          SalesOrderDetailsFields?.map((o) => {
+          SalesOrderDetailsFields?.map(o => {
             if (o.key == key) return { ...o, value: value };
             return o;
           })
@@ -3017,7 +3011,7 @@ function CreditAdd(props) {
 
       case "Select_Source_Document":
         setSalesOrderDetailsFields(
-          SalesOrderDetailsFields?.map((o) => {
+          SalesOrderDetailsFields?.map(o => {
             if (o.key == key) return { ...o, value: value };
             return o;
           })
@@ -3037,11 +3031,11 @@ function CreditAdd(props) {
 
   const setRadioType = (prop, value) => {};
 
-  const handelCheckBoxonChange = (field) => {
+  const handelCheckBoxonChange = field => {
     console.log("onCheckboxChanges", field);
 
     if (field.key == "Auto_credit_note_number") {
-      var neworder = SalesOrderDetailsFields.map((o) => {
+      var neworder = SalesOrderDetailsFields.map(o => {
         if (o.key == "credit_note_id") o.disabled = !field.isChecked;
         return o;
       });
@@ -3049,14 +3043,14 @@ function CreditAdd(props) {
     }
 
     if (field.key == "Auto_reference_number") {
-      var neworder = SalesOrderDetailsFields.map((o) => {
+      var neworder = SalesOrderDetailsFields.map(o => {
         if (o.key == "reference_id") o.disabled = !field.isChecked;
         return o;
       });
       setSalesOrderDetailsFields(neworder);
     }
 
-    var newState = SalesOrderDetailsFields.map((o) => {
+    var newState = SalesOrderDetailsFields.map(o => {
       if (o.key == field.key) {
         o.isChecked = !o.isChecked;
       }
@@ -3067,12 +3061,12 @@ function CreditAdd(props) {
 
   const [CheckboxShowForCopyField_value, setCheckboxShowForCopyField_value] =
     useState(false);
-  const handelCheckboxShowForCopyField_valueChange = (field) => {
+  const handelCheckboxShowForCopyField_valueChange = field => {
     //console.log("onCheckboxChanges", field);
     setCheckboxShowForCopyField_value(!CheckboxShowForCopyField_value);
 
     var newCustomerBillingAddressFields = CustomerBillingAddressFields.map(
-      (o) => {
+      o => {
         return {
           ...o,
           value: mainData[o.key.replace("Billing", "Shipping")],
@@ -3081,7 +3075,7 @@ function CreditAdd(props) {
     );
 
     var newMainData = mainData;
-    newCustomerBillingAddressFields.map((o) => (newMainData[o.key] = o.value));
+    newCustomerBillingAddressFields.map(o => (newMainData[o.key] = o.value));
     setMainData(newMainData);
 
     setCustomerBillingAddressFields(newCustomerBillingAddressFields);
@@ -3108,26 +3102,26 @@ function CreditAdd(props) {
       {/* //Enter Sales Order Details */}
       <AddForm
         header={"Credit Note Details"}
-        data={SalesOrderDetailsFields.map((field) => {
+        data={SalesOrderDetailsFields.map(field => {
           switch (field.key) {
             case "currency_id":
-              field.data = Currencydata.map((o) => {
+              field.data = Currencydata.map(o => {
                 return { id: o.id, label: o.name };
               });
               break;
             case "customer_id":
-              field.data = contactsData.map((o) => {
+              field.data = contactsData.map(o => {
                 console.log([o.id, o.first_name], "customer_details");
                 return { id: o.id, label: o.first_name };
               });
               break;
             case "purchase_invoice_id":
-              field.data = invoiceData.map((o) => {
+              field.data = invoiceData.map(o => {
                 return { id: o.id, label: o.purchase_invoice_number };
               });
               break;
             case "Source_Document_Type": {
-              field.data = SourceDocument.map((curElem) => {
+              field.data = SourceDocument.map(curElem => {
                 return {
                   id: curElem,
                   label: curElem.display_name,
@@ -3144,7 +3138,7 @@ function CreditAdd(props) {
                 mainData &&
                 mainData.Source_Document_Type &&
                 mainData.Source_Document_Type.lookup_code == "DELIVERY_ORDERS"
-                  ? Deliverydata.map((o) => {
+                  ? Deliverydata.map(o => {
                       return {
                         id: o.id,
                         label: o?.delivery_order_details?.delivery_order_number,
@@ -3153,57 +3147,57 @@ function CreditAdd(props) {
                   : mainData &&
                     mainData.Source_Document_Type &&
                     mainData.Source_Document_Type.lookup_code == "ASN"
-                  ? ASNdata.map((o) => {
+                  ? ASNdata.map(o => {
                       return { id: o.id, label: o.asn_number };
                     })
                   : mainData &&
                     mainData.Source_Document_Type &&
                     mainData.Source_Document_Type.lookup_code == "IST"
-                  ? ISTdata.map((o) => {
+                  ? ISTdata.map(o => {
                       return { id: o.id, label: o.ist_number };
                     })
                   : mainData &&
                     mainData.Source_Document_Type &&
                     mainData.Source_Document_Type.lookup_code ==
                       "PURCHASE_RETURNS"
-                  ? purchase_returnsdata.map((o) => {
+                  ? purchase_returnsdata.map(o => {
                       return { id: o.id, label: o.purchase_return_number };
                     })
                   : mainData &&
                     mainData.Source_Document_Type &&
                     mainData.Source_Document_Type.lookup_code == "SALES_RETURNS"
-                  ? sales_returnsdata.map((o) => {
+                  ? sales_returnsdata.map(o => {
                       return { id: o.id, label: o.sales_return_number };
                     })
                   : mainData &&
                     mainData.Source_Document_Type &&
                     mainData.Source_Document_Type.lookup_code ==
                       "PURCHASE_ORDERS"
-                  ? purchaseOrdersData.map((o) => {
+                  ? purchaseOrdersData.map(o => {
                       return { id: o.id, label: o.purchase_order_number };
                     })
                   : mainData &&
                     mainData.Source_Document_Type &&
                     mainData.Source_Document_Type.lookup_code == "GRN"
-                  ? GRNdata.map((o) => {
+                  ? GRNdata.map(o => {
                       return { id: o.id, label: o.grn_number };
                     })
                   : mainData &&
                     mainData.Source_Document_Type &&
                     mainData.Source_Document_Type.lookup_code == "SCRAP_ORDERS"
-                  ? ScrapOrderdata.map((o) => {
+                  ? ScrapOrderdata.map(o => {
                       return { id: o.id, label: o.scrap_order_no };
                     })
                   : mainData &&
                     mainData.Source_Document_Type &&
                     mainData.Source_Document_Type.lookup_code == "SALES_INVOICE"
-                  ? SalesInvoicedata.map((o) => {
+                  ? SalesInvoicedata.map(o => {
                       return { id: o.id, label: o.sales_invoice_number };
                     })
                   : mainData &&
                     mainData.Source_Document_Type &&
                     mainData.Source_Document_Type.lookup_code == "SALES_ORDERS"
-                  ? SalesOrderdata.map((o) => {
+                  ? SalesOrderdata.map(o => {
                       return { id: o.id, label: o.sales_order_number };
                     })
                   : null;
@@ -3229,16 +3223,16 @@ function CreditAdd(props) {
 
       <AddForm
         header={"Customer Shipping Address"}
-        data={CustomerShippingAddressFields.map((field) => {
+        data={CustomerShippingAddressFields.map(field => {
           switch (field.key) {
             case "ShippingAddress_Country": {
-              field.data = Countrydata.map((o) => {
+              field.data = Countrydata.map(o => {
                 return { id: o.id, label: o.name };
               });
               break;
             }
             case "ShippingAddress_State": {
-              field.data = Statedata.map((o) => {
+              field.data = Statedata.map(o => {
                 return { id: o.id, label: o.name };
               });
               break;
@@ -3257,16 +3251,16 @@ function CreditAdd(props) {
 
       <AddForm
         header={"Customer Billing Address"}
-        data={CustomerBillingAddressFields.map((field) => {
+        data={CustomerBillingAddressFields.map(field => {
           switch (field.key) {
             case "BillingAddress_Country": {
-              field.data = Countrydata.map((o) => {
+              field.data = Countrydata.map(o => {
                 return { id: o.id, label: o.name };
               });
               break;
             }
             case "BillingAddress_State": {
-              field.data = Statedata.map((o) => {
+              field.data = Statedata.map(o => {
                 return { id: o.id, label: o.name };
               });
               break;
@@ -3337,17 +3331,17 @@ function CreditAdd(props) {
 
 export default CreditAdd;
 
-/*			
-Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
-All rights reserved.			
-This program is free software: you can redistribute it and/or modify			
-it under the terms of the GNU General Public License as published by			
-the Free Software Foundation, either version 3 of the License, or			
-(at your option) any later version.			
-This program is distributed in the hope that it will be useful,			
-but WITHOUT ANY WARRANTY; without even the implied warranty of			
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
-GNU General Public License for more details.			
-You should have received a copy of the GNU General Public License			
-along with this program. If not, see <http://www.gnu.org/licenses/>.			
+/*
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
 */

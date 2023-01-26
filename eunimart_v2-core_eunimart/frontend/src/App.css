@@ -5,15 +5,20 @@
   overflow: hidden;
   font-family: Inter !important;
 } */
-.bot_pic{overflow: hidden;}
-.MuiList-root{
+.bot_pic {
+  overflow: hidden;
+}
+
+.MuiList-root {
   overflow: hidden;
   font-family: Inter !important;
 }
+
 .App {
   text-align: center;
 }
-body{
+
+body {
   font-family: Inter !important;
 }
 
@@ -42,17 +47,21 @@ body{
 .App-link {
   color: #61dafb;
 }
+
 input#emailErrorMessage {
   color: #FF0000;
 }
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
+
 @keyframes zoom-in-zoom-out {
   0% {
     transform: scale(1, 1);
@@ -65,11 +74,13 @@ input#emailErrorMessage {
     top: 80%; */
     /* position: absolute; */
   }
+
   25% {
     transform: scale(1, 1);
     position: absolute;
     bottom: 0%;
   }
+
   50% {
     transform: scale(1, 1);
     position: absolute;
@@ -82,6 +93,7 @@ input#emailErrorMessage {
     top: 18%; */
     bottom: 3%;
   }
+
   75% {
     transform: scale(1.1, 1.1);
     position: absolute;
@@ -93,6 +105,7 @@ input#emailErrorMessage {
     /* position: absolute; */
     bottom: 6%;
   }
+
   100% {
     transform: scale(1, 1);
     position: absolute;
@@ -105,16 +118,19 @@ input#emailErrorMessage {
     bottom: 6%;
   }
 }
-.button_wrapper{
+
+.button_wrapper {
   width: 90%;
-    overflow: initial;
+  overflow: initial;
 }
-.form-horizontal{
+
+.form-horizontal {
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow: initial;
 }
+
 .loginDiv {
   /* 0.5s ease 0.25s forwards; */
   animation: zoom-in-zoom-out ease-in 1.5s;
@@ -122,8 +138,8 @@ input#emailErrorMessage {
   top: 18%; */
   /* position: absolute; */
   /* width: 444px; */
-  width:auto;
-      /* left: 50%; */
+  width: auto;
+  /* left: 50%; */
   height: auto;
   /* height: 617px; */
   box-shadow: 12px 12px 45px rgba(0, 0, 0, 0.15);
@@ -139,27 +155,31 @@ input#emailErrorMessage {
   z-index: 99;
   /* padding-top: 24px !important; */
 }
-.main_wrapper{
+
+.main_wrapper {
   height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.image-container{
+
+.image-container {
   display: flex;
   justify-content: center;
 }
-.login-wrapper{
- /* background-image: url("../src/Assets/Images/login.gif.gif"); */
+
+.login-wrapper {
+  /* background-image: url("../src/Assets/Images/login.gif.gif"); */
   /* background-image: url("../src/Assets/Images/loginGif.json"); */
   /* position: absolute;
 width: 1920px;
 height: 1080px; */
-/* position: absolute; */
-width: 100%;
-height: 100%;
+  /* position: absolute; */
+  width: 100%;
+  height: 100%;
 }
+
 button.social-signin {
   margin-bottom: 20px;
   box-shadow: 4px 4px 16px rgb(0 0 0 / 10%);
@@ -184,6 +204,7 @@ button.social-signin:active {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
   transition: 0.2s ease;
 }
+
 button.social-signin.twitter {
   background: #1DA1F2;
   width: 100%;
@@ -191,21 +212,25 @@ button.social-signin.twitter {
   /* margin-left: 48px;
   margin-top: 1rem; */
   align-items: center;
-    justify-content: center;
-    display: flex;
-    border-radius: 4px;
+  justify-content: center;
+  display: flex;
+  border-radius: 4px;
 }
-.verify-otp-button{
+
+.verify-otp-button {
   background-color: white;
 }
-.edit-bar-bottom{
+
+.edit-bar-bottom {
   background: linear-gradient(90deg, #00C0ED 0%, #FA64A9 50.31%, #FABA1E 100%);
 }
-.edit-bar{
+
+.edit-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 button.social-signin.otp {
   background: #1DA1F2;
   width: 374px;
@@ -213,10 +238,11 @@ button.social-signin.otp {
   margin-left: 48px;
   margin-top: 1rem;
   align-items: center;
-    justify-content: center;
-    display: flex;
-    border-radius: 4px;
+  justify-content: center;
+  display: flex;
+  border-radius: 4px;
 }
+
 button.social-signin.linkdln {
   background: #0077B5;
   width: 100%;
@@ -224,17 +250,19 @@ button.social-signin.linkdln {
   /* margin-left: 48px;
   margin-top: 16px !important; */
   align-items: center;
-    justify-content: center;
-    display: flex;
-    border-radius: 4px;
+  justify-content: center;
+  display: flex;
+  border-radius: 4px;
 }
-.form-control-inline{
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1) !important;
-border-radius: 8px !important;
-height: 52px !important;
-justify-content: center;
-padding-left: 10px;
+
+.form-control-inline {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 8px !important;
+  height: 52px !important;
+  justify-content: center;
+  padding-left: 10px;
 }
+
 button.social-signin.google {
   box-shadow: "4px 4px 16px rgba(0, 0, 0, 0.1)";
   /* background: white; */
@@ -242,14 +270,15 @@ button.social-signin.google {
   color: black;
   width: 100%;
   height: 54px;
-  margin-top:36px;
+  margin-top: 36px;
   /* margin-left: 48px;
   margin-top: 16px !important; */
   align-items: center;
-    justify-content: center;
-    display: flex;
-    border-radius: 4px;
+  justify-content: center;
+  display: flex;
+  border-radius: 4px;
 }
+
 .registerHeading {
   margin-top: 0px;
   background-image: url("../src/Assets/Images/eunimart_login_image.png");
@@ -311,7 +340,7 @@ button.social-signin.google {
   align-items: flex-start;
   padding: 0px;
   min-width: 180px;
-  max-width: 180px; 
+  max-width: 180px;
   position: fixed;
   height: 100vh;
   transition: all 0.2s;
@@ -336,12 +365,15 @@ button.social-signin.google {
 .mainnav {
   width: 100%;
 }
+
 .mainnav li {
   position: relative;
 }
-.mainnav ul > li:hover > a {
+
+.mainnav ul>li:hover>a {
   background: rgba(255, 255, 255, 0.08);
 }
+
 .sidebar a {
   font-style: normal;
   font-weight: 600;
@@ -362,6 +394,7 @@ button.social-signin.google {
   /* padding: 8px 0px; */
   top: 0;
 }
+
 .mainnav li ul li:first-child {
   margin-top: 8px;
 }
@@ -369,15 +402,19 @@ button.social-signin.google {
 .mainnav li ul li:last-child {
   margin-bottom: 8px;
 }
+
 .mainnav li:hover ul {
   display: block;
 }
+
 .sidebar a:hover {
   background: rgba(255, 255, 255, 0.08);
 }
+
 .sidebar a:focus {
   color: #ffffff;
 }
+
 .sidebar a span {
   display: none;
 }
@@ -467,10 +504,12 @@ button.social-signin.google {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
+
 .textWrapper1 {
   position: fixed;
   bottom: 8%;
@@ -496,6 +535,7 @@ button.social-signin.google {
   animation: slide 1s ease 3.5s forwards;
   /* display: none; */
 }
+
 .bot_cirlce1 {
   width: 108px;
   position: absolute;
@@ -515,10 +555,12 @@ button.social-signin.google {
 .bot_cirlce1:hover .textWrapper1 {
   display: block !important;
 }
+
 .deactive_bot1 {
   display: flex;
   align-items: center;
 }
+
 .eunimart_logo1 {
   /* vertical-align: middle; */
   width: 106px;
@@ -537,6 +579,7 @@ button.social-signin.google {
   cursor: pointer;
   /* border-radius: 50px; */
 }
+
 .textWrapper1 {
   /* height: 100px; */
   width: 0;
@@ -548,47 +591,67 @@ button.social-signin.google {
   -ms-animation: slide 1s ease 3.5s forwards;
   animation: slide 0.5s ease 0.25s forwards;
 }
+
 .chatbot_top_text {
   font-size: 20px;
   font-weight: 500;
 }
+
 .chatbot_top_text1 {
   font-weight: 500;
 }
+
 .chatbot_top_text_sec2 {
   font-size: 12px;
 }
-@-moz-keyframes slide /* Firefox */ {
+
+@-moz-keyframes slide
+
+/* Firefox */
+  {
   from {
     width: 0;
   }
+
   to {
     width: 220px;
   }
 }
 
-@-webkit-keyframes slide /* Safari and Chrome */ {
+@-webkit-keyframes slide
+
+/* Safari and Chrome */
+  {
   from {
     width: 0;
   }
+
   to {
     width: 220px;
   }
 }
 
-@-o-keyframes slide /* Opera */ {
+@-o-keyframes slide
+
+/* Opera */
+  {
   from {
     background: red;
   }
+
   to {
     background: yellow;
   }
 }
 
-@-ms-keyframes slide /* IE10 */ {
+@-ms-keyframes slide
+
+/* IE10 */
+  {
   from {
     width: 0;
   }
+
   to {
     width: 220px;
   }
@@ -598,7 +661,23 @@ button.social-signin.google {
   from {
     width: 0;
   }
+
   to {
     width: 220px;
   }
 }
+
+/*
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
+*/

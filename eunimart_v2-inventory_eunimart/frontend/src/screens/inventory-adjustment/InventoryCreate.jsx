@@ -42,13 +42,13 @@ function InventoryCreate(props) {
   );
 
   const { inventoryAdjtype, inventoryReasontype } = useSelector(
-    (state) => state.inventorydata
+    state => state.inventorydata
   );
 
-  const { locationsdata } = useSelector((state) => state.picklistdata);
+  const { locationsdata } = useSelector(state => state.picklistdata);
 
   const { inventoryAdjData, productVariantData } = useSelector(
-    (state) => state.inventorydata
+    state => state.inventorydata
   );
 
   const {
@@ -57,7 +57,7 @@ function InventoryCreate(props) {
     ASNViewdata,
     GRNdata,
     GRNViewdata,
-  } = useSelector((state) => state.data);
+  } = useSelector(state => state.data);
 
   const [mainData, setMainData] = useState({});
 
@@ -83,7 +83,7 @@ function InventoryCreate(props) {
   useEffect(() => {
     if (props && props.id && inventoryAdjData) {
       var newMainData = [];
-      var newAdjustmentDetails = adjustmentdetails.map((o) => {
+      var newAdjustmentDetails = adjustmentdetails.map(o => {
         if (o.key == "adjustment_date") {
           o.value = moment(inventoryAdjData?.adjustment_date).format(
             "yyyy-MM-DD"
@@ -91,7 +91,7 @@ function InventoryCreate(props) {
         }
         if (o.key == "adjustment_type") {
           o.value = inventoryAdjData?.adjustment_type_id;
-          o.sub.map((o) => {
+          o.sub.map(o => {
             if (o.value == inventoryAdjData?.adjustment_type_id)
               return (o.checked = true);
             else return (o.checked = false);
@@ -126,7 +126,7 @@ function InventoryCreate(props) {
 
       if (inventoryAdjData.inventory_adjustment_lines)
         nweselectedProductData =
-          inventoryAdjData.inventory_adjustment_lines.map((o) => {
+          inventoryAdjData.inventory_adjustment_lines.map(o => {
             return {
               item_name: o.product.product_name,
               item_number: { id: o.product.id, label: o.product.sku_code },
@@ -150,7 +150,7 @@ function InventoryCreate(props) {
       // });
       // setchangeDetails(newChangedetails);
 
-      var newOtherDetails = otherdetails.map((o) => {
+      var newOtherDetails = otherdetails.map(o => {
         if (o.key == "notes") o.value = inventoryAdjData?.external_notes;
         return o;
       });
@@ -163,7 +163,7 @@ function InventoryCreate(props) {
       ];
 
       var keyValuePairMainData = {};
-      newMainData.map((o) => {
+      newMainData.map(o => {
         if (o.key != null) {
           keyValuePairMainData[o.key] = o.value;
         }
@@ -256,18 +256,18 @@ function InventoryCreate(props) {
     //setContactType(value);
 
     if (prop == "adjustment_type") {
-      var OldState = adjustmentdetails.map((o) => {
+      var OldState = adjustmentdetails.map(o => {
         if (o.key == prop)
-          o.sub.map((p) => {
+          o.sub.map(p => {
             p.checked = false;
             return p;
           });
         return o;
       });
       setadjustmentdetails(OldState);
-      var newState = adjustmentdetails.map((o) => {
+      var newState = adjustmentdetails.map(o => {
         if (o.key == prop)
-          o.sub.map((p) => {
+          o.sub.map(p => {
             if (p.value == value) p.checked = true;
             return p;
           });
@@ -298,7 +298,7 @@ function InventoryCreate(props) {
       key: "item_number",
       label: "Item Number",
       type: "select",
-      data: productVariantData.map((o) => {
+      data: productVariantData.map(o => {
         return { id: o.id, label: o.sku_id };
       }),
     },
@@ -341,14 +341,14 @@ function InventoryCreate(props) {
       key: "Action",
       label: "Action",
       type: "view",
-      renderView: (item) => (
+      renderView: item => (
         <div>
           <DeleteIcon
             onClick={() => {
               setdeletedProducts([...deletedProducts, item]);
               setSelectedProductData(
                 selectedProductData.filter(
-                  (o) => o?.product_id != item?.product_id
+                  o => o?.product_id != item?.product_id
                 )
               );
             }}
@@ -361,8 +361,7 @@ function InventoryCreate(props) {
   const [selectedProductData, setSelectedProductData] = useState([]);
   var selectedWarehouse = [];
   var selectedProduct = [];
-  const handelCheckBoxonChange = (field) => {
-  };
+  const handelCheckBoxonChange = field => {};
 
   const handelSelectonChange = (key, value, index = null) => {
     if (key == "Link_Source_Document_Type") {
@@ -395,7 +394,7 @@ function InventoryCreate(props) {
     switch (key) {
       case "warehouse_name": {
         setadjustmentdetails(
-          adjustmentdetails.map((o) => {
+          adjustmentdetails.map(o => {
             if (o.key == key) return { ...o, value: value };
             return o;
           })
@@ -405,7 +404,7 @@ function InventoryCreate(props) {
       }
       case "reason": {
         setadjustmentdetails(
-          adjustmentdetails.map((o) => {
+          adjustmentdetails.map(o => {
             if (o.key == key) return { ...o, value: value };
             return o;
           })
@@ -415,7 +414,7 @@ function InventoryCreate(props) {
       }
       case "Link_Source_Document_Type": {
         setadjustmentdetails(
-          adjustmentdetails.map((o) => {
+          adjustmentdetails.map(o => {
             if (o.key == key) return { ...o, value: value };
             return o;
           })
@@ -425,7 +424,7 @@ function InventoryCreate(props) {
       }
       case "Link_Source_Document": {
         setadjustmentdetails(
-          adjustmentdetails.map((o) => {
+          adjustmentdetails.map(o => {
             if (o.key == key) return { ...o, value: value };
             return o;
           })
@@ -460,13 +459,12 @@ function InventoryCreate(props) {
   };
 
   const setDataByKeyAndValue = (key, value, index = null) => {
-
     if (index != null) {
       try {
         var newSelectedProductData = selectedProductData;
 
         if (key == "item_number") {
-          var selectVarient = productVariantData.find((o) => o.id == value.id);
+          var selectVarient = productVariantData.find(o => o.id == value.id);
 
           newSelectedProductData[index]["product_id"] = selectVarient["id"];
           newSelectedProductData[index]["product_variant_id"] =
@@ -508,7 +506,7 @@ function InventoryCreate(props) {
     }
 
     try {
-      var newadjustmentdetails = adjustmentdetails.map((o) => {
+      var newadjustmentdetails = adjustmentdetails.map(o => {
         if (o.key == key) o.value = value;
         return o;
       });
@@ -518,7 +516,7 @@ function InventoryCreate(props) {
     }
 
     try {
-      var newotherdetails = otherdetails.map((o) => {
+      var newotherdetails = otherdetails.map(o => {
         if (o.key == key) o.value = value;
         return o;
       });
@@ -546,18 +544,18 @@ function InventoryCreate(props) {
     setSelectedProductData([...selectedProductData, {}]);
   };
 
-  const handleButtonClick = (key) => {
+  const handleButtonClick = key => {
     if (key == "Cancel") {
       history.push("/inventoryAdjustment");
       return;
     }
     if (props && props.id) {
-      deletedProducts.forEach((e) => {
+      deletedProducts.forEach(e => {
         dispatch(deleteProductLine(props.id, e?.product_id));
       });
     }
 
-    var newselectedProductData = selectedProductData.map((o) => {
+    var newselectedProductData = selectedProductData.map(o => {
       return {
         product_id: o?.product_id,
         product_variant_id: o?.product_variant_id,
@@ -628,7 +626,7 @@ function InventoryCreate(props) {
 
   const handelRadioChange = (prop, value, index = null) => {
     setDataByKeyAndValue(prop, value, index);
-    var newState = adjustmentdetails.map((o) => {
+    var newState = adjustmentdetails.map(o => {
       if (o.key == field.key) {
         o.isChecked = !o.isChecked;
       }
@@ -649,7 +647,7 @@ function InventoryCreate(props) {
     ) {
       var newMainData = mainData;
 
-      var newadjustmentdetails = adjustmentdetails.map((o) => {
+      var newadjustmentdetails = adjustmentdetails.map(o => {
         if (o.key == "refrence_number") o.value = GRNViewdata?.reference_number;
         // if (o.key == "warehouse_name") o.value = GRNViewdata?.warehouse?.name;
         return o;
@@ -658,7 +656,7 @@ function InventoryCreate(props) {
 
       let nweselectedProductData1 = [];
       if (GRNViewdata.grn_order_lines)
-        nweselectedProductData1 = GRNViewdata.grn_order_lines.map((o) => {
+        nweselectedProductData1 = GRNViewdata.grn_order_lines.map(o => {
           return {
             product_id: o?.product_id ? o?.product_id : 1,
             product_variant_id: o?.product_variant_id
@@ -684,10 +682,10 @@ function InventoryCreate(props) {
       newMainData = [...newadjustmentdetails];
       var keyValuePairMainData = {};
 
-      newMainData.map((o) => {
+      newMainData.map(o => {
         if (o.key == "adjustment_type") {
           var temp;
-          o.sub.map((e) => {
+          o.sub.map(e => {
             if (e.checked == true) temp = e.value;
           });
           keyValuePairMainData[o.key] = temp;
@@ -710,7 +708,7 @@ function InventoryCreate(props) {
     ) {
       var newMainData = mainData;
 
-      var newadjustmentdetails = adjustmentdetails.map((o) => {
+      var newadjustmentdetails = adjustmentdetails.map(o => {
         if (o.key == "refrence_number") o.value = ASNViewdata?.reference_number;
         // if (o.key == "warehouse_name") o.value = ASNViewdata?.warehouse?.name;
         return o;
@@ -718,7 +716,7 @@ function InventoryCreate(props) {
       setadjustmentdetails(newadjustmentdetails);
       let nweselectedProductData2 = [];
       if (ASNViewdata.asn_order_lines)
-        nweselectedProductData2 = ASNViewdata.asn_order_lines.map((o) => {
+        nweselectedProductData2 = ASNViewdata.asn_order_lines.map(o => {
           return {
             product_id: o?.product_id ? o?.product_id : 1,
             product_variant_id: o?.product_variant_id
@@ -750,10 +748,10 @@ function InventoryCreate(props) {
       newMainData = [...newadjustmentdetails];
       var keyValuePairMainData = {};
 
-      newMainData.map((o) => {
+      newMainData.map(o => {
         if (o.key == "adjustment_type") {
           var temp;
-          o.sub.map((e) => {
+          o.sub.map(e => {
             if (e.checked == true) temp = e.value;
           });
           keyValuePairMainData[o.key] = temp;
@@ -764,7 +762,6 @@ function InventoryCreate(props) {
       keyValuePairMainData["inventory_adjustment_lines"] =
         nweselectedProductData2;
       setMainData(keyValuePairMainData);
-
     }
   }, [ASNViewdata]);
 
@@ -785,10 +782,10 @@ function InventoryCreate(props) {
     <>
       <AddForm
         header={"Adjustment Details"}
-        data={adjustmentdetails.map((field) => {
+        data={adjustmentdetails.map(field => {
           switch (field.key) {
             case "Link_Source_Document_Type": {
-              field.data = SourceDocumentTypesData.map((o) => {
+              field.data = SourceDocumentTypesData.map(o => {
                 return {
                   id: o.id,
                   label: o.display_name,
@@ -802,20 +799,20 @@ function InventoryCreate(props) {
                 mainData &&
                 mainData.Link_Source_Document_Type &&
                 mainData.Link_Source_Document_Type.lookup_code == "ASN"
-                  ? ASNdata.map((o) => {
+                  ? ASNdata.map(o => {
                       return { id: o.id, label: o.asn_number };
                     })
                   : mainData &&
                     mainData.Link_Source_Document_Type &&
                     mainData.Link_Source_Document_Type.lookup_code == "GRN"
-                  ? GRNdata.map((o) => {
+                  ? GRNdata.map(o => {
                       return { id: o.id, label: o.grn_number };
                     })
                   : null;
               break;
             }
             case "warehouse_name":
-              field.data = locationsdata.map((o) => {
+              field.data = locationsdata.map(o => {
                 return {
                   id: o.id,
                   label: o.name,
@@ -823,7 +820,7 @@ function InventoryCreate(props) {
               });
               break;
             case "reason":
-              field.data = inventoryReasontype.map((o) => {
+              field.data = inventoryReasontype.map(o => {
                 return {
                   id: o.id,
                   label: o.display_name,
@@ -862,7 +859,7 @@ function InventoryCreate(props) {
 
       <AddForm
         header={"Other Details"}
-        data={otherdetails.map((field) => {
+        data={otherdetails.map(field => {
           return field;
         })}
         handelInputChange={handelInputChange}
@@ -876,17 +873,17 @@ function InventoryCreate(props) {
 
 export default InventoryCreate;
 
-/*			
-Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
-All rights reserved.			
-This program is free software: you can redistribute it and/or modify			
-it under the terms of the GNU General Public License as published by			
-the Free Software Foundation, either version 3 of the License, or			
-(at your option) any later version.			
-This program is distributed in the hope that it will be useful,			
-but WITHOUT ANY WARRANTY; without even the implied warranty of			
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
-GNU General Public License for more details.			
-You should have received a copy of the GNU General Public License			
-along with this program. If not, see <http://www.gnu.org/licenses/>.			
+/*
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
 */

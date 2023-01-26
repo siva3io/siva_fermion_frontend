@@ -32,8 +32,8 @@ var customCount = 0;
 var customeFields = {};
 var obj = {
   key: "",
-  value: ""
-}
+  value: "",
+};
 
 function ContactsCreate(props) {
   const [indexAddress, setindexAddress] = useState();
@@ -69,7 +69,7 @@ function ContactsCreate(props) {
     contacts_data,
     contactSingledata,
     contactUpdatedata,
-  } = useSelector((state) => state.data);
+  } = useSelector(state => state.data);
   const [show, setShow] = useState(false);
   const [locationData, setlocationData] = useState([]);
   const [contactType, setContactType] = useState();
@@ -207,11 +207,11 @@ function ContactsCreate(props) {
         setContactdetails(newArray2);
       }
 
-      var newContactdetails = decideArray.map((o) => {
+      var newContactdetails = decideArray.map(o => {
         if (o.key == "contact_type") {
           o.value = contactSingledata?.contact_type?.id;
           tempData["contact_type"] = contactSingledata?.contact_type?.id;
-          o.sub.map((o) => {
+          o.sub.map(o => {
             if (o.value == contactSingledata?.contact_type?.id)
               return (o.checked = true);
             else return (o.checked = false);
@@ -240,32 +240,32 @@ function ContactsCreate(props) {
           o.value = {
             id:
               contactSingledata &&
-                contactSingledata["properties"] &&
-                contactSingledata["properties"][0] &&
-                contactSingledata["properties"][0]["id"]
+              contactSingledata["properties"] &&
+              contactSingledata["properties"][0] &&
+              contactSingledata["properties"][0]["id"]
                 ? contactSingledata["properties"][0]["id"]
                 : "",
             label:
               contactSingledata &&
-                contactSingledata["properties"] &&
-                contactSingledata["properties"][0] &&
-                contactSingledata["properties"][0]["display_name"]
+              contactSingledata["properties"] &&
+              contactSingledata["properties"][0] &&
+              contactSingledata["properties"][0]["display_name"]
                 ? contactSingledata["properties"][0]["display_name"]
                 : "",
           };
         tempData["select_property"] = {
           id:
             contactSingledata &&
-              contactSingledata["properties"] &&
-              contactSingledata["properties"][0] &&
-              contactSingledata["properties"][0]["id"]
+            contactSingledata["properties"] &&
+            contactSingledata["properties"][0] &&
+            contactSingledata["properties"][0]["id"]
               ? contactSingledata["properties"][0]["id"]
               : "",
           label:
             contactSingledata &&
-              contactSingledata["properties"] &&
-              contactSingledata["properties"][0] &&
-              contactSingledata["properties"][0]["display_name"]
+            contactSingledata["properties"] &&
+            contactSingledata["properties"][0] &&
+            contactSingledata["properties"][0]["display_name"]
               ? contactSingledata["properties"][0]["display_name"]
               : "",
         };
@@ -274,28 +274,28 @@ function ContactsCreate(props) {
           o.value = {
             id:
               contactSingledata &&
-                contactSingledata["parent"] &&
-                contactSingledata["parent"]["id"]
+              contactSingledata["parent"] &&
+              contactSingledata["parent"]["id"]
                 ? contactSingledata["parent"]["id"]
                 : "",
             label:
               contactSingledata &&
-                contactSingledata["parent"] &&
-                contactSingledata["parent"]["first_name"]
+              contactSingledata["parent"] &&
+              contactSingledata["parent"]["first_name"]
                 ? contactSingledata["parent"]["first_name"]
                 : "",
           };
         tempData["parent_contact"] = {
           id:
             contactSingledata &&
-              contactSingledata["parent"] &&
-              contactSingledata["parent"]["id"]
+            contactSingledata["parent"] &&
+            contactSingledata["parent"]["id"]
               ? contactSingledata["parent"]["id"]
               : "",
           label:
             contactSingledata &&
-              contactSingledata["parent"] &&
-              contactSingledata["parent"]["first_name"]
+            contactSingledata["parent"] &&
+            contactSingledata["parent"]["first_name"]
               ? contactSingledata["parent"]["first_name"]
               : "",
         };
@@ -304,154 +304,154 @@ function ContactsCreate(props) {
       });
       setContactdetails(newContactdetails);
 
-      var newBankdetails = Bankdetails.map((o) => {
+      var newBankdetails = Bankdetails.map(o => {
         if (o.key == "account_number")
           o.value =
             contactSingledata.billing_details &&
-              contactSingledata.billing_details.account_number
+            contactSingledata.billing_details.account_number
               ? contactSingledata.billing_details.account_number
               : "";
         tempData["account_number"] =
           contactSingledata.billing_details &&
-            contactSingledata.billing_details.account_number
+          contactSingledata.billing_details.account_number
             ? contactSingledata.billing_details.account_number
             : "";
 
         if (o.key == "account_name")
           o.value =
             contactSingledata.billing_details &&
-              contactSingledata.billing_details.account_name
+            contactSingledata.billing_details.account_name
               ? contactSingledata.billing_details.account_name
               : "";
         tempData["account_name"] =
           contactSingledata.billing_details &&
-            contactSingledata.billing_details.account_name
+          contactSingledata.billing_details.account_name
             ? contactSingledata.billing_details.account_name
             : "";
 
         if (o.key == "bank_name")
           o.value =
             contactSingledata.billing_details &&
-              contactSingledata.billing_details.bank_name
+            contactSingledata.billing_details.bank_name
               ? contactSingledata.billing_details.bank_name
               : "";
         tempData["bank_name"] =
           contactSingledata.billing_details &&
-            contactSingledata.billing_details.bank_name
+          contactSingledata.billing_details.bank_name
             ? contactSingledata.billing_details.bank_name
             : "";
 
         if (o.key == "ifsc_code")
           o.value =
             contactSingledata.billing_details &&
-              contactSingledata.billing_details.ifsc_code
+            contactSingledata.billing_details.ifsc_code
               ? contactSingledata.billing_details.ifsc_code
               : "";
         tempData["ifsc_code"] =
           contactSingledata.billing_details &&
-            contactSingledata.billing_details.ifsc_code
+          contactSingledata.billing_details.ifsc_code
             ? contactSingledata.billing_details.ifsc_code
             : "";
 
         if (o.key == "upi_id")
           o.value =
             contactSingledata.billing_details &&
-              contactSingledata.billing_details.upi
+            contactSingledata.billing_details.upi
               ? contactSingledata.billing_details.upi
               : "";
         tempData["upi_id"] =
           contactSingledata.billing_details &&
-            contactSingledata.billing_details.upi
+          contactSingledata.billing_details.upi
             ? contactSingledata.billing_details.upi
             : "";
         return o;
       });
       setBankdetails(newBankdetails);
 
-      var newExtrainfo = Extrainfo.map((o) => {
+      var newExtrainfo = Extrainfo.map(o => {
         if (o.key == "dob")
           o.value =
             contactSingledata.additional_information &&
-              contactSingledata.additional_information.date_of_birth
+            contactSingledata.additional_information.date_of_birth
               ? moment(
-                contactSingledata.additional_information.date_of_birth
-              ).format("yyyy-MM-DD")
+                  contactSingledata.additional_information.date_of_birth
+                ).format("yyyy-MM-DD")
               : "";
         tempData["dob"] =
           contactSingledata.additional_information &&
-            contactSingledata.additional_information.date_of_birth
+          contactSingledata.additional_information.date_of_birth
             ? contactSingledata.additional_information.date_of_birth
             : "";
 
         if (o.key == "emergency_no")
           o.value =
             contactSingledata.additional_information &&
-              contactSingledata.additional_information.emergency_contact
+            contactSingledata.additional_information.emergency_contact
               ? contactSingledata.additional_information.emergency_contact
               : "";
         tempData["emergency_no"] =
           contactSingledata.additional_information &&
-            contactSingledata.additional_information.emergency_contact
+          contactSingledata.additional_information.emergency_contact
             ? contactSingledata.additional_information.emergency_contact
             : "";
 
         if (o.key == "additional_info")
           o.value =
             contactSingledata.additional_information &&
-              contactSingledata.additional_information.additional_information
+            contactSingledata.additional_information.additional_information
               ? contactSingledata.additional_information.additional_information
               : "";
         tempData["additional_info"] =
           contactSingledata.additional_information &&
-            contactSingledata.additional_information.additional_information
+          contactSingledata.additional_information.additional_information
             ? contactSingledata.additional_information.additional_information
             : "";
 
         if (o.key == "additional_contact")
           o.value =
             contactSingledata.additional_information &&
-              contactSingledata.additional_information.additional_contact
+            contactSingledata.additional_information.additional_contact
               ? contactSingledata.additional_information.additional_contact
               : "";
         tempData["additional_contact"] =
           contactSingledata.additional_information &&
-            contactSingledata.additional_information.additional_contact
+          contactSingledata.additional_information.additional_contact
             ? contactSingledata.additional_information.additional_contact
             : "";
 
         if (o.key == "notes")
           o.value =
             contactSingledata.additional_information &&
-              contactSingledata.additional_information.notes
+            contactSingledata.additional_information.notes
               ? contactSingledata.additional_information.notes
               : "";
         tempData["notes"] =
           contactSingledata.additional_information &&
-            contactSingledata.additional_information.notes
+          contactSingledata.additional_information.notes
             ? contactSingledata.additional_information.notes
             : "";
 
         if (o.key == "website_url")
           o.value =
             contactSingledata.additional_information &&
-              contactSingledata.additional_information.website_url
+            contactSingledata.additional_information.website_url
               ? contactSingledata.additional_information.website_url
               : "";
         tempData["website_url"] =
           contactSingledata.additional_information &&
-            contactSingledata.additional_information.website_url
+          contactSingledata.additional_information.website_url
             ? contactSingledata.additional_information.website_url
             : "";
 
         if (o.key == "gst_no")
           o.value =
             contactSingledata.additional_information &&
-              contactSingledata.additional_information.gst_no
+            contactSingledata.additional_information.gst_no
               ? contactSingledata.additional_information.gst_no
               : "";
         tempData["gst_no"] =
           contactSingledata.additional_information &&
-            contactSingledata.additional_information.gst_no
+          contactSingledata.additional_information.gst_no
             ? contactSingledata.additional_information.gst_no
             : "";
         return o;
@@ -588,7 +588,7 @@ function ContactsCreate(props) {
       outline: "contained",
       key: "add_custom_field",
       text: "Add custom fields",
-      width: "280px"
+      width: "280px",
     },
   ]);
 
@@ -690,8 +690,7 @@ function ContactsCreate(props) {
     },
   ]);
 
-  const setRadioType = (prop, value) => {
-  };
+  const setRadioType = (prop, value) => {};
 
   const handleClose = () => {
     setShow(false);
@@ -805,7 +804,7 @@ function ContactsCreate(props) {
     switch (key) {
       case "location": {
         setLocationForm(
-          LocationForm.map((o) => {
+          LocationForm.map(o => {
             if (o.key == key) return { ...o, value: value };
             return o;
           })
@@ -815,7 +814,7 @@ function ContactsCreate(props) {
       }
       case "country": {
         setLocationForm(
-          LocationForm.map((o) => {
+          LocationForm.map(o => {
             if (o.key == key) return { ...o, value: value };
             return o;
           })
@@ -825,7 +824,7 @@ function ContactsCreate(props) {
       }
       case "state": {
         setLocationForm(
-          LocationForm.map((o) => {
+          LocationForm.map(o => {
             if (o.key == key) return { ...o, value: value };
             return o;
           })
@@ -841,7 +840,7 @@ function ContactsCreate(props) {
     switch (key) {
       case "select_property": {
         setContactdetails(
-          Contactdetails.map((o) => {
+          Contactdetails.map(o => {
             if (o.key == key) return { ...o, value: value };
             return o;
           })
@@ -851,7 +850,7 @@ function ContactsCreate(props) {
       }
       case "parent_contact": {
         setContactdetails(
-          Contactdetails.map((o) => {
+          Contactdetails.map(o => {
             if (o.key == key) return { ...o, value: value };
             return o;
           })
@@ -865,7 +864,7 @@ function ContactsCreate(props) {
   function handleClickEditContact(i) {
     setindexAddress(i);
     setShow(true);
-    var newLocationForm = LocationForm.map((o) => {
+    var newLocationForm = LocationForm.map(o => {
       if (o.key == "location_name")
         o.value =
           tempContacts[i] && tempContacts[i].location_name
@@ -919,7 +918,7 @@ function ContactsCreate(props) {
           tempContacts[i] && tempContacts[i].address_type_id
             ? tempContacts[i].address_type_id
             : 3;
-        o.sub.map((o) => {
+        o.sub.map(o => {
           if (o.value == tempContacts[i]?.address_type_id)
             return (o.checked = true);
           else return (o.checked = false);
@@ -929,14 +928,14 @@ function ContactsCreate(props) {
         o.value = {
           id:
             tempContacts[i] &&
-              tempContacts[i].location &&
-              tempContacts[i].location["id"]
+            tempContacts[i].location &&
+            tempContacts[i].location["id"]
               ? tempContacts[i].location["id"]
               : "",
           label:
             tempContacts[i] &&
-              tempContacts[i].location &&
-              tempContacts[i].location["display_name"]
+            tempContacts[i].location &&
+            tempContacts[i].location["display_name"]
               ? tempContacts[i].location["display_name"]
               : "",
         };
@@ -944,14 +943,14 @@ function ContactsCreate(props) {
         o.value = {
           id:
             tempContacts[i] &&
-              tempContacts[i].country &&
-              tempContacts[i].country["id"]
+            tempContacts[i].country &&
+            tempContacts[i].country["id"]
               ? tempContacts[i].country["id"]
               : "",
           label:
             tempContacts[i] &&
-              tempContacts[i].country &&
-              tempContacts[i].country["name"]
+            tempContacts[i].country &&
+            tempContacts[i].country["name"]
               ? tempContacts[i].country["name"]
               : "",
         };
@@ -959,21 +958,21 @@ function ContactsCreate(props) {
         o.value = {
           id:
             tempContacts[i] &&
-              tempContacts[i].state &&
-              tempContacts[i].state["id"]
+            tempContacts[i].state &&
+            tempContacts[i].state["id"]
               ? tempContacts[i].state["id"]
               : "",
           label:
             tempContacts[i] &&
-              tempContacts[i].state &&
-              tempContacts[i].state["name"]
+            tempContacts[i].state &&
+            tempContacts[i].state["name"]
               ? tempContacts[i].state["name"]
               : "",
         };
       return o;
     });
     var newLocationForm1 = {};
-    newLocationForm.map((o) => {
+    newLocationForm.map(o => {
       newLocationForm1[o.key] = o.value;
     });
     setnewlocationData(newLocationForm1);
@@ -983,19 +982,19 @@ function ContactsCreate(props) {
   const handelInputChangeLocation = (key, value) => {
     setnewlocationData({ ...newlocationData, [key]: value });
     try {
-      var newLocationForm = LocationForm.map((o) => {
+      var newLocationForm = LocationForm.map(o => {
         if (o.key == key) o.value = value;
         return o;
       });
       setLocationForm(newLocationForm);
-    } catch (e) { }
+    } catch (e) {}
   };
 
   const handelClickChange = () => {
     obj = {
       key: "",
-      value: ""
-    }
+      value: "",
+    };
     customCount = customCount + 1;
     var tempField = {
       label: "Custom label",
@@ -1005,52 +1004,50 @@ function ContactsCreate(props) {
 
       labelkey: "label_custome_" + customCount,
       fieldkey: "field_custome_" + customCount,
-    }
+    };
     setExtrainfo(Extrainfo => [...Extrainfo, tempField]);
-  }
+  };
 
   const handelInputChange = (key, value, custom) => {
-    if (custom == 'custom') {
-      if (key.split('_')[0] == "label") {
+    if (custom == "custom") {
+      if (key.split("_")[0] == "label") {
         obj.key = value;
-        customeFields[key.split('_')[2]] = obj;
-      }
-      else {
+        customeFields[key.split("_")[2]] = obj;
+      } else {
         obj.value = value;
-        customeFields[key.split('_')[2]] = obj;
+        customeFields[key.split("_")[2]] = obj;
       }
-    }
-    else {
+    } else {
       tempData[key] = value;
     }
     try {
-      var newContactdetails = Contactdetails.map((o) => {
+      var newContactdetails = Contactdetails.map(o => {
         if (o.key == key) o.value = value;
         return o;
       });
       setContactdetails(newContactdetails);
-    } catch (e) { }
+    } catch (e) {}
     try {
-      var newBankdetails = Bankdetails.map((o) => {
+      var newBankdetails = Bankdetails.map(o => {
         if (o.key == key) o.value = value;
         return o;
       });
       setBankdetails(newBankdetails);
-    } catch (e) { }
+    } catch (e) {}
     try {
-      var newExtrainfo = Extrainfo.map((o) => {
+      var newExtrainfo = Extrainfo.map(o => {
         if (o.key == key) o.value = value;
         return o;
       });
       setExtrainfo(newExtrainfo);
-    } catch (e) { }
+    } catch (e) {}
     try {
-      var newLocationForm = LocationForm.map((o) => {
+      var newLocationForm = LocationForm.map(o => {
         if (o.key == key) o.value = value;
         return o;
       });
       setLocationForm(newLocationForm);
-    } catch (e) { }
+    } catch (e) {}
   };
 
   const GetAddressData = () => {
@@ -1061,16 +1058,16 @@ function ContactsCreate(props) {
     }
   };
 
-  const handleButtonClick = (key) => {
+  const handleButtonClick = key => {
     for (let i = 0; i < tempContacts.length; i++) {
       tempContacts[i]["location"] = location_type.find(
-        (o) => o.id == tempContacts[i]["location"]
+        o => o.id == tempContacts[i]["location"]
       );
       tempContacts[i]["country"] = countries_data.find(
-        (o) => o.id == tempContacts[i]["country"]
+        o => o.id == tempContacts[i]["country"]
       );
       tempContacts[i]["state"] = states_data.find(
-        (o) => o.id == tempContacts[i]["state"]
+        o => o.id == tempContacts[i]["state"]
       );
     }
     var tempImage = {};
@@ -1160,18 +1157,18 @@ function ContactsCreate(props) {
     //setContactType(value);
     let newArray5 = [];
     if (prop == "contact_type") {
-      var OldState = Contactdetails.map((o) => {
+      var OldState = Contactdetails.map(o => {
         if (o.key == prop)
-          o.sub.map((p) => {
+          o.sub.map(p => {
             p.checked = false;
             return p;
           });
         return o;
       });
       setContactdetails(OldState);
-      var newState = Contactdetails.map((o) => {
+      var newState = Contactdetails.map(o => {
         if (o.key == prop)
-          o.sub.map((p) => {
+          o.sub.map(p => {
             if (p.value == value) p.checked = true;
             return p;
           });
@@ -1288,7 +1285,7 @@ function ContactsCreate(props) {
     tempData[prop] = value;
 
     if (props && props.id) {
-      var newContactdetails = newArray5.map((o) => {
+      var newContactdetails = newArray5.map(o => {
         if (o.key == "first_name" && tempData?.contact_type == 57)
           o.value = tempData?.first_name;
 
@@ -1321,9 +1318,9 @@ function ContactsCreate(props) {
 
   const handelRadionButtononChangeLocation = (prop, value) => {
     if (prop == "address_type_id") {
-      var OldState = LocationForm.map((o) => {
+      var OldState = LocationForm.map(o => {
         if (o.key == prop)
-          o.sub.map((p) => {
+          o.sub.map(p => {
             p.checked = false;
             return p;
           });
@@ -1331,9 +1328,9 @@ function ContactsCreate(props) {
       });
       setLocationForm(OldState);
 
-      var newState = LocationForm.map((o) => {
+      var newState = LocationForm.map(o => {
         if (o.key == prop)
-          o.sub.map((p) => {
+          o.sub.map(p => {
             if (p.value == value) p.checked = true;
             return p;
           });
@@ -1346,9 +1343,9 @@ function ContactsCreate(props) {
     //setnewlocationData({ ...newlocationData, [prop]: parseInt(value) });
   };
 
-  const handelCheckBoxonChange = (field) => {
+  const handelCheckBoxonChange = field => {
     if (field.key == "mark_default_address") {
-      var newState = LocationForm.map((o) => {
+      var newState = LocationForm.map(o => {
         if (o.key == field.key) {
           o.isChecked = !o.isChecked;
         }
@@ -1363,7 +1360,7 @@ function ContactsCreate(props) {
     <>
       <AddForm
         header={"Contact Details"}
-        data={Contactdetails.map((field) => {
+        data={Contactdetails.map(field => {
           switch (field.key) {
             // case 'contact_type':
             //     field.sub = contact_type.map(o => {
@@ -1374,7 +1371,7 @@ function ContactsCreate(props) {
             //     });
             //     break;
             case "select_property":
-              field.data = contact_property.map((o) => {
+              field.data = contact_property.map(o => {
                 return {
                   id: o.id,
                   label: o.display_name,
@@ -1382,7 +1379,7 @@ function ContactsCreate(props) {
               });
               break;
             case "parent_contact":
-              field.data = contacts_data.map((o) => {
+              field.data = contacts_data.map(o => {
                 return {
                   id: o.id,
                   label: o.first_name,
@@ -1547,22 +1544,22 @@ function ContactsCreate(props) {
           >
             <AddForm
               header={"Location Details"}
-              data={LocationForm.map((field) => {
+              data={LocationForm.map(field => {
                 switch (field.key) {
                   case "location": {
-                    field.data = location_type.map((o) => {
+                    field.data = location_type.map(o => {
                       return { id: o.id, label: o.display_name };
                     });
                     break;
                   }
                   case "country": {
-                    field.data = countries_data.map((o) => {
+                    field.data = countries_data.map(o => {
                       return { id: o.id, label: o.name };
                     });
                     break;
                   }
                   case "state": {
-                    field.data = states_data.map((o) => {
+                    field.data = states_data.map(o => {
                       return { id: o.id, label: o.name };
                     });
                     break;
@@ -1582,7 +1579,7 @@ function ContactsCreate(props) {
 
       <AddForm
         header={"Bank Details"}
-        data={Bankdetails.map((field) => {
+        data={Bankdetails.map(field => {
           return field;
         })}
         handelInputChange={handelInputChange}
@@ -1590,10 +1587,11 @@ function ContactsCreate(props) {
 
       <AddForm
         header={"Extra Information"}
-        data={Extrainfo.map((field) => {
+        data={Extrainfo.map(field => {
           return field;
         })}
-        handelInputChange={handelInputChange} handelClickChange={handelClickChange}
+        handelInputChange={handelInputChange}
+        handelClickChange={handelClickChange}
       />
 
       <AddFormFooter_Button
@@ -1606,24 +1604,17 @@ function ContactsCreate(props) {
 
 export default ContactsCreate;
 
-
-
-
-
-
-
-
 /*
-Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
-All rights reserved.			
-This program is free software: you can redistribute it and/or modify			
-it under the terms of the GNU General Public License as published by			
-the Free Software Foundation, either version 3 of the License, or			
-(at your option) any later version.			
-This program is distributed in the hope that it will be useful,			
-but WITHOUT ANY WARRANTY; without even the implied warranty of			
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
-GNU General Public License for more details.			
-You should have received a copy of the GNU General Public License			
-along with this program. If not, see <http://www.gnu.org/licenses/>.			
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
 */

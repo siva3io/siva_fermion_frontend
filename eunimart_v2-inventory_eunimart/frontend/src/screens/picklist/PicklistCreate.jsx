@@ -38,13 +38,13 @@ function PicklistCreate(props) {
     doctypedata,
     internaltransdata,
     productsdata,
-  } = useSelector((state) => state.picklistdata);
+  } = useSelector(state => state.picklistdata);
 
   const {
     PickListSourceDocumentTypesData,
     ShippingOrdersData,
     ShippingOrdersViewData,
-  } = useSelector((state) => state.data);
+  } = useSelector(state => state.data);
 
   useEffect(() => {
     dispatch(loadContacts());
@@ -67,7 +67,7 @@ function PicklistCreate(props) {
     }
   }, []);
 
-  const picklistApiViewData = useSelector((state) => state.picklistviewdata);
+  const picklistApiViewData = useSelector(state => state.picklistviewdata);
 
   const [picklistViewData, setpicklistViewData] = useState([]);
   useEffect(() => {
@@ -80,12 +80,11 @@ function PicklistCreate(props) {
 
   const [mainData, setMainData] = useState({});
 
-
   useEffect(() => {
     if (props && props.id && picklistViewData) {
       var newMainData = [];
 
-      var newPicklistdetails = picklistdetails.map((o) => {
+      var newPicklistdetails = picklistdetails.map(o => {
         if (o.key == "pick_list_id")
           o.value = picklistViewData?.pick_list_number;
         if (o.key == "assignee_to")
@@ -135,7 +134,7 @@ function PicklistCreate(props) {
       setpicklistdetails(newPicklistdetails);
       var nweselectedProductData = [];
       if (picklistViewData.picklist_lines)
-        nweselectedProductData = picklistViewData.picklist_lines.map((o) => {
+        nweselectedProductData = picklistViewData.picklist_lines.map(o => {
           return {
             product_id: o.product_id,
             sku_id: o.product.sku_code,
@@ -154,7 +153,7 @@ function PicklistCreate(props) {
         });
       setSelectedProductData(nweselectedProductData);
 
-      var newOtherDetails = otherdetails.map((o) => {
+      var newOtherDetails = otherdetails.map(o => {
         if (o.key == "notes") o.value = picklistViewData?.external_notes;
         return o;
       });
@@ -166,7 +165,7 @@ function PicklistCreate(props) {
         ...newOtherDetails,
       ];
       var keyValuePairMainData = {};
-      newMainData.map((o) => {
+      newMainData.map(o => {
         if (o.key != null) {
           keyValuePairMainData[o.key] = o.value;
         }
@@ -176,7 +175,7 @@ function PicklistCreate(props) {
       });
       var idx = 0;
       keyValuePairMainData["picklist_lines"] = [];
-      nweselectedProductData.map((o) => {
+      nweselectedProductData.map(o => {
         keyValuePairMainData["picklist_lines"][idx] = o;
         idx += 1;
       });
@@ -184,7 +183,7 @@ function PicklistCreate(props) {
     }
   }, [picklistViewData, internaltransdata, doctypedata, contactsdata]);
 
-  const { productVariantData } = useSelector((state) => state.inventorydata);
+  const { productVariantData } = useSelector(state => state.inventorydata);
 
   const [picklistdetails, setpicklistdetails] = useState([
     {
@@ -252,8 +251,8 @@ function PicklistCreate(props) {
       key: "sku_id",
       label: "SKU ID",
       type: "select",
-      data: useSelector((state) =>
-        state.inventorydata.productVariantData.map((o) => {
+      data: useSelector(state =>
+        state.inventorydata.productVariantData.map(o => {
           return { id: o.id, label: o.sku_id };
         })
       ),
@@ -302,14 +301,14 @@ function PicklistCreate(props) {
       key: "Action",
       label: "Action",
       type: "view",
-      renderView: (item) => (
+      renderView: item => (
         <div>
           <DeleteIcon
             onClick={() => {
               setdeletedProducts([...deletedProducts, item]);
               setSelectedProductData(
                 selectedProductData.filter(
-                  (o) => o?.product_id != item?.product_id
+                  o => o?.product_id != item?.product_id
                 )
               );
             }}
@@ -321,9 +320,9 @@ function PicklistCreate(props) {
 
   const [selectedProductData, setSelectedProductData] = useState([]);
 
-  const handelCheckBoxonChange = (field) => {
+  const handelCheckBoxonChange = field => {
     if (field.key == "auto_create_picklist_number") {
-      var neworder = picklistdetails.map((o) => {
+      var neworder = picklistdetails.map(o => {
         if (o.key == "pick_list_id") o.disabled = !field.isChecked;
         return o;
       });
@@ -331,7 +330,7 @@ function PicklistCreate(props) {
     }
 
     if (field.key == "auto_create_picklist_number") {
-      var newState = picklistdetails.map((o) => {
+      var newState = picklistdetails.map(o => {
         if (o.key == field.key) {
           o.isChecked = !o.isChecked;
         }
@@ -369,7 +368,7 @@ function PicklistCreate(props) {
     switch (key) {
       case "assignee_to": {
         setpicklistdetails(
-          picklistdetails.map((o) => {
+          picklistdetails.map(o => {
             if (o.key == key) return { ...o, value: value };
             return o;
           })
@@ -379,7 +378,7 @@ function PicklistCreate(props) {
       }
       case "warehouse_name": {
         setpicklistdetails(
-          picklistdetails.map((o) => {
+          picklistdetails.map(o => {
             if (o.key == key) return { ...o, value: value };
             return o;
           })
@@ -389,7 +388,7 @@ function PicklistCreate(props) {
       }
       case "source_documents_type": {
         setpicklistdetails(
-          picklistdetails.map((o) => {
+          picklistdetails.map(o => {
             if (o.key == key) return { ...o, value: value };
             return o;
           })
@@ -399,7 +398,7 @@ function PicklistCreate(props) {
       }
       case "source_document_id": {
         setpicklistdetails(
-          picklistdetails.map((o) => {
+          picklistdetails.map(o => {
             if (o.key == key) return { ...o, value: value };
             return o;
           })
@@ -409,7 +408,7 @@ function PicklistCreate(props) {
       }
       case "select_customers": {
         setpicklistdetails(
-          picklistdetails.map((o) => {
+          picklistdetails.map(o => {
             if (o.key == key) return { ...o, value: value };
             return o;
           })
@@ -427,7 +426,7 @@ function PicklistCreate(props) {
       try {
         var newSelectedProductData = selectedProductData;
         if (key == "sku_id") {
-          var selectVarient = productVariantData.find((o) => o.id == value.id);
+          var selectVarient = productVariantData.find(o => o.id == value.id);
           newSelectedProductData[index]["product_name"] =
             selectVarient["product_name"];
           newSelectedProductData[index]["product_variant_id"] =
@@ -457,7 +456,7 @@ function PicklistCreate(props) {
       } catch (e) {}
     }
     try {
-      var newpicklistdetails = picklistdetails.map((o) => {
+      var newpicklistdetails = picklistdetails.map(o => {
         if (o.key == key) o.value = value;
         return o;
       });
@@ -465,7 +464,7 @@ function PicklistCreate(props) {
     } catch (e) {}
 
     try {
-      var newOtherdetails = otherdetails.map((o) => {
+      var newOtherdetails = otherdetails.map(o => {
         if (o.key == key) o.value = value;
         return o;
       });
@@ -531,7 +530,7 @@ function PicklistCreate(props) {
       mainData.source_documents_type.lookup_code == "SHIPPING_ORDERS"
     ) {
       var newMainData = [];
-      var newpicklistdetails = picklistdetails.map((o) => {
+      var newpicklistdetails = picklistdetails.map(o => {
         if (o.key == "reference_id")
           o.value = ShippingOrdersViewData?.reference_number;
         return o;
@@ -542,7 +541,7 @@ function PicklistCreate(props) {
       let nweselectedProductData2 = [];
       if (ShippingOrdersViewData.shipping_order_lines)
         nweselectedProductData2 =
-          ShippingOrdersViewData.shipping_order_lines.map((o) => {
+          ShippingOrdersViewData.shipping_order_lines.map(o => {
             return {
               product_id: o.product_variant?.id,
               sku_id: o.product_variant?.sku_id,
@@ -561,7 +560,7 @@ function PicklistCreate(props) {
 
       var keyValuePairMainData = {};
 
-      newMainData.map((o) => {
+      newMainData.map(o => {
         if (o.key != null) {
           keyValuePairMainData[o.key] = o.value;
         }
@@ -571,7 +570,7 @@ function PicklistCreate(props) {
     }
   }, [ShippingOrdersViewData]);
 
-  const handleButtonClick = (key) => {
+  const handleButtonClick = key => {
     if (key == "Cancel") {
       history.push("/pickList");
       return;
@@ -579,7 +578,7 @@ function PicklistCreate(props) {
     var tempData = selectedProductData.slice();
 
     if (props && props.id) {
-      deletedProducts.forEach((e) => {
+      deletedProducts.forEach(e => {
         dispatch(deletePicklistProductData(props.id, e?.product_id));
       });
     }
@@ -601,7 +600,7 @@ function PicklistCreate(props) {
 
     var body = {
       auto_create_picklist_number: picklistdetails.find(
-        (row) => row.key == "auto_create_picklist_number"
+        row => row.key == "auto_create_picklist_number"
       )?.isChecked,
       pick_list_number: mainData?.pick_list_id,
       reference_number: mainData?.reference_id,
@@ -659,10 +658,10 @@ function PicklistCreate(props) {
     <>
       <AddForm
         header={"Pick list Details"}
-        data={picklistdetails.map((field) => {
+        data={picklistdetails.map(field => {
           switch (field.key) {
             case "assignee_to":
-              field.data = contactsdata.map((o) => {
+              field.data = contactsdata.map(o => {
                 return {
                   id: o.id,
                   label: o.first_name,
@@ -670,7 +669,7 @@ function PicklistCreate(props) {
               });
               break;
             case "warehouse_name":
-              field.data = locationsdata.map((o) => {
+              field.data = locationsdata.map(o => {
                 return {
                   id: o.id,
                   label: o.name,
@@ -678,7 +677,7 @@ function PicklistCreate(props) {
               });
               break;
             case "source_documents_type":
-              field.data = PickListSourceDocumentTypesData.map((o) => {
+              field.data = PickListSourceDocumentTypesData.map(o => {
                 return {
                   id: o.id,
                   label: o.display_name,
@@ -691,13 +690,13 @@ function PicklistCreate(props) {
                 mainData &&
                 mainData.source_documents_type &&
                 mainData.source_documents_type.lookup_code == "SHIPPING_ORDERS"
-                  ? ShippingOrdersData.map((o) => {
+                  ? ShippingOrdersData.map(o => {
                       return { id: o.id, label: o.shipping_number };
                     })
                   : null;
               break;
             case "select_customers":
-              field.data = contactsdata.map((o) => {
+              field.data = contactsdata.map(o => {
                 return {
                   id: o.id,
                   label: o.first_name,
@@ -728,7 +727,7 @@ function PicklistCreate(props) {
 
       <AddForm
         header={"Other Details"}
-        data={otherdetails.map((field) => {
+        data={otherdetails.map(field => {
           return field;
         })}
         handelInputChange={handelInputChange}
@@ -745,17 +744,17 @@ function PicklistCreate(props) {
 
 export default PicklistCreate;
 
-/*			
-Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)			
-All rights reserved.			
-This program is free software: you can redistribute it and/or modify			
-it under the terms of the GNU General Public License as published by			
-the Free Software Foundation, either version 3 of the License, or			
-(at your option) any later version.			
-This program is distributed in the hope that it will be useful,			
-but WITHOUT ANY WARRANTY; without even the implied warranty of			
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the			
-GNU General Public License for more details.			
-You should have received a copy of the GNU General Public License			
-along with this program. If not, see <http://www.gnu.org/licenses/>.			
+/*
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
 */

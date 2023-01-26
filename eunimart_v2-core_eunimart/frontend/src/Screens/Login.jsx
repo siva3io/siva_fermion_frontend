@@ -22,7 +22,7 @@ import enterOtp from "../../src/Assets/Images/enterOtp.jpeg";
 import redCardVector from "../../src/Assets/Images/redCardVector.png";
 import password from "../../src/Assets/Images/password.png";
 import "../App.css";
-import video from '../../src/Assets/Images/login_background.mp4';
+import video from "../../src/Assets/Images/login_background.mp4";
 
 import login_background from "../../src/Assets/Images/login_background.mp4";
 import userData from "../Services/userData";
@@ -35,11 +35,15 @@ const Login = ({ setSessionId }) => {
   let number = localStorage.getItem("email") || "";
   let lengthNumber = number?.length;
   let splictNumber = number.split("");
-  let b = '';
+  let b = "";
   for (let i = 0; i < lengthNumber - 3; i++) {
-    b += 'X'
+    b += "X";
   }
-  b = b + splictNumber[lengthNumber - 3] + splictNumber[lengthNumber - 2] + splictNumber[lengthNumber - 1];
+  b =
+    b +
+    splictNumber[lengthNumber - 3] +
+    splictNumber[lengthNumber - 2] +
+    splictNumber[lengthNumber - 1];
   // let b = "XXXXXXX" +splictNumber[7]+splictNumber[8]+splictNumber[9];
   let newStr = b;
   let otpVerify = sessionStorage.getItem("otp");
@@ -50,14 +54,14 @@ const Login = ({ setSessionId }) => {
   }, []);
   console.log(newUserVerify, "newUserVerify");
   console.log(personId, "personId");
-  const validate = (values) => {
+  const validate = values => {
     const errors = {};
     if (!values.email) {
       errors.email = "Please enter your Email/Phone Number";
     } else if (values.email.length < 9) {
       errors.email = "Must be 10 characters or greater";
     }
-    if (values['otp'] == " ") {
+    if (values["otp"] == " ") {
       console.log(values.otp, "pranathi_checking");
       if (!values.otp) {
         errors.otp = "OTP Required";
@@ -72,8 +76,7 @@ const Login = ({ setSessionId }) => {
       if (!values.otp) {
         console.log(values.otp, "pranathi_checking");
         // errors.otp = "OTP Required";
-      }
-      else if (values.otp.length < 6) {
+      } else if (values.otp.length < 6) {
         errors.otp = "Must be 6 characters";
       }
     }
@@ -88,7 +91,7 @@ const Login = ({ setSessionId }) => {
     },
 
     validate,
-    onSubmit: (e) => {
+    onSubmit: e => {
       PostData(e.email);
       localStorage.setItem("email", e.email);
     },
@@ -103,29 +106,41 @@ const Login = ({ setSessionId }) => {
     console.log(otp, "otp on entering");
   };
 
-
   const PostVerifyData = async (id, otp) => {
-    const verifyOtpResponse = await verifyOtpService(id, otp, "/auth/verify_otp");
+    const verifyOtpResponse = await verifyOtpService(
+      id,
+      otp,
+      "/auth/verify_otp"
+    );
     if (
       verifyOtpResponse &&
       verifyOtpResponse.data &&
       verifyOtpResponse.data.data["status"] === true
     ) {
       // localStorage.setItem("user_id", verifyOtpResponse.data.data.id);
-      console.log("verifyOtpResponse",verifyOtpResponse)
-      localStorage.setItem("user_data",JSON.stringify(verifyOtpResponse?.data?.data?.user));
-
+      console.log("verifyOtpResponse", verifyOtpResponse);
       localStorage.setItem(
-        "token",
-        verifyOtpResponse?.data?.data?.token
+        "user_data",
+        JSON.stringify(verifyOtpResponse?.data?.data?.user)
       );
+
+      localStorage.setItem("token", verifyOtpResponse?.data?.data?.token);
       localStorage.setItem(
         "Core_beta_x64",
         verifyOtpResponse?.data?.data?.token
       );
-      localStorage.setItem("access_template_id", verifyOtpResponse?.data?.data?.access_template_id);
-      console.log(verifyOtpResponse.data.data["token"], "token in verifyOtpResponse");
-      console.log(typeof (localStorage.getItem("newUser")), "local storage newuser");
+      localStorage.setItem(
+        "access_template_id",
+        verifyOtpResponse?.data?.data?.access_template_id
+      );
+      console.log(
+        verifyOtpResponse.data.data["token"],
+        "token in verifyOtpResponse"
+      );
+      console.log(
+        typeof localStorage.getItem("newUser"),
+        "local storage newuser"
+      );
 
       if (localStorage.getItem("newUser") === "true") {
         console.log(localStorage.getItem("newUser"), "local storage newuser");
@@ -133,8 +148,7 @@ const Login = ({ setSessionId }) => {
           navigate.push("/onBoarding");
         }, 1000);
         return () => clearTimeout(timer);
-      }
-      else {
+      } else {
         navigate.push("/home");
         console.log("old userInfo ");
       }
@@ -145,20 +159,19 @@ const Login = ({ setSessionId }) => {
       sessionStorage.removeItem("otp");
       sessionStorage.clear();
     }
-    const userAutData = await userData()
-    if(
-      userAutData && userAutData.data
-    )
-    {
-      localStorage.setItem("user_data",JSON.stringify(userAutData?.data?.data));
+    const userAutData = await userData();
+    if (userAutData && userAutData.data) {
+      localStorage.setItem(
+        "user_data",
+        JSON.stringify(userAutData?.data?.data)
+      );
 
-      console.log(userAutData,"userAutData")
+      console.log(userAutData, "userAutData");
     }
   };
   //verifyForm.onSubmit
 
-
-  const PostData = async (email) => {
+  const PostData = async email => {
     const loginResponse = await loginService(email, "/auth/user_login");
     if (
       loginResponse &&
@@ -169,20 +182,21 @@ const Login = ({ setSessionId }) => {
     ) {
       console.log(loginResponse.data.meta, "login successresponse");
       setStep("getOtp");
-      sessionStorage.setItem("loginDataResponse", loginResponse.data.meta["success"]);
+      sessionStorage.setItem(
+        "loginDataResponse",
+        loginResponse.data.meta["success"]
+      );
       // const loginResponseData = true;
       navigate.push("/login");
       localStorage.setItem("user_id", loginResponse.data.data.id);
       localStorage.setItem("user_data", loginResponse.data["user"]);
-      localStorage.setItem('token', loginResponse?.data?.data["token"]);
-      
+      localStorage.setItem("token", loginResponse?.data?.data["token"]);
 
-
+      localStorage.setItem("Core_beta_x64", loginResponse?.data?.data["token"]);
       localStorage.setItem(
-        "Core_beta_x64",
-        loginResponse?.data?.data["token"]
+        "access_template_id",
+        loginResponse?.data?.data?.access_template_id
       );
-      localStorage.setItem("access_template_id", loginResponse?.data?.data?.access_template_id);
       // var personId = loginResponse.data.data.id
       // console.log(personId,"personId");
 
@@ -196,18 +210,18 @@ const Login = ({ setSessionId }) => {
       setSessionId(loginResponse.data.data.id);
 
       // toast.success("Successfully Logged In");
-      localStorage.setItem(
-        "newUser",
-        loginResponse.data.data.new_user
-      );
+      localStorage.setItem("newUser", loginResponse.data.data.new_user);
     } else {
       setStepUser("userDoesntExist");
       // const errors = {};
       // errors.email = "User name does not exist.";
       // return errors;
       // console.log(loginResponse.meta.message,"toaster error");
-      toast.error(loginResponse &&
-        loginResponse.data && loginResponse.data["meta"]["success"]);
+      toast.error(
+        loginResponse &&
+          loginResponse.data &&
+          loginResponse.data["meta"]["success"]
+      );
       // navigate.push("/login");
     }
   };
@@ -216,9 +230,7 @@ const Login = ({ setSessionId }) => {
     vidRef.current.play();
   };
 
-
-
-  const keyDownHandler = (event) => {
+  const keyDownHandler = event => {
     if (event.key === "Enter") {
       // alert("You have typed ");
       verifyOtp();
@@ -259,9 +271,7 @@ const Login = ({ setSessionId }) => {
             </div>
 
             {/* {stepN && stepN !="userDoesntExist" && */}
-            {
-              stepN && stepN != "userDoesntExist" &&
-              stepN && stepN != "one" &&
+            {stepN && stepN != "userDoesntExist" && stepN && stepN != "one" && (
               <Box>
                 <Typography
                   fontFamily="Poppins"
@@ -273,23 +283,27 @@ const Login = ({ setSessionId }) => {
                 >
                   Welcome!
                 </Typography>
-              </Box>}
-            {stepN && stepN == "userDoesntExist"
-              && step1 && step1 != "getOtp" &&
-              <Box>
-                <Typography
-                  fontFamily="Poppins"
-                  fontSize="31px"
-                  fontWeight="700"
-                  textAlign="center"
-                  lineHeight="47px"
-                  color="#001661"
-                >
-                  Forgot Username?
-                </Typography>
-              </Box>}
+              </Box>
+            )}
+            {stepN &&
+              stepN == "userDoesntExist" &&
+              step1 &&
+              step1 != "getOtp" && (
+                <Box>
+                  <Typography
+                    fontFamily="Poppins"
+                    fontSize="31px"
+                    fontWeight="700"
+                    textAlign="center"
+                    lineHeight="47px"
+                    color="#001661"
+                  >
+                    Forgot Username?
+                  </Typography>
+                </Box>
+              )}
 
-            {stepN && stepN == "one" &&
+            {stepN && stepN == "one" && (
               <Box>
                 <Typography
                   fontFamily="Poppins"
@@ -302,7 +316,7 @@ const Login = ({ setSessionId }) => {
                   Forgot Username?
                 </Typography>
               </Box>
-            }
+            )}
             {/* {step1 && step1 == "mobile" && stepN && stepN !="one" &&   step1 && step1 != "getOtp" &&
             <Box>
             <Typography
@@ -317,17 +331,17 @@ const Login = ({ setSessionId }) => {
             </Typography>
           </Box>} */}
 
-
             {/* {loginForm.touched.password && loginForm.errors.password ? (
           <div className="errorMessage">{loginForm.errors.password}</div>
         ) : null} */}
             <form className="form-horizontal" onSubmit={loginForm.handleSubmit}>
-
               {loginForm.touched.email && loginForm.errors.email ? (
                 <div className="errorMessage">{loginForm.errors.email}</div>
               ) : null}
-              {step1 && step1 != "getOtp" &&
-                stepN && stepN != "userDoesntExist" && (
+              {step1 &&
+                step1 != "getOtp" &&
+                stepN &&
+                stepN != "userDoesntExist" && (
                   <Box
                     sx={{
                       padding: "12px 16px",
@@ -338,148 +352,154 @@ const Login = ({ setSessionId }) => {
                     noValidate
                     autoComplete="off"
                   >
-                    {stepN && stepN == "userDoesntExist"
-                      && step1 && step1 != "getOtp" &&
-                      <TextField
-                        variant="standard"
-                        placeholder="Please enter linked mobile number or email"
-                        className="form-control-inline"
-                        id="email"
-                        name="email"
-                        type="text"
-                        boxShadow="2px,2px,10px,rgba(0, 0, 0, 0.15)"
-                        fullWidth={true}
-                        InputProps={{
-                          startAdornment: (
-                            <img
-                              src={cardVector}
-                              style={{
-                                height: "20px",
-                                width: "20px",
-                                paddingRight: "14px",
-                                padding: "10px",
-                                cursor: "pointer",
-                              }}
-                            />
-                          ),
-                          disableUnderline: true,
-                          endAdornment: (
-                            <>
-                              {loginForm &&
-                                loginForm.values.email.length >= 9 &&
-                                step1 == "mobile" && (
-                                  <img
-                                    src={Vector}
-                                    style={{
-                                      height: "24px",
-                                      width: "24px",
-                                      paddingRight: "14px",
-                                      cursor: "pointer",
-                                    }}
-                                    onClick={() => {
-                                      loginForm.handleSubmit();
-                                      // setStep("getOtp");
-                                    }}
-                                  />
-                                )}
-                              {loginForm &&
-                                loginForm.values.email.length >= 9 &&
-                                step1 == "email" && (
-                                  <Typography
-                                    fontFamily="Inter"
-                                    fontSize="16px"
-                                    textAlign="right"
-                                    lineHeight="24px"
-                                    color="#416BFF"
-                                    width="124px"
-                                    height="24px"
-                                    marginRight="20.5px"
-                                    style={{ cursor: "pointer" }}
-                                    onClick={() => {
-                                      setStep("getOtp");
-                                    }}
-                                  >
-                                    Get OTP
-                                  </Typography>
-                                )}
-                            </>
-                          ),
-                        }}
-                        onChange={loginForm.handleChange}
-                        onBlur={loginForm.handleBlur}
-                        value={loginForm.values.email}
-                      />}
-                    {step1 && step1 != "getOtp" &&
-                      stepN && stepN != "userDoesntExist" &&
-                      <TextField
-                        variant="standard"
-                        placeholder="Mobile Number, Email or User Name"
-                        className="form-control-inline"
-                        id="email"
-                        name="email"
-                        type="text"
-                        boxShadow="2px,2px,10px,rgba(0, 0, 0, 0.15)"
-                        fullWidth={true}
-                        InputProps={{
-                          startAdornment: (
-                            <img
-                              src={cardVector}
-                              style={{
-                                height: "20px",
-                                width: "20px",
-                                paddingRight: "14px",
-                                padding: "10px",
-                                cursor: "pointer",
-                              }}
-                            />
-                          ),
-                          disableUnderline: true,
-                          endAdornment: (
-                            <>
-                              {loginForm &&
-                                loginForm.values.email.length >= 9 &&
-                                step1 == "mobile" && (
-                                  <img
-                                    src={Vector}
-                                    style={{
-                                      height: "24px",
-                                      width: "auto",
-                                      paddingRight: "14px",
-                                      cursor: "pointer",
-                                    }}
-                                    onClick={() => {
-                                      loginForm.handleSubmit();
-                                      // setStep("getOtp");
-                                    }}
-                                  />
-                                )}
-                              {loginForm &&
-                                loginForm.values.email.length >= 9 &&
-                                step1 == "email" && (
-                                  <Typography
-                                    fontFamily="Inter"
-                                    fontSize="16px"
-                                    textAlign="right"
-                                    lineHeight="24px"
-                                    color="#416BFF"
-                                    width="124px"
-                                    height="24px"
-                                    marginRight="20.5px"
-                                    style={{ cursor: "pointer" }}
-                                    onClick={() => {
-                                      setStep("getOtp");
-                                    }}
-                                  >
-                                    Get OTP
-                                  </Typography>
-                                )}
-                            </>
-                          ),
-                        }}
-                        onChange={loginForm.handleChange}
-                        onBlur={loginForm.handleBlur}
-                        value={loginForm.values.email}
-                      />}
+                    {stepN &&
+                      stepN == "userDoesntExist" &&
+                      step1 &&
+                      step1 != "getOtp" && (
+                        <TextField
+                          variant="standard"
+                          placeholder="Please enter linked mobile number or email"
+                          className="form-control-inline"
+                          id="email"
+                          name="email"
+                          type="text"
+                          boxShadow="2px,2px,10px,rgba(0, 0, 0, 0.15)"
+                          fullWidth={true}
+                          InputProps={{
+                            startAdornment: (
+                              <img
+                                src={cardVector}
+                                style={{
+                                  height: "20px",
+                                  width: "20px",
+                                  paddingRight: "14px",
+                                  padding: "10px",
+                                  cursor: "pointer",
+                                }}
+                              />
+                            ),
+                            disableUnderline: true,
+                            endAdornment: (
+                              <>
+                                {loginForm &&
+                                  loginForm.values.email.length >= 9 &&
+                                  step1 == "mobile" && (
+                                    <img
+                                      src={Vector}
+                                      style={{
+                                        height: "24px",
+                                        width: "24px",
+                                        paddingRight: "14px",
+                                        cursor: "pointer",
+                                      }}
+                                      onClick={() => {
+                                        loginForm.handleSubmit();
+                                        // setStep("getOtp");
+                                      }}
+                                    />
+                                  )}
+                                {loginForm &&
+                                  loginForm.values.email.length >= 9 &&
+                                  step1 == "email" && (
+                                    <Typography
+                                      fontFamily="Inter"
+                                      fontSize="16px"
+                                      textAlign="right"
+                                      lineHeight="24px"
+                                      color="#416BFF"
+                                      width="124px"
+                                      height="24px"
+                                      marginRight="20.5px"
+                                      style={{ cursor: "pointer" }}
+                                      onClick={() => {
+                                        setStep("getOtp");
+                                      }}
+                                    >
+                                      Get OTP
+                                    </Typography>
+                                  )}
+                              </>
+                            ),
+                          }}
+                          onChange={loginForm.handleChange}
+                          onBlur={loginForm.handleBlur}
+                          value={loginForm.values.email}
+                        />
+                      )}
+                    {step1 &&
+                      step1 != "getOtp" &&
+                      stepN &&
+                      stepN != "userDoesntExist" && (
+                        <TextField
+                          variant="standard"
+                          placeholder="Mobile Number, Email or User Name"
+                          className="form-control-inline"
+                          id="email"
+                          name="email"
+                          type="text"
+                          boxShadow="2px,2px,10px,rgba(0, 0, 0, 0.15)"
+                          fullWidth={true}
+                          InputProps={{
+                            startAdornment: (
+                              <img
+                                src={cardVector}
+                                style={{
+                                  height: "20px",
+                                  width: "20px",
+                                  paddingRight: "14px",
+                                  padding: "10px",
+                                  cursor: "pointer",
+                                }}
+                              />
+                            ),
+                            disableUnderline: true,
+                            endAdornment: (
+                              <>
+                                {loginForm &&
+                                  loginForm.values.email.length >= 9 &&
+                                  step1 == "mobile" && (
+                                    <img
+                                      src={Vector}
+                                      style={{
+                                        height: "24px",
+                                        width: "auto",
+                                        paddingRight: "14px",
+                                        cursor: "pointer",
+                                      }}
+                                      onClick={() => {
+                                        loginForm.handleSubmit();
+                                        // setStep("getOtp");
+                                      }}
+                                    />
+                                  )}
+                                {loginForm &&
+                                  loginForm.values.email.length >= 9 &&
+                                  step1 == "email" && (
+                                    <Typography
+                                      fontFamily="Inter"
+                                      fontSize="16px"
+                                      textAlign="right"
+                                      lineHeight="24px"
+                                      color="#416BFF"
+                                      width="124px"
+                                      height="24px"
+                                      marginRight="20.5px"
+                                      style={{ cursor: "pointer" }}
+                                      onClick={() => {
+                                        setStep("getOtp");
+                                      }}
+                                    >
+                                      Get OTP
+                                    </Typography>
+                                  )}
+                              </>
+                            ),
+                          }}
+                          onChange={loginForm.handleChange}
+                          onBlur={loginForm.handleBlur}
+                          value={loginForm.values.email}
+                        />
+                      )}
                     {console.log(loginForm, "login form updated")}
                   </Box>
                 )}
@@ -488,9 +508,8 @@ const Login = ({ setSessionId }) => {
                 <div className="errorMessage">{loginForm.errors.email}</div>
               ) : null} */}
 
-
               {/* //RedErrorCode */}
-              {stepN && stepN == "userDoesntExist" &&
+              {stepN && stepN == "userDoesntExist" && (
                 <Box
                   sx={{
                     padding: "12px 16px",
@@ -502,7 +521,6 @@ const Login = ({ setSessionId }) => {
                   noValidate
                   autoComplete="off"
                 >
-
                   <TextField
                     variant="standard"
                     placeholder="Mobile Number, Email or User Name"
@@ -541,8 +559,7 @@ const Login = ({ setSessionId }) => {
                               //      paddingRight: "14px",
                               //      cursor: "pointer",
                               //    }}
-                              <Box
-                                sx={{ cursor: "pointer" }}>
+                              <Box sx={{ cursor: "pointer" }}>
                                 <Typography
                                   fontFamily="Inter"
                                   fontSize="16px"
@@ -554,14 +571,13 @@ const Login = ({ setSessionId }) => {
                                   cursor="pointer"
                                   onClick={() => {
                                     // setStepUser("one");
-                                    window.location.reload()
+                                    window.location.reload();
                                     // localStorage.clear();
                                   }}
                                 >
                                   Retry
                                 </Typography>
                               </Box>
-
                             )}
                           {loginForm &&
                             loginForm.values.email.length > 9 &&
@@ -588,17 +604,16 @@ const Login = ({ setSessionId }) => {
                     }}
                     onChange={loginForm.handleChange}
                     onBlur={loginForm.handleBlur}
-                  //  value={loginForm.values.email}
+                    //  value={loginForm.values.email}
                   />
                   {console.log(loginForm, "login form updated")}
                 </Box>
-              }
+              )}
               {/* //RedErrorCode */}
               {/* //if user doesnt exist */}
 
-              {stepN && stepN == "userDoesntExist" &&
-                <Box
-                  sx={{ cursor: "pointer" }}>
+              {stepN && stepN == "userDoesntExist" && (
+                <Box sx={{ cursor: "pointer" }}>
                   <Typography
                     fontFamily="Poppins"
                     fontSize="16px"
@@ -616,9 +631,8 @@ const Login = ({ setSessionId }) => {
                     Have you logged in before ?
                   </Typography>
                 </Box>
-              }
+              )}
               {/* //if user doesnt exist */}
-
 
               {step1 && step1 != "getOtp" && (
                 <>
@@ -698,9 +712,8 @@ const Login = ({ setSessionId }) => {
               {
                 //  loginResponseData &&
                 //  loginResponseData == true &&
-                step1 && step1 == "getOtp" &&
-                // setStepUser("loginPageOne")
-                (
+                step1 && step1 == "getOtp" && (
+                  // setStepUser("loginPageOne")
                   <>
                     <Box
                       component="form"
@@ -726,7 +739,6 @@ const Login = ({ setSessionId }) => {
                         width="40%"
                         color="#2D3847"
                         paddingRight="5px"
-
                       >
                         The OTP is send to
                       </Typography>
@@ -770,7 +782,12 @@ const Login = ({ setSessionId }) => {
                         autoComplete="off"
                         fullWidth
                         // onKeyPress={(e) =>keyDownHandler(e)}
-                        onInput={(e) => { e.target.value = (e.target.value).toString().slice(0, 6).replace(/\D/g, "") }}
+                        onInput={e => {
+                          e.target.value = e.target.value
+                            .toString()
+                            .slice(0, 6)
+                            .replace(/\D/g, "");
+                        }}
                         // onInput = {(e) =>{ e.target.value = (e.target.value).toString().slice(0,6) }}
                         InputProps={{
                           maxLength: 6,
@@ -778,7 +795,6 @@ const Login = ({ setSessionId }) => {
                             <img
                               src={password}
                               style={{
-
                                 width: "47px",
                                 paddingRight: "14px",
                                 cursor: "pointer",
@@ -798,14 +814,20 @@ const Login = ({ setSessionId }) => {
                                 color="#416BFF"
                                 width="100%"
                                 margin="24px"
-                                style={{ cursor: "pointer", backgroundColor:"#0093de", color:"#fff", padding:"5px", textAlign:"center", borderRadius:"5px" }}
+                                style={{
+                                  cursor: "pointer",
+                                  backgroundColor: "#0093de",
+                                  color: "#fff",
+                                  padding: "5px",
+                                  textAlign: "center",
+                                  borderRadius: "5px",
+                                }}
                                 onClick={() => {
                                   // loginForm.handleSubmit();
                                   // verifyForm.handleSubmit();
                                   verifyOtp();
-
                                 }}
-                              // onClick={()=>!loginForm.isValid}
+                                // onClick={()=>!loginForm.isValid}
                               >
                                 {" "}
                                 Verify OTP{" "}
@@ -816,18 +838,17 @@ const Login = ({ setSessionId }) => {
                         }}
                         onChange={loginForm.handleChange}
                         onBlur={loginForm.handleBlur}
-                      // value={loginForm.values.otp}
+                        // value={loginForm.values.otp}
                       />
                       {console.log(loginForm, "login form updated")}
                     </Box>
                     {loginForm.touched.otp && loginForm.errors.otp ? (
                       <div className="errorMessage">{loginForm.errors.otp}</div>
                     ) : null}
-                    
                   </>
-                )} 
-            </form> 
-           
+                )
+              }
+            </form>
           </div>
         </div>
       </div>
@@ -836,3 +857,17 @@ const Login = ({ setSessionId }) => {
 };
 
 export default Login;
+/*
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
+*/

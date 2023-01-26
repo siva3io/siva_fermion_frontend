@@ -51,7 +51,7 @@ function Basic({ setDisplay }) {
         }
       )
 
-      .then((response) => {
+      .then(response => {
         if (response.data.result) {
           let response1 = response.data.result.responses;
           const temp = response1[0] ? response1[0] : null;
@@ -77,7 +77,7 @@ function Basic({ setDisplay }) {
           };
           setbotTyping(false);
 
-          setChat((chat) => [...chat, response_temp]);
+          setChat(chat => [...chat, response_temp]);
         } else {
           const response_temp = {
             sender: "bot",
@@ -87,7 +87,7 @@ function Basic({ setDisplay }) {
           };
           setTimeout(() => {
             setbotTyping(false);
-            setChat((chat) => [...chat, response_temp]);
+            setChat(chat => [...chat, response_temp]);
           }, 2000);
         }
       });
@@ -103,7 +103,7 @@ function Basic({ setDisplay }) {
         }
       )
 
-      .then((response) => {
+      .then(response => {
         if (response.data.result.chat_history) {
           setChat(response.data.result.chat_history);
         }
@@ -117,13 +117,13 @@ function Basic({ setDisplay }) {
   }
 
   //button handlers
-  const handleSubmit = (evt) => {
+  const handleSubmit = evt => {
     evt.preventDefault();
     const name = "eunimart";
     const request_temp = { sender: "user", msg: inputMessage };
 
     if (inputMessage !== "") {
-      setChat((chat) => [...chat, request_temp]);
+      setChat(chat => [...chat, request_temp]);
       setbotTyping(true);
       setInputMessage("");
       rasaAPI(name, inputMessage);
@@ -139,15 +139,15 @@ function Basic({ setDisplay }) {
   }, [chat]);
 
   const handleSettings = () => {
-    setSettingsClicked((prev) => !prev);
+    setSettingsClicked(prev => !prev);
   };
   const handleMin = () => {
-    setDisplay((prev) => !prev);
+    setDisplay(prev => !prev);
   };
   const handleAttachment = () => {
-    setAttachmentClicked((prev) => !prev);
+    setAttachmentClicked(prev => !prev);
   };
-  const handleRespButton = (button) => {
+  const handleRespButton = button => {
     console.log("inputvalue", inputValue, button);
     let button_id = button.button_id;
     let button_type = button.button_type;
@@ -164,9 +164,9 @@ function Basic({ setDisplay }) {
         type: "input",
         nme: "Demo_emailID",
       };
-      setChat((chat) => [...chat, request_temp1, request_temp]);
+      setChat(chat => [...chat, request_temp1, request_temp]);
     }
-    
+
     if (button["text/title"] === "View Order Status") {
       const request_temp = {
         sender: "user",
@@ -180,7 +180,7 @@ function Basic({ setDisplay }) {
         type: "input",
         nme: "sales_order_id",
       };
-      setChat((chat) => [...chat, request_temp1, request_temp]);
+      setChat(chat => [...chat, request_temp1, request_temp]);
     }
 
     if (button["text/title"] === "Create SalesOrder") {
@@ -196,7 +196,7 @@ function Basic({ setDisplay }) {
         type: "date",
         nme: "date",
       };
-      setChat((chat) => [...chat, request_temp1, request_temp]);
+      setChat(chat => [...chat, request_temp1, request_temp]);
     }
 
     if (button["text/title"] === "Rise Ticket with image") {
@@ -218,7 +218,7 @@ function Basic({ setDisplay }) {
         type: "input",
         nme: "ReportDescription",
       };
-      setChat((chat) => [...chat, request_temp1, request_temp, request_temp3]);
+      setChat(chat => [...chat, request_temp1, request_temp, request_temp3]);
     }
 
     if (button["text/title"] === "No") {
@@ -234,7 +234,7 @@ function Basic({ setDisplay }) {
         type: "input",
         nme: "Sales_price",
       };
-      setChat((chat) => [...chat, request_temp1, request_temp]);
+      setChat(chat => [...chat, request_temp1, request_temp]);
     }
     if (button["text/title"] === "Yes") {
       const request_temp = {
@@ -249,7 +249,7 @@ function Basic({ setDisplay }) {
         type: "input",
         nme: "Varient_SKU",
       };
-      setChat((chat) => [...chat, request_temp1, request_temp]);
+      setChat(chat => [...chat, request_temp1, request_temp]);
     }
     if (button["text/title"] == "Eunimart Sales Team") {
       const request_temp = {
@@ -264,7 +264,7 @@ function Basic({ setDisplay }) {
         type: "input",
         nme: "salesname",
       };
-      setChat((chat) => [...chat, request_temp1, request_temp]);
+      setChat(chat => [...chat, request_temp1, request_temp]);
     }
     if (button["text/title"] == "Enimart Support Team") {
       const request_temp = {
@@ -279,7 +279,7 @@ function Basic({ setDisplay }) {
         type: "input",
         nme: "supportname",
       };
-      setChat((chat) => [...chat, request_temp1, request_temp]);
+      setChat(chat => [...chat, request_temp1, request_temp]);
     }
     if (button["text/title"] === "Create Product") {
       const request_temp = {
@@ -294,7 +294,7 @@ function Basic({ setDisplay }) {
         type: "input",
         nme: "Product_Title",
       };
-      setChat((chat) => [...chat, request_temp1, request_temp]);
+      setChat(chat => [...chat, request_temp1, request_temp]);
     }
     if (
       button["text/title"] !== "Create SalesOrder" &&
@@ -308,7 +308,7 @@ function Basic({ setDisplay }) {
       button["text/title"] !== "View Order Status"
     ) {
       const request_temp = { sender: "user", msg: button["text/title"] };
-      setChat((chat) => [...chat, request_temp]);
+      setChat(chat => [...chat, request_temp]);
     }
 
     setuserselectionText(button["text/title"]);
@@ -316,11 +316,10 @@ function Basic({ setDisplay }) {
 
     var payload1 = {};
 
-    
     if (button_type === "salesorderid") {
       payload1 = {
-        id:inputValue.sales_order_id
-      }
+        id: inputValue.sales_order_id,
+      };
     }
 
     if (button_type === "RaisedTicket") {
@@ -397,7 +396,7 @@ function Basic({ setDisplay }) {
         payload: payload1,
       })
 
-      .then((response) => {
+      .then(response => {
         // console.log(response, ">>>>>>>>>>> response");
         // if (response.data) {
         if (button["text/title"] !== "Create SalesOrder") {
@@ -426,7 +425,7 @@ function Basic({ setDisplay }) {
           // console.log(response_temp, ">>>>>>>>>bot");
           setbotTyping(false);
 
-          setChat((chat) => [...chat, response_temp]);
+          setChat(chat => [...chat, response_temp]);
         }
         // scrollBottom();
         // }
@@ -434,8 +433,8 @@ function Basic({ setDisplay }) {
   };
   const handleMedia = () => {
     // setFiles([]);
-    setAttachmentClicked((prev) => !prev);
-    setMediaBar((prev) => !prev);
+    setAttachmentClicked(prev => !prev);
+    setMediaBar(prev => !prev);
   };
 
   const handleRestart = () => {
@@ -443,13 +442,13 @@ function Basic({ setDisplay }) {
     setSettingsClicked(false);
   };
 
-  const handleKeyDown = (event) => {
+  const handleKeyDown = event => {
     if (event.key === "Enter") {
       handleSubmit(event);
     }
   };
 
-  const handleCreateSO = (b) => {
+  const handleCreateSO = b => {
     console.log("hi Po");
     // const request_temp = { sender: "bot", msg: "Enter Date" };
     // setChat((chat) => [...chat, request_temp]);
@@ -472,7 +471,7 @@ function Basic({ setDisplay }) {
       type: "select",
       nme: "currency",
     };
-    setChat((chat) => [...chat, request_temp1, request_temp]);
+    setChat(chat => [...chat, request_temp1, request_temp]);
   };
 
   const handleInputNext = (e, prop) => {
@@ -492,7 +491,6 @@ function Basic({ setDisplay }) {
 
   const handleKeyDown1 = (event, prop) => {
     if (event.key === "Enter") {
-      
       if (prop == "sales_order_id") {
         const request_temp1 = {
           sender: "bot",
@@ -508,7 +506,7 @@ function Basic({ setDisplay }) {
           nme: "Select_Option",
         };
 
-        setChat((chat) => [...chat, request_temp1]);
+        setChat(chat => [...chat, request_temp1]);
       }
       if (prop == "ReportDescription") {
         const request_temp1 = {
@@ -525,7 +523,7 @@ function Basic({ setDisplay }) {
           nme: "Select_Option",
         };
 
-        setChat((chat) => [...chat, request_temp1]);
+        setChat(chat => [...chat, request_temp1]);
       }
 
       if (prop == "Demo_emailID") {
@@ -541,7 +539,7 @@ function Basic({ setDisplay }) {
           type: "input",
           nme: "Demo_phoneNumber",
         };
-        setChat((chat) => [...chat, request_temp1, request_temp]);
+        setChat(chat => [...chat, request_temp1, request_temp]);
       }
 
       if (prop == "supportname") {
@@ -557,7 +555,7 @@ function Basic({ setDisplay }) {
           type: "input",
           nme: "supportphoneNumber",
         };
-        setChat((chat) => [...chat, request_temp1, request_temp]);
+        setChat(chat => [...chat, request_temp1, request_temp]);
       }
       if (prop == "supportphoneNumber") {
         const request_temp = {
@@ -572,7 +570,7 @@ function Basic({ setDisplay }) {
           type: "input",
           nme: "supportEmailID",
         };
-        setChat((chat) => [...chat, request_temp1, request_temp]);
+        setChat(chat => [...chat, request_temp1, request_temp]);
       }
 
       if (prop == "supportEmailID") {
@@ -590,7 +588,7 @@ function Basic({ setDisplay }) {
           nme: "Select_Option",
         };
 
-        setChat((chat) => [...chat, request_temp1]);
+        setChat(chat => [...chat, request_temp1]);
       }
 
       if (prop == "salesname") {
@@ -606,7 +604,7 @@ function Basic({ setDisplay }) {
           type: "input",
           nme: "salesphoneNumber",
         };
-        setChat((chat) => [...chat, request_temp1, request_temp]);
+        setChat(chat => [...chat, request_temp1, request_temp]);
       }
       if (prop == "salesphoneNumber") {
         const request_temp = {
@@ -621,7 +619,7 @@ function Basic({ setDisplay }) {
           type: "input",
           nme: "salesEmailID",
         };
-        setChat((chat) => [...chat, request_temp1, request_temp]);
+        setChat(chat => [...chat, request_temp1, request_temp]);
       }
 
       if (prop == "salesEmailID") {
@@ -639,7 +637,7 @@ function Basic({ setDisplay }) {
           nme: "Select_Option",
         };
 
-        setChat((chat) => [...chat, request_temp1]);
+        setChat(chat => [...chat, request_temp1]);
       }
 
       if (prop == "Demo_phoneNumber") {
@@ -653,7 +651,7 @@ function Basic({ setDisplay }) {
           nme: "Select_Option",
         };
 
-        setChat((chat) => [...chat, request_temp1]);
+        setChat(chat => [...chat, request_temp1]);
       }
       if (prop == "Package_Weight") {
         const request_temp1 = {
@@ -670,7 +668,7 @@ function Basic({ setDisplay }) {
           nme: "Select_Option",
         };
 
-        setChat((chat) => [...chat, request_temp1]);
+        setChat(chat => [...chat, request_temp1]);
       }
 
       if (prop == "price") {
@@ -694,7 +692,7 @@ function Basic({ setDisplay }) {
           nme: "Select_Option",
         };
 
-        setChat((chat) => [...chat, request_temp1]);
+        setChat(chat => [...chat, request_temp1]);
       }
 
       if (prop == "Varient_SKU") {
@@ -710,7 +708,7 @@ function Basic({ setDisplay }) {
           type: "input",
           nme: "variant_url",
         };
-        setChat((chat) => [...chat, request_temp1, request_temp]);
+        setChat(chat => [...chat, request_temp1, request_temp]);
       }
       if (prop == "variant_url") {
         const request_temp = {
@@ -725,7 +723,7 @@ function Basic({ setDisplay }) {
           type: "input",
           nme: "variant_base_price",
         };
-        setChat((chat) => [...chat, request_temp1, request_temp]);
+        setChat(chat => [...chat, request_temp1, request_temp]);
       }
       if (prop == "variant_base_price") {
         const request_temp = {
@@ -740,7 +738,7 @@ function Basic({ setDisplay }) {
           type: "input",
           nme: "Sales_price",
         };
-        setChat((chat) => [...chat, request_temp1, request_temp]);
+        setChat(chat => [...chat, request_temp1, request_temp]);
       }
 
       if (prop == "Sales_price") {
@@ -756,7 +754,7 @@ function Basic({ setDisplay }) {
           type: "input",
           nme: "Cost_Price",
         };
-        setChat((chat) => [...chat, request_temp1, request_temp]);
+        setChat(chat => [...chat, request_temp1, request_temp]);
       }
       if (prop == "Cost_Price") {
         const request_temp = {
@@ -771,7 +769,7 @@ function Basic({ setDisplay }) {
           type: "input",
           nme: "MRP",
         };
-        setChat((chat) => [...chat, request_temp1, request_temp]);
+        setChat(chat => [...chat, request_temp1, request_temp]);
       }
       if (prop == "MRP") {
         const request_temp = {
@@ -786,7 +784,7 @@ function Basic({ setDisplay }) {
           type: "select2",
           nme: "Variant_Currency",
         };
-        setChat((chat) => [...chat, request_temp1, request_temp]);
+        setChat(chat => [...chat, request_temp1, request_temp]);
       }
 
       if (prop == "Package_length") {
@@ -802,7 +800,7 @@ function Basic({ setDisplay }) {
           type: "input",
           nme: "Package_Width",
         };
-        setChat((chat) => [...chat, request_temp1, request_temp]);
+        setChat(chat => [...chat, request_temp1, request_temp]);
       }
       if (prop == "Package_Width") {
         const request_temp = {
@@ -817,7 +815,7 @@ function Basic({ setDisplay }) {
           type: "input",
           nme: "Package_Height",
         };
-        setChat((chat) => [...chat, request_temp1, request_temp]);
+        setChat(chat => [...chat, request_temp1, request_temp]);
       }
       if (prop == "Package_Height") {
         const request_temp = {
@@ -832,7 +830,7 @@ function Basic({ setDisplay }) {
           type: "input",
           nme: "Package_Weight",
         };
-        setChat((chat) => [...chat, request_temp1, request_temp]);
+        setChat(chat => [...chat, request_temp1, request_temp]);
       }
 
       if (prop == "Product_img_url") {
@@ -849,7 +847,7 @@ function Basic({ setDisplay }) {
           nme: "Product_Varient",
         };
 
-        setChat((chat) => [...chat, request_temp1]);
+        setChat(chat => [...chat, request_temp1]);
       }
 
       if (prop == "Product_Title") {
@@ -866,7 +864,7 @@ function Basic({ setDisplay }) {
           nme: "Product_SKU_ID",
         };
 
-        setChat((chat) => [...chat, request_temp1, request_temp]);
+        setChat(chat => [...chat, request_temp1, request_temp]);
       }
 
       if (prop == "Product_SKU_ID") {
@@ -885,7 +883,7 @@ function Basic({ setDisplay }) {
           options: ["Packaging", "service", "Consumable", "Storage"],
         };
 
-        setChat((chat) => [...chat, request_temp1, request_temp]);
+        setChat(chat => [...chat, request_temp1, request_temp]);
       }
 
       if (prop == "customer_name") {
@@ -902,7 +900,7 @@ function Basic({ setDisplay }) {
           nme: "product_title",
         };
 
-        setChat((chat) => [...chat, request_temp1, request_temp]);
+        setChat(chat => [...chat, request_temp1, request_temp]);
       }
       if (prop == "product_title") {
         const request_temp = {
@@ -918,7 +916,7 @@ function Basic({ setDisplay }) {
           nme: "quantity",
         };
 
-        setChat((chat) => [...chat, request_temp1, request_temp]);
+        setChat(chat => [...chat, request_temp1, request_temp]);
       }
       if (prop == "quantity") {
         const request_temp = {
@@ -934,7 +932,7 @@ function Basic({ setDisplay }) {
           nme: "price",
         };
 
-        setChat((chat) => [...chat, request_temp1, request_temp]);
+        setChat(chat => [...chat, request_temp1, request_temp]);
       }
     }
   };
@@ -943,7 +941,7 @@ function Basic({ setDisplay }) {
   const [Varientcurrency, setVarientcurrency] = React.useState("");
   const [Product_Type, setProduct_Type] = React.useState("");
 
-  const handleChange2 = (event) => {
+  const handleChange2 = event => {
     setVarientcurrency(event.target.value);
     const tempValue1 = {
       ...inputValue,
@@ -963,10 +961,10 @@ function Basic({ setDisplay }) {
       type: "input",
       nme: "Package_length",
     };
-    setChat((chat) => [...chat, request_temp1, request_temp]);
+    setChat(chat => [...chat, request_temp1, request_temp]);
   };
 
-  const handleChange1 = (event) => {
+  const handleChange1 = event => {
     setProduct_Type(event.target.value);
     const tempValue1 = { ...inputValue, ["Product_Type"]: event.target.value };
     setCurrency(event.target.value);
@@ -984,10 +982,10 @@ function Basic({ setDisplay }) {
       nme: "Product_img_url",
     };
 
-    setChat((chat) => [...chat, request_temp1, request_temp]);
+    setChat(chat => [...chat, request_temp1, request_temp]);
   };
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     const tempValue = { ...inputValue, ["currency"]: event.target.value };
     console.log(tempValue, "tempValue");
     setInputvalue(tempValue);
@@ -1004,7 +1002,7 @@ function Basic({ setDisplay }) {
       nme: "customer_name",
     };
 
-    setChat((chat) => [...chat, request_temp1, request_temp]);
+    setChat(chat => [...chat, request_temp1, request_temp]);
   };
 
   //css code
@@ -1190,7 +1188,7 @@ function Basic({ setDisplay }) {
                               type={"date"}
                               name={user.nme}
                               sx={{ Height: 200 }}
-                              onChange={(e) => {
+                              onChange={e => {
                                 handleUserSelection(e, user.nme);
                               }}
                             />
@@ -1208,11 +1206,11 @@ function Basic({ setDisplay }) {
                             <input
                               type={"input"}
                               name={user.nme}
-                              onChange={(e) => {
+                              onChange={e => {
                                 handleInputNext(e, user.nme);
                                 handleproductInputnext(e, user.nme);
                               }}
-                              onKeyDown={(e) => {
+                              onKeyDown={e => {
                                 handleKeyDown1(e, user.nme);
                               }}
                             />
@@ -1224,11 +1222,11 @@ function Basic({ setDisplay }) {
                             <input
                               type={"input"}
                               name={user.nme}
-                              onChange={(e) => {
+                              onChange={e => {
                                 handleInputNext(e, user.nme);
                                 handleproductInputnext(e, user.nme);
                               }}
-                              onKeyDown={(e) => {
+                              onKeyDown={e => {
                                 handleKeyDown1(e, user.nme);
                               }}
                             />
@@ -1416,7 +1414,7 @@ function Basic({ setDisplay }) {
                   <input
                     type="text"
                     className="type_box"
-                    onChange={(e) => setInputMessage(e.target.value)}
+                    onChange={e => setInputMessage(e.target.value)}
                     onKeyDown={handleKeyDown}
                     value={inputMessage}
                   />
@@ -1433,7 +1431,7 @@ function Basic({ setDisplay }) {
                     <button
                       type="submit"
                       className="send_btn"
-                      onClick={(evt) => {
+                      onClick={evt => {
                         handleSubmit(evt);
                       }}
                     >
@@ -1483,3 +1481,17 @@ class UploadPreview extends React.Component {
     );
   }
 }
+/*
+ Copyright (C) 2022 Eunimart Omnichannel Pvt Ltd. (www.eunimart.com)
+ All rights reserved.
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License v3.0 as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License v3.0 for more details.
+ You should have received a copy of the GNU Lesser General Public License v3.0
+ along with this program.  If not, see <https://www.gnu.org/licenses/lgpl-3.0.html/>.
+*/
